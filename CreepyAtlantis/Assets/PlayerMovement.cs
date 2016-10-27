@@ -3,12 +3,18 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public Rigidbody2D myRB;
+    private Rigidbody2D myRB;
+    private PlayerAir myAir;
 
     public float thrustForce;
     public float walkForce;
     public float onGroundScale;
     public float notOnGroundScale;
+
+    public float breathingRate;
+    public float walkingRate;
+    public float thrustRate;
+    public float toolRateBase;
 
     private float scale;
 
@@ -16,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         myRB = GetComponent<Rigidbody2D>();
         scale = notOnGroundScale;
+        myAir = GetComponent<PlayerAir>();
 	}
 	
 	// Update is called once per frame
@@ -24,17 +31,22 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             myRB.AddForce(Vector2.right * walkForce * scale);
+            myAir.Consume(walkingRate * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             myRB.AddForce(Vector2.right * -walkForce * scale);
+            myAir.Consume(walkingRate * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
             myRB.AddForce(Vector2.up * thrustForce);
+            myAir.Consume(thrustRate * Time.deltaTime);
         }
+
+        myAir.Consume(breathingRate * Time.deltaTime);
 
     }
 
