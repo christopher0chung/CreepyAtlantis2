@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D myRB;
     private PlayerAir myAir;
 
+    public KeyCode leftMove;
+    public KeyCode rightMove;
+    public KeyCode thrust;
+
     public float thrustForce;
     public float walkForce;
     public float onGroundScale;
@@ -17,33 +21,40 @@ public class PlayerMovement : MonoBehaviour {
     public float toolRateBase;
 
     private float scale;
+    private BoostPSScript PSBoost;
 
 	// Use this for initialization
 	void Start () {
         myRB = GetComponent<Rigidbody2D>();
         scale = notOnGroundScale;
         myAir = GetComponent<PlayerAir>();
+        PSBoost = transform.Find("PSBoost").GetComponent<BoostPSScript>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(rightMove))
         {
             myRB.AddForce(Vector2.right * walkForce * scale);
             myAir.Consume(walkingRate * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(leftMove))
         {
             myRB.AddForce(Vector2.right * -walkForce * scale);
             myAir.Consume(walkingRate * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(thrust))
         {
             myRB.AddForce(Vector2.up * thrustForce);
             myAir.Consume(thrustRate * Time.deltaTime);
+            PSBoost.onOff = true;
+        }
+        else
+        {
+            PSBoost.onOff = false;
         }
 
         myAir.Consume(breathingRate * Time.deltaTime);
