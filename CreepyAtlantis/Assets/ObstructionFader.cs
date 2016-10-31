@@ -20,7 +20,7 @@ public class ObstructionFader : MonoBehaviour {
 
         if(Physics.Raycast(rayToCam, out myRCH, 100, myLM))
         {
-            Debug.Log(myRCH.collider.gameObject.name);
+            //Debug.Log(myRCH.collider.gameObject.name);
             myRCH.collider.gameObject.GetComponent<FadeScript>().Fade();
          }
     }
