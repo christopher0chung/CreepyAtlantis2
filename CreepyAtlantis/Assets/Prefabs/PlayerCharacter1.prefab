@@ -993,6 +993,7 @@ GameObject:
   - 58: {fileID: 58000011360192954}
   - 114: {fileID: 114000010199476108}
   - 114: {fileID: 114000014016896452}
+  - 114: {fileID: 114000014256657952}
   m_Layer: 0
   m_Name: PlayerCharacter1
   m_TagString: Untagged
@@ -2281,6 +2282,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airTankPercent: 100
+--- !u!114 &114000014256657952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013620081320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b378d3ba085a8469900536592fe27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCam: {fileID: 0}
+  myLM:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!137 &137000011364266240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
