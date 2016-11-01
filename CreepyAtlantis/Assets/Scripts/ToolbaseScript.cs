@@ -9,7 +9,7 @@ public class ToolbaseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        myCurrentToolScript = (ToolBitInterface) placeHolder;
+        myCurrentToolScript = GetComponentInChildren<ToolBitInterface>();
 	}
 	
 	// Update is called once per frame

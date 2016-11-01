@@ -21,15 +21,17 @@ public class ToolBitDrill : MonoBehaviour, ToolBitInterface {
     private int partCounter;
     public int counterUpperLimit;
 
+    public LayerMask myLM;
+
     void Start ()
     {
         myAir = transform.parent.parent.GetComponent<PlayerAir>();
-        drilling = true;
+        //drilling = true;
     }
 
     public void OnState ()
     {
-        transform.Rotate(0, 0, turnRate);
+        transform.Rotate(turnRate, 0, 0);
         myAir.Consume(onAirConsumptionRate);
         partCounter++;
 
@@ -50,13 +52,20 @@ public class ToolBitDrill : MonoBehaviour, ToolBitInterface {
         airBubbles.Emit(onBubbleRate);
     }
 
-    //public void OnTriggerStay()
-    //{
-    //    drilling = true;
-    //}
+    public void OnCollisionStay2D(Collision2D other)
+    {
+        drilling = true;
+        IDestructable myDestructable;
+        if (other.gameObject.layer == myLM)
+        {
+            myDestructable = other.gameObject.GetComponentInChildren<IDestructable>();
+            myDestructable.DamageIt(.5f);
+        }
 
-    //public void OnTriggerExit()
-    //{
-    //    drilling = false;
-    //}
+    }
+
+    public void OnCollisionExit2D()
+    {
+        drilling = false;
+    }
 }

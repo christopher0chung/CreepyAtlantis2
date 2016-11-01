@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour {
     private float scale;
     private BoostPSScript PSBoost;
 
+    private Vector2 leftRightForce;
+    private Vector2 upForce;
+
 	// Use this for initialization
 	void Start () {
         myRB = GetComponent<Rigidbody2D>();
@@ -36,29 +39,40 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey(rightMove))
         {
-            myRB.AddForce(Vector2.right * walkForce * scale);
+            leftRightForce = Vector2.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
         }
 
-        if (Input.GetKey(leftMove))
+        else if (Input.GetKey(leftMove))
         {
-            myRB.AddForce(Vector2.right * -walkForce * scale);
+            leftRightForce = Vector2.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
+        }
+
+        else
+        {
+            leftRightForce = Vector2.zero;
         }
 
         if (Input.GetKey(thrust))
         {
-            myRB.AddForce(Vector2.up * thrustForce);
+            upForce = Vector2.up * thrustForce;
             myAir.Consume(thrustRate * Time.deltaTime);
             PSBoost.onOff = true;
         }
         else
         {
+            upForce = Vector2.zero;
             PSBoost.onOff = false;
         }
 
         myAir.Consume(breathingRate * Time.deltaTime);
 
+    }
+
+    public void FixedUpdate ()
+    {
+        myRB.AddForce(leftRightForce + upForce);
     }
 
     void OnCollisionStay2D ()
