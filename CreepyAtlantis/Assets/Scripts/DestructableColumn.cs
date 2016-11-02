@@ -4,7 +4,7 @@ using System.Collections;
 public class DestructableColumn : MonoBehaviour, IDestructable {
 
     public float hitPointsMax;
-    private float hitPoints;
+    public float hitPoints;
 
 	// Use this for initialization
 	void Start () {

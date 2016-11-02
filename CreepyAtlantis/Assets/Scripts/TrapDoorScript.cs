@@ -11,9 +11,12 @@ public class TrapDoorScript : MonoBehaviour {
 
     public float doorOpeningRate;
 
+    public MeshRenderer myLightMask;
+
 	// Use this for initialization
 	void Start () {
         CDO = Closing;
+        myLightMask.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -46,15 +49,29 @@ public class TrapDoorScript : MonoBehaviour {
 
     private void Opening()
     {
-        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, -90), 1);
-        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 90), 1);
+        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, -90), doorOpeningRate);
+        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 90), doorOpeningRate);
+
+        if (trapDoorStbd.rotation.eulerAngles.z >= 9)
+        {
+            myLightMask.enabled = true;
+            Debug.Log("my belly glow");
+
+        }
 
     }
 
     private void Closing()
     {
-        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, 0), 1);
-        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 0), 1);
+        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
+        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
+
+        if (trapDoorStbd.rotation.eulerAngles.z < 9)
+        {
+            myLightMask.enabled = false;
+            Debug.Log("my belly off");
+
+        }
 
     }
 }
