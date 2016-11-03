@@ -14,8 +14,12 @@ public class TrapDoorScript : MonoBehaviour {
 
     public MeshRenderer myLightMask;
 
+    public GameObject myP1Controller;
+    public GameObject myP2Controller;
     public GameObject myP1;
     public GameObject myP2;
+    public GameObject myP1Mask;
+    public GameObject myP2Mask;
 
 	// Use this for initialization
 	void Start () {
@@ -26,19 +30,31 @@ public class TrapDoorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if (CDO == Opening)
-            {
-                CDO = Closing;
-                Debug.Log("Closing");
-            }
-            else
-            {
-                CDO = Opening;
-                Debug.Log("Opening");
-            }
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (CDO == Opening)
+        //    {
+        //        CDO = Closing;
+        //        Debug.Log("Closing");
+        //    }
+        //    else
+        //    {
+        //        CDO = Opening;
+        //        Debug.Log("Opening");
+        //    }
+        //}
+
+        Debug.Log(Vector3.Distance(transform.position, myP2.transform.position));
+
+        if ((myP1.activeSelf && Vector3.Distance(transform.position, myP1.transform.position) < 6) || (myP2.activeSelf && Vector3.Distance(transform.position, myP2.transform.position) < 6))
+            CDO = Opening;
+        else
+            CDO = Closing;
+
+        if (!myP1.activeSelf)
+            myP1.transform.position = transform.position + Vector3.down * 3;
+        if (!myP2.activeSelf)
+            myP2.transform.position = transform.position + Vector3.down * 5;
 
         CDO();
 	}
@@ -79,26 +95,52 @@ public class TrapDoorScript : MonoBehaviour {
 
     }
 
+    public void ReleaseThePlayers()
+    {
+        if (!myP1.activeSelf)
+        {
+            myP1.SetActive(true);
+            myP1Mask.SetActive(true);
+            GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
+            foreach (GameObject myP1Controller in myP1s)
+            {
+                myP1Controller.GetComponent<ActionsOutputTarget>().SetMyIO(myP1.GetComponent<PlayerControlIO>());
+            }
+        }
+        if (!myP2.activeSelf)
+        {
+            myP2.SetActive(true);
+            myP2Mask.SetActive(true);
+            GameObject[] myP2s = GameObject.FindGameObjectsWithTag("Player2");
+            foreach (GameObject myP2Controller in myP2s)
+            {
+                myP2Controller.GetComponent<ActionsOutputTarget>().SetMyIO(myP2.GetComponent<PlayerControlIO>());
+            }
+        }
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.name == "PlayerCharacter1")
         {
-            other.gameObject.SetActive(false);
+            myP1.GetComponent<PlayerAir>().Supply(100);
+            myP1.SetActive(false);
+            myP1Mask.SetActive(false);
             GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
-            foreach (GameObject myP1 in myP1s)
+            foreach (GameObject myP1Controller in myP1s)
             {
-                myP2.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
-
+                myP1Controller.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
             }
         }
         else if (other.gameObject.name == "PlayerCharacter2")
         {
-            other.gameObject.SetActive(false);
+            myP2.GetComponent<PlayerAir>().Supply(100);
+            myP2.SetActive(false);
+            myP2Mask.SetActive(false);
             GameObject[] myP2s = GameObject.FindGameObjectsWithTag("Player2");
-            foreach (GameObject myP2 in myP2s)
+            foreach (GameObject myP2Controller in myP2s)
             {
-                myP2.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
-                Debug.Log(myP2.GetComponent<ActionsOutputTarget>().myIO);
+                myP2Controller.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
             }
         }
     }

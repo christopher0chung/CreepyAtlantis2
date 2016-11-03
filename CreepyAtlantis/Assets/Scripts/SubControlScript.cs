@@ -7,12 +7,12 @@ public class SubControlScript : MonoBehaviour {
     private float appliedMoveScalar;
     public float rate;
     private Vector3 subPos;
-    private Vector3 lastPos;
+    //private Vector3 lastPos;
 
     private Transform myLight;
     public float angRate;
-    private float appliedAngRate;
-    private Vector3 currentAng = new Vector3 (0, 0, -45);
+    public float appliedAngRate;
+    //private Vector3 currentAng = new Vector3 (0, 0, -45);
 
     public KeyCode left;
     public KeyCode right;
@@ -22,26 +22,53 @@ public class SubControlScript : MonoBehaviour {
     public GameObject p1;
     public GameObject p2;
 
+    public float lightAng;
+
     void Start ()
     {
         subPos = transform.position;
         myLight = transform.Find("LightArray");
+        appliedAngRate = 0;
     }
 
     void FixedUpdate ()
     {
-        subPos += transform.right * (appliedMoveScalar);
+        if (!p1.activeSelf)
+        {
+            if (transform.position.x < p2.transform.position.x + 20 && appliedMoveScalar > 0)
+                subPos += transform.right * (appliedMoveScalar);
+            else if (transform.position.x > p2.transform.position.x - 20 && appliedMoveScalar < 0)
+                subPos += transform.right * (appliedMoveScalar);
+        }
+        else if (!p2.activeSelf)
+        {
+            if (transform.position.x < p1.transform.position.x + 20 && appliedMoveScalar > 0)
+                subPos += transform.right * (appliedMoveScalar);
+            else if (transform.position.x > p1.transform.position.x - 20 && appliedMoveScalar < 0)
+                subPos += transform.right * (appliedMoveScalar);
+        }
+        else
+        {
+            subPos += transform.right * (appliedMoveScalar);
+        }
 
-        lastPos = transform.position;
+        //lastPos = transform.position;
         transform.position = Vector3.Lerp(transform.position, subPos, rate);
 
-        currentAng = new Vector3(transform.rotation.x, transform.rotation.y, appliedAngRate);
-        if (appliedAngRate > -120 && appliedAngRate < 120)
-            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(currentAng), angRate);
-        else if (appliedAngRate <= -120 && appliedAngRate >=-180)
-            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, -120), angRate);
-        else if (appliedAngRate >= 120 && appliedAngRate <= 180)
-            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, 120), angRate);
+        //currentAng = new Vector3(transform.rotation.x, transform.rotation.y, desiredAngle);
+        //if (desiredAngle > -120 && desiredAngle < 120)
+        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(currentAng), angRate);
+        //else if (desiredAngle <= -120 && desiredAngle >=-180)
+        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, -120), angRate);
+        //else if (desiredAngle >= 120 && desiredAngle <= 180)
+        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, 120), angRate);
+
+        lightAng += appliedAngRate;
+        if (lightAng >= 120)
+            lightAng = 120;
+        else if (lightAng <= -120)
+            lightAng = -120;
+        myLight.localRotation = Quaternion.Euler(0, 0, lightAng);
 
 
         //if (lastPos.x > transform.position.x)
@@ -85,9 +112,15 @@ public class SubControlScript : MonoBehaviour {
         }
     }
 
-    public void rotateUpDown(float upDown, float leftRight)
+    public void rotateUpDown(float leftRight, float upDown)
     {
-        appliedAngRate = Mathf.Atan2(leftRight, upDown) * Mathf.Rad2Deg;
-        Debug.Log(appliedAngRate);
+        //Debug.Log("in rotupdown");
+        if (upDown > .25f)
+            appliedAngRate = angRate;
+        else if (upDown < -.25f)
+            appliedAngRate = -angRate;
+        else
+            appliedAngRate = 0;
+
     }
 }

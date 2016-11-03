@@ -32,7 +32,7 @@
                 {
                     playerNumber = value;
                 }
-                Debug.Log(value);
+                //Debug.Log(value);
             }
         }
 

@@ -12,10 +12,16 @@ public class BreathPSScript : MonoBehaviour {
     private int breathCounter;
     private ParticleSystem myPS;
 
+    private AudioSource myAS;
+
 	// Use this for initialization
 	void Start () {
+        myAS = GetComponent<AudioSource>();
         myPS = GetComponent<ParticleSystem>();
         counter = Random.Range(0, breathCycle);
+        //Debug.Log(counter);
+
+        myAS.pitch = .5f;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +35,8 @@ public class BreathPSScript : MonoBehaviour {
 
             if (counter <exhaleCycle)
             {
+                myAS.volume = Mathf.Lerp(myAS.volume, 1, .1f);
+
                 breathCounter++;
                 if (breathCounter >= exhaleVolumeInv)
                 {
@@ -36,6 +44,10 @@ public class BreathPSScript : MonoBehaviour {
                     breathCounter = 0;
 
                 }
+            }
+            else
+            {
+                myAS.volume = Mathf.Lerp(myAS.volume, 0, .1f);            
             }
         }
 	}
