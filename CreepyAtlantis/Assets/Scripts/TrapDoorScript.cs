@@ -55,7 +55,7 @@ public class TrapDoorScript : MonoBehaviour {
         if (trapDoorStbd.rotation.eulerAngles.z >= 9)
         {
             myLightMask.enabled = true;
-            Debug.Log("my belly glow");
+            //Debug.Log("my belly glow");
 
         }
 
@@ -69,7 +69,7 @@ public class TrapDoorScript : MonoBehaviour {
         if (trapDoorStbd.rotation.eulerAngles.z < 9)
         {
             myLightMask.enabled = false;
-            Debug.Log("my belly off");
+            //Debug.Log("my belly off");
 
         }
 

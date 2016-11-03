@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public Transform cameraPos;
     private Rigidbody2D myRB;
     private PlayerAir myAir;
 
@@ -37,16 +38,19 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(rightMove))
+        if (Input.GetKey(rightMove) && transform.position.x < cameraPos.position.x + 20.5f)
         {
             leftRightForce = Vector2.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        else if (Input.GetKey(leftMove))
+        else if (Input.GetKey(leftMove) && transform.position.x > cameraPos.position.x - 20.5f)
         {
             leftRightForce = Vector2.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
         }
 
         else

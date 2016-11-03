@@ -28,7 +28,7 @@ public class ToolBitDrill : MonoBehaviour, ToolBitInterface {
     private bool drillSpinning;
 
     private AudioSource drillEngaged;
-    private float volumeOperating = 1;
+    private float volumeOperating = .5f;
     private float volumeApplied;
 
     void Start ()
@@ -85,7 +85,7 @@ public class ToolBitDrill : MonoBehaviour, ToolBitInterface {
         IDestructable myDestructable;
         if (other.gameObject.layer == myLM && drillSpinning)
         {
-            myDestructable = other.gameObject.GetComponentInChildren<IDestructable>();
+            myDestructable = other.gameObject.GetComponent<IDestructable>();
             myDestructable.DamageIt(.5f);
         }
     }
@@ -93,6 +93,5 @@ public class ToolBitDrill : MonoBehaviour, ToolBitInterface {
     public void OnCollisionExit2D()
     {
         drilling = false;
-        Debug.Log("Is this happening?");
     }
 }

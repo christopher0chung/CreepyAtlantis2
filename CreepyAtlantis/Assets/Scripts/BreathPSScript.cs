@@ -15,6 +15,7 @@ public class BreathPSScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myPS = GetComponent<ParticleSystem>();
+        counter = Random.Range(0, breathCycle);
 	}
 	
 	// Update is called once per frame

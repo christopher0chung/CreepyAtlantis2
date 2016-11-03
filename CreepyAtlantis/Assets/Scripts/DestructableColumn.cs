@@ -6,6 +6,8 @@ public class DestructableColumn : MonoBehaviour, IDestructable {
     public float hitPointsMax;
     public float hitPoints;
 
+    public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
         hitPoints = hitPointsMax;
@@ -15,6 +17,7 @@ public class DestructableColumn : MonoBehaviour, IDestructable {
 	void Update () {
 	    if (hitPoints <= 0)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             DestroyIt();
         }
 	}
