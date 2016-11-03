@@ -25,7 +25,11 @@ public class SubControlIO : MonoBehaviour, IControllable {
     public void AButton(bool pushRelease)
     {
         if (pushRelease)
+        {
+            LeftStick(0, 0);
+            RightStick(0, 0);
             myTDS.ReleaseThePlayers();
+        }
     }
 
     public void LeftBumper(bool pushRelease) { }

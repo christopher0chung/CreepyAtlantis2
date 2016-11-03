@@ -52,9 +52,9 @@ public class TrapDoorScript : MonoBehaviour {
             CDO = Closing;
 
         if (!myP1.activeSelf)
-            myP1.transform.position = transform.position + Vector3.down * 3;
+            myP1.transform.position = transform.position + Vector3.down * 4 + Vector3.left * .5f;
         if (!myP2.activeSelf)
-            myP2.transform.position = transform.position + Vector3.down * 5;
+            myP2.transform.position = transform.position + Vector3.down * 4 + Vector3.left * 4;
 
         CDO();
 	}

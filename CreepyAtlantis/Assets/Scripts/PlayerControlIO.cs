@@ -29,7 +29,8 @@ public class PlayerControlIO : MonoBehaviour, IControllable {
     }
 
     public void RightStick(float leftRight, float upDown) {
-        myLA.LookAngleCalc(leftRight, upDown);
+        if (leftRight >.25f || upDown >.25f)
+            myLA.LookAngleCalc(leftRight, upDown);
     }
 
     public void AButton(bool pushRelease) {

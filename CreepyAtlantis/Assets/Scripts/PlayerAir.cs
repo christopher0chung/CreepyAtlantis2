@@ -42,7 +42,7 @@ public class PlayerAir : MonoBehaviour {
         if (airTankPercent >= 100)
         {
             airTankPercent = 100;
-            myAirText.text = ("Air - " + Mathf.Round(airTankPercent).ToString() + "%");
+            myAirText.text = ("Air: " + Mathf.Round(airTankPercent).ToString() + "%");
             myAirText.color = Color.Lerp(badColor, goodColor, airTankPercent / 100);
         }
     }
