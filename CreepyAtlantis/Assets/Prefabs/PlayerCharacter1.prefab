@@ -635,6 +635,7 @@ GameObject:
   - 198: {fileID: 198000011991941804}
   - 199: {fileID: 199000010815039724}
   - 114: {fileID: 114000011353037882}
+  - 82: {fileID: 82000010103411042}
   m_Layer: 0
   m_Name: PSBoost
   m_TagString: Untagged
@@ -1352,7 +1353,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013620081320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200.2, y: 10.1, z: 0}
+  m_LocalPosition: {x: -200.2, y: 12.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2592,6 +2593,80 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 0.3}
+--- !u!82 &82000010103411042
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012312451082}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 283dcad774b1b194fb3efc010ad0dc97, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.9
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82000010778493516
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2675,7 +2750,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cfdc4e829ceea474194de108a0fd8634, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c9f4d43e565104479c9e4db6a74ef07, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2711,7 +2786,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0.75
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2866,7 +2941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onOff: 0
-  exhaustVolumeInv: 2
+  exhaustVolumeInv: 3
 --- !u!114 &114000011531556120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2917,9 +2992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onOff: 1
-  breathCycle: 250
-  exhaleCycle: 50
-  exhaleVolumeInv: 20
+  exhaleVolumeInv: 10
 --- !u!114 &114000012217191600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3379,7 +3452,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.8
+      scalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3886,7 +3959,7 @@ ParticleSystem:
           rgba: 16777215
         key1:
           serializedVersion: 2
-          rgba: 3506438143
+          rgba: 4294967295
         key2:
           serializedVersion: 2
           rgba: 0
@@ -3914,9 +3987,9 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 193
-        atime1: 53585
+        atime1: 54548
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
@@ -6749,7 +6822,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 3
+      scalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6765,7 +6838,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
+          value: 0.26666668
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6865,7 +6938,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.8
+      scalar: 0.32
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7075,7 +7148,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    gravityModifier: -0.2
+    gravityModifier: -0.3
     maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
@@ -7084,7 +7157,7 @@ ParticleSystem:
     enabled: 1
     type: 4
     radius: 0.01
-    angle: 30
+    angle: 20
     length: 5
     boxX: 1
     boxY: 1
@@ -7160,18 +7233,23 @@ ParticleSystem:
         m_Curve:
         - time: 0
           value: 0.18918926
-          inSlope: 2.4486477
-          outSlope: 2.4486477
+          inSlope: 0.9999994
+          outSlope: 0.9999994
           tangentMode: 0
-        - time: 0.7152803
-          value: 0.982226
+        - time: 0.06663172
+          value: 0.95519894
           inSlope: 0.19222498
           outSlope: 0.19222498
           tangentMode: 0
+        - time: 0.5476437
+          value: 0.32374996
+          inSlope: -2.0578504
+          outSlope: -2.0578504
+          tangentMode: 0
         - time: 1
-          value: 0.17567575
-          inSlope: 0
-          outSlope: 0
+          value: 0
+          inSlope: 0.08333331
+          outSlope: 0.08333331
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -7369,10 +7447,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 3506438143
+          rgba: 16777215
         key2:
           serializedVersion: 2
           rgba: 0
@@ -7399,8 +7477,8 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 193
-        atime1: 53585
+        atime0: 15806
+        atime1: 65535
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -7408,7 +7486,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 2
       minGradient:
         key0:
           serializedVersion: 2

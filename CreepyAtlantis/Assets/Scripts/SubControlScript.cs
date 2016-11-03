@@ -24,6 +24,10 @@ public class SubControlScript : MonoBehaviour {
 
     public float lightAng;
 
+    public float desiredAngle;
+
+    private bool freeze;
+
     void Start ()
     {
         subPos = transform.position;
@@ -52,48 +56,22 @@ public class SubControlScript : MonoBehaviour {
             subPos += transform.right * (appliedMoveScalar);
         }
 
-        //lastPos = transform.position;
+
         transform.position = Vector3.Lerp(transform.position, subPos, rate);
 
-        //currentAng = new Vector3(transform.rotation.x, transform.rotation.y, desiredAngle);
-        //if (desiredAngle > -120 && desiredAngle < 120)
-        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(currentAng), angRate);
-        //else if (desiredAngle <= -120 && desiredAngle >=-180)
-        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, -120), angRate);
-        //else if (desiredAngle >= 120 && desiredAngle <= 180)
-        //    myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, 120), angRate);
 
-        lightAng += appliedAngRate;
-        if (lightAng >= 120)
-            lightAng = 120;
-        else if (lightAng <= -120)
-            lightAng = -120;
-        myLight.localRotation = Quaternion.Euler(0, 0, lightAng);
+        if (!freeze)
+        {
+            lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
+            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
+        }
 
 
-        //if (lastPos.x > transform.position.x)
-        //    Debug.Log("moving Left");
-        //else if (lastPos.x < transform.position.x)
-        //    Debug.Log("moving Right");
-        //else
-        //    Debug.Log("stationary");
     }
 
     void Update ()
     {
-        //if (Input.GetKey(left))
-        //    moveLeftRight(-1);
-        //else if (Input.GetKey(right))
-        //    moveLeftRight(1);
-        //else
-        //    moveLeftRight(0);
 
-        //if (Input.GetKey(rotUp))
-        //    rotateUpDown(1);
-        //else if (Input.GetKey(rotDown))
-        //    rotateUpDown(-1);
-        //else
-        //    rotateUpDown(0);
     }
 
     public void moveLeftRight (float leftRight)
@@ -114,13 +92,15 @@ public class SubControlScript : MonoBehaviour {
 
     public void rotateUpDown(float leftRight, float upDown)
     {
-        //Debug.Log("in rotupdown");
-        if (upDown > .25f)
-            appliedAngRate = angRate;
-        else if (upDown < -.25f)
-            appliedAngRate = -angRate;
+        if(Mathf.Abs(leftRight) > .25f || Mathf.Abs(upDown) > .25f)
+        {
+            freeze = false;
+            desiredAngle = ((Mathf.Atan2(upDown, leftRight) * Mathf.Rad2Deg));
+            Mathf.Clamp(desiredAngle, -120, 120);
+        }
         else
-            appliedAngRate = 0;
-
+        {
+            freeze = true;
+        }
     }
 }

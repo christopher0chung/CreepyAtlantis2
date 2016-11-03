@@ -29,7 +29,7 @@ public class PlayerControlIO : MonoBehaviour, IControllable {
     }
 
     public void RightStick(float leftRight, float upDown) {
-        if (leftRight >.25f || upDown >.25f)
+        if (Mathf.Abs(leftRight) >.25f || Mathf.Abs(upDown) >.25f)
             myLA.LookAngleCalc(leftRight, upDown);
     }
 

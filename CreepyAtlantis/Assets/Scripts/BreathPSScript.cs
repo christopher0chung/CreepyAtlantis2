@@ -4,8 +4,8 @@ using System.Collections;
 public class BreathPSScript : MonoBehaviour {
 
     public bool onOff;
-    public int breathCycle;
-    public int exhaleCycle;
+    private int breathCycle;
+    private int exhaleCycle;
     public int exhaleVolumeInv;
 
     private int counter;
@@ -18,10 +18,10 @@ public class BreathPSScript : MonoBehaviour {
 	void Start () {
         myAS = GetComponent<AudioSource>();
         myPS = GetComponent<ParticleSystem>();
+        breathCycle = Random.Range(210, 270);
+        exhaleCycle = Random.Range(50, 70);
         counter = Random.Range(0, breathCycle);
         //Debug.Log(counter);
-
-        myAS.pitch = .5f;
 	}
 	
 	// Update is called once per frame
