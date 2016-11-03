@@ -15,6 +15,8 @@ public class ToolbaseScript : MonoBehaviour {
     private float pitchApplied;
     private float volumeApplied;
 
+    public bool turnOn;
+
 	// Use this for initialization
 	void Start () {
         myCurrentToolScript = GetComponentInChildren<ToolBitInterface>();
@@ -25,7 +27,7 @@ public class ToolbaseScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (Input.GetKey(drillOn))
+        if (turnOn)
         {
             myCurrentToolScript.OnState();
             volumeApplied = volumeOperating;

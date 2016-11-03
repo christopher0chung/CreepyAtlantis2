@@ -1112,6 +1112,7 @@ GameObject:
   - 114: {fileID: 114000010199476108}
   - 114: {fileID: 114000014016896452}
   - 114: {fileID: 114000014256657952}
+  - 114: {fileID: 114000011594387038}
   m_Layer: 0
   m_Name: PlayerCharacter1
   m_TagString: Untagged
@@ -1219,6 +1220,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010976805410}
+  - 114: {fileID: 114000013185565870}
   m_Layer: 0
   m_Name: PlayerHead
   m_TagString: Untagged
@@ -1348,7 +1350,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013620081320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.73, y: 2, z: 0}
+  m_LocalPosition: {x: -200.2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2826,6 +2828,20 @@ MonoBehaviour:
   myLM:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &114000011594387038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013620081320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5267b57edd0dca0459a8f0b80b8b715b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovement: {fileID: 0}
+  myToolBase: {fileID: 0}
+  myLA: {fileID: 0}
 --- !u!114 &114000011943617830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2856,6 +2872,19 @@ MonoBehaviour:
   placeHolder: {fileID: 0}
   pitchOperating: 1
   volumeOperating: 0.3
+  turnOn: 0
+--- !u!114 &114000013185565870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014011573368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea64ff98b8f5e9468cde93f5b8465bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightAngle: 0
 --- !u!114 &114000014016896452
 MonoBehaviour:
   m_ObjectHideFlags: 1

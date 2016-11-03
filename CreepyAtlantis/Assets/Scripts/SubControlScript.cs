@@ -19,6 +19,9 @@ public class SubControlScript : MonoBehaviour {
     public KeyCode rotUp;
     public KeyCode rotDown;
 
+    public GameObject p1;
+    public GameObject p2;
+
     void Start ()
     {
         subPos = transform.position;
@@ -32,8 +35,14 @@ public class SubControlScript : MonoBehaviour {
         lastPos = transform.position;
         transform.position = Vector3.Lerp(transform.position, subPos, rate);
 
-        currentAng = new Vector3(transform.rotation.x, transform.rotation.y, currentAng.z + appliedAngRate);
-        myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(currentAng), 5);
+        currentAng = new Vector3(transform.rotation.x, transform.rotation.y, appliedAngRate);
+        if (appliedAngRate > -120 && appliedAngRate < 120)
+            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(currentAng), angRate);
+        else if (appliedAngRate <= -120 && appliedAngRate >=-180)
+            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, -120), angRate);
+        else if (appliedAngRate >= 120 && appliedAngRate <= 180)
+            myLight.rotation = Quaternion.RotateTowards(myLight.rotation, Quaternion.Euler(0, 0, 120), angRate);
+
 
         //if (lastPos.x > transform.position.x)
         //    Debug.Log("moving Left");
@@ -45,28 +54,28 @@ public class SubControlScript : MonoBehaviour {
 
     void Update ()
     {
-        if (Input.GetKey(left))
-            moveLeftRight(-1);
-        else if (Input.GetKey(right))
-            moveLeftRight(1);
-        else
-            moveLeftRight(0);
+        //if (Input.GetKey(left))
+        //    moveLeftRight(-1);
+        //else if (Input.GetKey(right))
+        //    moveLeftRight(1);
+        //else
+        //    moveLeftRight(0);
 
-        if (Input.GetKey(rotUp))
-            rotateUpDown(1);
-        else if (Input.GetKey(rotDown))
-            rotateUpDown(-1);
-        else
-            rotateUpDown(0);
+        //if (Input.GetKey(rotUp))
+        //    rotateUpDown(1);
+        //else if (Input.GetKey(rotDown))
+        //    rotateUpDown(-1);
+        //else
+        //    rotateUpDown(0);
     }
 
     public void moveLeftRight (float leftRight)
     {
-        if (leftRight < 0)
+        if (leftRight < -0.25f)
         {
             appliedMoveScalar = -moveScalar;
         }
-        else if (leftRight > 0)
+        else if (leftRight > 0.25f)
         {
             appliedMoveScalar = moveScalar;
         }
@@ -76,24 +85,9 @@ public class SubControlScript : MonoBehaviour {
         }
     }
 
-    public void rotateUpDown(float upDown)
+    public void rotateUpDown(float upDown, float leftRight)
     {
-        if (upDown < 0)
-        {
-            appliedAngRate = -angRate;
-            //Debug.Log("Rot1");
-        }
-        else if (upDown > 0)
-        {
-            appliedAngRate = angRate;
-            //Debug.Log("Rot2");
-
-        }
-        else
-        {
-            appliedAngRate = 0;
-            //Debug.Log("NoRot");
-
-        }
+        appliedAngRate = Mathf.Atan2(leftRight, upDown) * Mathf.Rad2Deg;
+        Debug.Log(appliedAngRate);
     }
 }

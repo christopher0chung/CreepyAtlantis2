@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using MultiplayerWithBindingsExample;
 
 public class TrapDoorScript : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class TrapDoorScript : MonoBehaviour {
     public float doorOpeningRate;
 
     public MeshRenderer myLightMask;
+
+    public GameObject myP1;
+    public GameObject myP2;
 
 	// Use this for initialization
 	void Start () {
@@ -73,5 +77,29 @@ public class TrapDoorScript : MonoBehaviour {
 
         }
 
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.name == "PlayerCharacter1")
+        {
+            other.gameObject.SetActive(false);
+            GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
+            foreach (GameObject myP1 in myP1s)
+            {
+                myP2.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
+
+            }
+        }
+        else if (other.gameObject.name == "PlayerCharacter2")
+        {
+            other.gameObject.SetActive(false);
+            GameObject[] myP2s = GameObject.FindGameObjectsWithTag("Player2");
+            foreach (GameObject myP2 in myP2s)
+            {
+                myP2.GetComponent<ActionsOutputTarget>().SetMyIO(transform.root.GetComponent<SubControlIO>());
+                Debug.Log(myP2.GetComponent<ActionsOutputTarget>().myIO);
+            }
+        }
     }
 }

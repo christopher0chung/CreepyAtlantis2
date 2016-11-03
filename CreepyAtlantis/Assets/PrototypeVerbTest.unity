@@ -4836,7 +4836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &346104460
 Transform:
   m_ObjectHideFlags: 0
@@ -5307,6 +5307,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 417642744}
   - 114: {fileID: 417642745}
+  - 61: {fileID: 417642746}
   m_Layer: 0
   m_Name: TrapDoor
   m_TagString: Untagged
@@ -5344,6 +5345,22 @@ MonoBehaviour:
   trapDoorStbd: {fileID: 403425429}
   doorOpeningRate: 1
   myLightMask: {fileID: 82453804}
+  myP1: {fileID: 0}
+  myP2: {fileID: 0}
+--- !u!61 &417642746
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417642743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -2.4, y: -1.99}
+  serializedVersion: 2
+  m_Size: {x: 2.26, y: 4.86}
 --- !u!1 &426720792
 GameObject:
   m_ObjectHideFlags: 0
@@ -7776,6 +7793,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba30a9e3e8819834784aa10755dcbd2f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &671852741 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013620081320, guid: ba30a9e3e8819834784aa10755dcbd2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 671852740}
 --- !u!1 &678634135
 GameObject:
   m_ObjectHideFlags: 0
@@ -16562,10 +16584,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1805835992}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: -0.28577197, w: 0.95829767}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.21}
   m_Children:
   - {fileID: 448425335}
   - {fileID: 47011616}
@@ -17611,6 +17633,7 @@ GameObject:
   - 114: {fileID: 1931495731}
   - 114: {fileID: 1931495730}
   - 114: {fileID: 1931495732}
+  - 114: {fileID: 1931495733}
   m_Layer: 0
   m_Name: Sub
   m_TagString: Untagged
@@ -17683,6 +17706,20 @@ MonoBehaviour:
   right: 104
   rotUp: 116
   rotDown: 103
+  p1: {fileID: 2125449360}
+  p2: {fileID: 671852741}
+--- !u!114 &1931495733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1931495728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42da660398d92264292c1fc59a02c4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovement: {fileID: 0}
 --- !u!1 &1946691091
 GameObject:
   m_ObjectHideFlags: 0
@@ -18733,19 +18770,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010199476108, guid: ba30a9e3e8819834784aa10755dcbd2f,
-        type: 2}
-      propertyPath: cameraPos
-      value: 
-      objectReference: {fileID: 1428287694}
     - target: {fileID: 114000014256657952, guid: ba30a9e3e8819834784aa10755dcbd2f,
         type: 2}
       propertyPath: myCam
       value: 
       objectReference: {fileID: 1428287689}
+    - target: {fileID: 114000010199476108, guid: ba30a9e3e8819834784aa10755dcbd2f,
+        type: 2}
+      propertyPath: cameraPos
+      value: 
+      objectReference: {fileID: 1428287694}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba30a9e3e8819834784aa10755dcbd2f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2125449360 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013620081320, guid: ba30a9e3e8819834784aa10755dcbd2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2125449359}
 --- !u!1 &2125484559
 GameObject:
   m_ObjectHideFlags: 0
