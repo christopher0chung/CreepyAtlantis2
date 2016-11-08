@@ -65,7 +65,7 @@
                 else
                     this.gameObject.tag = "Player2";
 
-                myIO = playerStation.GetComponent <IControllable> ();
+                myIO = playerStation.GetComponent<IControllable>();
             }
             if (scene.buildIndex == 1)
             {

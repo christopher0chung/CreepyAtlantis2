@@ -44,7 +44,7 @@ public class TrapDoorScript : MonoBehaviour {
         //    }
         //}
 
-        Debug.Log(Vector3.Distance(transform.position, myP2.transform.position));
+        //Debug.Log(Vector3.Distance(transform.position, myP2.transform.position));
 
         if ((myP1.activeSelf && Vector3.Distance(transform.position, myP1.transform.position) < 6) || (myP2.activeSelf && Vector3.Distance(transform.position, myP2.transform.position) < 6))
             CDO = Opening;
