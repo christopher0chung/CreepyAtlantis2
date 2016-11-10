@@ -3978,6 +3978,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010964759290, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_Name
+      value: DialogueEvent-Suit Tutorial
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
   m_IsPrefabParent: 0
@@ -5852,6 +5856,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2057499997}
+  - {fileID: 628364343}
   m_Father: {fileID: 0}
   m_RootOrder: 14
 --- !u!114 &466822753
@@ -6250,7 +6255,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'We should test our suits to make sure they work. Move the left thumbstick
+        right and left, or up to boost. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
@@ -7536,6 +7547,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1001 &628364342
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 466822752}
+    m_Modifications:
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010964759290, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+      propertyPath: m_Name
+      value: DialogueEvent-1st Shale Vein
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d4a0c5204faadab42a5d4bae3b2ef1fa, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &628364343 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
+    type: 2}
+  m_PrefabInternal: {fileID: 628364342}
 --- !u!1 &634336809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8475,6 +8537,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737984806}
   m_Mesh: {fileID: 4300008, guid: 7414dba64b71e9d4ea306208f957bac8, type: 3}
+--- !u!1001 &740408082
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 628364343}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: You can sweep your flashlight using the right thumbstick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_Name
+      value: DialogueSnip-Commander (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &743638212 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0bee17649b8a6aa46915d99db87d20a7, type: 3}
@@ -8786,6 +8899,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 761010252}
   m_Mesh: {fileID: 4300034, guid: 7414dba64b71e9d4ea306208f957bac8, type: 3}
+--- !u!1001 &764933778
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2057499997}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'This kelp is too thick to see much from the sub. We need to get down
+        to the bottom to explore. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_Name
+      value: DialogueSnip-Commander (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &765050523
 GameObject:
   m_ObjectHideFlags: 0
@@ -9975,6 +10140,53 @@ Transform:
   - {fileID: 60818652}
   m_Father: {fileID: 1329969523}
   m_RootOrder: 30
+--- !u!1001 &931773059
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 628364343}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'Boosting takes up more air, so keep an eye on your levels, Deputy. '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &933103820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10514,6 +10726,47 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.078}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &977052598
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 977052600}
+  - 114: {fileID: 977052599}
+  m_Layer: 0
+  m_Name: _FungusState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &977052599
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977052598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFlowchart: {fileID: 0}
+--- !u!4 &977052600
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977052598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &987708743
 GameObject:
   m_ObjectHideFlags: 0
@@ -11027,12 +11280,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
         type: 2}
       propertyPath: Dialogue
-      value: Now this is what I'm going to say.
+      value: 'Boosting takes up more air, so keep an eye on your levels, Deputy. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
@@ -11295,6 +11548,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097988937}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1099024191
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 628364343}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'We should test our suits to make sure they work. Move the left thumbstick
+        right and left, or up to boost. '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1103305764
 GameObject:
   m_ObjectHideFlags: 0
@@ -12404,12 +12705,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
         type: 2}
       propertyPath: Dialogue
-      value: Look at all of the thins that I'm saying.
+      value: When we get to the bottom, we can walk across more quickly than we can
+        swim.
       objectReference: {fileID: 0}
     - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
       propertyPath: m_Name
@@ -16334,6 +16636,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1572029630}
   m_Mesh: {fileID: 4300034, guid: 7414dba64b71e9d4ea306208f957bac8, type: 3}
+--- !u!1001 &1594051942
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 628364343}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: When we get to the bottom, we can walk across more quickly than we can
+        swim.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_Name
+      value: DialogueSnip-Commander (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1603008709
 GameObject:
   m_ObjectHideFlags: 0
@@ -16431,6 +16785,57 @@ Transform:
   - {fileID: 607885231}
   m_Father: {fileID: 1329969523}
   m_RootOrder: 49
+--- !u!1001 &1607729081
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2057499997}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: You can sweep your flashlight using the right thumbstick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_Name
+      value: DialogueSnip-Commander (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1608504179
 GameObject:
   m_ObjectHideFlags: 0
@@ -16587,6 +16992,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1617711226}
   m_Mesh: {fileID: 4300044, guid: 7414dba64b71e9d4ea306208f957bac8, type: 3}
+--- !u!1001 &1624837430
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 628364343}
+    m_Modifications:
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011579636048, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010751505460, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'This kelp is too thick to see much from the sub. We need to get down
+        to the bottom to explore. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011125065308, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+      propertyPath: m_Name
+      value: DialogueSnip-Deputy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1626233911
 GameObject:
   m_ObjectHideFlags: 0
