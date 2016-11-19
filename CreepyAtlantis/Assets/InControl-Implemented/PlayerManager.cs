@@ -137,7 +137,6 @@
 
 				var gameObject = (GameObject) Instantiate( playerPrefab, playerPosition, Quaternion.identity );
 				var player = gameObject.GetComponent<Player>();
-                var target = gameObject.GetComponent<ActionsOutputTarget>();
                 
                 // Assigns player number to Player prefab 
                 // Resets to 0 if all controllers are disconnected
@@ -145,7 +144,7 @@
                 {
                     playerNum = 0;
                 }
-                target.PLAYERNUMBER = playerNum;
+                player.playerNum = playerNum;
                 playerNum++;
 
 

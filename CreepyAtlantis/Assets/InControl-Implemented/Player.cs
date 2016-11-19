@@ -9,13 +9,13 @@ namespace MultiplayerWithBindingsExample
 	//
 	// See comments in PlayerManager.cs for more details.
 	//
-	public class Player : MonoBehaviour
+	public class Player : MonoBehaviour, IPlayer
 	{
 		public PlayerActions Actions { get; set; }
 
         private float stickThresh = .5f;
 
-        private ActionsOutputTarget AOT;
+        public int playerNum;
 
 		Renderer cachedRenderer;
 
@@ -41,7 +41,35 @@ namespace MultiplayerWithBindingsExample
             }
         }
 
-		void OnDisable()
+
+
+        public delegate void LeftStick (float upDown, float leftRight);
+        public event LeftStick onXmitLeftStick;
+
+        public void XmitLeftStick(float upDown, float leftRight)
+        {
+            onXmitLeftStick(upDown, leftRight);
+        }
+
+        public delegate void RightStick(float upDown, float leftRight);
+        public event RightStick onXmitRightStick;
+
+        public void XmitRightStick(float upDown, float leftRight)
+        {
+            onXmitRightStick(upDown, leftRight);
+        }
+
+        public delegate void AButton(bool AButtonDown);
+        public event AButton onXmitAButton;
+
+        public void XmitAButton(bool AButtonDown)
+        {
+            onXmitAButton(AButtonDown);
+        }
+
+
+
+        void OnDisable()
 		{
 			if (Actions != null)
 			{
@@ -54,7 +82,11 @@ namespace MultiplayerWithBindingsExample
             DontDestroyOnLoad(this.gameObject);
             SceneManager.sceneLoaded += newSceneLoaded;
             assignControlIO(controlSchemes.joinIO);
-            AOT = GetComponent<ActionsOutputTarget>();
+
+            if (playerNum == 0)
+                this.gameObject.tag = "Player0";
+            else
+                this.gameObject.tag = "Player1";
         }
 
 
@@ -100,32 +132,32 @@ namespace MultiplayerWithBindingsExample
 
         private void playIOFunc()
         {
+
             if (Mathf.Abs(Actions.Rotate.X) >= stickThresh || Mathf.Abs(Actions.Rotate.Y) >= stickThresh)
             {
-                AOT.passLS(Actions.Rotate.X, Actions.Rotate.Y);
+                XmitLeftStick(Actions.Rotate.Y, Actions.Rotate.X);
             }
             else
             {
-                AOT.passLS(0, 0);
+                XmitLeftStick(0, 0);
             }
 
             if (Mathf.Abs(Actions.RRotate.X) >= stickThresh || Mathf.Abs(Actions.RRotate.Y) >= stickThresh)
             {
-                AOT.passRS(Actions.RRotate.X, Actions.RRotate.Y);
-                //Debug.Log(Actions.RRotate.X + " " + Actions.RRotate.Y);
+                XmitRightStick(Actions.RRotate.Y, Actions.RRotate.X);
             }
             else
             {
-                AOT.passRS(0, 0);
+                XmitRightStick(0, 0);
             }
 
             if (Actions.AButton.WasPressed)
             {
-                AOT.passAButton(true);
+                XmitAButton(true);
             }
             else if (Actions.AButton.WasReleased)
             {
-                AOT.passAButton(false);
+                XmitAButton(false);
             }
         }
 

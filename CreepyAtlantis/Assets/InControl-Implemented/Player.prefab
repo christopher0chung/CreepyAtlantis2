@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3322304}
   - 23: {fileID: 2322304}
   - 114: {fileID: 11422304}
-  - 114: {fileID: 114000010713762726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -79,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a9ff68dbca19d41a073ce68b227021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -90,20 +90,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122304}
   m_IsPrefabParent: 1
---- !u!114 &114000010713762726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eba3d0a907024714ba9f9c0957b29fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stn1: PlayerCharacter1
-  stn2: PlayerCharacter2
-  stn3: 
-  stn4: 
-  myIO: {fileID: 0}
-  playerNumber: 0

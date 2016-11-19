@@ -28,7 +28,7 @@ public class SubControlIO : MonoBehaviour, IControllable {
         {
             LeftStick(0, 0);
             RightStick(0, 0);
-            myTDS.ReleaseThePlayers();
+            //myTDS.ReleaseThePlayers();
         }
     }
 
