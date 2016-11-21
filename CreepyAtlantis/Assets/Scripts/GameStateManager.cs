@@ -19,6 +19,8 @@ public class GameStateManager : MonoBehaviour {
 
     public void SetControls (int player, Controllables target)
     {
+        Debug.Log(player + " " + target);
+        
         onSetControls(player, target);
         if (target != Controllables.dialogue && target != Controllables.none)
             currentPlayControlsRef[player] = target;

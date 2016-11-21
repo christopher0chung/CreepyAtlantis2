@@ -19,7 +19,7 @@ public class ControllerAdapter : MonoBehaviour {
 
     public void OnEnable ()
     {
-        Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
+        //Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
         if (initialized)
         {
             if (charNum == 0)
@@ -49,7 +49,7 @@ public class ControllerAdapter : MonoBehaviour {
 
     public void OnDisable()
     {
-        Debug.Log("OnDisable run on " + gameObject.name);
+        //Debug.Log("OnDisable run on " + gameObject.name);
         if (initialized)
         {
             if (charNum == 0)

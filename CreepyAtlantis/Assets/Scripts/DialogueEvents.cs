@@ -60,6 +60,9 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
             myLines[linesCounter].StateChoices(dialogueStates.speaking);
         }
         else
-            done = true;
+        {
+            Debug.Log("Done is now true");
+            DONE = true;
+        }
     }
 }
