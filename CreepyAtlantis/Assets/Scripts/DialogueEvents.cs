@@ -7,6 +7,27 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     private int linesCounter;
 
+    private bool done;
+    private bool DONE
+    {
+        get
+        {
+            return done;
+        }
+        set
+        {
+            if (value != done)
+            {
+                if (value)
+                {
+                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().EndDialogue(0);
+                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().EndDialogue(1);
+                }
+                done = value;
+            }
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
         GetMyLines();
@@ -25,6 +46,9 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
     public void StartLines()
     {
         myLines[linesCounter].StateChoices(dialogueStates.speaking);
+
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().HookControls(0, Controllables.dialogue);
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().HookControls(1, Controllables.dialogue);
     }
 
     public void NextLine()
@@ -35,6 +59,6 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
             myLines[linesCounter].StateChoices(dialogueStates.speaking);
         }
         else
-            return;
+            done = true;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour {
 
+    public Controllables[] currentPlayControls;
+
     void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -18,14 +20,25 @@ public class GameStateManager : MonoBehaviour {
     public void HookControls (int player, Controllables target)
     {
         onHookCtrl(player, target);
+        if (target != Controllables.dialogue)
+            currentPlayControls[player] = target;
     }
 
-    public delegate void ControlsUnhook(int player, Controllables target);
+    public delegate void ControlsEndDialogue(int player, Controllables target);
+    public static event ControlsEndDialogue onEndDialogue;
+
+    public void EndDialogue(int player)
+    {
+        onEndDialogue(player, currentPlayControls[player]);
+    }
+
+    public delegate void ControlsUnhook(int player);
     public static event ControlsUnhook onUnhookCtrl;
 
-    public void UnhookControls(int player, Controllables target)
+    public void UnhookControls(int player)
     {
-        onUnhookCtrl(player, target);
+        onUnhookCtrl(player);
+        currentPlayControls[player] = Controllables.none;
     }
 
     public delegate void IngressEgress(int player, bool ingress);
@@ -44,14 +57,23 @@ public class GameStateManager : MonoBehaviour {
         onNarcUnnarc(player, narc);
     }
 
+    public delegate void DialogueEvent(bool dialoguePlaying);
+    public static event DialogueEvent onDialogueEvent;
+
+    public void controlsToDialogue(bool dialoguePlaying)
+    {
+        onDialogueEvent(dialoguePlaying);
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex == 1)
         {
-            HookControls(0, Controllables.character0);
-            HookControls(1, Controllables.character1);
+            HookControls(0, Controllables.character);
+            HookControls(1, Controllables.character);
         }
     }
 }
 
-public enum Controllables { character0, character1, submarine }
+public enum Controllables { character, submarine, dialogue, none }
+
