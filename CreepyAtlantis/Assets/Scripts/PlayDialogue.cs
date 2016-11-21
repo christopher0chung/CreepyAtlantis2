@@ -14,7 +14,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private AudioSource lines;
     private AudioSource next;
 
-    private ControllerAdapter[] myAdapters;
+    public ControllerAdapter[] myAdapters;
 
     public void StateChoices (dialogueStates dS)
     {
@@ -43,9 +43,10 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     void Awake ()
     {
-        myAdapters[0] = gameObject.AddComponent<ControllerAdapter>();
+        gameObject.AddComponent<ControllerAdapter>();
+        gameObject.AddComponent<ControllerAdapter>();
+        myAdapters = GetComponents<ControllerAdapter>();
         myAdapters[0].Initialize(0);
-        myAdapters[1] = gameObject.AddComponent<ControllerAdapter>();
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
@@ -79,7 +80,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Speaking ()
     {
-        Debug.Log("In speaking");
+        //Debug.Log("In speaking");
         incCounter++;
         if (incCounter >= 3)
         {
@@ -139,7 +140,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {
-        if (myControllable == Controllables.submarine)
+     
+        if (myControllable == Controllables.dialogue)
             myAdapters[player].enabled = true;
         else
             myAdapters[player].enabled = false;

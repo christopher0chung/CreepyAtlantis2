@@ -135,29 +135,35 @@ namespace MultiplayerWithBindingsExample
 
             if (Mathf.Abs(Actions.Rotate.X) >= stickThresh || Mathf.Abs(Actions.Rotate.Y) >= stickThresh)
             {
-                XmitLeftStick(Actions.Rotate.Y, Actions.Rotate.X);
+                if (onXmitLeftStick != null)
+                    XmitLeftStick(Actions.Rotate.Y, Actions.Rotate.X);
             }
             else
             {
-                XmitLeftStick(0, 0);
+                if (onXmitLeftStick != null)
+                    XmitLeftStick(0, 0);
             }
 
             if (Mathf.Abs(Actions.RRotate.X) >= stickThresh || Mathf.Abs(Actions.RRotate.Y) >= stickThresh)
             {
-                XmitRightStick(Actions.RRotate.Y, Actions.RRotate.X);
+                if (onXmitRightStick != null)
+                    XmitRightStick(Actions.RRotate.Y, Actions.RRotate.X);
             }
             else
             {
-                XmitRightStick(0, 0);
+                if (onXmitRightStick != null)
+                    XmitRightStick(0, 0);
             }
 
             if (Actions.AButton.WasPressed)
             {
-                XmitAButton(true);
+                if (onXmitAButton != null)
+                    XmitAButton(true);
             }
             else if (Actions.AButton.WasReleased)
             {
-                XmitAButton(false);
+                if (onXmitAButton != null)
+                    XmitAButton(false);
             }
         }
 

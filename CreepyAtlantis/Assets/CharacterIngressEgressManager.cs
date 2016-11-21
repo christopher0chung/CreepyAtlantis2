@@ -1,0 +1,54 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
+public class CharacterIngressEgressManager : MonoBehaviour {
+
+    private GameObject[] characters = new GameObject[2];
+    private GameObject sub;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += grabChars;
+        GameStateManager.onSubInteract += PlayerIngressEgress;
+    }
+
+    private void PlayerIngressEgress (int player, bool ingress)
+    {
+        characters[player].SetActive(!ingress);
+        if (!ingress)
+        {
+            characters[player].transform.position = sub.transform.position + (Vector3.down * 3) + (Vector3.left * 2) + (Vector3.right * 4 * player); 
+        }
+    }
+
+    private void grabChars (Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            StartCoroutine(DelayedFindChar());
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (characters[0] != null && characters [1] != null)
+        {
+            foreach (GameObject myChar in characters)
+            {
+                if (!myChar.activeInHierarchy)
+                {
+                    myChar.transform.position = sub.transform.position;
+                }
+            }
+        }
+    }
+
+    private IEnumerator DelayedFindChar ()
+    {
+        yield return new WaitForSeconds(.1f);
+        characters[0] = GameObject.Find("Character0");
+        characters[1] = GameObject.Find("Character1");
+        sub = GameObject.Find("Sub");
+    }
+}

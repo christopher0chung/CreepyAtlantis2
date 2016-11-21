@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour {
 
-    public Controllables[] currentPlayControls;
+    public Controllables[] currentPlayControlsRef = new Controllables[2];
 
     void Awake ()
     {
@@ -21,7 +21,7 @@ public class GameStateManager : MonoBehaviour {
     {
         onSetControls(player, target);
         if (target != Controllables.dialogue && target != Controllables.none)
-            currentPlayControls[player] = target;
+            currentPlayControlsRef[player] = target;
     }
 
     public delegate void ControlsEndDialogue(int player, Controllables target);
@@ -29,7 +29,7 @@ public class GameStateManager : MonoBehaviour {
 
     public void EndDialogue(int player)
     {
-        onEndDialogue(player, currentPlayControls[player]);
+        onEndDialogue(player, currentPlayControlsRef[player]);
     }
 
     public delegate void IngressEgress(int player, bool ingress);
@@ -58,11 +58,11 @@ public class GameStateManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
-        {
-            SetControls(0, Controllables.character);
-            SetControls(1, Controllables.character);
-        }
+        //if (scene.buildIndex == 1)
+        //{
+        //    SetControls(0, Controllables.character);
+        //    SetControls(1, Controllables.character);
+        //}
     }
 }
 

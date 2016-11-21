@@ -387,6 +387,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1470752757}
   - 114: {fileID: 1470752756}
+  - 114: {fileID: 1470752758}
+  - 114: {fileID: 1470752759}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -405,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b6d8732e0569647b7a7aee60d18e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayControlsRef: 0000000000000000
 --- !u!4 &1470752757
 Transform:
   m_ObjectHideFlags: 0
@@ -418,6 +421,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1470752758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470752755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6e574fa58157942b6b97c059a38f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1470752759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470752755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fcc7fa2bb070e46b608fb31fa21bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813342498
 GameObject:
   m_ObjectHideFlags: 0

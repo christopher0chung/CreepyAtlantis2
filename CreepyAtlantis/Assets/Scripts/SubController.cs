@@ -12,9 +12,10 @@ public class SubController : MonoBehaviour, IControllable {
         myMovement = GetComponent<SubControlScript>();
         myTDS = GetComponentInChildren<TrapDoorScript>();
 
-        myAdapters[0] = gameObject.AddComponent<ControllerAdapter>();
+        gameObject.AddComponent<ControllerAdapter>();
+        gameObject.AddComponent<ControllerAdapter>();
+        myAdapters = GetComponents<ControllerAdapter>();
         myAdapters[0].Initialize(0);
-        myAdapters[1] = gameObject.AddComponent<ControllerAdapter>();
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
