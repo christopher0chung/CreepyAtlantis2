@@ -80,10 +80,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b04fc86921803184e9e25393d4582cc8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3523a05b838c0d84b8244aa8cc6dcb05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -154,9 +154,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b04fc86921803184e9e25393d4582cc8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f0e208853f88d114baa142e6b78ed6af, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -232,3 +232,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: This is the thing that I'm going to be saying!
   outputText: {fileID: 0}
+  myAdapters: []

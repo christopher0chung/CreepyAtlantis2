@@ -61,17 +61,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         //StateChoices(dialogueStates.speaking);
     }
 
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        if (currentState == Speaking)
-    //            StateChoices(dialogueStates.spoken);
-    //        else if (currentState == Spoken)
-    //            StateChoices(dialogueStates.cleanup);
-    //    }
-    //}
-
     // Update is called once per frame
     void FixedUpdate () {
         if (currentState != null)
@@ -127,6 +116,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         if (pushRelease)
         {
+            next.Play();
             if (currentState == Speaking)
                 StateChoices(dialogueStates.spoken);
             else if (currentState == Spoken)

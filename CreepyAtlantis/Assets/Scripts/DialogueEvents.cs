@@ -54,6 +54,12 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     public void NextLine()
     {
+        StartCoroutine(DelayedNextLine());
+    }
+
+    private IEnumerator DelayedNextLine ()
+    {
+        yield return new WaitForSeconds(.3f);
         linesCounter++;
         if (linesCounter < transform.childCount)
         {
@@ -61,7 +67,6 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
         }
         else
         {
-            Debug.Log("Done is now true");
             DONE = true;
         }
     }
