@@ -14,6 +14,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private AudioSource lines;
     private AudioSource next;
 
+    private ControllerAdapter[] myAdapters;
+
     public void StateChoices (dialogueStates dS)
     {
         switch (dS)
@@ -39,8 +41,18 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private int charCounter;
     private int incCounter;
 
-	// Use this for initialization
-	void Start () {
+    void Awake ()
+    {
+        myAdapters[0] = gameObject.AddComponent<ControllerAdapter>();
+        myAdapters[0].Initialize(0);
+        myAdapters[1] = gameObject.AddComponent<ControllerAdapter>();
+        myAdapters[1].Initialize(1);
+
+        GameStateManager.onSetControls += SetControllerAdapter;
+        GameStateManager.onEndDialogue += SetControllerAdapter;
+    }
+
+    void Start () {
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputText = GameObject.Find("Canvas").transform.Find("Subtitle").GetComponent<Text>();
         lines = GetComponent<AudioSource>();
@@ -106,77 +118,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         Debug.Log(Dialogue);
     }
 
-
-
-
-    public void HookUpControls(int player, Controllables theControllable)
-    {
-        // If 'yes', then see if the controls should be hooked up for the char or not
-        if (theControllable == Controllables.dialogue)
-        {
-            if (player == 0)
-            {
-                GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
-                foreach (GameObject myController in myP0s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
-                }
-            }
-            else if (player == 1)
-            {
-                GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
-                foreach (GameObject myController in myP1s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
-                }
-            }
-        }
-        else
-        {
-            UnhookControls(player);
-        }
-
-    }
-
-    public void UnhookControls(int player)
-    {
-        if (player == 0)
-        {
-            GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
-            foreach (GameObject myController in myP0s)
-            {
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
-            }
-        }
-        else
-        {
-            GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
-            foreach (GameObject myController in myP1s)
-            {
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
-                myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
     public void LeftStick(float leftRight, float upDown) { }
 
     public void RightStick(float leftRight, float upDown) { }
@@ -195,6 +136,14 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     public void LeftBumper(bool pushRelease) { }
 
     public void RightBumper(bool pushRelease) { }
+
+    public void SetControllerAdapter(int player, Controllables myControllable)
+    {
+        if (myControllable == Controllables.submarine)
+            myAdapters[player].enabled = true;
+        else
+            myAdapters[player].enabled = false;
+    }
 }
 
 public enum dialogueStates { speaking, spoken, cleanup, inactive };

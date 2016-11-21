@@ -47,8 +47,8 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
     {
         myLines[linesCounter].StateChoices(dialogueStates.speaking);
 
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().HookControls(0, Controllables.dialogue);
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().HookControls(1, Controllables.dialogue);
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
     }
 
     public void NextLine()

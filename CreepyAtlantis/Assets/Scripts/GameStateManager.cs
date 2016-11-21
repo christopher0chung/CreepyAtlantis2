@@ -14,13 +14,13 @@ public class GameStateManager : MonoBehaviour {
 
     // Components that want to react when controls are being hooked up should add local functions to onHookCtrl
     // HookControls() is used to call the event onHookCtrl;
-    public delegate void ControlsHook(int player, Controllables target);
-    public static event ControlsHook onHookCtrl;
+    public delegate void ControlsSet(int player, Controllables target);
+    public static event ControlsSet onSetControls;
 
-    public void HookControls (int player, Controllables target)
+    public void SetControls (int player, Controllables target)
     {
-        onHookCtrl(player, target);
-        if (target != Controllables.dialogue)
+        onSetControls(player, target);
+        if (target != Controllables.dialogue && target != Controllables.none)
             currentPlayControls[player] = target;
     }
 
@@ -30,15 +30,6 @@ public class GameStateManager : MonoBehaviour {
     public void EndDialogue(int player)
     {
         onEndDialogue(player, currentPlayControls[player]);
-    }
-
-    public delegate void ControlsUnhook(int player);
-    public static event ControlsUnhook onUnhookCtrl;
-
-    public void UnhookControls(int player)
-    {
-        onUnhookCtrl(player);
-        currentPlayControls[player] = Controllables.none;
     }
 
     public delegate void IngressEgress(int player, bool ingress);
@@ -69,8 +60,8 @@ public class GameStateManager : MonoBehaviour {
     {
         if (scene.buildIndex == 1)
         {
-            HookControls(0, Controllables.character);
-            HookControls(1, Controllables.character);
+            SetControls(0, Controllables.character);
+            SetControls(1, Controllables.character);
         }
     }
 }
