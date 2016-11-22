@@ -22,23 +22,22 @@ public class SubController : MonoBehaviour, IControllable {
         GameStateManager.onEndDialogue += SetControllerAdapter;
     }
 
-    public void LeftStick(float leftRight, float upDown)
+    public void LeftStick(float upDown, float leftRight)
     {
         myMovement.moveLeftRight(leftRight);
     }
 
-    public void RightStick(float leftRight, float upDown)
+    public void RightStick(float upDown, float leftRight)
     {
-        myMovement.rotateUpDown(leftRight, upDown);
+        myMovement.rotateUpDown(upDown, leftRight);
     }
 
-    public void AButton(bool pushRelease)
+    public void AButton(bool pushRelease, int pNum)
     {
         if (pushRelease)
         {
-            //LeftStick(0, 0);
-            //RightStick(0, 0);
-            //myTDS.ReleaseThePlayers();
+            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(pNum, Controllables.character);
+            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(pNum, false);
         }
     }
 

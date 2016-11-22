@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using MultiplayerWithBindingsExample;
+using System.Collections.Generic;
 
 public class TrapDoorScript : MonoBehaviour {
 
@@ -14,58 +15,44 @@ public class TrapDoorScript : MonoBehaviour {
 
     public MeshRenderer myLightMask;
 
-    public GameObject myP1Controller;
-    public GameObject myP2Controller;
-    public GameObject myP1;
-    public GameObject myP2;
-    public GameObject myP1Mask;
-    public GameObject myP2Mask;
+    public float closingTimer;
+
+    private Dictionary<string, int> nameToNum = new Dictionary<string, int>();
 
 	// Use this for initialization
 	void Start () {
         CDO = Closing;
+        myLightMask = GameObject.Find("TestCam").transform.Find("Multiple Masks Sample").transform.Find("Masks").transform.Find("SubBellyMask").GetComponent<MeshRenderer>();
         myLightMask.enabled = false;
+
+        nameToNum.Add("Character0", 0);
+        nameToNum.Add("Character1", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (CDO == Opening)
-        //    {
-        //        CDO = Closing;
-        //        Debug.Log("Closing");
-        //    }
-        //    else
-        //    {
-        //        CDO = Opening;
-        //        Debug.Log("Opening");
-        //    }
-        //}
+        closingTimer -= Time.deltaTime;
 
-        //Debug.Log(Vector3.Distance(transform.position, myP2.transform.position));
-
-        if ((myP1.activeSelf && Vector3.Distance(transform.position, myP1.transform.position) < 6) || (myP2.activeSelf && Vector3.Distance(transform.position, myP2.transform.position) < 6))
-            CDO = Opening;
-        else
+        if (closingTimer <= 0)
+        {
             CDO = Closing;
-
-        if (!myP1.activeSelf)
-            myP1.transform.position = transform.position + Vector3.down * 4 + Vector3.left * .5f;
-        if (!myP2.activeSelf)
-            myP2.transform.position = transform.position + Vector3.down * 4 + Vector3.left * 4;
+        }
+        else
+        {
+            CDO = Opening;
+        }
 
         CDO();
 	}
 
-    public void OpenTheDoors (bool openClose)
-    {
-        if (openClose)
-            CDO = Opening;
-        else
-            CDO = Closing;
-    }
+    //public void OpenTheDoors (bool openClose)
+    //{
+    //    if (openClose)
+    //        CDO = Opening;
+    //    else
+    //        CDO = Closing;
+    //}
 
     private void Opening()
     {
@@ -93,6 +80,18 @@ public class TrapDoorScript : MonoBehaviour {
 
         }
 
+    }
+
+    void OnTriggerStay2D (Collider2D other)
+    {
+        int result;
+        if (!nameToNum.TryGetValue(other.gameObject.name, out result))
+            return;
+        else
+        {
+            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(result, Controllables.submarine);
+            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(result, true);
+        }
     }
 
     //public void ReleaseThePlayers()

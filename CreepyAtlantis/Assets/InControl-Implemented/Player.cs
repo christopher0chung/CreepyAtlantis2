@@ -59,12 +59,12 @@ namespace MultiplayerWithBindingsExample
             onXmitRightStick(upDown, leftRight);
         }
 
-        public delegate void AButton(bool AButtonDown);
+        public delegate void AButton(bool AButtonDown, int pNum);
         public event AButton onXmitAButton;
 
-        public void XmitAButton(bool AButtonDown)
+        public void XmitAButton(bool AButtonDown, int pNum)
         {
-            onXmitAButton(AButtonDown);
+            onXmitAButton(AButtonDown, playerNum);
         }
 
 
@@ -158,12 +158,12 @@ namespace MultiplayerWithBindingsExample
             if (Actions.AButton.WasPressed)
             {
                 if (onXmitAButton != null)
-                    XmitAButton(true);
+                    XmitAButton(true, playerNum);
             }
             else if (Actions.AButton.WasReleased)
             {
                 if (onXmitAButton != null)
-                    XmitAButton(false);
+                    XmitAButton(false, playerNum);
             }
         }
 

@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour, IControllable {
             myLA.LookAngleCalc(leftRight, upDown);
     }
 
-    public void AButton(bool pushRelease) {
+    public void AButton(bool pushRelease, int pNum) {
         myToolBase.turnOn = pushRelease;
     }
 

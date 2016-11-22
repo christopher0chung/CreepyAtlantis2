@@ -7,7 +7,7 @@ public interface IControllable {
 
     void RightStick(float leftRight, float upDown);
 
-    void AButton(bool pushRelease);
+    void AButton(bool pushRelease, int pNum);
 
     void LeftBumper(bool pushRelease);
 

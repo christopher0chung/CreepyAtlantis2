@@ -87,9 +87,9 @@ public class ControllerAdapter : MonoBehaviour {
         myControllable.RightStick(upDown, leftRight);
     }
 
-    public void AButton(bool pushRelease)
+    public void AButton(bool pushRelease, int pNum)
     {
-        myControllable.AButton(pushRelease);
+        myControllable.AButton(pushRelease, pNum);
     }
 
     public void LeftBumper(bool pushRelease)

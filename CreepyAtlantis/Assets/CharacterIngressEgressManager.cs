@@ -15,11 +15,16 @@ public class CharacterIngressEgressManager : MonoBehaviour {
 
     private void PlayerIngressEgress (int player, bool ingress)
     {
-        characters[player].SetActive(!ingress);
         if (!ingress)
         {
             characters[player].transform.position = sub.transform.position + (Vector3.down * 3) + (Vector3.left * 2) + (Vector3.right * 4 * player); 
         }
+        else
+        {
+            characters[player].GetComponent<PlayerAir>().Supply(100);
+        }
+        characters[player].SetActive(!ingress);
+
     }
 
     private void grabChars (Scene scene, LoadSceneMode mode)
