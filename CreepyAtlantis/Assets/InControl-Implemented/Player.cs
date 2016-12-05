@@ -119,7 +119,7 @@ namespace MultiplayerWithBindingsExample
                 transform.Rotate(Vector3.right, 500.0f * Time.deltaTime * Actions.Rotate.Y, Space.World);
             }
 
-            if (Actions.Start)
+            if (Actions.Start || Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(1);
             }

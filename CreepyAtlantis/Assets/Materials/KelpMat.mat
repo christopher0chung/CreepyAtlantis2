@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: KelpMat
-  m_Shader: {fileID: 4800000, guid: 53d1fffbc96da3a47acc8772630811e6, type: 3}
+  m_Shader: {fileID: 4800000, guid: 46cf1870f2a46114abfaded3849dea17, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -160,6 +160,15 @@ Material:
     - first:
         name: _ZWrite
       second: 0
+    - first:
+        name: _node_1302
+      second: 0.05
+    - first:
+        name: _node_339
+      second: 0.5
+    - first:
+        name: _node_8349
+      second: 1.683761
     m_Colors:
     - first:
         name: _Color
