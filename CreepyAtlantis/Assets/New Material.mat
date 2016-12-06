@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GenericDark
-  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
+  m_Name: New Material
+  m_Shader: {fileID: 4800000, guid: 056e97cf96d14c840b829cc6f5e1310c, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -15,18 +15,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-    - first:
-        name: _AORGBHeightA
-      second:
-        m_Texture: {fileID: 2800000, guid: 5fb7986dd6d0a8e4093ba82369dd6a4d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _BaseColor
-      second:
-        m_Texture: {fileID: 2800000, guid: b66bceaf0cc0ace4e9bdc92f14bba709, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - first:
         name: _BumpMap
       second:
@@ -52,18 +40,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _Diffuse
-      second:
-        m_Texture: {fileID: 2800000, guid: 8993b617f08498f43adcbd90697f1c5d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DisplacementR
-      second:
-        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
@@ -82,12 +58,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _Normals
-      second:
-        m_Texture: {fileID: 2800000, guid: c6dfb00dbee6bc044a8a3bb22e56e064, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
         name: _OcclusionMap
       second:
         m_Texture: {fileID: 0}
@@ -99,16 +69,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Ramp
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _Bands
-      second: 3
     - first:
         name: _BumpScale
       second: 1
@@ -116,17 +77,11 @@ Material:
         name: _Cutoff
       second: 0.5
     - first:
-        name: _Depth
-      second: 0.25
-    - first:
         name: _DetailNormalMapScale
       second: 1
     - first:
         name: _DstBlend
       second: 0
-    - first:
-        name: _Gloss
-      second: 0.016
     - first:
         name: _GlossMapScale
       second: 1
@@ -136,6 +91,9 @@ Material:
     - first:
         name: _GlossyReflections
       second: 1
+    - first:
+        name: _HdrExposure
+      second: 0.49
     - first:
         name: _Metallic
       second: 0
@@ -158,6 +116,9 @@ Material:
         name: _SrcBlend
       second: 1
     - first:
+        name: _SunStrength
+      second: 4.31
+    - first:
         name: _UVSec
       second: 0
     - first:
@@ -166,13 +127,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
-    - first:
-        name: _Diffuse
-      second: {r: 0.9117647, g: 0.8760425, b: 0.8179066, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _LightWrapping
-      second: {r: 0.9058824, g: 0.4941176, b: 0.4901961, a: 1}
+        name: _GroundColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _SunTint
+      second: {r: 1, g: 1, b: 1, a: 1}

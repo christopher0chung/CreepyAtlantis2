@@ -1400,7 +1400,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013620081320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200.2, y: 12.05, z: 0}
+  m_LocalPosition: {x: -5, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1586,10 +1586,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014011573368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.18540931, w: 0.9826614}
   m_LocalPosition: {x: 0, y: 1.373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.37}
   m_Children:
   - {fileID: 4000010157418060}
   - {fileID: 4000011778933278}
@@ -2978,7 +2978,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 2.63
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3158,7 +3158,7 @@ MonoBehaviour:
   TintColor2: {r: 0, g: 0, b: 1, a: 1}
   TintIntensity: 0.2
   TintGradient: 0.2
-  Intensity: 0.51
+  Intensity: 8
   Strength: 1
   Color: {r: 0.70436114, g: 1, b: 0.6102941, a: 1}
   MieScattering: 0.05
@@ -3174,7 +3174,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3389.567, y: 3389.567, z: 0}
+  Offset: {x: 3419.4082, y: 3419.4082, z: 0}
 --- !u!114 &114000011943617830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3279,7 +3279,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3230.1382, y: 3230.1382, z: 0}
+  Offset: {x: 3259.9795, y: 3259.9795, z: 0}
 --- !u!114 &114000014016896452
 MonoBehaviour:
   m_ObjectHideFlags: 1

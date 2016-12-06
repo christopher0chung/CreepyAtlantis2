@@ -69,11 +69,6 @@ public class SubControlScript : MonoBehaviour {
 
     }
 
-    void Update ()
-    {
-
-    }
-
     public void moveLeftRight (float leftRight)
     {
         if (leftRight < -0.25f)

@@ -22,8 +22,8 @@ public class TrapDoorScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         CDO = Closing;
-        myLightMask = GameObject.Find("TestCam").transform.Find("Multiple Masks Sample").transform.Find("Masks").transform.Find("SubBellyMask").GetComponent<MeshRenderer>();
-        myLightMask.enabled = false;
+        //myLightMask = GameObject.Find("TestCam").transform.Find("Multiple Masks Sample").transform.Find("Masks").transform.Find("SubBellyMask").GetComponent<MeshRenderer>();
+        //myLightMask.enabled = false;
 
         nameToNum.Add("Character0", 0);
         nameToNum.Add("Character1", 0);
@@ -59,12 +59,12 @@ public class TrapDoorScript : MonoBehaviour {
         trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, -90), doorOpeningRate);
         trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 90), doorOpeningRate);
 
-        if (trapDoorStbd.rotation.eulerAngles.z >= 9)
-        {
-            myLightMask.enabled = true;
-            //Debug.Log("my belly glow");
+        //if (trapDoorStbd.rotation.eulerAngles.z >= 9)
+        //{
+        //    myLightMask.enabled = true;
+        //    //Debug.Log("my belly glow");
 
-        }
+        //}
 
     }
 
@@ -73,12 +73,12 @@ public class TrapDoorScript : MonoBehaviour {
         trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
         trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
 
-        if (trapDoorStbd.rotation.eulerAngles.z < 9)
-        {
-            myLightMask.enabled = false;
-            //Debug.Log("my belly off");
+        //if (trapDoorStbd.rotation.eulerAngles.z < 9)
+        //{
+        //    myLightMask.enabled = false;
+        //    //Debug.Log("my belly off");
 
-        }
+        //}
 
     }
 
