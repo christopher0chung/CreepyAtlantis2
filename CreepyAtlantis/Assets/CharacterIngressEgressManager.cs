@@ -17,7 +17,7 @@ public class CharacterIngressEgressManager : MonoBehaviour {
     {
         if (!ingress)
         {
-            characters[player].transform.position = sub.transform.position + (Vector3.down * 3) + (Vector3.left * 2) + (Vector3.right * 4 * player); 
+            characters[player].transform.position = sub.transform.position + (Vector3.down * 4) + (Vector3.left * 3) + (Vector3.right * 4 * player); 
         }
         else
         {

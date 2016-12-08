@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ModelBody
+  m_Name: SubRudder
   m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -65,12 +65,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - first:
         name: _ParallaxMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Ramp
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -136,16 +130,16 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 0.71323526, g: 0.71323526, b: 0.71323526, a: 1}
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - first:
         name: _Color
-      second: {r: 0.263655, g: 0.62347823, b: 0.837, a: 1}
+      second: {r: 0.8000001, g: 0.3094458, b: 0.4632142, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.36764705, g: 0.36168113, b: 0.15138407, a: 1}
+      second: {r: 0.28714314, g: 0.3286593, b: 0.3455882, a: 1}
     - first:
         name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _node_1345
-      second: {r: 0.50735295, g: 0.37891957, b: 0.14922145, a: 1}
+      second: {r: 0.19301471, g: 0.27048686, b: 0.30882353, a: 1}

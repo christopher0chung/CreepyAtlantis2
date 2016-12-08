@@ -82,18 +82,17 @@ namespace MultiplayerWithBindingsExample
             DontDestroyOnLoad(this.gameObject);
             SceneManager.sceneLoaded += newSceneLoaded;
             assignControlIO(controlSchemes.joinIO);
-
-            if (playerNum == 0)
-                this.gameObject.tag = "Player0";
-            else
-                this.gameObject.tag = "Player1";
         }
 
 
 		void Start()
 		{
 			cachedRenderer = GetComponent<Renderer>();
-		}
+            if (playerNum == 0)
+                this.gameObject.tag = "Player0";
+            else
+                this.gameObject.tag = "Player1";
+        }
 
 
 		void Update()
