@@ -2459,7 +2459,7 @@ public class HxVolumetricCamera : MonoBehaviour
         newMesh.triangles = tri;
         newMesh.uv = new Vector2[verts.Length];
         newMesh.colors = new Color[0];
-        newMesh.Optimize();
+        ;
         newMesh.bounds = new Bounds(Vector3.zero, Vector3.one);
         newMesh.RecalculateNormals();
 
@@ -2624,7 +2624,7 @@ public class HxVolumetricCamera : MonoBehaviour
         mesh.normals = normales;
 
         mesh.bounds = new Bounds(Vector3.zero, Vector3.one);
-        mesh.Optimize();
+        ;
 
         return mesh;
 

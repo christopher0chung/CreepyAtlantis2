@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ModelBody
-  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
+  m_Name: FlatBlack
+  m_Shader: {fileID: 4800000, guid: 48dca5b99d113b8d11006bab44295342, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -77,9 +77,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: _Bands
-      second: 2
-    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -91,9 +88,6 @@ Material:
     - first:
         name: _DstBlend
       second: 0
-    - first:
-        name: _Gloss
-      second: 0.4682218
     - first:
         name: _GlossMapScale
       second: 1
@@ -132,14 +126,8 @@ Material:
       second: 1
     m_Colors:
     - first:
-        name: DiffuseColor
-      second: {r: 0.71323526, g: 0.71323526, b: 0.71323526, a: 1}
-    - first:
         name: _Color
-      second: {r: 0.263655, g: 0.62347823, b: 0.837, a: 1}
+      second: {r: 0.19852942, g: 0.19852942, b: 0.19852942, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _node_1345
-      second: {r: 0.33823532, g: 0.5618662, b: 1, a: 1}
