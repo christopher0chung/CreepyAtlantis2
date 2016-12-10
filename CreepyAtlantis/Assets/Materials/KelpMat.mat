@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: KelpMat
-  m_Shader: {fileID: 4800000, guid: 30de9f55a0d13fc4e9e220c4972c19d0, type: 3}
+  m_Shader: {fileID: 4800000, guid: b72995b0084295d4db386ed85fc75bd8, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -98,6 +98,9 @@ Material:
         name: _Amplitude
       second: 0.72
     - first:
+        name: _Bands
+      second: 2
+    - first:
         name: _BulgeScale
       second: 0.2
     - first:
@@ -174,10 +177,16 @@ Material:
       second: 1.683761
     m_Colors:
     - first:
+        name: DiffuseColor
+      second: {r: 0.1483266, g: 0.33088237, b: 0, a: 1}
+    - first:
         name: _Color
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _GlowColor

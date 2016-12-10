@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 384930771}
   - component: {fileID: 384930770}
   - component: {fileID: 384930769}
+  - component: {fileID: 384930774}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -601,6 +602,25 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &384930774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384930767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b5ec6153a1d55438228df10fe66844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceFog: 0
+  excludeFarPixels: 0
+  useRadialDistance: 0
+  heightFog: 0
+  height: 1
+  heightDensity: 2
+  startDistance: 0
+  fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!4 &443398234 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b0c452200b8e4f146992c0381de22be2, type: 3}
@@ -1324,6 +1344,36 @@ Prefab:
     - target: {fileID: 4000013871404694, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: CustomColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: Offset.x
+      value: 3581.2058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: Offset.y
+      value: 3581.2058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: CustomIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000012014433030, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108738454421466910, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}

@@ -29,7 +29,7 @@ public class AssetDepot : MonoBehaviour {
 
         prefabDict.Add(DepotObjects.light, "basicLightPrefab");
         prefabDict.Add(DepotObjects.drill, "drillPrefab");
-        prefabDict.Add(DepotObjects.bullKelp, "bullKelpPrefab");
+        prefabDict.Add(DepotObjects.bullKelp, "bullKelpPrefab2");
         prefabDict.Add(DepotObjects.jellyFish, "jellyFishPrefab");
     }
 

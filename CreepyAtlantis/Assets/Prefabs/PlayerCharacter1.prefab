@@ -3010,8 +3010,8 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 5
-  m_Range: 3
+  m_Intensity: 2
+  m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3044,7 +3044,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 5
+  m_Intensity: 2
   m_Range: 15
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3206,7 +3206,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3554.5342, y: 3554.5342, z: 0}
+  Offset: {x: 3558.22, y: 3558.22, z: 0}
 --- !u!114 &114000011943617830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3395.1055, y: 3395.1055, z: 0}
+  Offset: {x: 3399.1245, y: 3399.1245, z: 0}
 --- !u!114 &114000014016896452
 MonoBehaviour:
   m_ObjectHideFlags: 1
