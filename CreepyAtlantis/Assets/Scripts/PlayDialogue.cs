@@ -15,6 +15,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private AudioSource next;
 
     public ControllerAdapter[] myAdapters;
+    public ObjectivesTracker myOT;
 
     public void StateChoices (dialogueStates dS)
     {
@@ -51,6 +52,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += SetControllerAdapter;
+
+        myOT = GameObject.Find("GameStateManager").GetComponent<ObjectivesTracker>();
     }
 
     void Start () {
@@ -96,6 +99,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         lines.Stop();
         next.Play();
         StateChoices(dialogueStates.inactive);
+        myOT.ObjectivesUpdate(gameObject.name);
     }
 
     private void Inactive()

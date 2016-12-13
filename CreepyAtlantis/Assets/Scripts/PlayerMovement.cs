@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour{
         {
             leftRightForce = Vector2.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour{
         {
             leftRightForce = Vector2.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            //transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 

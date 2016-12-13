@@ -19,7 +19,7 @@ public class AirBarBehavior : MonoBehaviour
             if (value != _percent)
             {
                 degrees = (int)(360 - 180 * (value / 100));
-                mask.localRotation = Quaternion.Euler(0, 0, degrees);
+                mask.rotation = Quaternion.Euler(0, 0, degrees);
                 if (value >= 50)
                     bar.color = Color.green;
                 else if (value >= 30)

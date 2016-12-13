@@ -67,8 +67,6 @@ namespace MultiplayerWithBindingsExample
             onXmitAButton(AButtonDown, playerNum);
         }
 
-
-
         void OnDisable()
 		{
 			if (Actions != null)
@@ -77,9 +75,12 @@ namespace MultiplayerWithBindingsExample
 			}
 		}
 
+        private TitleMenu myTM;
+
         void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
+            myTM = GameObject.Find("Canvas").GetComponent<TitleMenu>();
             SceneManager.sceneLoaded += newSceneLoaded;
             assignControlIO(controlSchemes.joinIO);
         }
@@ -92,6 +93,7 @@ namespace MultiplayerWithBindingsExample
                 this.gameObject.tag = "Player0";
             else
                 this.gameObject.tag = "Player1";
+            myTM.setState(playerNum + 1);
         }
 
 
@@ -120,7 +122,7 @@ namespace MultiplayerWithBindingsExample
 
             if (Actions.Start || Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(1);
+                GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(1);
             }
         }
 

@@ -10,16 +10,17 @@ public class GameStateInitialization : MonoBehaviour {
 	
     void GameStateInitialize (Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
+        if (scene.name == "Play01")
         {
-            StartCoroutine(DelayedPlayer());
+            Invoke("SetControllersToChars", 1f);
+            //Debug.Log("Invoked");
         }
     }
 
-    private IEnumerator DelayedPlayer ()
+    private void SetControllersToChars()
     {
-        yield return new WaitForSeconds(.1f);
-        GetComponent<GameStateManager>().SetControls(0, Controllables.character);
         GetComponent<GameStateManager>().SetControls(1, Controllables.character);
+
+        GetComponent<GameStateManager>().SetControls(0, Controllables.character);
     }
 }

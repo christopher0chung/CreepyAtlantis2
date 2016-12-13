@@ -5,7 +5,7 @@ public class SubController : MonoBehaviour, IControllable {
 
     public SubControlScript myMovement;
     public TrapDoorScript myTDS;
-    private ControllerAdapter [] myAdapters;
+    public ControllerAdapter [] myAdapters;
 
     void Awake()
     {
@@ -20,6 +20,7 @@ public class SubController : MonoBehaviour, IControllable {
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += SetControllerAdapter;
+
     }
 
     public void LeftStick(float upDown, float leftRight)

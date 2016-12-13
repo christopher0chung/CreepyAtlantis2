@@ -44,8 +44,8 @@ public class DialogueManager : MonoBehaviour {
 
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-            myEvents[0].TRIGGER = true;
+        //if (Input.GetKeyDown(KeyCode.I))
+        //    myEvents[0].TRIGGER = true;
     }
 
     private void GetMyEvents()
