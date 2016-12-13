@@ -1664,7 +1664,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908101462606784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 12, z: 0}
+  m_LocalPosition: {x: 5, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4140722603123822}
@@ -2620,7 +2620,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2aac73112c87dd94aba2ee7ea6cf60a8, type: 2}
+  - {fileID: 2100000, guid: 92ec2d620a927fd42bcdef28a58175fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2740,7 +2740,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0.15
   m_Material: {fileID: 0}
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3484.3503, y: 3484.3503, z: 0}
+  Offset: {x: 3484.3704, y: 3484.3704, z: 0}
 --- !u!114 &114061999051983966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3308,7 +3308,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3643.4458, y: 3643.4458, z: 0}
+  Offset: {x: 3643.4658, y: 3643.4658, z: 0}
 --- !u!114 &114088647580090184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3471,10 +3471,10 @@ MonoBehaviour:
   leftMove: 97
   rightMove: 100
   thrust: 119
-  thrustForce: 5
+  thrustForce: 7
   walkForce: 2
   onGroundScale: 1
-  notOnGroundScale: 0.6
+  notOnGroundScale: 0.5
   breathingRate: 0.05
   walkingRate: 0.25
   thrustRate: 0.5
@@ -14346,7 +14346,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92b81abc2329d984da5c7dfa48074614, type: 2}
+  - {fileID: 2100000, guid: 5d2b950276d7fd44bbc7285a1e7bba4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

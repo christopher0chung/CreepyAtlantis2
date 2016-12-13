@@ -17,6 +17,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     public ControllerAdapter[] myAdapters;
     public ObjectivesTracker myOT;
 
+    public Color myColor;
+    private bool colorFlip;
+
+    private float timer;
+    public float dialogueAdvanceTime;
+    private bool timerFlip;
+
     public void StateChoices (dialogueStates dS)
     {
         switch (dS)
@@ -67,11 +74,24 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     // Update is called once per frame
     void FixedUpdate () {
         if (currentState != null)
+        {
             currentState();
+            timer += Time.deltaTime;
+            if (dialogueAdvanceTime != 0 && timer>= dialogueAdvanceTime && !timerFlip)
+            {
+                currentState = Cleanup;
+            }
+        }
+
 	}
 
     private void Speaking ()
     {
+        if (!colorFlip)
+        {
+            colorFlip = true;
+            outputText.color = myColor;
+        }
         //Debug.Log("In speaking");
         incCounter++;
         if (incCounter >= 3)
@@ -93,6 +113,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Cleanup ()
     {
+        timerFlip = true;
         outputText.text = "";
         //Debug.Log("in clean up");
         myEvent.NextLine();
@@ -134,11 +155,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {
-     
-        if (myControllable == Controllables.dialogue)
-            myAdapters[player].enabled = true;
-        else
-            myAdapters[player].enabled = false;
+     if (myAdapters[player] != null)
+        {
+            if (myControllable == Controllables.dialogue)
+                myAdapters[player].enabled = true;
+            else
+                myAdapters[player].enabled = false;
+        }
     }
 }
 

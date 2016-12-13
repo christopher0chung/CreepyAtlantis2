@@ -9,6 +9,7 @@ public class TitleMenu : MonoBehaviour {
     public Text c1;
     public Text c2;
     public Text start;
+    public Text start1;
 
     private int states;
 
@@ -19,6 +20,7 @@ public class TitleMenu : MonoBehaviour {
             c1.color = new Color(0, 0, 0, 0);
             c2.color = new Color(0, 0, 0, 0);
             start.color = new Color(0, 0, 0, 0);
+            start1.color = new Color(0, 0, 0, 0);
         }
         else if (states == 1)
         {
@@ -26,13 +28,15 @@ public class TitleMenu : MonoBehaviour {
             c1.color = new Color(.706f, .706f, .706f, .404f);
             c2.color = new Color(0, 0, 0, 0);
             start.color = new Color(0, 0, 0, 0);
+            start1.color = new Color(0, 0, 0, 0);
         }
         else if (states > 1)
         {
             line.color = new Color(.706f, .706f, .706f, .404f);
             c1.color = new Color(.706f, .706f, .706f, .404f);
             c2.color = new Color(.706f, .706f, .706f, .404f);
-            start.color = new Color(1, 0, 0, .404f);
+            start.color = new Color(.706f, .706f, .706f, .404f);
+            start1.color = new Color(1, 0, 0, .404f);
         }
 	}
 

@@ -17,7 +17,7 @@ public class TextFadeIn : MonoBehaviour {
 	void Update () {
 
         timer += Time.deltaTime;
-        float scalar = (timer - 3) / 2;
+        float scalar = (timer) / 5f;
         scalar = Mathf.Clamp(scalar, 0, 1);
         myT.color = Color.Lerp(new Color(.706f, .706f, .706f, 0), new Color(.706f, .706f, .706f, .404f), scalar);
 
