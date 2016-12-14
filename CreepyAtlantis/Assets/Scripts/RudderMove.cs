@@ -17,7 +17,7 @@ public class RudderMove : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-        ang = 10 * Mathf.Sin(timer * .5f);
+        ang = 30 * Mathf.Sin(timer * .5f);
 
         transform.localRotation = Quaternion.Euler(-90, ang, 0);
 
