@@ -29,7 +29,7 @@ public class CharacterIngressEgressManager : MonoBehaviour {
 
     private void grabChars (Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
+        if (scene.name == "Play01")
         {
             StartCoroutine(DelayedFindChar());
         }

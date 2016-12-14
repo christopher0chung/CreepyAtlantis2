@@ -28,6 +28,9 @@ public class SubControlScript : MonoBehaviour {
 
     private bool freeze;
 
+    private float leftMax;
+    private float rightMax;
+
     void Start ()
     {
         subPos = transform.position;
@@ -37,28 +40,39 @@ public class SubControlScript : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        if (!p1.activeSelf)
+        if (!p1.activeSelf && !p2.activeSelf)
         {
-            if (transform.position.x < p2.transform.position.x + 20 && appliedMoveScalar > 0)
-                subPos += transform.right * (appliedMoveScalar);
-            else if (transform.position.x > p2.transform.position.x - 20 && appliedMoveScalar < 0)
+            if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
                 subPos += transform.right * (appliedMoveScalar);
         }
-        else if (!p2.activeSelf)
+        else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
         {
-            if (transform.position.x < p1.transform.position.x + 20 && appliedMoveScalar > 0)
-                subPos += transform.right * (appliedMoveScalar);
-            else if (transform.position.x > p1.transform.position.x - 20 && appliedMoveScalar < 0)
-                subPos += transform.right * (appliedMoveScalar);
+            if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
+            {
+                if (!p1.activeSelf)
+                {
+                    // if you're on the left of the active player and want to move right
+                    if (transform.position.x < p2.transform.position.x + 20 && appliedMoveScalar > 0)
+                        subPos += transform.right * (appliedMoveScalar);
+                    // if you're on the right of the active player and want to move left
+                    else if (transform.position.x > p2.transform.position.x - 20 && appliedMoveScalar < 0)
+                        subPos += transform.right * (appliedMoveScalar);
+                }
+                else if (!p2.activeSelf)
+                {
+                    if (transform.position.x < p1.transform.position.x + 20 && appliedMoveScalar > 0)
+                        subPos += transform.right * (appliedMoveScalar);
+                    else if (transform.position.x > p1.transform.position.x - 20 && appliedMoveScalar < 0)
+                        subPos += transform.right * (appliedMoveScalar);
+                }
+            }
         }
         else
         {
-            subPos += transform.right * (appliedMoveScalar);
+            return;
         }
 
-
         transform.position = Vector3.Lerp(transform.position, subPos, rate);
-
 
         if (!freeze)
         {
@@ -97,5 +111,11 @@ public class SubControlScript : MonoBehaviour {
         {
             freeze = true;
         }
+    }
+
+    public void SetLeftRightMax(float lM, float rM)
+    {
+        leftMax = lM;
+        rightMax = rM;
     }
 }
