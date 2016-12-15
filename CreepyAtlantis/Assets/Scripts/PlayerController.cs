@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour, IControllable {
 
     public PlayerMovement myMovement;
-    public ToolbaseScript myToolBase;
+    public PlayerAction myPA;
     public PlayerLightAngle myLA;
 
     public int charNum;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IControllable {
     {
         // Awake gets called before SceneLoaded
 
-        myToolBase = GetComponentInChildren<ToolbaseScript>();
+        myPA = GetComponent<PlayerAction>();
         myMovement = GetComponent<PlayerMovement>();
         myLA = GetComponentInChildren<PlayerLightAngle>();
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, IControllable {
     }
 
     public void AButton(bool pushRelease, int pNum) {
-        myToolBase.turnOn = pushRelease;
+        myPA.Action(pushRelease);
     }
 
     public void LeftBumper(bool pushRelease) { }

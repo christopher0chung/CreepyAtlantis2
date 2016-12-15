@@ -35,41 +35,8 @@ public class PlayerMovement : MonoBehaviour{
         PSBoost = transform.Find("PSBoost").GetComponent<BoostPSScript>();
 	}
 
-    // Update is called once per frame
     void Update () {
-
-        //if (Input.GetKey(rightMove) && transform.position.x < cameraPos.position.x + 20.5f)
-        //{
-        //    leftRightForce = Vector2.right * walkForce * scale;
-        //    myAir.Consume(walkingRate * Time.deltaTime);
-        //    transform.rotation = Quaternion.Euler(0, 0, 0);
-        //}
-        //else if (Input.GetKey(leftMove) && transform.position.x > cameraPos.position.x - 20.5f)
-        //{
-        //    leftRightForce = Vector2.right * -walkForce * scale;
-        //    myAir.Consume(walkingRate * Time.deltaTime);
-        //    transform.rotation = Quaternion.Euler(0, 180, 0);
-
-        //}
-        //else
-        //{
-        //    leftRightForce = Vector2.zero;
-        //}
-
-        //if (Input.GetKey(thrust))
-        //{
-        //    upForce = Vector2.up * thrustForce;
-        //    myAir.Consume(thrustRate * Time.deltaTime);
-        //    PSBoost.onOff = true;
-        //}
-        //else
-        //{
-        //    upForce = Vector2.zero;
-        //    PSBoost.onOff = false;
-        //}
-
         myAir.Consume(breathingRate * Time.deltaTime);
-
     }
 
     public void MoveRight()
@@ -78,7 +45,6 @@ public class PlayerMovement : MonoBehaviour{
         {
             leftRightForce = Vector2.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
-            //transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -88,7 +54,6 @@ public class PlayerMovement : MonoBehaviour{
         {
             leftRightForce = Vector2.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
-            //transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
