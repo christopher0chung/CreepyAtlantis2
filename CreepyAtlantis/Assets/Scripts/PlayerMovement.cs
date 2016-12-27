@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour{
         myRB = GetComponent<Rigidbody2D>();
         scale = notOnGroundScale;
         myAir = GetComponent<PlayerAir>();
-        PSBoost = transform.Find("PSBoost").GetComponent<BoostPSScript>();
+        PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
 	}
 
     void Update () {
