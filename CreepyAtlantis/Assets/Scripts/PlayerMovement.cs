@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour{
     public Transform cameraPos;
     private Rigidbody2D myRB;
     private PlayerAir myAir;
+    private PlayerAnimator myPA;
 
     public KeyCode leftMove;
     public KeyCode rightMove;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour{
         scale = notOnGroundScale;
         myAir = GetComponent<PlayerAir>();
         PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
+        myPA = GetComponentInChildren<PlayerAnimator>();
 	}
 
     void Update () {
@@ -45,15 +47,17 @@ public class PlayerMovement : MonoBehaviour{
         {
             leftRightForce = Vector2.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
+            myPA.SetIdle(false);
         }
     }
 
     public void MoveLeft()
     {
-        if (transform.position.x < cameraPos.position.x + 20.5f)
+        if (transform.position.x > cameraPos.position.x - 20.5f)
         {
             leftRightForce = Vector2.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
+            myPA.SetIdle(false);
         }
     }
 
@@ -82,13 +86,15 @@ public class PlayerMovement : MonoBehaviour{
         myRB.AddForce(leftRightForce + upForce);
     }
 
-    void OnCollisionStay2D ()
+    void OnCollisionStay2D (Collision2D other)
     {
         scale = onGroundScale;
+        myPA.SetGrounded(true);
     }
 
     void OnCollisionExit2D ()
     {
         scale = notOnGroundScale;
+        myPA.SetGrounded(true);
     }
 }

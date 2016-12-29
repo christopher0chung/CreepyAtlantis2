@@ -934,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4140722603123822}
   - component: {fileID: 95199412556057092}
+  - component: {fileID: 114950593071367454}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -1519,7 +1520,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908101462606784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 12, z: 0}
+  m_LocalPosition: {x: 5, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4140722603123822}
@@ -2600,7 +2601,7 @@ Animator:
   m_GameObject: {fileID: 1803437156921000}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7d0fe065f34fc564c972d4dd8b250248, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec658c8fd082ca2488db5ead3653ae8c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2739,7 +2740,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3536.9294, y: 3536.9294, z: 0}
+  Offset: {x: 3539.3022, y: 3539.3022, z: 0}
 --- !u!114 &114061999051983966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2803,7 +2804,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3696.025, y: 3696.025, z: 0}
+  Offset: {x: 3698.3977, y: 3698.3977, z: 0}
 --- !u!114 &114123833455504048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2881,6 +2882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb93a34c5d8c314d9e6f39866e5ecbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myLM:
+    serializedVersion: 2
+    m_Bits: 0
+  observeRange: 0
+  actionRange: 0
 --- !u!114 &114814752603565638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2922,6 +2928,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onOff: 0
   exhaustVolumeInv: 3
+--- !u!114 &114950593071367454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803437156921000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cbe63d4d28eda45a0670a4b1e844f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114955005644989044
 MonoBehaviour:
   m_ObjectHideFlags: 1
