@@ -28,8 +28,8 @@ public class SubControlScript : MonoBehaviour {
 
     private bool freeze;
 
-    private float leftMax;
-    private float rightMax;
+    public float leftMax;
+    public float rightMax;
 
     void Start ()
     {
@@ -40,6 +40,8 @@ public class SubControlScript : MonoBehaviour {
 
     void FixedUpdate ()
     {
+        //Debug.Log(subPos);
+
         if (!p1.activeSelf && !p2.activeSelf)
         {
             if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
@@ -87,11 +89,11 @@ public class SubControlScript : MonoBehaviour {
     {
         if (leftRight < -0.25f)
         {
-            appliedMoveScalar = -moveScalar;
+            appliedMoveScalar = (appliedMoveScalar -moveScalar) / 2;
         }
         else if (leftRight > 0.25f)
         {
-            appliedMoveScalar = moveScalar;
+            appliedMoveScalar = (appliedMoveScalar + moveScalar) / 2;
         }
         else
         {
