@@ -160,6 +160,11 @@ Prefab:
       propertyPath: myColor.b
       value: 0.5514706
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -233,6 +238,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -424,6 +434,11 @@ Prefab:
       propertyPath: myColor.b
       value: 0.5514706
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -524,10 +539,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.8092337
+    e00: 1.8102635
     e01: 0
-    e02: -1.06572
-    e03: -3.0802615
+    e02: -1.0663265
+    e03: -3.0820146
     e10: -0.7885017
     e11: -3.3933156
     e12: -1.3386103
@@ -541,10 +556,10 @@ MonoBehaviour:
     e32: 0.78342444
     e33: 26.349682
   LastMatrixVP:
-    e00: 1.8092337
+    e00: 1.8102635
     e01: 0
-    e02: -1.06572
-    e03: -3.0802615
+    e02: -1.0663265
+    e03: -3.0820146
     e10: 0.7885017
     e11: 3.3933156
     e12: 1.3386103
@@ -767,6 +782,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -887,6 +907,11 @@ Prefab:
       propertyPath: Dialogue
       value: 'Ops: Whuh....how long was I out? '
       objectReference: {fileID: 0}
+    - target: {fileID: 82370581375408162, guid: 70e0493e3b6ed9147a468ba59a33cc67,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
   m_IsPrefabParent: 0
@@ -1052,6 +1077,11 @@ Prefab:
       value: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...all
         systems back online. '
       objectReference: {fileID: 0}
+    - target: {fileID: 82164950650015818, guid: fa9a042813da8a247a844e5f16f94b7a,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
   m_IsPrefabParent: 0
@@ -1311,6 +1341,11 @@ Prefab:
       propertyPath: myColor.b
       value: 0.5514706
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -1423,6 +1458,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -1471,6 +1511,11 @@ Prefab:
       value: 'Doc: Don''t know. I just woke up too. I feel like my stomach is in my
         throat. '
       objectReference: {fileID: 0}
+    - target: {fileID: 82096687505614778, guid: 4e5e75b1493393c4981d8a481c4da750,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e5e75b1493393c4981d8a481c4da750, type: 2}
   m_IsPrefabParent: 0
@@ -1542,6 +1587,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -1656,6 +1706,11 @@ Prefab:
       propertyPath: myColor.b
       value: 0.5514706
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -4556,6 +4611,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -4627,6 +4687,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -5172,6 +5237,11 @@ Prefab:
       propertyPath: myColor.b
       value: 0.5514706
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -5391,6 +5461,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -5524,6 +5599,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0
@@ -5600,6 +5680,11 @@ Prefab:
       propertyPath: myColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013156502302, guid: 02ce03bfeb64f754596029123bf5ade4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 240ef34d542738b4a8a981a9d8e55e05, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce03bfeb64f754596029123bf5ade4, type: 2}
   m_IsPrefabParent: 0

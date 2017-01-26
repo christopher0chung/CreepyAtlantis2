@@ -91,12 +91,12 @@ public class PlayerMovement : MonoBehaviour{
     void OnCollisionStay2D (Collision2D other)
     {
         scale = onGroundScale;
-        myAC.SetGrounded(false);
+        myAC.SetGrounded(true);
     }
 
     void OnCollisionExit2D ()
     {
         scale = notOnGroundScale;
-        myAC.SetGrounded(true);
+        myAC.SetGrounded(false);
     }
 }
