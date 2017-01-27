@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour{
 
     public Transform cameraPos;
-    private Rigidbody2D myRB;
+    private Rigidbody myRB;
     private PlayerAir myAir;
     private AnimationControl myAC;
 
@@ -25,12 +25,16 @@ public class PlayerMovement : MonoBehaviour{
     private float scale;
     private BoostPSScript PSBoost;
 
-    private Vector2 leftRightForce;
-    private Vector2 upForce;
+    private Vector3 leftRightForce;
+    private Vector3 upForce;
+
+    public float sCCastDist;
+    public float sCCastRad;
+    private RaycastHit[] myRCHs;
 
 	// Use this for initialization
 	void Start () {
-        myRB = GetComponent<Rigidbody2D>();
+        myRB = GetComponent<Rigidbody>();
         scale = notOnGroundScale;
         myAir = GetComponent<PlayerAir>();
         PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
@@ -45,7 +49,7 @@ public class PlayerMovement : MonoBehaviour{
     {
         if (transform.position.x < cameraPos.position.x + 20.5f)
         {
-            leftRightForce = Vector2.right * walkForce * scale;
+            leftRightForce = Vector3.right * walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
             myAC.SetIdle(false);
             myAC.SetRight(true);
@@ -56,7 +60,7 @@ public class PlayerMovement : MonoBehaviour{
     {
         if (transform.position.x > cameraPos.position.x - 20.5f)
         {
-            leftRightForce = Vector2.right * -walkForce * scale;
+            leftRightForce = Vector3.right * -walkForce * scale;
             myAir.Consume(walkingRate * Time.deltaTime);
             myAC.SetIdle(false);
             myAC.SetRight(false);
@@ -65,37 +69,48 @@ public class PlayerMovement : MonoBehaviour{
 
     public void MoveNeutral()
     {
-        leftRightForce = Vector2.zero;
+        leftRightForce = Vector3.zero;
     }
 
     public void Boost(bool trueFalse)
     {
         if (trueFalse)
         {
-            upForce = Vector2.up * thrustForce;
+            upForce = Vector3.up * thrustForce;
             myAir.Consume(thrustRate * Time.deltaTime);
             PSBoost.onOff = true;
         }
         else
         {
-            upForce = Vector2.zero;
+            upForce = Vector3.zero;
             PSBoost.onOff = false;
         }
     }
 
     public void FixedUpdate ()
     {
+        DetectGround();
+
         myRB.AddForce(leftRightForce + upForce);
     }
 
-    void OnCollisionStay2D (Collision2D other)
+    void DetectGround()
     {
-        scale = onGroundScale;
-        myAC.SetGrounded(true);
-    }
+        Ray toGround = new Ray(transform.position, Vector3.down);
+        myRCHs = Physics.SphereCastAll(toGround, sCCastRad, sCCastDist);
 
-    void OnCollisionExit2D ()
-    {
+        Debug.DrawRay(transform.position, Vector3.down * sCCastDist);
+
+        foreach (RaycastHit myCols in myRCHs)
+        {
+            if (myCols.collider.gameObject.tag == "Walkable")
+            {
+                scale = onGroundScale;
+                myAC.SetGrounded(true);
+                return;
+            }
+        }
+
         scale = notOnGroundScale;
         myAC.SetGrounded(false);
     }

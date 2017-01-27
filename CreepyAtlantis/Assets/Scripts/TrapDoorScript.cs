@@ -86,7 +86,7 @@ public class TrapDoorScript : MonoBehaviour {
             lightSwitch = false;
     }
 
-    void OnTriggerStay2D (Collider2D other)
+    void OnTriggerStay (Collider other)
     {
         int result;
         if (!nameToNum.TryGetValue(other.gameObject.name, out result))

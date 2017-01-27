@@ -554,10 +554,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.8102635
+    e00: 1.8083748
     e01: 0
-    e02: -1.0663265
-    e03: -3.0820146
+    e02: -1.065214
+    e03: -3.078799
     e10: -0.7885017
     e11: -3.3933156
     e12: -1.3386103
@@ -571,10 +571,10 @@ MonoBehaviour:
     e32: 0.78342444
     e33: 26.349682
   LastMatrixVP:
-    e00: 1.8102635
+    e00: 1.8083748
     e01: 0
-    e02: -1.0663265
-    e03: -3.0820146
+    e02: -1.065214
+    e03: -3.078799
     e10: 0.7885017
     e11: 3.3933156
     e12: 1.3386103
@@ -1029,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &615622981
 MonoBehaviour:
   m_ObjectHideFlags: 0

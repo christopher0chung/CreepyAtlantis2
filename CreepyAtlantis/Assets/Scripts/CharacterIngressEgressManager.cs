@@ -31,7 +31,7 @@ public class CharacterIngressEgressManager : MonoBehaviour {
     {
         if (scene.name == "Play01")
         {
-            StartCoroutine(DelayedFindChar());
+            DelayedFindChar();
         }
     }
 
@@ -49,9 +49,8 @@ public class CharacterIngressEgressManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator DelayedFindChar ()
+    private void DelayedFindChar()
     {
-        yield return new WaitForSeconds(.1f);
         characters[0] = GameObject.Find("Character0");
         characters[1] = GameObject.Find("Character1");
         sub = GameObject.Find("Sub");

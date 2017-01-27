@@ -241,7 +241,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.1009774
+    e00: 2.0987854
     e01: 0
     e02: 0
     e03: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.029327
   LastMatrixVP:
-    e00: 2.1009774
+    e00: 2.0987854
     e01: 0
     e02: 0
     e03: 0
@@ -734,6 +734,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000011032096264, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+    - {fileID: 58000014024794106, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &977052598
@@ -777,6 +778,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1318186598 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012852763606, guid: a31aee167ee63fa429b08b6b1d3405d0,
+    type: 2}
+  m_PrefabInternal: {fileID: 858054968}
+--- !u!135 &1318186600
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318186598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: -1.5, z: 0}
 --- !u!1 &1428287689
 GameObject:
   m_ObjectHideFlags: 0
