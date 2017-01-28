@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, IControllable {
     }
 
     public void AButton(bool pushRelease, int pNum) {
-        myPA.Action(pushRelease);
+        myPA.TryToInteract(pNum, pushRelease);
     }
 
     public void LeftBumper(bool pushRelease) { }

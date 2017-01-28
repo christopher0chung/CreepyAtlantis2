@@ -28,8 +28,8 @@ public class SubControlScript : MonoBehaviour {
 
     private bool freeze;
 
-    public float leftMax;
-    public float rightMax;
+    private float leftMax;
+    private float rightMax;
 
     void Start ()
     {
@@ -117,6 +117,7 @@ public class SubControlScript : MonoBehaviour {
 
     public void SetLeftRightMax(float lM, float rM)
     {
+        Debug.Log("left and right bounds set");
         leftMax = lM;
         rightMax = rM;
     }

@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 33000010543330856}
   - component: {fileID: 23000013712331762}
   m_Layer: 0
-  m_Name: Light
+  m_Name: LightModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012501632638}
   - component: {fileID: 114000013392082952}
-  - component: {fileID: 114000011032096264}
   - component: {fileID: 114000011838489082}
   - component: {fileID: 114000012015709656}
   m_Layer: 0
@@ -253,8 +252,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4000010680578338}
-  - component: {fileID: 58000014024794106}
   - component: {fileID: 114000012903794834}
+  - component: {fileID: 135713255723574422}
   m_Layer: 0
   m_Name: TrapDoorBoundaryTrigger
   m_TagString: Untagged
@@ -271,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013475401172}
   - component: {fileID: 114000011687973130}
-  - component: {fileID: 61000013566893946}
+  - component: {fileID: 65746151104353572}
   m_Layer: 0
   m_Name: TrapDoor
   m_TagString: Untagged
@@ -809,7 +808,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011861270502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 18.25, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013901533314}
@@ -925,7 +924,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010845894178}
   m_LocalRotation: {x: 0.54171497, y: 0.45447215, z: -0.54171497, w: 0.45447215}
-  m_LocalPosition: {x: -2.4, y: -0.167, z: 0}
+  m_LocalPosition: {x: -2.4, y: -0.167, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000013475401172}
@@ -1288,7 +1287,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1350,7 +1349,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1381,7 +1380,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1412,7 +1411,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1505,7 +1504,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1536,7 +1535,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9fae59a62934f3749b962c860a2198dd, type: 2}
+  - {fileID: 2100000, guid: 33875e20e612a9e49957c604209913f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1598,7 +1597,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1629,7 +1628,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1660,7 +1659,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1722,7 +1721,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1753,7 +1752,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1815,7 +1814,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c91126e727972c419532cbe9b1ab6fb, type: 2}
+  - {fileID: 2100000, guid: 42cb74d1dee8dc84bbd42bc257805730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1966,34 +1965,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243816768610014}
   m_Mesh: {fileID: 4300024, guid: 5ee47e345306f164da7a2604341445dc, type: 3}
---- !u!58 &58000014024794106
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012852763606}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 6
---- !u!61 &61000013566893946
-BoxCollider2D:
+--- !u!65 &65746151104353572
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012988027530}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -2.4, y: -1.99}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.26, y: 1.73}
+  m_Size: {x: 2.1, y: 1, z: 1}
+  m_Center: {x: -2.34, y: -1.47, z: 0}
 --- !u!108 &108000012014433030
 Light:
   m_ObjectHideFlags: 1
@@ -2004,7 +1987,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 40
   m_SpotAngle: 40
   m_CookieSize: 10
@@ -2038,15 +2021,15 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 0.3
-  m_Range: 10
+  m_Intensity: 3
+  m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.113
+    m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2072,7 +2055,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -2129,21 +2112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b8b62df7dd73746bc7ef6d290fb568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000011032096264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011861270502}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b378d3ba085a8469900536592fe27b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 0}
-  myLM:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &114000011177905146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2191,7 +2159,7 @@ MonoBehaviour:
   TintColor2: {r: 0, g: 0, b: 1, a: 1}
   TintIntensity: 0.2
   TintGradient: 0.2
-  Intensity: 8
+  Intensity: 7
   Strength: 1
   Color: {r: 0.70436114, g: 1, b: 0.6102941, a: 1}
   MieScattering: 0.05
@@ -2199,7 +2167,7 @@ MonoBehaviour:
   SunBleed: 1
   Extinction: 0.01
   Density: 0.2
-  ExtraDensity: 0
+  ExtraDensity: 0.05
   SampleCount: 4
   Shadows: 1
   FogHeightEnabled: 0
@@ -2207,7 +2175,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3580.4348, y: 3580.4348, z: 0}
+  Offset: {x: 3604.4585, y: 3604.4585, z: 0}
 --- !u!114 &114000011667202802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2234,6 +2202,7 @@ MonoBehaviour:
   trapDoorStbd: {fileID: 4440850797948294}
   doorOpeningRate: 1
   closingTimer: 0
+  myLight: {fileID: 0}
 --- !u!114 &114000011838489082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2257,6 +2226,8 @@ MonoBehaviour:
   p2: {fileID: 0}
   lightAng: 0
   desiredAngle: 0
+  leftMax: -15
+  rightMax: 50
 --- !u!114 &114000011870135060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2281,6 +2252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myMovement: {fileID: 0}
   myTDS: {fileID: 0}
+  myAdapters: []
 --- !u!114 &114000012285854300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2355,7 +2327,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3599.58, y: 3599.58, z: 0}
+  Offset: {x: 3641.0518, y: 3641.0518, z: 0}
 --- !u!114 &114000012886921240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2498,7 +2470,19 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3587.4177, y: 3587.4177, z: 0}
+  Offset: {x: 3604.2053, y: 3604.2053, z: 0}
+--- !u!135 &135713255723574422
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012852763606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: -1.5, z: 0}
 --- !u!212 &212000010143236976
 SpriteRenderer:
   m_ObjectHideFlags: 1

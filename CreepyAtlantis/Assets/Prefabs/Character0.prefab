@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 136296947901510866}
   m_Layer: 0
   m_Name: Character0
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2800,7 +2800,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3557.4985, y: 3557.4985, z: 0}
+  Offset: {x: 3568.4468, y: 3568.4468, z: 0}
 --- !u!114 &114061999051983966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2864,7 +2864,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3716.594, y: 3716.594, z: 0}
+  Offset: {x: 3727.5422, y: 3727.5422, z: 0}
 --- !u!114 &114123833455504048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2942,11 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb93a34c5d8c314d9e6f39866e5ecbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLM:
-    serializedVersion: 2
-    m_Bits: 0
-  observeRange: 0
-  actionRange: 0
+  interactionRange: 2
 --- !u!114 &114814752603565638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3003,8 +2999,8 @@ MonoBehaviour:
   leftMove: 97
   rightMove: 100
   thrust: 119
-  thrustForce: 7
-  walkForce: 2
+  thrustForce: 30
+  walkForce: 20
   onGroundScale: 1
   notOnGroundScale: 0.5
   breathingRate: 0.05
@@ -3037,9 +3033,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137644105853404412
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

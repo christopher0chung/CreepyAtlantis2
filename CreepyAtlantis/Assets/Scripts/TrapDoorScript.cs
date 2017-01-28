@@ -3,7 +3,7 @@ using System.Collections;
 using MultiplayerWithBindingsExample;
 using System.Collections.Generic;
 
-public class TrapDoorScript : MonoBehaviour {
+public class TrapDoorScript : MonoBehaviour, IInteractable {
 
     public Transform trapDoorPort;
     public Transform trapDoorStbd;
@@ -86,15 +86,21 @@ public class TrapDoorScript : MonoBehaviour {
             lightSwitch = false;
     }
 
-    void OnTriggerStay (Collider other)
+    public void Interact (int playerNum, bool pushRelease)
     {
-        int result;
-        if (!nameToNum.TryGetValue(other.gameObject.name, out result))
-            return;
-        else
-        {
-            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(result, Controllables.submarine);
-            GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(result, true);
-        }
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(playerNum, Controllables.submarine);
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(playerNum, true);
     }
+
+    //void OnTriggerStay (Collider other)
+    //{
+    //    Debug.Log(other.gameObject.name);
+    //    int result;
+    //    if (!nameToNum.TryGetValue(other.gameObject.name, out result))
+    //        return;
+    //    else
+    //    {
+
+    //    }
+    //}
 }
