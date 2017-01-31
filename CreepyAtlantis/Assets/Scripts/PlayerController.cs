@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour, IControllable {
         GameStateManager.onEndDialogue += SetControllerAdapter;
     }
 
-    public void LeftStick(float upDown, float leftRight) {
+    public void LeftStick(float upDown, float leftRight, int pNum) {
         if (leftRight > 0.25f)
             myMovement.MoveRight();
         else if (leftRight < -0.25f)
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour, IControllable {
             myMovement.Boost(false);
     }
 
-    public void RightStick(float upDown, float leftRight) {
+    public void RightStick(float upDown, float leftRight, int pNum) {
         if (Mathf.Abs(leftRight) >.25f || Mathf.Abs(upDown) >.25f)
             myLA.LookAngleCalc(leftRight, upDown);
     }
@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour, IControllable {
         myPA.TryToInteract(pNum, pushRelease);
     }
 
-    public void LeftBumper(bool pushRelease) { }
+    public void LeftBumper(bool pushRelease, int pNum) { }
 
-    public void RightBumper(bool pushRelease) { }
+    public void RightBumper(bool pushRelease, int pNum) { }
 
 
     public void SetControllerAdapter(int player, Controllables myControllable)

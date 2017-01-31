@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SubControlScript : MonoBehaviour {
 
-    public float moveScalar;
-    private float appliedMoveScalar;
+    public float speed;
+    public float appliedMoveScalar;
     public float rate;
     private Vector3 subPos;
     //private Vector3 lastPos;
@@ -13,11 +13,6 @@ public class SubControlScript : MonoBehaviour {
     public float angRate;
     public float appliedAngRate;
     //private Vector3 currentAng = new Vector3 (0, 0, -45);
-
-    public KeyCode left;
-    public KeyCode right;
-    public KeyCode rotUp;
-    public KeyCode rotDown;
 
     public GameObject p1;
     public GameObject p2;
@@ -28,8 +23,8 @@ public class SubControlScript : MonoBehaviour {
 
     private bool freeze;
 
-    private float leftMax;
-    private float rightMax;
+    public float leftMax;
+    public float rightMax;
 
     void Start ()
     {
@@ -41,11 +36,10 @@ public class SubControlScript : MonoBehaviour {
     void FixedUpdate ()
     {
         //Debug.Log(subPos);
-
         if (!p1.activeSelf && !p2.activeSelf)
         {
             if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
-                subPos += transform.right * (appliedMoveScalar);
+                subPos += transform.right * (appliedMoveScalar * speed);
         }
         else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
         {
@@ -55,17 +49,17 @@ public class SubControlScript : MonoBehaviour {
                 {
                     // if you're on the left of the active player and want to move right
                     if (transform.position.x < p2.transform.position.x + 20 && appliedMoveScalar > 0)
-                        subPos += transform.right * (appliedMoveScalar);
+                        subPos += transform.right * (appliedMoveScalar * speed);
                     // if you're on the right of the active player and want to move left
                     else if (transform.position.x > p2.transform.position.x - 20 && appliedMoveScalar < 0)
-                        subPos += transform.right * (appliedMoveScalar);
+                        subPos += transform.right * (appliedMoveScalar * speed);
                 }
                 else if (!p2.activeSelf)
                 {
                     if (transform.position.x < p1.transform.position.x + 20 && appliedMoveScalar > 0)
-                        subPos += transform.right * (appliedMoveScalar);
+                        subPos += transform.right * (appliedMoveScalar * speed);
                     else if (transform.position.x > p1.transform.position.x - 20 && appliedMoveScalar < 0)
-                        subPos += transform.right * (appliedMoveScalar);
+                        subPos += transform.right * (appliedMoveScalar * speed);
                 }
             }
         }
@@ -81,27 +75,21 @@ public class SubControlScript : MonoBehaviour {
             lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
             myLight.localEulerAngles = new Vector3(0, 0, lightAng);
         }
-
-
     }
 
-    public void moveLeftRight (float leftRight)
+    public void moveLeftRight (float leftRight, int pNum)
     {
-        if (leftRight < -0.25f)
+        if (Mathf.Abs(leftRight) >= 0.25f)
         {
-            appliedMoveScalar = (appliedMoveScalar -moveScalar) / 2;
-        }
-        else if (leftRight > 0.25f)
-        {
-            appliedMoveScalar = (appliedMoveScalar + moveScalar) / 2;
+            appliedMoveScalar = (appliedMoveScalar + leftRight) / 2;
         }
         else
         {
-            appliedMoveScalar = 0;
+            appliedMoveScalar = (appliedMoveScalar + 0) / 2;
         }
     }
 
-    public void rotateUpDown(float upDown, float leftRight)
+    public void rotateUpDown(float upDown, float leftRight, int pNum)
     {
         if(Mathf.Abs(leftRight) > .25f || Mathf.Abs(upDown) > .25f)
         {

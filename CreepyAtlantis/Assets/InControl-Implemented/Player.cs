@@ -43,20 +43,20 @@ namespace MultiplayerWithBindingsExample
 
 
 
-        public delegate void LeftStick (float upDown, float leftRight);
+        public delegate void LeftStick (float upDown, float leftRight, int pNum);
         public event LeftStick onXmitLeftStick;
 
-        public void XmitLeftStick(float upDown, float leftRight)
+        public void XmitLeftStick(float upDown, float leftRight, int pNum)
         {
-            onXmitLeftStick(upDown, leftRight);
+            onXmitLeftStick(upDown, leftRight, pNum);
         }
 
-        public delegate void RightStick(float upDown, float leftRight);
+        public delegate void RightStick(float upDown, float leftRight, int pNum);
         public event RightStick onXmitRightStick;
 
-        public void XmitRightStick(float upDown, float leftRight)
+        public void XmitRightStick(float upDown, float leftRight, int pNum)
         {
-            onXmitRightStick(upDown, leftRight);
+            onXmitRightStick(upDown, leftRight, pNum);
         }
 
         public delegate void AButton(bool AButtonDown, int pNum);
@@ -137,23 +137,23 @@ namespace MultiplayerWithBindingsExample
             if (Mathf.Abs(Actions.Rotate.X) >= stickThresh || Mathf.Abs(Actions.Rotate.Y) >= stickThresh)
             {
                 if (onXmitLeftStick != null)
-                    XmitLeftStick(Actions.Rotate.Y, Actions.Rotate.X);
+                    XmitLeftStick(Actions.Rotate.Y, Actions.Rotate.X, playerNum);
             }
             else
             {
                 if (onXmitLeftStick != null)
-                    XmitLeftStick(0, 0);
+                    XmitLeftStick(0, 0, playerNum);
             }
 
             if (Mathf.Abs(Actions.RRotate.X) >= stickThresh || Mathf.Abs(Actions.RRotate.Y) >= stickThresh)
             {
                 if (onXmitRightStick != null)
-                    XmitRightStick(Actions.RRotate.Y, Actions.RRotate.X);
+                    XmitRightStick(Actions.RRotate.Y, Actions.RRotate.X, playerNum);
             }
             else
             {
                 if (onXmitRightStick != null)
-                    XmitRightStick(0, 0);
+                    XmitRightStick(0, 0, playerNum);
             }
 
             if (Actions.AButton.WasPressed)

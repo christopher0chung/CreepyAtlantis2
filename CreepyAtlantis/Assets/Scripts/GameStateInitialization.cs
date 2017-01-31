@@ -13,7 +13,7 @@ public class GameStateInitialization : MonoBehaviour {
     void GameStateInitialize (Scene scene, LoadSceneMode mode)
     {
         sceneName = scene.name;
-        Debug.Log(sceneName);
+        //Debug.Log(sceneName);
         if (sceneName == "Play01")
         {
             //Invoke("SetControllersToChars", 1f);

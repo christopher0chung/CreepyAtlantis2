@@ -133,9 +133,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         Debug.Log(Dialogue);
     }
 
-    public void LeftStick(float leftRight, float upDown) { }
+    public void LeftStick(float leftRight, float upDown, int pNum) { }
 
-    public void RightStick(float leftRight, float upDown) { }
+    public void RightStick(float leftRight, float upDown, int pNum) { }
 
     public void AButton(bool pushRelease, int pNum)
     {
@@ -149,9 +149,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
-    public void LeftBumper(bool pushRelease) { }
+    public void LeftBumper(bool pushRelease, int pNum) { }
 
-    public void RightBumper(bool pushRelease) { }
+    public void RightBumper(bool pushRelease, int pNum) { }
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {

@@ -23,14 +23,14 @@ public class SubController : MonoBehaviour, IControllable {
 
     }
 
-    public void LeftStick(float upDown, float leftRight)
+    public void LeftStick(float upDown, float leftRight, int pNum)
     {
-        myMovement.moveLeftRight(leftRight);
+        myMovement.moveLeftRight(leftRight, pNum);
     }
 
-    public void RightStick(float upDown, float leftRight)
+    public void RightStick(float upDown, float leftRight, int pNum)
     {
-        myMovement.rotateUpDown(upDown, leftRight);
+        myMovement.rotateUpDown(upDown, leftRight, pNum);
     }
 
     public void AButton(bool pushRelease, int pNum)
@@ -42,9 +42,9 @@ public class SubController : MonoBehaviour, IControllable {
         }
     }
 
-    public void LeftBumper(bool pushRelease) { }
+    public void LeftBumper(bool pushRelease, int pNum) { }
 
-    public void RightBumper(bool pushRelease) { }
+    public void RightBumper(bool pushRelease, int pNum) { }
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {

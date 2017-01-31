@@ -19,7 +19,7 @@ public class ControllerAdapter : MonoBehaviour {
 
     public void OnEnable ()
     {
-        //Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
+        Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
         if (initialized)
         {
             if (charNum == 0)
@@ -77,14 +77,14 @@ public class ControllerAdapter : MonoBehaviour {
             return;
     }
 
-    public void LeftStick(float upDown, float leftRight)
+    public void LeftStick(float upDown, float leftRight, int pNum)
     {
-        myControllable.LeftStick(upDown, leftRight);
+        myControllable.LeftStick(upDown, leftRight, pNum);
     }
 
-    public void RightStick(float upDown, float leftRight)
+    public void RightStick(float upDown, float leftRight, int pNum)
     {
-        myControllable.RightStick(upDown, leftRight);
+        myControllable.RightStick(upDown, leftRight, pNum);
     }
 
     public void AButton(bool pushRelease, int pNum)
