@@ -16,13 +16,13 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public delegate void stateManager();
     public stateManager currentState;
 
-    private AudioSource next;
-
     public ControllerAdapter[] myAdapters;
     public ObjectivesTracker myOT;
 
     public Color myColor;
     private bool colorFlip;
+
+    private AudioSource next;
 
     private float timer;
     public float dialogueAdvanceTime;
@@ -71,7 +71,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputChoice1 = GameObject.Find("Canvas").transform.Find("Choice 1").GetComponent<Text>();
         outputChoice2 = GameObject.Find("Canvas").transform.Find("Choice 2").GetComponent<Text>();
-        next = transform.Find("NextSound").GetComponent<AudioSource>();
+        next = GetComponent<AudioSource>();
         //StateChoices(dialogueStates.speaking);
     }
 
@@ -107,7 +107,6 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log("in clean up");
         myEvent.NextLine();
         next.Play();
-        eventChoice1.StartLines();
         StateChoices(dialogueStates.inactive);
         myOT.ObjectivesUpdate(gameObject.name);
     }
@@ -122,30 +121,30 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log(Dialogue);
     }
 
-    public void LeftStick(float leftRight, float upDown) { }
+    public void LeftStick(float leftRight, float upDown, int pNum) { }
 
-    public void RightStick(float leftRight, float upDown) { }
+    public void RightStick(float leftRight, float upDown, int pNum) { }
 
-    public void AButton(bool pushRelease, int pNum)
-    {
-        if (pushRelease)
-        {
-            next.Play();
-            if (currentState == Spoken)
-                StateChoices(dialogueStates.cleanup);
-        }
-    }
+    public void AButton(bool pushRelease, int pNum) { }
 
     public void LeftBumper(bool pushRelease, int pNum)
     {
-        if (pNum == whoseChoice)
-            eventChoice1.StartLines();
+        //Debug.Log(pNum);
+        if (pNum == whoseChoice && pushRelease)
+        {
+            GetComponent<DialogueManager>().myEvents[0].TRIGGER = true;
+            StateChoices(dialogueStates.cleanup);
+        }
     }
 
     public void RightBumper(bool pushRelease, int pNum)
     {
-        if (pNum == whoseChoice)
-            eventChoice2.StartLines();
+        //Debug.Log(pNum);
+        if (pNum == whoseChoice && pushRelease)
+        {
+            GetComponent<DialogueManager>().myEvents[1].TRIGGER = true;
+            StateChoices(dialogueStates.cleanup);
+        }
     }
 
     public void SetControllerAdapter(int player, Controllables myControllable)

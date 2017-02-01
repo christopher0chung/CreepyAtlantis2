@@ -15,6 +15,9 @@
         public PlayerAction XButton;
         public PlayerAction YButton;
 
+        public PlayerAction RBumper;
+        public PlayerAction LBumper;
+
         public PlayerAction Start;
 
 		public PlayerAction Left;
@@ -41,6 +44,9 @@
             BButton = CreatePlayerAction("BButton");
             XButton = CreatePlayerAction("XButton");
             YButton = CreatePlayerAction("YButton");
+
+            RBumper = CreatePlayerAction("RBumper");
+            LBumper = CreatePlayerAction("LBumper");
 
             Start = CreatePlayerAction("Start");
 
@@ -90,6 +96,9 @@
             actions.BButton.AddDefaultBinding(InputControlType.Action2);
             actions.XButton.AddDefaultBinding(InputControlType.Action3);
             actions.YButton.AddDefaultBinding(InputControlType.Action4);
+
+            actions.RBumper.AddDefaultBinding(InputControlType.RightBumper);
+            actions.LBumper.AddDefaultBinding(InputControlType.LeftBumper);
 
             actions.Up.AddDefaultBinding( InputControlType.LeftStickUp );
 			actions.Down.AddDefaultBinding( InputControlType.LeftStickDown );

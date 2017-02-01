@@ -352,8 +352,8 @@ public class SfxrSynth {
 
 	/**
 	 * Cache the sound for speedy playback.
-	 * If a callback is passed in, the caching will be done asynchronously, taking maxTimePerFrame milliseconds
-	 * per frame to cache, them calling the callback when it's done.
+	 * If a callback is passed in, the caching will be _done asynchronously, taking maxTimePerFrame milliseconds
+	 * per frame to cache, them calling the callback when it's _done.
 	 * If not, the whole sound is cached immediately - can freeze the player for a few seconds, especially in debug mode.
 	 * @param	callback			Function to call when the caching is complete
 	 * @param	maxTimePerFrame		Maximum time in milliseconds the caching will use per frame
@@ -385,8 +385,8 @@ public class SfxrSynth {
 
 	/**
 	 * Caches a series of mutations on the source sound.
-	 * If a callback is passed in, the caching will be done asynchronously, taking maxTimePerFrame milliseconds
-	 * per frame to cache, them calling the callback when it's done.
+	 * If a callback is passed in, the caching will be _done asynchronously, taking maxTimePerFrame milliseconds
+	 * per frame to cache, them calling the callback when it's _done.
 	 * If not, the whole sound is cached immediately - can freeze the player for a few seconds, especially in debug mode.
 	 * @param	mutationsNum		Number of mutations to cache
 	 * @param	mutationAmount		Amount of mutation

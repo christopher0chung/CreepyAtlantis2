@@ -19,7 +19,7 @@ public class ControllerAdapter : MonoBehaviour {
 
     public void OnEnable ()
     {
-        Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
+        //Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
         if (initialized)
         {
             if (charNum == 0)
@@ -30,6 +30,8 @@ public class ControllerAdapter : MonoBehaviour {
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
                 }
             }
             else if (charNum == 1)
@@ -40,6 +42,8 @@ public class ControllerAdapter : MonoBehaviour {
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
                 }
             }
         }
@@ -60,6 +64,8 @@ public class ControllerAdapter : MonoBehaviour {
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
                 }
             }
             else if (charNum == 1)
@@ -70,6 +76,8 @@ public class ControllerAdapter : MonoBehaviour {
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
                     myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
                 }
             }
         }
@@ -92,13 +100,13 @@ public class ControllerAdapter : MonoBehaviour {
         myControllable.AButton(pushRelease, pNum);
     }
 
-    public void LeftBumper(bool pushRelease)
+    public void LeftBumper(bool pushRelease, int pNum)
     {
-
+        myControllable.LeftBumper(pushRelease, pNum);
     }
 
-    public void RightBumper(bool pushRelease)
+    public void RightBumper(bool pushRelease, int pNum)
     {
-
+        myControllable.RightBumper(pushRelease, pNum);
     }
 }

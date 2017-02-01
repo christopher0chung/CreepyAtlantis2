@@ -79,7 +79,7 @@ namespace MoonSharp.Interpreter.Execution
 
 		private SymbolRef CreateUpValue(BuildTimeScope buildTimeScope, SymbolRef symb, int closuredFrame, int currentFrame)
 		{
-			// it's a 0-level upvalue. Just create it and we're done.
+			// it's a 0-level upvalue. Just create it and we're _done.
 			if (closuredFrame == currentFrame)
 				return m_ClosureBuilders[currentFrame + 1].CreateUpvalue(this, symb);
 

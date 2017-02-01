@@ -21,7 +21,7 @@ namespace Fungus
         bool UpdateExecuteRepeat { set; }
 
         /// <summary>
-        /// If the assertion is evaluated after a period of time, after how many seconds the first evaluation should be done
+        /// If the assertion is evaluated after a period of time, after how many seconds the first evaluation should be _done
         /// </summary>
         float TimeExecuteStartAfter { set; }
 

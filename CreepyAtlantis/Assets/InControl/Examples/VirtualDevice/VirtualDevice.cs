@@ -76,8 +76,8 @@
 			UpdateWithState( InputControlType.Action4, Input.GetKey( KeyCode.F ), updateTick, deltaTime );
 
 			// Commit the current state of all controls.
-			// This may only be done once per update tick. Updates submissions (like those above)
-			// can be done multiple times per tick (for example, to aggregate multiple sources) 
+			// This may only be _done once per update tick. Updates submissions (like those above)
+			// can be _done multiple times per tick (for example, to aggregate multiple sources) 
 			// but must be followed by a single commit to submit the final value to the control.
 			Commit( updateTick, deltaTime );
 		}

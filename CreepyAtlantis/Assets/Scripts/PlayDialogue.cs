@@ -164,5 +164,3 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 }
-
-public enum dialogueStates { speaking, spoken, cleanup, inactive };

@@ -42,12 +42,6 @@ public class DialogueManager : MonoBehaviour {
         GetMyEvents();
     }
 
-    void Update ()
-    {
-        //if (Input.GetKeyDown(KeyCode.I))
-        //    myEvents[0].TRIGGER = true;
-    }
-
     private void GetMyEvents()
     {
         for (int i = 0; i < transform.childCount; i++)

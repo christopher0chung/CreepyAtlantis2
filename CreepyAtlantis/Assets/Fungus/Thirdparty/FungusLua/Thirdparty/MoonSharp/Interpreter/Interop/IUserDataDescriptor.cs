@@ -19,7 +19,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// Performs an "index" "get" operation.
 		/// </summary>
 		/// <param name="script">The script originating the request</param>
-		/// <param name="obj">The object (null if a static request is done)</param>
+		/// <param name="obj">The object (null if a static request is _done)</param>
 		/// <param name="index">The index.</param>
 		/// <param name="isDirectIndexing">If set to true, it's indexed with a name, if false it's indexed through brackets.</param>
 		/// <returns></returns>
@@ -28,7 +28,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// Performs an "index" "set" operation.
 		/// </summary>
 		/// <param name="script">The script originating the request</param>
-		/// <param name="obj">The object (null if a static request is done)</param>
+		/// <param name="obj">The object (null if a static request is _done)</param>
 		/// <param name="index">The index.</param>
 		/// <param name="value">The value to be set</param>
 		/// <param name="isDirectIndexing">If set to true, it's indexed with a name, if false it's indexed through brackets.</param>
@@ -55,7 +55,7 @@ namespace MoonSharp.Interpreter.Interop
 		/// 
 		/// </summary>
 		/// <param name="script">The script originating the request</param>
-		/// <param name="obj">The object (null if a static request is done)</param>
+		/// <param name="obj">The object (null if a static request is _done)</param>
 		/// <param name="metaname">The name of the metamember.</param>
 		/// <returns></returns>
 		DynValue MetaIndex(Script script, object obj, string metaname);

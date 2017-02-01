@@ -7,23 +7,23 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     private int linesCounter;
 
-    private bool done;
-    private bool DONE
+    private bool _done;
+    private bool done
     {
         get
         {
-            return done;
+            return _done;
         }
         set
         {
-            if (value != done)
+            if (value != _done)
             {
                 if (value)
                 {
                     GameObject.Find("GameStateManager").GetComponent<GameStateManager>().EndDialogue(0);
                     GameObject.Find("GameStateManager").GetComponent<GameStateManager>().EndDialogue(1);
                 }
-                done = value;
+                _done = value;
             }
         }
     }
@@ -45,7 +45,7 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     public void StartLines()
     {
-        Debug.Log("Got to startLines");
+        //Debug.Log("Got to startLines");
         myLines[linesCounter].StateChoices(dialogueStates.speaking);
 
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
@@ -67,7 +67,7 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
         }
         else
         {
-            DONE = true;
+            done = true;
         }
     }
 }

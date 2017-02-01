@@ -414,7 +414,7 @@ namespace MoonSharp.Interpreter
 
 		/// <summary>
 		/// Creates a ScriptRuntimeException with a predefined error message specifying that
-		/// an attempt to index an invalid member of a userdata was done.
+		/// an attempt to index an invalid member of a userdata was _done.
 		/// </summary>
 		/// <param name="typename">The name of the userdata type.</param>
 		/// <param name="fieldname">The field name.</param>
@@ -428,7 +428,7 @@ namespace MoonSharp.Interpreter
 
 		/// <summary>
 		/// Creates a ScriptRuntimeException with a predefined error message specifying that
-		/// an attempt resume a coroutine in an invalid state was done.
+		/// an attempt resume a coroutine in an invalid state was _done.
 		/// </summary>
 		/// <param name="state">The state of the coroutine.</param>
 		/// <returns>

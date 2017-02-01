@@ -17,16 +17,16 @@ namespace MoonSharp.Interpreter
 		/// </summary>
 		Reflection,
 		/// <summary>
-		/// Optimization is done on the fly the first time a member is accessed.
+		/// Optimization is _done on the fly the first time a member is accessed.
 		/// This saves memory for all members that are never accessed, at the cost of an increased script execution time.
 		/// </summary>
 		LazyOptimized,
 		/// <summary>
-		/// Optimization is done at registration time.
+		/// Optimization is _done at registration time.
 		/// </summary>
 		Preoptimized,
 		/// <summary>
-		/// Optimization is done in a background thread which starts at registration time. 
+		/// Optimization is _done in a background thread which starts at registration time. 
 		/// If a member is accessed before optimization is completed, reflection is used.
 		/// </summary>
 		BackgroundOptimized,
@@ -35,7 +35,7 @@ namespace MoonSharp.Interpreter
 		/// </summary>
 		Hardwired,
 		/// <summary>
-		/// No optimization is done, and members are not accessible at all.
+		/// No optimization is _done, and members are not accessible at all.
 		/// </summary>
 		HideMembers,
 		/// <summary>
