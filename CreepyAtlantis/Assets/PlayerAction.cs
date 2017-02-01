@@ -14,11 +14,11 @@ public class PlayerAction : MonoBehaviour {
             Ray myRay = new Ray(transform.position + Vector3.up * 1, Vector3.up);
             RaycastHit[] allInRange = Physics.SphereCastAll(myRay, interactionRange, 0);
 
-            //Debug
-            foreach (RaycastHit aHit in allInRange)
-            {
-                Debug.Log(aHit.collider.gameObject.name);
-            }
+            ////Debug
+            //foreach (RaycastHit aHit in allInRange)
+            //{
+            //    Debug.Log(aHit.collider.gameObject.name);
+            //}
 
 
                 //highest priority is climbing into sub
