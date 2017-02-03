@@ -49,8 +49,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     private IDialogueEvent myEvent;
 
-    private IDialogueEvent eventChoice1;
-    private IDialogueEvent eventChoice2;
+    public GameObject eventChoice1;
+    public GameObject eventChoice2;
+
+    private DialogueManager myDM;
 
     void Awake()
     {
@@ -73,6 +75,8 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         outputChoice2 = GameObject.Find("Canvas").transform.Find("Choice 2").GetComponent<Text>();
         next = GetComponent<AudioSource>();
         //StateChoices(dialogueStates.speaking);
+        myDM = transform.root.gameObject.GetComponent<DialogueManager>();
+        
     }
 
     // Update is called once per frame
@@ -132,7 +136,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log(pNum);
         if (pNum == whoseChoice && pushRelease)
         {
-            GetComponent<DialogueManager>().myEvents[0].TRIGGER = true;
+            TriggerChoice(0);
             StateChoices(dialogueStates.cleanup);
         }
     }
@@ -142,7 +146,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log(pNum);
         if (pNum == whoseChoice && pushRelease)
         {
-            GetComponent<DialogueManager>().myEvents[1].TRIGGER = true;
+            TriggerChoice(1);
             StateChoices(dialogueStates.cleanup);
         }
     }
@@ -155,6 +159,38 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
                 myAdapters[player].enabled = true;
             else
                 myAdapters[player].enabled = false;
+        }
+    }
+
+    private void TriggerChoice(int choiceNum)
+    {
+        if (choiceNum == 0)
+        {
+            StartCoroutine(TriggerChoice1Coroutine());
+        }
+        else if (choiceNum == 1)
+        {
+            StartCoroutine(TriggerChoice1Coroutine());
+        }
+    }
+
+    private IEnumerator TriggerChoice1Coroutine()
+    {
+        yield return new WaitForSeconds(.4f);
+        for (int i = 0; i < myDM.myEventsNames.Count; i++)
+        {
+            if (myDM.myEventsNames[i] == eventChoice1.name)
+                myDM.myEvents[i].TRIGGER = true;
+        }
+    }
+
+    private IEnumerator TriggerChoice2Coroutine()
+    {
+        yield return new WaitForSeconds(.4f);
+        for (int i = 0; i < myDM.myEventsNames.Count; i++)
+        {
+            if (myDM.myEventsNames[i] == eventChoice2.name)
+                myDM.myEvents[i].TRIGGER = true;
         }
     }
 }

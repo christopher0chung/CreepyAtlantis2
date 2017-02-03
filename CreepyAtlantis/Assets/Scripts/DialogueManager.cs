@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour {
                 {
                     Trigger = value;
                     Script.StartLines();
+                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
+                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
                 }
             }
         }
@@ -46,7 +48,7 @@ public class DialogueManager : MonoBehaviour {
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            myEventsNames.Add("Event #: " + i + " - " + (transform.GetChild(i).gameObject.name));
+            myEventsNames.Add((transform.GetChild(i).gameObject.name));
             myEvents.Add(new DialogueEventClass(this.gameObject, transform.GetChild(i).GetComponent<IDialogueEvent>(), i));
             //Debug.Log(myEvents[i].DEventName);
         }

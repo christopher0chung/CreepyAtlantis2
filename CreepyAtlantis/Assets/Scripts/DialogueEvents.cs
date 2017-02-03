@@ -28,6 +28,8 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
         }
     }
 
+    public int lineCount;
+
 	// Use this for initialization
 	void Start () {
         GetMyLines();
@@ -41,6 +43,8 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
             myLines[i] = transform.GetChild(i).GetComponent<IDialogue>();
             //myLines[i].DebugPrint();
         }
+
+        lineCount = transform.childCount;
     }
 
     public void StartLines()
