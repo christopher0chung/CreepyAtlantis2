@@ -136,6 +136,26 @@ Prefab:
       propertyPath: cameraPos
       value: 
       objectReference: {fileID: 1428287694}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: maxBoostTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: thrustForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: onGroundScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: walkForce
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
   m_IsPrefabParent: 0
@@ -241,7 +261,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.100531
+    e00: 2.0999005
     e01: 0
     e02: 0
     e03: 0
@@ -258,7 +278,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.029327
   LastMatrixVP:
-    e00: 2.100531
+    e00: 2.0999005
     e01: 0
     e02: 0
     e03: 0
@@ -3997,6 +4017,26 @@ Prefab:
     - target: {fileID: 1908101462606784, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
       propertyPath: m_TagString
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: maxBoostTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: thrustForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: onGroundScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: walkForce
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
