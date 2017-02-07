@@ -136,26 +136,6 @@ Prefab:
       propertyPath: cameraPos
       value: 
       objectReference: {fileID: 1428287694}
-    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
-        type: 2}
-      propertyPath: maxBoostTime
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
-        type: 2}
-      propertyPath: thrustForce
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
-        type: 2}
-      propertyPath: onGroundScale
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
-        type: 2}
-      propertyPath: walkForce
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
   m_IsPrefabParent: 0
