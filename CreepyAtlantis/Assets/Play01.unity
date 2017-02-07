@@ -92,7 +92,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &320394124
+--- !u!1001 &76901032
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -143,7 +143,7 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4207502803408414, guid: ee0ad94bc13b7aa4a9710032192c05f7,
     type: 2}
-  m_PrefabInternal: {fileID: 320394124}
+  m_PrefabInternal: {fileID: 76901032}
 --- !u!1 &384930767
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 384930770}
   - component: {fileID: 384930769}
   - component: {fileID: 384930774}
+  - component: {fileID: 384930775}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -416,6 +417,23 @@ MonoBehaviour:
   heightDensity: 0.001
   startDistance: 0
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
+--- !u!114 &384930775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384930767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.25
+  intensity: 0.75
+  blurSize: 1
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &444497953
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +592,35 @@ Prefab:
       propertyPath: speed
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012754793508, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000012014433030, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: ExtraDensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: Offset.x
+      value: 3611.9556
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: Offset.y
+      value: 3611.9556
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011177905146, guid: a31aee167ee63fa429b08b6b1d3405d0,
+        type: 2}
+      propertyPath: Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
   m_IsPrefabParent: 0
@@ -668,7 +715,7 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 1908101462606784, guid: ee0ad94bc13b7aa4a9710032192c05f7,
     type: 2}
-  m_PrefabInternal: {fileID: 320394124}
+  m_PrefabInternal: {fileID: 76901032}
 --- !u!1 &1434587640
 GameObject:
   m_ObjectHideFlags: 0

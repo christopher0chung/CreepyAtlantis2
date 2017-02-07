@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour{
             SetDir(facingDirection.left);
         }
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(myCharRot), 15);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(myCharRot), 5);
         if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
         {
             nowBoosting = true;

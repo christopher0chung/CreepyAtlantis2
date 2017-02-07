@@ -12,9 +12,9 @@ public class PlayerLightAngle : MonoBehaviour {
 
 	void Update () {
 
-        transform.position = transform.root.position + Vector3.up * 1.373f;
+        //transform.position = transform.root.position + Vector3.up * 1.373f;
         lightAngle = Mathf.Clamp (lightAngle, -60, 60);
-        transform.localRotation = Quaternion.Euler(lightAngle, 0, 0);
+        transform.localRotation = Quaternion.Euler(lightAngle, 180, 0);
 
 
     }
