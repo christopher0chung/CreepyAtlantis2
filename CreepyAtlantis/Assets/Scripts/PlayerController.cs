@@ -49,8 +49,19 @@ public class PlayerController : MonoBehaviour, IControllable {
     }
 
     public void RightStick(float upDown, float leftRight, int pNum) {
-        if (Mathf.Abs(leftRight) >.25f || Mathf.Abs(upDown) >.25f)
-            myLA.LookAngleCalc(leftRight, upDown);
+        if (myMovement.myDir == facingDirection.left)
+        {
+            if (leftRight < -.25f || Mathf.Abs(upDown) > .25f)
+                myLA.LookAngleCalc(-leftRight, upDown);
+        }
+
+        else if (myMovement.myDir == facingDirection.right)
+        {
+            if (leftRight > .25f || Mathf.Abs(upDown) > .25f)
+                myLA.LookAngleCalc(leftRight, upDown);
+        }
+
+
     }
 
     public void AButton(bool pushRelease, int pNum) {

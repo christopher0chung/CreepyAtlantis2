@@ -6,7 +6,7 @@ public class AnimationControl : MonoBehaviour {
 
     private  Animator myRAC;
 
-    private animStates _currentState;
+    public animStates _currentState;
     public animStates currentState
     {
         get
@@ -17,7 +17,10 @@ public class AnimationControl : MonoBehaviour {
         {
             if (value != _currentState)
             {
-                _currentState = currentState;
+                _currentState = value;
+
+                Debug.Log(_currentState);
+
                 if (value == animStates.float_idle)
                 {
                     myRAC.SetBool("Idle", true);
@@ -118,7 +121,6 @@ public class AnimationControl : MonoBehaviour {
         }
 
         setAnimState(grounded, idle, movingRight);
-
 	}
 }
 

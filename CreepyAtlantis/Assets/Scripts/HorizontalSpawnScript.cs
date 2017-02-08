@@ -13,7 +13,7 @@ public class HorizontalSpawnScript : MonoBehaviour {
 
         for (int i = leftMax; i < RightMax; i++)
         {
-            GameObject thisRock = (GameObject) Instantiate(ground1, new Vector3(i * 5, Random.Range (-2, 2), 0), Quaternion.Euler(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)), transform);
+            GameObject thisRock = (GameObject) Instantiate(ground1, new Vector3(i * 15, Random.Range (-2, 2), 0), Quaternion.Euler(Random.Range(-15, 15), Random.Range(85, 95), Random.Range(-15, 15)), transform);
             thisRock.transform.localScale = Vector3.one * 150;
         }
 

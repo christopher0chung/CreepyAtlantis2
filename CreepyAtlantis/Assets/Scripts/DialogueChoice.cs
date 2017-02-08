@@ -10,8 +10,8 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public string Choice1;
     public string Choice2;
 
-    public Text outputChoice1;
-    public Text outputChoice2;
+    private Text outputChoice1;
+    private Text outputChoice2;
 
     public delegate void stateManager();
     public stateManager currentState;
@@ -71,8 +71,16 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     void Start()
     {
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
-        outputChoice1 = GameObject.Find("Canvas").transform.Find("Choice 1").GetComponent<Text>();
-        outputChoice2 = GameObject.Find("Canvas").transform.Find("Choice 2").GetComponent<Text>();
+        if (whoseChoice == 0)
+        {
+            outputChoice1 = GameObject.Find("Canvas").transform.Find("C1 Choice 1").GetComponent<Text>();
+            outputChoice2 = GameObject.Find("Canvas").transform.Find("C1 Choice 2").GetComponent<Text>();
+        }
+        else
+        {
+            outputChoice1 = GameObject.Find("Canvas").transform.Find("C2 Choice 1").GetComponent<Text>();
+            outputChoice2 = GameObject.Find("Canvas").transform.Find("C2 Choice 2").GetComponent<Text>();
+        }
         next = GetComponent<AudioSource>();
         //StateChoices(dialogueStates.speaking);
         myDM = transform.root.gameObject.GetComponent<DialogueManager>();

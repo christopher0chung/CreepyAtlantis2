@@ -2611,6 +2611,7 @@ GameObject:
   - component: {fileID: 1994886694}
   - component: {fileID: 1994886693}
   - component: {fileID: 1994886692}
+  - component: {fileID: 1994886698}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2713,10 +2714,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.0283847
+    e00: 2.0283482
     e01: 0
-    e02: -0.5435039
-    e03: 6.957359
+    e02: -0.5434941
+    e03: 6.957234
     e10: 0
     e11: -3.7320507
     e12: 0
@@ -2730,10 +2731,10 @@ MonoBehaviour:
     e32: 0.9659259
     e33: 20.88775
   LastMatrixVP:
-    e00: 2.0283847
+    e00: 2.0283482
     e01: 0
-    e02: -0.5435039
-    e03: 6.957359
+    e02: -0.5434941
+    e03: 6.957234
     e10: 0
     e11: 3.7320507
     e12: 0
@@ -2869,6 +2870,23 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1994886698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994886690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.2
+  intensity: 1.25
+  blurSize: 1.68
+  blurIterations: 2
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &1999364550
 GameObject:
   m_ObjectHideFlags: 0

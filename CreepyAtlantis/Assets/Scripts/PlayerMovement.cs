@@ -119,13 +119,14 @@ public class PlayerMovement : MonoBehaviour{
         if (leftRight > .2f)
         {
             SetDir(facingDirection.right);
+            myAC.SetIdle(false);
         }
         else if (leftRight < -.2f)
         {
             SetDir(facingDirection.left);
+            myAC.SetIdle(false);
         }
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(myCharRot), 15);
         if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
         {
             nowBoosting = true;
@@ -178,6 +179,7 @@ public class PlayerMovement : MonoBehaviour{
     public void FixedUpdate ()
     {
         DetectGround();
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(myCharRot), .09f);
 
         //myRB.AddForce(leftRightForce + upForce);
         myRB.AddForce(baseForce + boostForce);
