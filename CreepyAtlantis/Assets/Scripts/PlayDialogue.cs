@@ -49,6 +49,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private int charCounter;
     private int incCounter;
 
+    private LinkToDialogueEvent myLink;
+
     void Awake ()
     {
         gameObject.AddComponent<ControllerAdapter>();
@@ -61,6 +63,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         GameStateManager.onEndDialogue += SetControllerAdapter;
 
         myOT = GameObject.Find("GameStateManager").GetComponent<ObjectivesTracker>();
+
+        myLink = GetComponent<LinkToDialogueEvent>();
     }
 
     void Start () {
@@ -121,6 +125,10 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         next.Play();
         StateChoices(dialogueStates.inactive);
         myOT.ObjectivesUpdate(gameObject.name);
+        if (myLink != null)
+        {
+            myLink.Link();
+        }
     }
 
     private void Inactive()
