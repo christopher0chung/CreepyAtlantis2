@@ -6,21 +6,15 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AirBarMat 1
-  m_Shader: {fileID: 4800000, guid: 728c0e664f8bc78468d36dcb0c49f8d5, type: 3}
-  m_ShaderKeywords: _AXIS_Z _CLAMPVERT_ON _EMISSION
+  m_Name: FishMat
+  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-    - first:
-        name: _AlphaTex
-      second:
-        m_Texture: {fileID: 2800000, guid: d10ebe57a5a1bfd48a79bca2442ca536, type: 3}
-        m_Scale: {x: 0.8, y: 0.8}
-        m_Offset: {x: -4.9399996, y: 8.396001}
     - first:
         name: _BumpMap
       second:
@@ -77,22 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: PixelSnap
-      second: 0
-    - first:
-        name: _Axis
+        name: _Bands
       second: 2
     - first:
         name: _BumpScale
-      second: 1
-    - first:
-        name: _ClampBorder
-      second: 0.01
-    - first:
-        name: _ClampHoriz
-      second: 0
-    - first:
-        name: _ClampVert
       second: 1
     - first:
         name: _Cutoff
@@ -104,6 +86,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _Gloss
+      second: 0.4682218
+    - first:
         name: _GlossMapScale
       second: 1
     - first:
@@ -112,12 +97,6 @@ Material:
     - first:
         name: _GlossyReflections
       second: 1
-    - first:
-        name: _IsThisText
-      second: 0
-    - first:
-        name: _MaskRotation
-      second: 3.1415927
     - first:
         name: _Metallic
       second: 0
@@ -143,15 +122,18 @@ Material:
         name: _UVSec
       second: 0
     - first:
-        name: _UseAlphaChannel
-      second: 0
-    - first:
         name: _ZWrite
       second: 1
     m_Colors:
+    - first:
+        name: DiffuseColor
+      second: {r: 0.30644464, g: 0.38235295, b: 0.3697888, a: 1}
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _FogColor
+      second: {r: 0, g: 0.075, b: 0.062323935, a: 1}

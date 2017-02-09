@@ -68,7 +68,7 @@ public class SoftNormalsToVertexColor : MonoBehaviour {
 			foreach( int i in group ) { // TODO: This can actually be improved. Averaging will not give the best outline.
 				avgNrm += n[i];
 			}
-			avgNrm.Normalize(); // Average normal _done
+			avgNrm.Normalize(); // Average normal done
 			if( method == Method.AngularDeviation ) {
 				float avgDot = 0f; // Calculate deviation to alter length
 				foreach( int i in group ) {
