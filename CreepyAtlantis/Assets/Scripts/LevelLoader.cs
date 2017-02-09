@@ -69,4 +69,12 @@ public class LevelLoader : MonoBehaviour {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
     }
+
+    private void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadLevel(2);
+        }
+    }
 }
