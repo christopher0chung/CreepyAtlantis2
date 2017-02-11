@@ -51,9 +51,12 @@ public class KelpDepotSpawn : MonoBehaviour, ISpawnableUsingDepot {
             {
                 GameObject mySpawn = GetFromDepot(myDepotObject);
 
-                mySpawn.transform.parent = transform;
                 mySpawn.transform.localPosition = new Vector3(Random.Range(xMinRelative, xMaxRelative), 0, Random.Range(zMinRelative, zMaxRelative));
-                mySpawn.transform.rotation = Quaternion.Euler(0, -180, 90);
+                //mySpawn.transform.rotation = Quaternion.Euler(0, -180, 90);
+                mySpawn.transform.rotation = Quaternion.Euler(0, Random.Range(-180, 180), 0);
+                int scalar = Random.Range(0, 5);
+                transform.localScale = Vector3.one * (1 + scalar / 10);
+                mySpawn.transform.parent = transform;
 
                 mySpawns.Add(mySpawn);
             }

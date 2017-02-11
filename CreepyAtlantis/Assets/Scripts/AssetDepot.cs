@@ -14,6 +14,11 @@ public class AssetDepot : MonoBehaviour {
     private Queue<GameObject> bullKelpDepot = new Queue<GameObject>();
     private Queue<GameObject> jellyFishDepot = new Queue<GameObject>();
 
+    private Queue<GameObject> stalkType1 = new Queue<GameObject>();
+    private Queue<GameObject> stalkType2 = new Queue<GameObject>();
+    private Queue<GameObject> headType1 = new Queue<GameObject>();
+    private Queue<GameObject> headType2 = new Queue<GameObject>();
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -26,11 +31,19 @@ public class AssetDepot : MonoBehaviour {
         depot.Add(DepotObjects.drill, drillDepot);
         depot.Add(DepotObjects.bullKelp, bullKelpDepot);
         depot.Add(DepotObjects.jellyFish, jellyFishDepot);
+        depot.Add(DepotObjects.stalkType1, stalkType1);
+        depot.Add(DepotObjects.stalkType2, stalkType2);
+        depot.Add(DepotObjects.headType1, headType1);
+        depot.Add(DepotObjects.headType2, headType2);
 
         prefabDict.Add(DepotObjects.light, "basicLightPrefab");
         prefabDict.Add(DepotObjects.drill, "drillPrefab");
         prefabDict.Add(DepotObjects.bullKelp, "bullKelpPrefab2");
         prefabDict.Add(DepotObjects.jellyFish, "jellyFishPrefab");
+        prefabDict.Add(DepotObjects.stalkType1, "stalkType1");
+        prefabDict.Add(DepotObjects.stalkType2, "stalkType2");
+        prefabDict.Add(DepotObjects.headType1, "headType1");
+        prefabDict.Add(DepotObjects.headType2, "headType2");
     }
 
     public GameObject DepotRequest (DepotObjects desiredObject)
@@ -69,4 +82,4 @@ public class AssetDepot : MonoBehaviour {
     }
 }
 
-public enum DepotObjects { light, drill, bullKelp, jellyFish }
+public enum DepotObjects { light, drill, bullKelp, jellyFish, stalkType1, stalkType2, headType1, headType2 }
