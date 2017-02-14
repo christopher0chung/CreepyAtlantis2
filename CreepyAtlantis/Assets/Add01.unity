@@ -1295,9 +1295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDepot: {fileID: 0}
   myDepotObject: 5
-  howMany: 750
-  xMinRelative: -100
-  xMaxRelative: 100
+  howMany: 300
+  xMinRelative: -50
+  xMaxRelative: 50
   zMinRelative: 0
   zMaxRelative: 50
 --- !u!114 &307623763
@@ -1313,9 +1313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDepot: {fileID: 0}
   myDepotObject: 4
-  howMany: 750
-  xMinRelative: -100
-  xMaxRelative: 100
+  howMany: 300
+  xMinRelative: -50
+  xMaxRelative: 50
   zMinRelative: 0
   zMaxRelative: 50
 --- !u!1 &339810967
@@ -1861,6 +1861,10 @@ Prefab:
     - target: {fileID: 4875470071576952, guid: a41dcffee9bc24d4490c46dc176ceab4, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403234654364896, guid: a41dcffee9bc24d4490c46dc176ceab4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a41dcffee9bc24d4490c46dc176ceab4, type: 2}
@@ -5921,6 +5925,10 @@ Prefab:
     - target: {fileID: 4272952426780544, guid: 58fe0f53c8cad754fac42dba563109f4, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216058192611772, guid: 58fe0f53c8cad754fac42dba563109f4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58fe0f53c8cad754fac42dba563109f4, type: 2}

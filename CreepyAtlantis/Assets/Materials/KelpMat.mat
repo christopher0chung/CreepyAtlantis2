@@ -119,6 +119,9 @@ Material:
         name: _DstBlend
       second: 10
     - first:
+        name: _FogDistSlider
+      second: 100
+    - first:
         name: _Gloss
       second: 0
     - first:
@@ -178,7 +181,7 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 0.1483266, g: 0.33088237, b: 0, a: 1}
+      second: {r: 0.14901961, g: 0.32941177, b: 0, a: 1}
     - first:
         name: _Color
       second: {r: 0, g: 0, b: 0, a: 1}
