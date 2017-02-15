@@ -195,7 +195,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.09969
+    e00: 2.0979607
     e01: 0
     e02: 0
     e03: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.09969
+    e00: 2.0979607
     e01: 0
     e02: 0
     e03: 0
@@ -4132,6 +4132,22 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021064288854636, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021064288854636, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021064288854636, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.976296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021064288854636, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.21643962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}

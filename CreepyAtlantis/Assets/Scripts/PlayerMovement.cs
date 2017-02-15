@@ -141,11 +141,11 @@ public class PlayerMovement : MonoBehaviour{
             {
                 if (leftRight > 0)
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * .1f);
+                    myRB.MovePosition(transform.position + Vector3.right * .05f * 60 * Time.deltaTime);
                 }
                 else
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * -.1f);
+                    myRB.MovePosition(transform.position + Vector3.right * -.05f * 60 * Time.deltaTime);
                 }
             }
         }
