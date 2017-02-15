@@ -31,6 +31,9 @@ public class FishToSchool : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, school.position + (school.right * offsetX) + (school.up * offsetY) + (school.forward * offsetZ), fishSpeed);
 
         dir = Vector3.Normalize(transform.position - lastPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir, Vector3.up), .09f);
+        if (dir != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir, Vector3.up), .09f);
+        }
 	}
 }

@@ -19,8 +19,8 @@ Material:
         name: _AlphaTex
       second:
         m_Texture: {fileID: 2800000, guid: d10ebe57a5a1bfd48a79bca2442ca536, type: 3}
-        m_Scale: {x: 0.7999998, y: 0.7999998}
-        m_Offset: {x: 2.7483742, y: 13.938446}
+        m_Scale: {x: 0.80000013, y: 0.80000013}
+        m_Offset: {x: 0.57277226, y: 10.088283}
     - first:
         name: _BumpMap
       second:
@@ -117,7 +117,7 @@ Material:
       second: 0
     - first:
         name: _MaskRotation
-      second: 3.4208453
+      second: 3.7524579
     - first:
         name: _Metallic
       second: 0

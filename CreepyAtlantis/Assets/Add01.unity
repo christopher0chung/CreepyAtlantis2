@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDepot: {fileID: 0}
   myDepotObject: 5
-  howMany: 300
+  howMany: 100
   xMinRelative: -50
   xMaxRelative: 50
   zMinRelative: 2.5
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDepot: {fileID: 0}
   myDepotObject: 4
-  howMany: 300
+  howMany: 100
   xMinRelative: -50
   xMaxRelative: 50
   zMinRelative: 2.5
@@ -3843,7 +3843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1403234654364896, guid: a41dcffee9bc24d4490c46dc176ceab4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a41dcffee9bc24d4490c46dc176ceab4, type: 2}
@@ -12897,7 +12897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1743806671990346, guid: 8d5c72d091f36274ba344590347be924, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d5c72d091f36274ba344590347be924, type: 2}
