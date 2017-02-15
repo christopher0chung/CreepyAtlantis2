@@ -8,7 +8,7 @@ public class PlayerAction : MonoBehaviour {
 
     public void TryToInteract(int playerNum, bool pushRelease)
     {
-        Debug.Log("Trying to interact with stuff in range");
+        //Debug.Log("Trying to interact with stuff in range");
         if (pushRelease)
         {
             Ray myRay = new Ray(transform.position + Vector3.up * 1, Vector3.up);

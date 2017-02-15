@@ -19,7 +19,7 @@ public class AnimationControl : MonoBehaviour {
             {
                 _currentState = value;
 
-                Debug.Log(_currentState);
+                //Debug.Log(_currentState);
 
                 if (value == animStates.float_idle)
                 {

@@ -33,19 +33,8 @@ public class PlayerController : MonoBehaviour, IControllable {
     }
 
     public void LeftStick(float upDown, float leftRight, int pNum) {
-        //if (leftRight > 0.25f)
-        //    myMovement.MoveRight();
-        //else if (leftRight < -0.25f)
-        //    myMovement.MoveLeft();
-        //else
-        //    myMovement.MoveNeutral();
 
-        //if (upDown > 0.25)
-        //    myMovement.Boost(true);
-        //else
-        //    myMovement.Boost(false);
-
-        myMovement.AltMovement(upDown, leftRight);
+         myMovement.Movement(upDown, leftRight);
     }
 
     public void RightStick(float upDown, float leftRight, int pNum) {

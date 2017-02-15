@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour{
 
     public float thrustForce;
     public float walkForce;
+    private bool grounded;
     public float onGroundScale;
     public float notOnGroundScale;
 
@@ -24,9 +25,6 @@ public class PlayerMovement : MonoBehaviour{
 
     private float scale;
     private BoostPSScript PSBoost;
-
-    private Vector3 leftRightForce;
-    private Vector3 upForce;
 
     public float sCCastDist;
     public float sCCastRad;
@@ -79,6 +77,9 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
+    private Ray stepRay;
+    public RaycastHit[] stepRayHit;
+
 	// Use this for initialization
 	void Start () {
         myRB = GetComponent<Rigidbody>();
@@ -92,30 +93,10 @@ public class PlayerMovement : MonoBehaviour{
         myAir.Consume(breathingRate * Time.deltaTime);
     }
 
-    //public void MoveRight()
-    //{
-    //    if (transform.position.x < cameraPos.position.x + 20.5f)
-    //    {
-    //        leftRightForce = Vector3.right * walkForce * scale;
-    //        myAir.Consume(walkingRate * Time.deltaTime);
-    //        myAC.SetIdle(false);
-    //        myAC.SetRight(true);
-    //    }
-    //}
-
-    //public void MoveLeft()
-    //{
-    //    if (transform.position.x > cameraPos.position.x - 20.5f)
-    //    {
-    //        leftRightForce = Vector3.right * -walkForce * scale;
-    //        myAir.Consume(walkingRate * Time.deltaTime);
-    //        myAC.SetIdle(false);
-    //        myAC.SetRight(false);
-    //    }
-    //}
-
-    public void AltMovement (float upDown, float leftRight)
+    public void Movement (float upDown, float leftRight)
     {
+        
+        // Handles facing direction and animation
         if (leftRight > .2f)
         {
             SetDir(facingDirection.right);
@@ -127,61 +108,80 @@ public class PlayerMovement : MonoBehaviour{
             myAC.SetIdle(false);
         }
 
-        if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
+
+        if (!grounded)
         {
-            nowBoosting = true;
+            // Starts boosting 
+            if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
+            {
+                nowBoosting = true;
+            }
+            else
+            {
+                nowBoosting = false;
+            }
+
+            // Scales boosting based on time since boost
+            boostTimer += Time.deltaTime;
+            if (boostTimer <= maxBoostTime)
+            {
+                float justUp = Mathf.Clamp(upDown, 0, 1);
+                boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
+                myAir.Consume(thrustRate * Time.deltaTime);
+                PSBoost.onOff = true;
+            }
+            else
+            {
+                boostForce = Vector3.zero;
+                PSBoost.onOff = false;
+            }
+
+            // Calculates the baseForce
+            baseForce = new Vector3(leftRight, upDown, 0) * walkForce;
         }
-        else
+
+        else if (grounded && Mathf.Abs(Mathf.Sqrt(leftRight * leftRight + upDown * upDown)) > .2f)
         {
-            nowBoosting = false;
+            if (upDown > .5f)
+            {
+                grounded = false;
+            }
+
+            Vector3 stepDir;
+            if (myDir == facingDirection.right && leftRight > .2f)
+            {
+                stepDir = Vector3.right * .02f;
+            }
+            else if (myDir == facingDirection.left && leftRight < -.2f)
+            {
+                stepDir = Vector3.right * -.02f;
+            }
+            else
+            {
+                stepDir = Vector3.zero;
+            }
+
+            stepRay = new Ray(transform.position + stepDir + transform.up * .5f, Vector3.down);
+            stepRayHit = Physics.RaycastAll(stepRay, .52f);
+            foreach (RaycastHit myRCH in stepRayHit)
+            {
+                if (myRCH.collider.gameObject.tag == "Walkable")
+                {
+                    Debug.Log(myRCH.point);
+
+                    myRB.MovePosition(myRCH.point);
+                    return;
+                }
+            }
         }
-        boostTimer += Time.deltaTime;
-        if (boostTimer <= maxBoostTime)
-        {
-            float justUp = Mathf.Clamp(upDown, 0, 1);
-            boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
-            myAir.Consume(thrustRate * Time.deltaTime);
-            PSBoost.onOff = true;
-        }
-        else
-        {
-            boostForce = Vector3.zero;
-            PSBoost.onOff = false;
-        }
-        baseForce = new Vector3(leftRight, upDown, 0) * walkForce;
 
     }
-
-    //public void MoveNeutral()
-    //{
-    //    leftRightForce = Vector3.zero;
-    //}
-
-    //public void Boost(bool trueFalse)
-    //{
-    //    nowBoosting = trueFalse;
-
-    //    if (trueFalse && boostTimer <= maxBoostTime)
-    //    {
-    //        boostTimer += Time.deltaTime;
-
-    //        upForce = Vector3.up * thrustForce * (1 - (boostTimer / maxBoostTime));
-    //        myAir.Consume(thrustRate * Time.deltaTime);
-    //        PSBoost.onOff = true;
-    //    }
-    //    else
-    //    {
-    //        upForce = Vector3.zero;
-    //        PSBoost.onOff = false;
-    //    }
-    //}
 
     public void FixedUpdate ()
     {
         DetectGround();
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(myCharRot), .09f);
 
-        //myRB.AddForce(leftRightForce + upForce);
         myRB.AddForce(baseForce + boostForce);
     }
 
@@ -198,10 +198,11 @@ public class PlayerMovement : MonoBehaviour{
             {
                 scale = onGroundScale;
                 myAC.SetGrounded(true);
+                grounded = true;
                 return;
             }
         }
-
+        grounded = false;
         scale = notOnGroundScale;
         myAC.SetGrounded(false);
     }
