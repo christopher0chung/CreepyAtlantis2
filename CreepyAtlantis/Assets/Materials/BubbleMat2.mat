@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BubbleMat
-  m_Shader: {fileID: 4800000, guid: c8e36afeaaa58984c9529b9a843d877b, type: 3}
+  m_Name: BubbleMat2
+  m_Shader: {fileID: 4800000, guid: 819b311395dab3f48a5e84db89c01dad, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -127,6 +127,9 @@ Material:
     - first:
         name: _ZWrite
       second: 1
+    - first:
+        name: _node_7185
+      second: 0.02564103
     m_Colors:
     - first:
         name: _Color
@@ -134,3 +137,6 @@ Material:
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _node_7264
+      second: {r: 0.1124568, g: 0.145627, b: 0.1470588, a: 0.25}
