@@ -24,27 +24,39 @@ public class ControllerAdapter : MonoBehaviour {
         {
             if (charNum == 0)
             {
-                GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
-                foreach (GameObject myController in myP0s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
-                }
+                GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
+                //GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
+                //foreach (GameObject myController in myP0s)
+                //{
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
+                //}
             }
             else if (charNum == 1)
             {
-                GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
-                foreach (GameObject myController in myP1s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
-                }
+                GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
+                //GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
+                //foreach (GameObject myController in myP1s)
+                //{
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick += LeftStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick += RightStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton += AButton;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper += RightBumper;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper += LeftBumper;
+                //}
             }
         }
         else
@@ -58,27 +70,39 @@ public class ControllerAdapter : MonoBehaviour {
         {
             if (charNum == 0)
             {
-                GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
-                foreach (GameObject myController in myP0s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
-                }
+                GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                p0.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
+                //GameObject[] myP0s = GameObject.FindGameObjectsWithTag("Player0");
+                //foreach (GameObject myController in myP0s)
+                //{
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
+                //}
             }
             else if (charNum == 1)
             {
-                GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
-                foreach (GameObject myController in myP1s)
-                {
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
-                    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
-                }
+                GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                p1.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
+                //GameObject[] myP1s = GameObject.FindGameObjectsWithTag("Player1");
+                //foreach (GameObject myController in myP1s)
+                //{
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLeftStick -= LeftStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRightStick -= RightStick;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitAButton -= AButton;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitRBumper -= RightBumper;
+                //    myController.GetComponent<MultiplayerWithBindingsExample.Player>().onXmitLBumper -= LeftBumper;
+                //}
             }
         }
         else

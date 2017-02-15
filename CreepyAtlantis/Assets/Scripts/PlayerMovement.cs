@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     private Ray stepRay;
-    public RaycastHit[] stepRayHit;
+    public RaycastHit stepRayHit;
 
 	// Use this for initialization
 	void Start () {
@@ -120,61 +120,50 @@ public class PlayerMovement : MonoBehaviour{
             {
                 nowBoosting = false;
             }
-
-            // Scales boosting based on time since boost
-            boostTimer += Time.deltaTime;
-            if (boostTimer <= maxBoostTime)
-            {
-                float justUp = Mathf.Clamp(upDown, 0, 1);
-                boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
-                myAir.Consume(thrustRate * Time.deltaTime);
-                PSBoost.onOff = true;
-            }
-            else
-            {
-                boostForce = Vector3.zero;
-                PSBoost.onOff = false;
-            }
-
             // Calculates the baseForce
             baseForce = new Vector3(leftRight, upDown, 0) * walkForce;
         }
 
-        else if (grounded && Mathf.Abs(Mathf.Sqrt(leftRight * leftRight + upDown * upDown)) > .2f)
+        else if (grounded)
         {
-            if (upDown > .5f)
+            if (upDown > .5f && Mathf.Abs(leftRight) < .2f)
             {
-                grounded = false;
-            }
-
-            Vector3 stepDir;
-            if (myDir == facingDirection.right && leftRight > .2f)
-            {
-                stepDir = Vector3.right * .02f;
-            }
-            else if (myDir == facingDirection.left && leftRight < -.2f)
-            {
-                stepDir = Vector3.right * -.02f;
+                nowBoosting = true;
             }
             else
             {
-                stepDir = Vector3.zero;
+                nowBoosting = false;
             }
 
-            stepRay = new Ray(transform.position + stepDir + transform.up * .5f, Vector3.down);
-            stepRayHit = Physics.RaycastAll(stepRay, .52f);
-            foreach (RaycastHit myRCH in stepRayHit)
-            {
-                if (myRCH.collider.gameObject.tag == "Walkable")
-                {
-                    Debug.Log(myRCH.point);
+            baseForce = Vector3.up * upDown;
 
-                    myRB.MovePosition(myRCH.point);
-                    return;
+            if (Mathf.Abs(leftRight) > .3f)
+            {
+                if (leftRight > 0)
+                {
+                    myRB.MovePosition(transform.position + Vector3.right * .1f);
+                }
+                else
+                {
+                    myRB.MovePosition(transform.position + Vector3.right * -.1f);
                 }
             }
         }
 
+        // Scales boosting based on time since boost
+        boostTimer += Time.deltaTime;
+        if (boostTimer <= maxBoostTime)
+        {
+            float justUp = Mathf.Clamp(upDown, 0, 1);
+            boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
+            myAir.Consume(thrustRate * Time.deltaTime);
+            PSBoost.onOff = true;
+        }
+        else
+        {
+            boostForce = Vector3.zero;
+            PSBoost.onOff = false;
+        }
     }
 
     public void FixedUpdate ()
