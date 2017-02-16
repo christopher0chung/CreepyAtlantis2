@@ -11,6 +11,7 @@ public class SubControlScript : MonoBehaviour {
 
     private Transform myLight;
     public float angRate;
+    public float appliedAngRate;
     //private Vector3 currentAng = new Vector3 (0, 0, -45);
 
     public GameObject p1;
@@ -20,8 +21,7 @@ public class SubControlScript : MonoBehaviour {
 
     public float desiredAngle;
 
-    private bool freeze0;
-    private bool freeze1;
+    private bool freeze;
 
     public float leftMax;
     public float rightMax;
@@ -30,6 +30,7 @@ public class SubControlScript : MonoBehaviour {
     {
         subPos = transform.position;
         myLight = transform.Find("LightArray");
+        appliedAngRate = 0;
     }
 
     void FixedUpdate ()
@@ -69,7 +70,7 @@ public class SubControlScript : MonoBehaviour {
 
         transform.position = Vector3.Lerp(transform.position, subPos, rate);
 
-        if (!freeze0 || !freeze1)
+        if (!freeze)
         {
             lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
             myLight.localEulerAngles = new Vector3(0, 0, lightAng);
@@ -90,22 +91,15 @@ public class SubControlScript : MonoBehaviour {
 
     public void rotateUpDown(float upDown, float leftRight, int pNum)
     {
-        Debug.Log("in RotateUpDown");
         if(Mathf.Abs(leftRight) > .25f || Mathf.Abs(upDown) > .25f)
         {
-            if (pNum == 0)
-                freeze0 = false;
-            else
-                freeze1 = false;
+            freeze = false;
             desiredAngle = ((Mathf.Atan2(upDown, leftRight) * Mathf.Rad2Deg));
             Mathf.Clamp(desiredAngle, -120, 120);
         }
         else
         {
-            if (pNum == 0)
-                freeze0 = true;
-            else
-                freeze1 = true;
+            freeze = true;
         }
     }
 
