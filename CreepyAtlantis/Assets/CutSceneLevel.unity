@@ -129,7 +129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4307382944022328, guid: 67e71fa966226f34eb50936d29d52149, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114553138527613282, guid: 67e71fa966226f34eb50936d29d52149,
         type: 2}
@@ -464,35 +464,35 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.7983786
+    e00: 1.809879
     e01: 0
-    e02: -1.0593258
-    e03: -3.0617805
-    e10: 0.7885017
-    e11: 3.3933156
-    e12: 1.3386103
-    e13: -69.16718
-    e20: 0.46174914
-    e21: -0.41653046
-    e22: 0.7838946
-    e23: 25.765314
+    e02: -1.0661
+    e03: -3.0813599
+    e10: -0.7885017
+    e11: -3.3933156
+    e12: -1.3386103
+    e13: 69.16718
+    e20: -0.00013846463
+    e21: 0.00012490492
+    e22: -0.00023506633
+    e23: 0.2921838
     e30: 0.4614722
     e31: -0.41628066
     e32: 0.78342444
     e33: 26.349682
   LastMatrixVP:
-    e00: 1.7983786
+    e00: 1.809879
     e01: 0
-    e02: -1.0593258
-    e03: -3.0617805
+    e02: -1.0661
+    e03: -3.0813599
     e10: 0.7885017
     e11: 3.3933156
     e12: 1.3386103
     e13: -69.16718
-    e20: 0.46174914
-    e21: -0.41653046
-    e22: 0.7838946
-    e23: 25.765314
+    e20: -0.00013846463
+    e21: 0.00012490492
+    e22: -0.00023506633
+    e23: 0.2921838
     e30: 0.4614722
     e31: -0.41628066
     e32: 0.78342444
@@ -1205,6 +1205,16 @@ Prefab:
       propertyPath: whoseChoice
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114553138527613282, guid: 67e71fa966226f34eb50936d29d52149,
+        type: 2}
+      propertyPath: eventChoice1
+      value: 
+      objectReference: {fileID: 1131976563}
+    - target: {fileID: 114553138527613282, guid: 67e71fa966226f34eb50936d29d52149,
+        type: 2}
+      propertyPath: eventChoice2
+      value: 
+      objectReference: {fileID: 239580126}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67e71fa966226f34eb50936d29d52149, type: 2}
   m_IsPrefabParent: 0
@@ -1250,7 +1260,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1979415476286410, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
       propertyPath: m_Name
@@ -1807,7 +1817,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4501656909875894, guid: 4e5e75b1493393c4981d8a481c4da750, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1465207037339472, guid: 4e5e75b1493393c4981d8a481c4da750, type: 2}
       propertyPath: m_Name
@@ -3143,7 +3153,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114145019190255016, guid: fa9a042813da8a247a844e5f16f94b7a,
         type: 2}
@@ -3549,7 +3559,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4309211119699702, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114718721114552450, guid: 70e0493e3b6ed9147a468ba59a33cc67,
         type: 2}
@@ -3672,58 +3682,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!1001 &2027638364
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2057499997}
-    m_Modifications:
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456278851232226, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114145019190255016, guid: fa9a042813da8a247a844e5f16f94b7a,
-        type: 2}
-      propertyPath: Dialogue
-      value: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...  all
-        systems back online.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1979415476286410, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-      propertyPath: m_Name
-      value: LAST
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &2042688100
 Prefab:
   m_ObjectHideFlags: 0
