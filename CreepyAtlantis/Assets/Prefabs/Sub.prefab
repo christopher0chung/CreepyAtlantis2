@@ -76,7 +76,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000010895879274
 GameObject:
   m_ObjectHideFlags: 1
@@ -173,6 +173,9 @@ GameObject:
   - component: {fileID: 114000013392082952}
   - component: {fileID: 114000011838489082}
   - component: {fileID: 114000012015709656}
+  - component: {fileID: 136969356291567812}
+  - component: {fileID: 114356851555405994}
+  - component: {fileID: 114444337743423312}
   m_Layer: 0
   m_Name: Sub
   m_TagString: Untagged
@@ -243,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012852763606
 GameObject:
   m_ObjectHideFlags: 1
@@ -808,7 +811,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011861270502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: -4.4133005, y: 20.527456, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013901533314}
@@ -876,7 +879,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010224500980}
-  m_LocalRotation: {x: 0, y: 0, z: -0.008900978, w: 0.9999604}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13148248, w: 0.9913185}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1132,7 +1135,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303999545953304}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -2.2998288, y: 0, z: 0}
   m_LocalScale: {x: 100.00006, y: 100, z: 64.0047}
   m_Children: []
@@ -1223,7 +1226,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1639321472491198}
-  m_LocalRotation: {x: 0.000000057601163, y: 0.7071068, z: -0.000000057601163, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -2.2998288, y: 0, z: 0}
   m_LocalScale: {x: 100.00006, y: 100, z: 64.0047}
   m_Children: []
@@ -1972,7 +1975,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012988027530}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.1, y: 1, z: 1}
@@ -2159,7 +2162,7 @@ MonoBehaviour:
   TintColor2: {r: 0, g: 0, b: 1, a: 1}
   TintIntensity: 0.2
   TintGradient: 0.2
-  Intensity: 7
+  Intensity: 0.5
   Strength: 1
   Color: {r: 0.70436114, g: 1, b: 0.6102941, a: 1}
   MieScattering: 0.05
@@ -2167,7 +2170,7 @@ MonoBehaviour:
   SunBleed: 1
   Extinction: 0.01
   Density: 0.2
-  ExtraDensity: 0.05
+  ExtraDensity: 0
   SampleCount: 4
   Shadows: 1
   FogHeightEnabled: 0
@@ -2175,7 +2178,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3604.4585, y: 3604.4585, z: 0}
+  Offset: {x: 4124.942, y: 4124.942, z: 0}
 --- !u!114 &114000011667202802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2201,8 +2204,8 @@ MonoBehaviour:
   trapDoorPort: {fileID: 4976146799824304}
   trapDoorStbd: {fileID: 4440850797948294}
   doorOpeningRate: 1
-  closingTimer: 0
-  myLight: {fileID: 0}
+  closingTimer: -10.5586815
+  myLight: {fileID: 1000010845894178}
 --- !u!114 &114000011838489082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2214,20 +2217,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518193e4580c6044bb45c60ae780c146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveScalar: 0.05
+  speed: 0.25
+  appliedMoveScalar: 0
   rate: 0.01
   angRate: 0.25
-  appliedAngRate: 0
-  left: 102
-  right: 104
-  rotUp: 116
-  rotDown: 103
   p1: {fileID: 0}
   p2: {fileID: 0}
-  lightAng: 0
-  desiredAngle: 0
-  leftMax: -15
-  rightMax: 50
+  lightAng: -15.110535
+  desiredAngle: 19.555592
+  leftMax: -20
+  rightMax: 1000
 --- !u!114 &114000011870135060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2250,9 +2249,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42da660398d92264292c1fc59a02c4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMovement: {fileID: 0}
-  myTDS: {fileID: 0}
-  myAdapters: []
+  myMovement: {fileID: 114000011838489082}
+  myTDS: {fileID: 114000011687973130}
+  myAdapters:
+  - {fileID: 114356851555405994}
+  - {fileID: 114444337743423312}
 --- !u!114 &114000012285854300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2327,7 +2328,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3641.0518, y: 3641.0518, z: 0}
+  Offset: {x: 3673.5388, y: 3673.5388, z: 0}
 --- !u!114 &114000012886921240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2407,6 +2408,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b8b62df7dd73746bc7ef6d290fb568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114356851555405994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011861270502}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 0
+--- !u!114 &114444337743423312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011861270502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 1
 --- !u!114 &114845380381910890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,7 +2495,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 3604.2053, y: 3604.2053, z: 0}
+  Offset: {x: 4117.195, y: 4117.195, z: 0}
 --- !u!135 &135713255723574422
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2483,6 +2508,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: -1.5, z: 0}
+--- !u!136 &136969356291567812
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011861270502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 5.17
+  m_Direction: 0
+  m_Center: {x: -2.22, y: 0, z: 0}
 --- !u!212 &212000010143236976
 SpriteRenderer:
   m_ObjectHideFlags: 1
