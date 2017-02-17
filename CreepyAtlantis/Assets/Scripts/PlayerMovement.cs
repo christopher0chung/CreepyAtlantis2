@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour{
 
     public Transform cameraPos;
     private Rigidbody myRB;
-    private PlayerAir myAir;
+    //private PlayerAir myAir;
     private AnimationControl myAC;
 
     public KeyCode leftMove;
@@ -84,13 +84,13 @@ public class PlayerMovement : MonoBehaviour{
 	void Start () {
         myRB = GetComponent<Rigidbody>();
         scale = notOnGroundScale;
-        myAir = GetComponent<PlayerAir>();
+        //myAir = GetComponent<PlayerAir>();
         PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
         myAC = GetComponentInChildren<AnimationControl>();
 	}
 
     void Update () {
-        myAir.Consume(breathingRate * Time.deltaTime);
+        //myAir.Consume(breathingRate * Time.deltaTime);
     }
 
     public void Movement (float upDown, float leftRight)
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour{
         {
             float justUp = Mathf.Clamp(upDown, 0, 1);
             boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
-            myAir.Consume(thrustRate * Time.deltaTime);
+            //myAir.Consume(thrustRate * Time.deltaTime);
             PSBoost.onOff = true;
         }
         else

@@ -17,7 +17,6 @@ public class FishToSchool : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         school = GameObject.Find("School").transform;
 
         offsetX = transform.position.x - school.position.x;
@@ -26,7 +25,7 @@ public class FishToSchool : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         lastPos = transform.position;
         transform.position = Vector3.MoveTowards(transform.position, school.position + (school.right * offsetX) + (school.up * offsetY) + (school.forward * offsetZ), fishSpeed);
 

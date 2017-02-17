@@ -56,8 +56,6 @@ GameObject:
   - component: {fileID: 4456278851232226}
   - component: {fileID: 114145019190255016}
   - component: {fileID: 82164950650015818}
-  - component: {fileID: 114464767995163202}
-  - component: {fileID: 114181416619953360}
   m_Layer: 0
   m_Name: DANI
   m_TagString: Untagged
@@ -357,27 +355,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: ' than thirty minutes.  Inting is sometimes a symptom of rapid pressure
-    change. It should pass in less than thirty minutes.  '
+  Dialogue: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...all
+    systems back online. '
   outputText: {fileID: 0}
   myAdapters:
-  - {fileID: 114464767995163202}
-  - {fileID: 114181416619953360}
+  - {fileID: 0}
+  - {fileID: 0}
   myOT: {fileID: 0}
   myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
---- !u!114 &114181416619953360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1979415476286410}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charNum: 1
 --- !u!114 &114217238259171056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,18 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charNum: 1
---- !u!114 &114464767995163202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1979415476286410}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charNum: 0
 --- !u!114 &114943063649095154
 MonoBehaviour:
   m_ObjectHideFlags: 1

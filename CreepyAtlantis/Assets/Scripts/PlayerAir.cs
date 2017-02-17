@@ -21,7 +21,7 @@ public class PlayerAir : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        airBar.SetAirBar(airTankPercent);
+        //airBar.SetAirBar(airTankPercent);
         //myAirText.text = ("Air - " + Mathf.Round(airTankPercent).ToString() + "%");
         //myAirText.color = Color.Lerp(badColor, goodColor, airTankPercent / 100);
 	
