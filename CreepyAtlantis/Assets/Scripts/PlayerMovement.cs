@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour{
 
     public Transform cameraPos;
     private Rigidbody myRB;
-    //private PlayerAir myAir;
+    private PlayerAir myAir;
     private AnimationControl myAC;
 
     public KeyCode leftMove;
@@ -18,10 +18,9 @@ public class PlayerMovement : MonoBehaviour{
     public float onGroundScale;
     public float notOnGroundScale;
 
-    public float breathingRate;
-    public float walkingRate;
-    public float thrustRate;
-    public float toolRateBase;
+    [SerializeField] private float breathingAirRate;
+    [SerializeField] private float walkingAirRate;
+    [SerializeField] private float boostAirRate;
 
     private float scale;
     private BoostPSScript PSBoost;
@@ -84,13 +83,13 @@ public class PlayerMovement : MonoBehaviour{
 	void Start () {
         myRB = GetComponent<Rigidbody>();
         scale = notOnGroundScale;
-        //myAir = GetComponent<PlayerAir>();
+        myAir = GetComponent<PlayerAir>();
         PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
         myAC = GetComponentInChildren<AnimationControl>();
 	}
 
     void Update () {
-        //myAir.Consume(breathingRate * Time.deltaTime);
+        myAir.Consume(breathingAirRate * Time.deltaTime);
     }
 
     public void Movement (float upDown, float leftRight)
@@ -147,6 +146,7 @@ public class PlayerMovement : MonoBehaviour{
                 {
                     myRB.MovePosition(transform.position + Vector3.right * -.020f * 60 * Time.deltaTime);
                 }
+                myAir.Consume(walkingAirRate * Time.deltaTime);
             }
         }
 
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour{
         {
             float justUp = Mathf.Clamp(upDown, 0, 1);
             boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
-            //myAir.Consume(thrustRate * Time.deltaTime);
+            myAir.Consume(boostAirRate * Time.deltaTime * (1 - (boostTimer / maxBoostTime)));
             PSBoost.onOff = true;
         }
         else

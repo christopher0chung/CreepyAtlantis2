@@ -90,10 +90,13 @@ public class AirMeter : MonoBehaviour {
         }
     }
 
+    private float rate = 2;
+
 
     void Start()
     {
         myAirBarImage = GetComponent<Image>();
+        myAirBarImage.color = new Color(0, 1, 0, 0);
     }
 
 	void Update () {
@@ -101,6 +104,11 @@ public class AirMeter : MonoBehaviour {
         calculatedPercentage = 10 * ((int)(airPercent / 10) + 1);
         displayedPercentage = Mathf.Clamp(calculatedPercentage, 0, 100);
 	}
+
+    public void SetAirBar (float airP)
+    {
+        airPercent = airP;
+    }
 
     private IEnumerator AnimateAirBar (int newValue)
     {
@@ -114,7 +122,7 @@ public class AirMeter : MonoBehaviour {
         {
             if (!fadeInComplete)
             {
-                fadeVal = Mathf.Lerp(fadeVal, 1, .08f);
+                fadeVal = Mathf.Lerp(fadeVal, 1, rate * Time.deltaTime);
                 if (1 - fadeVal <= .01f)
                 {
                     fadeVal = 1;
@@ -123,7 +131,7 @@ public class AirMeter : MonoBehaviour {
             }
             else if (!fadeHoldComplete)
             {
-                myAirBarImage.fillAmount = Mathf.Lerp(myAirBarImage.fillAmount, barVal, .1f);
+                myAirBarImage.fillAmount = Mathf.Lerp(myAirBarImage.fillAmount, barVal, 2 * rate * Time.deltaTime);
                 if (Mathf.Abs(myAirBarImage.fillAmount - barVal) < .01f)
                 {
                     myAirBarImage.fillAmount = barVal;
@@ -132,7 +140,7 @@ public class AirMeter : MonoBehaviour {
             }
             else if (!fadeOutComplete)
             {
-                fadeVal = Mathf.Lerp(fadeVal, 0, .08f);
+                fadeVal = Mathf.Lerp(fadeVal, 0, rate * Time.deltaTime);
                 if (fadeVal <= .01f)
                 {
                     fadeVal = 0;
@@ -172,7 +180,7 @@ public class AirMeter : MonoBehaviour {
         {
             if (!fadeInComplete)
             {
-                fadeVal = Mathf.Lerp(fadeVal, 1, .08f);
+                fadeVal = Mathf.Lerp(fadeVal, 1, rate * Time.deltaTime);
                 if (1 - fadeVal <= .01f)
                 {
                     fadeVal = 1;
@@ -181,12 +189,12 @@ public class AirMeter : MonoBehaviour {
             }
             else if (!fadeHoldComplete)
             {
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.15f);
                 fadeHoldComplete = true;
             }
             else if (!fadeOutComplete)
             {
-                fadeVal = Mathf.Lerp(fadeVal, 0, .08f);
+                fadeVal = Mathf.Lerp(fadeVal, 0, rate * Time.deltaTime);
                 if (fadeVal <= .01f)
                 {
                     fadeVal = 0;

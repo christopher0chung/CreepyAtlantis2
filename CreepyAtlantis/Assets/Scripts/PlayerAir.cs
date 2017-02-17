@@ -6,26 +6,17 @@ public class PlayerAir : MonoBehaviour {
 
     public float airTankPercent;
 
-    private AirBarBehavior airBar;
-
-    //public Text myAirText;
-
-    public Color goodColor;
-    public Color badColor;
+    private AirMeter airBar;
 
 	// Use this for initialization
 	void Start () {
-        airBar = transform.Find("AirBarUnit").GetComponent<AirBarBehavior>();
+        airBar = transform.Find("AirUnit").GetComponentInChildren<AirMeter>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        //airBar.SetAirBar(airTankPercent);
-        //myAirText.text = ("Air - " + Mathf.Round(airTankPercent).ToString() + "%");
-        //myAirText.color = Color.Lerp(badColor, goodColor, airTankPercent / 100);
-	
-	}
+        airBar.SetAirBar(airTankPercent);
+    }
 
     public void Consume (float amount)
     {
@@ -42,8 +33,6 @@ public class PlayerAir : MonoBehaviour {
         if (airTankPercent >= 100)
         {
             airTankPercent = 100;
-            //myAirText.text = ("Air: " + Mathf.Round(airTankPercent).ToString() + "%");
-            //myAirText.color = Color.Lerp(badColor, goodColor, airTankPercent / 100);
         }
     }
 

@@ -2702,7 +2702,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5316.184, y: 5316.184, z: 0}
+  Offset: {x: 5318.9062, y: 5318.9062, z: 0}
 --- !u!114 &114061999051983966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5475.2583, y: 5475.2583, z: 0}
+  Offset: {x: 5477.9805, y: 5477.9805, z: 0}
 --- !u!114 &114123833455504048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2779,8 +2779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airTankPercent: 100
-  goodColor: {r: 0.6039216, g: 1, b: 0.57254905, a: 1}
-  badColor: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
 --- !u!114 &114381743175357924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2903,10 +2901,9 @@ MonoBehaviour:
   walkForce: 15
   onGroundScale: 0.5
   notOnGroundScale: 0.5
-  breathingRate: 0.05
-  walkingRate: 0.25
-  thrustRate: 0.5
-  toolRateBase: 5
+  breathingAirRate: 0.3
+  walkingAirRate: 0.4
+  boostAirRate: 2.5
   sCCastDist: 0.25
   sCCastRad: 0.25
   maxBoostTime: 0.75
