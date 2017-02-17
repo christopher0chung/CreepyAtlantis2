@@ -11,6 +11,25 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1979415476286410}
   m_IsPrefabParent: 1
+--- !u!1 &1670020424823802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4137038063422804}
+  - component: {fileID: 82793012920558048}
+  - component: {fileID: 114943063649095154}
+  - component: {fileID: 114217238259171056}
+  - component: {fileID: 114417784803004338}
+  m_Layer: 0
+  m_Name: CHOICE - DOC - 08/09
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1789465432907808
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +56,8 @@ GameObject:
   - component: {fileID: 4456278851232226}
   - component: {fileID: 114145019190255016}
   - component: {fileID: 82164950650015818}
+  - component: {fileID: 114464767995163202}
+  - component: {fileID: 114181416619953360}
   m_Layer: 0
   m_Name: DANI
   m_TagString: Untagged
@@ -44,6 +65,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4137038063422804
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670020424823802}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4456278851232226}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4456278851232226
 Transform:
   m_ObjectHideFlags: 1
@@ -55,6 +89,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4933437118813520}
+  - {fileID: 4137038063422804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,6 +266,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82793012920558048
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670020424823802}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f0e208853f88d114baa142e6b78ed6af, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 0.9
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114145019190255016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,9 +357,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...'
+  Dialogue: ' than thirty minutes.  Inting is sometimes a symptom of rapid pressure
+    change. It should pass in less than thirty minutes.  '
   outputText: {fileID: 0}
-  myAdapters: []
+  myAdapters:
+  - {fileID: 114464767995163202}
+  - {fileID: 114181416619953360}
   myOT: {fileID: 0}
   myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+--- !u!114 &114181416619953360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979415476286410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 1
+--- !u!114 &114217238259171056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670020424823802}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 0
+--- !u!114 &114417784803004338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670020424823802}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 1
+--- !u!114 &114464767995163202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979415476286410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72355aff6579924b98bece18bc510e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charNum: 0
+--- !u!114 &114943063649095154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670020424823802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcc3ab25813fb04a82d52419082ea82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whoseChoice: 1
+  Choice1: 'Ask about sub movement. '
+  Choice2: 'Ask about dive safety. '
+  myAdapters:
+  - {fileID: 114217238259171056}
+  - {fileID: 114417784803004338}
+  myOT: {fileID: 0}
+  myColor: {r: 1, g: 0, b: 0, a: 1}
+  dialogueAdvanceTime: 0
+  eventChoice1: {fileID: 0}
+  eventChoice2: {fileID: 0}

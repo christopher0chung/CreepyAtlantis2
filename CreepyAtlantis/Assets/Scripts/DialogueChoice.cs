@@ -142,7 +142,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public void LeftBumper(bool pushRelease, int pNum)
     {
         //Debug.Log(pNum);
-        if (pNum == whoseChoice && pushRelease)
+        if (pNum == whoseChoice && pushRelease && currentState == Spoken)
         {
             TriggerChoice(0);
             StateChoices(dialogueStates.cleanup);
@@ -152,7 +152,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public void RightBumper(bool pushRelease, int pNum)
     {
         //Debug.Log(pNum);
-        if (pNum == whoseChoice && pushRelease)
+        if (pNum == whoseChoice && pushRelease && currentState == Spoken)
         {
             TriggerChoice(1);
             StateChoices(dialogueStates.cleanup);
@@ -178,7 +178,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         }
         else if (choiceNum == 1)
         {
-            StartCoroutine(TriggerChoice1Coroutine());
+            StartCoroutine(TriggerChoice2Coroutine());
         }
     }
 

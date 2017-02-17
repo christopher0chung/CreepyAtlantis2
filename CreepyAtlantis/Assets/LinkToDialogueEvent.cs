@@ -8,6 +8,11 @@ public class LinkToDialogueEvent : MonoBehaviour {
 
     private DialogueManager myDM;
 
+    private void Start()
+    {
+        myDM = transform.root.gameObject.GetComponent<DialogueManager>();
+    }
+
     public void Link()
     {
         StartCoroutine(TriggerLink());
