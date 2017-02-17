@@ -90,7 +90,7 @@ public class SubControlScript : MonoBehaviour {
 
     public void rotateUpDown(float upDown, float leftRight, int pNum)
     {
-        Debug.Log("in RotateUpDown");
+        //Debug.Log("in RotateUpDown");
         if(Mathf.Abs(leftRight) > .25f || Mathf.Abs(upDown) > .25f)
         {
             if (pNum == 0)
