@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour{
     public KeyCode thrust;
 
     public float thrustForce;
+    private float appliedThrustForce;
     public float walkForce;
     private bool grounded;
     public float onGroundScale;
@@ -110,10 +111,12 @@ public class PlayerMovement : MonoBehaviour{
 
         if (!grounded)
         {
+            appliedThrustForce = thrustForce;
             // Starts boosting 
             if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
             {
                 nowBoosting = true;
+                boostTimer = 0;
             }
             else
             {
@@ -125,6 +128,7 @@ public class PlayerMovement : MonoBehaviour{
 
         else if (grounded)
         {
+            appliedThrustForce = 10 * thrustForce;
             if (upDown > .5f && Mathf.Abs(leftRight) < .2f)
             {
                 nowBoosting = true;
@@ -155,7 +159,7 @@ public class PlayerMovement : MonoBehaviour{
         if (boostTimer <= maxBoostTime)
         {
             float justUp = Mathf.Clamp(upDown, 0, 1);
-            boostForce = new Vector3(leftRight, justUp, 0) * thrustForce * (1 - (boostTimer / maxBoostTime));
+            boostForce = new Vector3(leftRight, justUp, 0) * appliedThrustForce * (1 - (boostTimer / maxBoostTime));
             myAir.Consume(boostAirRate * Time.deltaTime * (1 - (boostTimer / maxBoostTime)));
             PSBoost.onOff = true;
         }
