@@ -10,6 +10,8 @@ public class GameStateManager : MonoBehaviour {
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        //QualitySettings.vSyncCount = 0;
+        //Application.targetFrameRate = 90;
     }
 
     // Components that want to react when controls are being hooked up should add local functions to onHookCtrl

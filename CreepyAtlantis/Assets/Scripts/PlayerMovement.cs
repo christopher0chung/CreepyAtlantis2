@@ -140,11 +140,11 @@ public class PlayerMovement : MonoBehaviour{
             {
                 if (leftRight > 0)
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * .020f * 60 * Time.deltaTime);
+                    myRB.MovePosition(transform.position + Vector3.right * .040f * 60 * Time.deltaTime);
                 }
                 else
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * -.020f * 60 * Time.deltaTime);
+                    myRB.MovePosition(transform.position + Vector3.right * -.040f * 60 * Time.deltaTime);
                 }
                 myAir.Consume(walkingAirRate * Time.deltaTime);
             }
