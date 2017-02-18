@@ -14,7 +14,7 @@ public class TimedCleanup : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 
-        if (timer >=5)
+        if (timer >=8)
         {
             Destroy(this.gameObject);
         }

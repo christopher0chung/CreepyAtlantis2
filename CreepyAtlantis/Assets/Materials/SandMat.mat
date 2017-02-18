@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BubbleMat
-  m_Shader: {fileID: 4800000, guid: c8e36afeaaa58984c9529b9a843d877b, type: 3}
+  m_Name: SandMat
+  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -69,13 +69,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Refraction
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 0.25, y: 0.25}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _Bands
+      second: 2
     - first:
         name: _BumpScale
       second: 1
@@ -89,6 +86,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _Gloss
+      second: 0.4682218
+    - first:
         name: _GlossMapScale
       second: 1
     - first:
@@ -97,9 +97,6 @@ Material:
     - first:
         name: _GlossyReflections
       second: 1
-    - first:
-        name: _LineThickness
-      second: 0.015
     - first:
         name: _Metallic
       second: 0
@@ -111,9 +108,6 @@ Material:
       second: 1
     - first:
         name: _Parallax
-      second: 0.02
-    - first:
-        name: _RefractionIntensity
       second: 0.02
     - first:
         name: _SmoothnessTextureChannel
@@ -132,17 +126,14 @@ Material:
       second: 1
     m_Colors:
     - first:
+        name: DiffuseColor
+      second: {r: 0.41911763, g: 0.36534646, b: 0.24962153, a: 1}
+    - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _EmissiveColor
-      second: {r: 0.1664949, g: 0.19852942, b: 0.14451775, a: 0.153}
-    - first:
-        name: _LineColor
-      second: {r: 0.22139923, g: 0.25735295, b: 0.23652448, a: 1}
-    - first:
-        name: _node_7135
-      second: {r: 0.107116, g: 0.122, b: 0.1133775, a: 1}
+        name: _FogColor
+      second: {r: 0.039215688, g: 0.09019608, b: 0.078431375, a: 1}

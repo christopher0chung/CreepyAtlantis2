@@ -11,20 +11,21 @@ public class PlayerAction : MonoBehaviour {
         //Debug.Log("Trying to interact with stuff in range");
         if (pushRelease)
         {
-            Ray myRay = new Ray(transform.position + Vector3.up * 1, Vector3.up);
-            RaycastHit[] allInRange = Physics.SphereCastAll(myRay, interactionRange, 0);
+            
+            RaycastHit[] allInRange = Physics.SphereCastAll(transform.position + Vector3.down * .25f - transform.forward * .5f, interactionRange, Vector3.up, 1.5f);
+            Debug.DrawLine(transform.position + Vector3.down * .25f - transform.forward * .5f, transform.position + Vector3.up * 1.75f - transform.forward * .5f);
 
-            ////Debug
-            //foreach (RaycastHit aHit in allInRange)
-            //{
-            //    Debug.Log(aHit.collider.gameObject.name);
-            //}
-
-
-                //highest priority is climbing into sub
-                foreach (RaycastHit aHit in allInRange)
+            //Debug
+            foreach (RaycastHit aHit in allInRange)
             {
-                if (aHit.collider.gameObject.name == "Sub")
+                Debug.Log(aHit.collider.gameObject.name);
+            }
+
+
+            //highest priority is climbing into sub
+            foreach (RaycastHit aHit in allInRange)
+            {
+                if (aHit.collider.gameObject.tag == "Sub")
                 {
                     aHit.transform.GetComponentInChildren<IInteractable>().Interact(playerNum, pushRelease);
                     return;
@@ -42,9 +43,9 @@ public class PlayerAction : MonoBehaviour {
             //next is everything else
             foreach (RaycastHit aHit in allInRange)
             {
-                if (aHit.transform.GetComponentInChildren<IInteractable>() != null)
+                if (aHit.collider.transform.root.gameObject.GetComponent<IInteractable>() != null)
                 {
-                    aHit.transform.GetComponentInChildren<IInteractable>().Interact(playerNum, pushRelease);
+                    aHit.collider.transform.root.gameObject.GetComponent<IInteractable>().Interact(playerNum, pushRelease);
                     return;
                 }
             }

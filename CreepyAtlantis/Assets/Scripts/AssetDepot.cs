@@ -19,6 +19,8 @@ public class AssetDepot : MonoBehaviour {
     private Queue<GameObject> headType1 = new Queue<GameObject>();
     private Queue<GameObject> headType2 = new Queue<GameObject>();
 
+    private Queue<GameObject> interactIcon = new Queue<GameObject>();
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -35,6 +37,7 @@ public class AssetDepot : MonoBehaviour {
         depot.Add(DepotObjects.stalkType2, stalkType2);
         depot.Add(DepotObjects.headType1, headType1);
         depot.Add(DepotObjects.headType2, headType2);
+        depot.Add(DepotObjects.interactIcon, interactIcon);
 
         prefabDict.Add(DepotObjects.light, "basicLightPrefab");
         prefabDict.Add(DepotObjects.drill, "drillPrefab");
@@ -44,22 +47,20 @@ public class AssetDepot : MonoBehaviour {
         prefabDict.Add(DepotObjects.stalkType2, "stalkType2");
         prefabDict.Add(DepotObjects.headType1, "headType1");
         prefabDict.Add(DepotObjects.headType2, "headType2");
+        prefabDict.Add(DepotObjects.interactIcon, "interactIcon");
     }
 
     public GameObject DepotRequest (DepotObjects desiredObject)
     {
         if (depot[desiredObject].Count > 0)
         {
-            //Debug.Log(depot[desiredObject].Count);
             GameObject theRequestedObject = (depot[desiredObject].Dequeue());
             theRequestedObject.SetActive(true);
             return theRequestedObject;
         }
         else
         {
-            //Debug.Log(depot[desiredObject].Count);
-            //Debug.Log(prefabDict[desiredObject]);
-            return (GameObject)Instantiate(Resources.Load(prefabDict[desiredObject]), Vector3.zero, Quaternion.identity);
+            return (GameObject)Instantiate(Resources.Load(prefabDict[desiredObject]), Vector3.one * 1000, Quaternion.identity);
         }
     }
 
@@ -67,7 +68,6 @@ public class AssetDepot : MonoBehaviour {
     {
         myGO.SetActive(false);
         depot[desiredObject].Enqueue(myGO);
-        //Debug.Log(depot[desiredObject].Count);
     }
 
     private void ClearOnNewLevel (Scene scene, LoadSceneMode mode)
@@ -82,4 +82,4 @@ public class AssetDepot : MonoBehaviour {
     }
 }
 
-public enum DepotObjects { light, drill, bullKelp, jellyFish, stalkType1, stalkType2, headType1, headType2 }
+public enum DepotObjects { light, drill, bullKelp, jellyFish, stalkType1, stalkType2, headType1, headType2, interactIcon }

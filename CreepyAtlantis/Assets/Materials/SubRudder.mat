@@ -101,6 +101,9 @@ Material:
         name: _GlossyReflections
       second: 1
     - first:
+        name: _LineWidth
+      second: 0
+    - first:
         name: _Metallic
       second: 0
     - first:
@@ -139,6 +142,9 @@ Material:
       second: {r: 0.28714314, g: 0.3286593, b: 0.3455882, a: 1}
     - first:
         name: _FogColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _LineColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _node_1345

@@ -91,16 +91,4 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(playerNum, Controllables.submarine);
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(playerNum, true);
     }
-
-    //void OnTriggerStay (Collider other)
-    //{
-    //    Debug.Log(other.gameObject.name);
-    //    int result;
-    //    if (!nameToNum.TryGetValue(other.gameObject.name, out result))
-    //        return;
-    //    else
-    //    {
-
-    //    }
-    //}
 }
