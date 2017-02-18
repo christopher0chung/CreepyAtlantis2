@@ -111,7 +111,7 @@ Material:
       second: 0.02
     - first:
         name: _RefractionIntensity
-      second: 0.123
+      second: 0.02
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -128,6 +128,9 @@ Material:
         name: _ZWrite
       second: 1
     - first:
+        name: _node_7068
+      second: 0.01
+    - first:
         name: _node_7185
       second: 0.02564103
     m_Colors:
@@ -137,6 +140,12 @@ Material:
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _EmissiveColor
+      second: {r: 0.13283956, g: 0.1544118, b: 0.15173385, a: 1}
+    - first:
+        name: _FogColor
+      second: {r: 0.039215688, g: 0.09019608, b: 0.078431375, a: 1}
     - first:
         name: _node_7264
       second: {r: 0.1124568, g: 0.145627, b: 0.1470588, a: 0.25}
