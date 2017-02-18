@@ -26,7 +26,7 @@ public class PileOfSand : SSInteractableObject {
 
     public override void Interact(int pNum, bool pressRelease)
     {
-        Instantiate(Resources.Load("KickSand"), transform.position, Quaternion.identity);
+        Instantiate(Resources.Load("KickSand"), transform.position + transform.up, Quaternion.identity);
         base.Interact(pNum, pressRelease);
         Debug.Log("interact");
     }

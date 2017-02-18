@@ -35,9 +35,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4395158089667120}
-  - component: {fileID: 114698564557913162}
+  - component: {fileID: 114734077336120958}
   m_Layer: 0
-  m_Name: interactIcon
+  m_Name: interactIconOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114698564557913162
+--- !u!114 &114734077336120958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1302609033337334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3439a2b2df4a7c24989adf02b7419c96, type: 3}
+  m_Script: {fileID: 11500000, guid: a74bfb115b237244283c56292ad0572c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212900165459098460

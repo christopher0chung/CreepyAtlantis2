@@ -28,7 +28,7 @@ public class SchoolMovement : MonoBehaviour {
 
         timer += Time.fixedDeltaTime;
 
-        if (timer >  30)
+        if (timer >  20)
         {
             timer = 0;
             targetPos = new Vector3(Random.Range ( -30, 150) , Random.Range (20, 60) , 120);
