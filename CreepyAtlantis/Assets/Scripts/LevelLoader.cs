@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelLoader : MonoBehaviour {
 
@@ -29,6 +30,8 @@ public class LevelLoader : MonoBehaviour {
             return _level;
         }
     }
+
+    public
 
     void Awake()
     {
