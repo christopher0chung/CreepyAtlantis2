@@ -9,6 +9,8 @@ public interface IControllable {
 
     void AButton(bool pushRelease, int pNum);
 
+    void YButton(bool pushRelease, int pNum);
+
     void LeftBumper(bool pushRelease, int pNum);
 
     void RightBumper(bool pushRelease, int pNum);

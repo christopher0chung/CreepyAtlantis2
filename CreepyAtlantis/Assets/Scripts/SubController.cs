@@ -42,6 +42,8 @@ public class SubController : MonoBehaviour, IControllable {
         }
     }
 
+    public void YButton(bool pushRelease, int pNum) { }
+
     public void LeftBumper(bool pushRelease, int pNum) { }
 
     public void RightBumper(bool pushRelease, int pNum) { }
@@ -50,6 +52,8 @@ public class SubController : MonoBehaviour, IControllable {
     {
         if (myControllable == Controllables.submarine)
             myAdapters[player].enabled = true;
+        else if (myControllable == Controllables.dialogue)
+            myAdapters[player].enabled = myAdapters[player].enabled;
         else
             myAdapters[player].enabled = false;
     }

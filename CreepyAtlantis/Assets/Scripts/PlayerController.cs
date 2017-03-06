@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour, IControllable {
         myPA.TryToInteract(pNum, pushRelease);
     }
 
+    public void YButton(bool pushRelease, int pNum) { }
+
     public void LeftBumper(bool pushRelease, int pNum) { }
 
     public void RightBumper(bool pushRelease, int pNum) { }
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour, IControllable {
         {
             if (myControllable == Controllables.character)
                 myAdapter.enabled = true;
+            else if (myControllable == Controllables.dialogue)
+                myAdapter.enabled = myAdapter.enabled;
             else
                 myAdapter.enabled = false;
         }

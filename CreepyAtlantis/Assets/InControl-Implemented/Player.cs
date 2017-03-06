@@ -67,6 +67,14 @@ namespace MultiplayerWithBindingsExample
             onXmitAButton(AButtonDown, playerNum);
         }
 
+        public delegate void YButton(bool YButtonDown, int pNum);
+        public event YButton onXmitYButton;
+
+        public void XmitYButton(bool YButtonDown, int pNum)
+        {
+            onXmitYButton(YButtonDown, playerNum);
+        }
+
         public delegate void RBumper(bool RBumperDown, int pNum);
         public event AButton onXmitRBumper;
 
@@ -80,7 +88,7 @@ namespace MultiplayerWithBindingsExample
 
         public void XmitLBumper(bool LBumperDown, int pNum)
         {
-            onXmitRBumper(LBumperDown, playerNum);
+            onXmitLBumper(LBumperDown, playerNum);
         }
 
         void OnDisable()
@@ -181,6 +189,17 @@ namespace MultiplayerWithBindingsExample
             {
                 if (onXmitAButton != null)
                     XmitAButton(false, playerNum);
+            }
+
+            if (Actions.YButton.WasPressed)
+            {
+                if (onXmitYButton != null)
+                    XmitYButton(true, playerNum);
+            }
+            else if (Actions.YButton.WasReleased)
+            {
+                if (onXmitYButton != null)
+                    XmitYButton(false, playerNum);
             }
 
             if (Actions.RBumper.WasPressed)

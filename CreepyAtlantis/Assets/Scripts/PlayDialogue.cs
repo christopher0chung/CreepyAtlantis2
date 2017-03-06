@@ -145,7 +145,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public void RightStick(float leftRight, float upDown, int pNum) { }
 
-    public void AButton(bool pushRelease, int pNum)
+    public void AButton(bool pushRelease, int pNum) { }
+
+    public void YButton(bool pushRelease, int pNum)
     {
         if (pushRelease)
         {

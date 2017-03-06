@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour {
     {
         for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
-            myAudioLayers.Add(transform.GetChild(0).GetChild(i).GetComponent<AudioSource>());
+            //myAudioLayers.Add(transform.GetChild(0).GetChild(i).GetComponent<AudioSource>());
         }
     }
 

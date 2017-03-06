@@ -139,6 +139,8 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void AButton(bool pushRelease, int pNum) { }
 
+    public void YButton(bool pushRelease, int pNum) { }
+
     public void LeftBumper(bool pushRelease, int pNum)
     {
         //Debug.Log(pNum);
@@ -175,10 +177,12 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         if (choiceNum == 0)
         {
             StartCoroutine(TriggerChoice1Coroutine());
+            //Debug.Log("Triggering choice 1");
         }
         else if (choiceNum == 1)
         {
             StartCoroutine(TriggerChoice2Coroutine());
+            //Debug.Log("Triggering choice 2");
         }
     }
 
@@ -188,7 +192,11 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         for (int i = 0; i < myDM.myEventsNames.Count; i++)
         {
             if (myDM.myEventsNames[i] == eventChoice1.name)
+            {
                 myDM.myEvents[i].TRIGGER = true;
+                yield break;
+            }
+
         }
     }
 
@@ -198,7 +206,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         for (int i = 0; i < myDM.myEventsNames.Count; i++)
         {
             if (myDM.myEventsNames[i] == eventChoice2.name)
+            {
                 myDM.myEvents[i].TRIGGER = true;
+                yield break;
+            }
         }
     }
 }
