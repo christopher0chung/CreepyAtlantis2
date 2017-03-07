@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class LevelLoader : MonoBehaviour {
 
+    //Event Manager should be handling this but music controls are here for the time being.
+    private MusicManager myMM;
+
     public string[] funcToLevel = new string[2];
 
     private int _level;
@@ -37,6 +40,7 @@ public class LevelLoader : MonoBehaviour {
     {
         funcToLevel[0] = "LoadLevelOne";
         funcToLevel[1] = "LoadLevelTwo";
+        myMM = GetComponent<MusicManager>();
     }
 
     public void LoadLevel (int lvl)
@@ -65,12 +69,18 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelOne()
     {
         SceneManager.LoadScene("CutSceneLevel");
+        myMM.FadeOut(0);
+        myMM.FadeIn(1);
+        myMM.FadeIn(2);
+        myMM.FadeIn(3);
     }
 
     private void LoadLevelTwo()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
+        myMM.FadeOut(2);
+        myMM.FadeOut(3);
     }
 
     private void Update ()
