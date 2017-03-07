@@ -80,7 +80,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3523a05b838c0d84b8244aa8cc6dcb05, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 421a26983460f384fbb9e76a49415437, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -242,12 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...all
-    systems back online. '
+  Dialogue: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...
+    Sub lost power 200 meters from destination.  '
   outputText: {fileID: 0}
   myAdapters:
   - {fileID: 0}
   - {fileID: 0}
   myOT: {fileID: 0}
   myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
-  dialogueAdvanceTime: 4
+  dialogueAdvanceTime: 0
