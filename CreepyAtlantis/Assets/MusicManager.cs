@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour {
 
-    private List<AudioSource> myAudioLayers;
+    private List<AudioSource> myAudioLayers = new List<AudioSource>();
 
     public class FadeInfo
     {
@@ -28,10 +28,13 @@ public class MusicManager : MonoBehaviour {
 
     void Start ()
     {
+        //Debug.Log(transform.GetChild(0).childCount);
         for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
-            //myAudioLayers.Add(transform.GetChild(0).GetChild(i).GetComponent<AudioSource>());
+            myAudioLayers.Add(transform.GetChild(0).GetChild(i).GetComponent<AudioSource>());
         }
+        MuteAll();
+        FadeIn(0);
     }
 
     public void FadeOutAll()
@@ -39,20 +42,20 @@ public class MusicManager : MonoBehaviour {
         StopAllCoroutines();
         for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
-            myFI = new FadeInfo(i, 5, 0);
+            myFI = new FadeInfo(i, 1, 0);
             StartCoroutine("Fade", myFI);
         }
     }
 
     public void FadeOut(int layer)
     {
-        myFI = new FadeInfo(layer, 5, 0);
+        myFI = new FadeInfo(layer, 1, 0);
         StartCoroutine("Fade", myFI);
     }
 
     public void FadeIn(int layer)
     {
-        myFI = new FadeInfo(layer, 8, 1);
+        myFI = new FadeInfo(layer, 3, 1);
         StartCoroutine("Fade", myFI);
     }
 
@@ -77,10 +80,13 @@ public class MusicManager : MonoBehaviour {
         while (!done)
         {
             myAudioLayers[fI.layer].volume = Mathf.Lerp(myAudioLayers[fI.layer].volume, fI.volume, (fI.speed * Time.deltaTime));
+            if (Mathf.Abs(myAudioLayers[fI.layer].volume - fI.volume) <= .02f)
+            {
+                myAudioLayers[fI.layer].volume = fI.volume;
+                //print(myAudioLayers[fI.layer].gameObject.name + "is done and at " + fI.volume);
+                yield break;
+            }
             yield return null;
         }
-
-        print("layer " + fI.layer + " complete");
-        yield break;
     }
 }

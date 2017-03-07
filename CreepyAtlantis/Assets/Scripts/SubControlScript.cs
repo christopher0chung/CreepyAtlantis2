@@ -3,15 +3,8 @@ using System.Collections;
 
 public class SubControlScript : MonoBehaviour {
 
-    public float speed;
-    public float appliedMoveScalar;
-    public float rate;
-    private Vector3 subPos;
-    //private Vector3 lastPos;
-
     private Transform myLight;
     public float angRate;
-    //private Vector3 currentAng = new Vector3 (0, 0, -45);
 
     public GameObject p1;
     public GameObject p2;
@@ -26,48 +19,22 @@ public class SubControlScript : MonoBehaviour {
     public float leftMax;
     public float rightMax;
 
+    [SerializeField] private float moveForce;
+    [SerializeField] private Vector3 p1MoveVector;
+    [SerializeField] private Vector3 p2MoveVector;
+    [SerializeField] private Vector3 resultantMoveVector;
+
+    private Rigidbody myRB;
+
     void Start ()
     {
-        subPos = transform.position;
         myLight = transform.Find("LightArray");
+        myRB = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate ()
     {
-        //Debug.Log(subPos);
-        if (!p1.activeSelf && !p2.activeSelf)
-        {
-            if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
-                subPos += transform.right * (appliedMoveScalar * speed);
-        }
-        else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
-        {
-            if ((appliedMoveScalar < 0 && transform.position.x > leftMax) || (appliedMoveScalar > 0 && transform.position.x < rightMax))
-            {
-                if (!p1.activeSelf)
-                {
-                    // if you're on the left of the active player and want to move right
-                    if (transform.position.x < p2.transform.position.x + 20 && appliedMoveScalar > 0)
-                        subPos += transform.right * (appliedMoveScalar * speed);
-                    // if you're on the right of the active player and want to move left
-                    else if (transform.position.x > p2.transform.position.x - 20 && appliedMoveScalar < 0)
-                        subPos += transform.right * (appliedMoveScalar * speed);
-                }
-                else if (!p2.activeSelf)
-                {
-                    if (transform.position.x < p1.transform.position.x + 20 && appliedMoveScalar > 0)
-                        subPos += transform.right * (appliedMoveScalar * speed);
-                    else if (transform.position.x > p1.transform.position.x - 20 && appliedMoveScalar < 0)
-                        subPos += transform.right * (appliedMoveScalar * speed);
-                }
-            }
-        }
-        else
-        {
-            return;
-        }
-
-        transform.position = Vector3.Lerp(transform.position, subPos, rate);
+        MovementInput();
 
         if (!freeze0 || !freeze1)
         {
@@ -78,13 +45,26 @@ public class SubControlScript : MonoBehaviour {
 
     public void moveLeftRight (float leftRight, int pNum)
     {
+        Vector3 assignedV3;
+
         if (Mathf.Abs(leftRight) >= 0.25f)
         {
-            appliedMoveScalar = (appliedMoveScalar + leftRight) / 2;
+            //appliedMoveScalar = (appliedMoveScalar + leftRight) / 2;
+            assignedV3 = Mathf.Sign(leftRight) * Vector3.right * moveForce;
         }
         else
         {
-            appliedMoveScalar = (appliedMoveScalar + 0) / 2;
+            //appliedMoveScalar = (appliedMoveScalar + 0) / 2;
+            assignedV3 = Vector3.zero;
+        }
+
+        if (pNum == 0)
+        {
+            p1MoveVector = assignedV3;
+        }
+        else
+        {
+            p2MoveVector = assignedV3;
         }
     }
 
@@ -114,5 +94,54 @@ public class SubControlScript : MonoBehaviour {
         Debug.Log("left and right bounds set");
         leftMax = lM;
         rightMax = rM;
+    }
+
+    private void MovementInput()
+    {
+        if (!p1.activeSelf && !p2.activeSelf)
+        {
+            if (p1MoveVector == p2MoveVector)
+            {
+                resultantMoveVector = p1MoveVector;
+            }
+            else if (p1MoveVector != p2MoveVector)
+            {
+                if (p1MoveVector == Vector3.zero)
+                {
+                    resultantMoveVector = p2MoveVector;
+                }
+                else if (p2MoveVector == Vector3.zero)
+                {
+                    resultantMoveVector = p1MoveVector;
+                }
+                else
+                {
+                    resultantMoveVector = Vector3.zero;
+                }
+            }
+            else
+            {
+                resultantMoveVector = Vector3.zero;
+            }
+
+        }
+        else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
+        {
+            {
+                if (!p1.activeSelf)
+                {
+                    resultantMoveVector = p2MoveVector;
+                }
+                else if (!p2.activeSelf)
+                {
+                    resultantMoveVector = p1MoveVector;
+                }
+            }
+        }
+        else
+        {
+            resultantMoveVector = Vector3.zero;
+        }
+        myRB.AddForce(resultantMoveVector);
     }
 }
