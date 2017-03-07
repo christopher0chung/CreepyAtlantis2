@@ -216,61 +216,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4470219484517994, guid: d534be859bb4c4a40a292c0ed2e9d101, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d534be859bb4c4a40a292c0ed2e9d101, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1630156194
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780611794630270, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603138394941212, guid: 9d87bb752a4fb0043a4290ab18b16603,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1667055122
-      objectReference: {fileID: 0}
-    - target: {fileID: 1955795748038512, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9d87bb752a4fb0043a4290ab18b16603, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2121585663
 GameObject:
