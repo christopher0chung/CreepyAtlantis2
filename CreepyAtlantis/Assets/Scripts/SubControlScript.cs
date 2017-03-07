@@ -123,18 +123,17 @@ public class SubControlScript : MonoBehaviour {
             {
                 resultantMoveVector = Vector3.zero;
             }
-
         }
         else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
         {
             {
                 if (!p1.activeSelf)
                 {
-                    resultantMoveVector = p2MoveVector;
+                    resultantMoveVector = p1MoveVector;
                 }
                 else if (!p2.activeSelf)
                 {
-                    resultantMoveVector = p1MoveVector;
+                    resultantMoveVector = p2MoveVector;
                 }
             }
         }
