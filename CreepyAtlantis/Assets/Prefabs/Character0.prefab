@@ -2897,16 +2897,12 @@ MonoBehaviour:
   leftMove: 97
   rightMove: 100
   thrust: 119
-  thrustForce: 20
-  walkForce: 15
-  onGroundScale: 0.5
-  notOnGroundScale: 0.5
+  thrustForce: 15
   breathingAirRate: 0.3
   walkingAirRate: 0.4
   boostAirRate: 3.5
-  sCCastDist: 0.25
+  sCCastDist: 0.1
   sCCastRad: 0.25
-  maxBoostTime: 0.15
   myDir: 1
 --- !u!114 &114963766579159466
 MonoBehaviour:

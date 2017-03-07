@@ -14,45 +14,41 @@ public class PlayerMovement : MonoBehaviour{
 
     public float thrustForce;
     private float appliedThrustForce;
-    public float walkForce;
-    private bool grounded;
-    public float onGroundScale;
-    public float notOnGroundScale;
+
+    private bool _grounded;
+    private bool grounded
+    {
+        get
+        {
+            return _grounded;
+        }
+        set
+        {
+            if (value != _grounded)
+            {
+                _grounded = value;
+                if (_grounded)
+                    walkMomentumTimer = 0;
+            }
+        }
+    }
+    private bool groundedCastCheck;
+    private float walkMomentumTimer;
+    private float walkMomentumScalar;
 
     [SerializeField] private float breathingAirRate;
     [SerializeField] private float walkingAirRate;
     [SerializeField] private float boostAirRate;
 
-    private float scale;
     private BoostPSScript PSBoost;
 
     public float sCCastDist;
     public float sCCastRad;
     private RaycastHit[] myRCHs;
 
-    public float maxBoostTime;
-    private float boostTimer;
-    private bool _nowBoosting;
-    private bool nowBoosting
-    {
-        get
-        {
-            return _nowBoosting;
-        }
-        set
-        {
-            if (value != _nowBoosting)
-            {
-                _nowBoosting = value;
-                if (value)
-                {
-                    boostTimer = 0;
-                }
-            }
-        }
-    }
+    private bool nowBoosting;
+    private float justUp;
 
-    private Vector3 boostForce;
     private Vector3 baseForce;
 
     public facingDirection myDir;
@@ -83,7 +79,6 @@ public class PlayerMovement : MonoBehaviour{
 	// Use this for initialization
 	void Start () {
         myRB = GetComponent<Rigidbody>();
-        scale = notOnGroundScale;
         myAir = GetComponent<PlayerAir>();
         PSBoost = transform.Find("Effects").Find("PSBoost").GetComponent<BoostPSScript>();
         myAC = GetComponentInChildren<AnimationControl>();
@@ -91,11 +86,17 @@ public class PlayerMovement : MonoBehaviour{
 
     void Update () {
         myAir.Consume(breathingAirRate * Time.deltaTime);
+        WalkingMomentum();
+    }
+
+    private void WalkingMomentum()
+    {
+        walkMomentumTimer += Time.deltaTime;
+        walkMomentumScalar = Mathf.Clamp01(walkMomentumTimer);
     }
 
     public void Movement (float upDown, float leftRight)
     {
-        
         // Handles facing direction and animation
         if (leftRight > .2f)
         {
@@ -107,28 +108,31 @@ public class PlayerMovement : MonoBehaviour{
             SetDir(facingDirection.left);
             myAC.SetIdle(false);
         }
+        else if (Mathf.Abs(leftRight)<= .2f && Mathf.Abs(upDown) >.2f && !grounded)
+        {
+            SetDir(facingDirection.forward);
+        }
 
 
-        if (!grounded)
+        if (!groundedCastCheck)
         {
             appliedThrustForce = thrustForce;
-            // Starts boosting 
+            // Starts boosting if >.3 from the center in any direction
             if (Mathf.Sqrt(upDown * upDown + leftRight * leftRight) >= .3f)
             {
                 nowBoosting = true;
-                boostTimer = 0;
+                justUp = Mathf.Clamp01(upDown);
             }
             else
             {
                 nowBoosting = false;
             }
             // Calculates the baseForce
-            baseForce = new Vector3(leftRight, upDown, 0) * walkForce;
+            baseForce = new Vector3(leftRight, upDown + justUp * .85f, 0) * appliedThrustForce;
         }
-
-        else if (grounded)
+        else if (grounded && groundedCastCheck)
         {
-            appliedThrustForce = 10 * thrustForce;
+            appliedThrustForce = 3 * thrustForce;
             if (upDown > .5f && Mathf.Abs(leftRight) < .2f)
             {
                 nowBoosting = true;
@@ -138,36 +142,33 @@ public class PlayerMovement : MonoBehaviour{
                 nowBoosting = false;
             }
 
-            baseForce = Vector3.up * upDown;
+            baseForce = Vector3.up * upDown * appliedThrustForce;
 
             if (Mathf.Abs(leftRight) > .3f)
             {
                 if (leftRight > 0)
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * .040f * 60 * Time.deltaTime);
+                    myRB.MovePosition(transform.position + Vector3.right * .040f * 60 * Time.deltaTime * walkMomentumScalar);
                 }
                 else
                 {
-                    myRB.MovePosition(transform.position + Vector3.right * -.040f * 60 * Time.deltaTime);
+                    myRB.MovePosition(transform.position + Vector3.right * -.040f * 60 * Time.deltaTime * walkMomentumScalar);
                 }
                 myAir.Consume(walkingAirRate * Time.deltaTime);
             }
         }
-
-        // Scales boosting based on time since boost
-        boostTimer += Time.deltaTime;
-        if (boostTimer <= maxBoostTime)
-        {
-            float justUp = Mathf.Clamp(upDown, 0, 1);
-            boostForce = new Vector3(leftRight, justUp, 0) * appliedThrustForce * (1 - (boostTimer / maxBoostTime));
-            myAir.Consume(boostAirRate * Time.deltaTime * (1 - (boostTimer / maxBoostTime)));
-            PSBoost.onOff = true;
-        }
         else
         {
-            boostForce = Vector3.zero;
-            PSBoost.onOff = false;
+            baseForce = Vector3.zero;
         }
+
+        if (nowBoosting)
+        {
+            PSBoost.onOff = true;
+            myAir.Consume(boostAirRate * Time.deltaTime);
+        }
+        else
+            PSBoost.onOff = false;
     }
 
     public void FixedUpdate ()
@@ -175,7 +176,7 @@ public class PlayerMovement : MonoBehaviour{
         DetectGround();
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(myCharRot), .09f);
 
-        myRB.AddForce(baseForce + boostForce);
+        myRB.AddForce(baseForce);
     }
 
     void DetectGround()
@@ -189,15 +190,19 @@ public class PlayerMovement : MonoBehaviour{
         {
             if (myCols.collider.gameObject.tag == "Walkable")
             {
-                scale = onGroundScale;
                 myAC.SetGrounded(true);
-                grounded = true;
+                groundedCastCheck = true;
                 return;
             }
         }
+        groundedCastCheck = false;
         grounded = false;
-        scale = notOnGroundScale;
         myAC.SetGrounded(false);
+    }
+    void OnCollisionEnter (Collision other)
+    {
+        if (groundedCastCheck && other.gameObject.tag == "Walkable")
+            grounded = true;
     }
 }
 
