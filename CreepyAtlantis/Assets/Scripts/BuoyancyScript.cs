@@ -3,28 +3,17 @@ using System.Collections;
 
 public class BuoyancyScript : MonoBehaviour {
 
-    //public float period;
-    //public float magnitude;
     private float originalHeight;
-    //private float timer;
 
     private Rigidbody myRB;
     private bool upDown;
+    [SerializeField] float upDownForce; //12
 
-	// Use this for initialization
 	void Start () {
         originalHeight = transform.position.y;
         myRB = GetComponent<Rigidbody>();
 	}
 	
-	//// Update is called once per frame
-	//void Update () {
-
- //       timer += Time.deltaTime;
- //       myRB.MovePosition(new Vector3(transform.position.x, originalHeight + magnitude * Mathf.Sin(timer * period), transform.position.z));
-
-	//}
-
     void FixedUpdate()
     {
         myRB.AddForce(BuoyancyVector());
@@ -32,6 +21,18 @@ public class BuoyancyScript : MonoBehaviour {
 
     private Vector3 BuoyancyVector ()
     {
-        return Vector3.zero;
+        if (originalHeight - transform.position.y >= 1 && !upDown)
+        {
+            upDown = true;
+        }
+        if (originalHeight - transform.position.y <= -1 && upDown)
+        {
+            upDown = false;
+        }
+
+        if (upDown)
+            return Vector3.up * upDownForce;
+        else
+            return Vector3.up * -upDownForce;
     }
 }
