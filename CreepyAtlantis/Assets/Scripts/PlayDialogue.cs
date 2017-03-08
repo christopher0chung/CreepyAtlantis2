@@ -15,7 +15,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private AudioSource next;
 
     public ControllerAdapter[] myAdapters;
-    public ObjectivesTracker myOT;
+    public IObjective myO;
 
     public Color myColor;
     private bool colorFlip;
@@ -62,8 +62,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += SetControllerAdapter;
 
-        myOT = GameObject.Find("GameStateManager").GetComponent<ObjectivesTracker>();
-
         myLink = GetComponent<LinkToDialogueEvent>();
     }
 
@@ -73,6 +71,12 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         lines = GetComponent<AudioSource>();
         next = transform.Find("NextSound").GetComponent<AudioSource>();
         //StateChoices(dialogueStates.speaking);
+
+        if (GetComponent<IObjective>() != null)
+        {
+            myO = GetComponent<IObjective>();
+        }
+
     }
 
     // Update is called once per frame
@@ -124,7 +128,12 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         lines.Stop();
         next.Play();
         StateChoices(dialogueStates.inactive);
-        myOT.ObjectivesUpdate(gameObject.name);
+
+        if (myO != null)
+        {
+            myO.Trigger();
+        }
+
         if (myLink != null)
         {
             myLink.Link();
