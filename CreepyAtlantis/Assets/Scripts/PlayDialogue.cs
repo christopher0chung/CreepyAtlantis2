@@ -4,25 +4,48 @@ using UnityEngine.UI;
 
 public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
-    public string Dialogue;
+    //--------------------
+    // Public properties
+    //--------------------
 
-    public Text outputText;
+    public string Dialogue;
 
     public delegate void stateManager ();
     public stateManager currentState;
 
+    public float dialogueAdvanceTime;
+    
+
+    //--------------------
+    // Private properties
+    //--------------------
+
+    private Text outputText;
+
     private AudioSource lines;
     private AudioSource next;
 
-    public ControllerAdapter[] myAdapters;
-    public IObjective myO;
+    private ControllerAdapter[] myAdapters;
+    private IObjective myO;
 
     public Color myColor;
     private bool colorFlip;
 
     private float timer;
-    public float dialogueAdvanceTime;
     private bool timerFlip;
+
+
+    private IDialogueEvent myEvent;
+
+    private int charCounter;
+    private int incCounter;
+
+    private LinkToDialogueEvent myLink;
+
+
+    //--------------------
+    // State machine
+    //--------------------
 
     public void StateChoices (dialogueStates dS)
     {
@@ -44,12 +67,10 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
-    private IDialogueEvent myEvent;
 
-    private int charCounter;
-    private int incCounter;
-
-    private LinkToDialogueEvent myLink;
+    //--------------------
+    // Scheduled functionality
+    //--------------------
 
     void Awake ()
     {
@@ -68,19 +89,16 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     void Start () {
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputText = GameObject.Find("Canvas").transform.Find("Subtitle").GetComponent<Text>();
-        lines = GetComponent<AudioSource>();
-        next = transform.Find("NextSound").GetComponent<AudioSource>();
-        //StateChoices(dialogueStates.speaking);
+        lines = GetAudio(soundType.line);
+        next = GetAudio(soundType.sfx);
 
         if (GetComponent<IObjective>() != null)
         {
             myO = GetComponent<IObjective>();
         }
-
     }
 
-    // Update is called once per frame
-    void FixedUpdate () {
+    void Update () {
         if (currentState != null)
         {
             currentState();
@@ -93,6 +111,44 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
 	}
 
+
+    //--------------------
+    // Specific functionality
+    //--------------------
+
+    public enum soundType { sfx, line }
+
+    private AudioSource GetAudio (soundType myST)
+    {
+        if (myST == soundType.line)
+        {
+            AudioSource a = gameObject.AddComponent<AudioSource>();
+            a.clip = Resources.Load<AudioClip>("Dialogue/" + (string)this.gameObject.name);
+            a.volume = 1;
+            a.loop = false;
+            a.playOnAwake = false;
+            a.Stop();
+            return a;
+        }
+        else
+        {
+            GameObject g = (GameObject)Instantiate(Resources.Load("Blank"), this.transform);
+            AudioSource a = g.AddComponent<AudioSource>();
+            a.clip = Resources.Load<AudioClip>("SFX/NextSound");
+            a.volume = .03f;
+            a.pitch = .5f;
+            a.loop = false;
+            a.playOnAwake = false;
+            a.Stop();
+            return a;
+        }
+    }
+
+
+    //--------------------
+    // IDialogue implementation
+    //--------------------
+
     private void Speaking ()
     {
         if (!colorFlip)
@@ -100,7 +156,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             colorFlip = true;
             outputText.color = myColor;
         }
-        //Debug.Log("In speaking");
         incCounter++;
         if (incCounter >= 3)
         {
@@ -123,10 +178,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         timerFlip = true;
         outputText.text = "";
-        //Debug.Log("in clean up");
         myEvent.NextLine();
         lines.Stop();
-        next.Play();
         StateChoices(dialogueStates.inactive);
 
         if (myO != null)
@@ -138,6 +191,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             myLink.Link();
         }
+        Destroy(lines);
+        Destroy(next.gameObject);
     }
 
     private void Inactive()
@@ -150,6 +205,11 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         Debug.Log(Dialogue);
     }
 
+
+    //--------------------
+    // IControllable implementation
+    //--------------------
+
     public void LeftStick(float leftRight, float upDown, int pNum) { }
 
     public void RightStick(float leftRight, float upDown, int pNum) { }
@@ -160,7 +220,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         if (pushRelease)
         {
-            next.Play();
+            if (next != null)
+                next.Play();
             if (currentState == Speaking)
                 StateChoices(dialogueStates.spoken);
             else if (currentState == Spoken)
@@ -174,7 +235,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {
-     if (myAdapters[player] != null)
+        if (myAdapters[player] != null)
         {
             if (myControllable == Controllables.dialogue)
                 myAdapters[player].enabled = true;

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
+    //--------------------
+    // Public properites
+    //--------------------
+
     public int whoseChoice;
 
     public string Choice1;
@@ -16,17 +20,35 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public delegate void stateManager();
     public stateManager currentState;
 
-    public ControllerAdapter[] myAdapters;
-    public ObjectivesTracker myOT;
-
     public Color myColor;
+
+    public float dialogueAdvanceTime;
+
+    public GameObject eventChoice1;
+    public GameObject eventChoice2;
+
+
+    //--------------------
+    // Private properties
+    //--------------------
+
+    private ControllerAdapter[] myAdapters;
+    
     private bool colorFlip;
 
     private AudioSource next;
 
     private float timer;
-    public float dialogueAdvanceTime;
     private bool timerFlip;
+
+    private IDialogueEvent myEvent;
+
+    private DialogueManager myDM;
+
+
+    //--------------------
+    // State machine
+    //--------------------
 
     public void StateChoices(dialogueStates dS)
     {
@@ -47,12 +69,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         }
     }
 
-    private IDialogueEvent myEvent;
 
-    public GameObject eventChoice1;
-    public GameObject eventChoice2;
-
-    private DialogueManager myDM;
+    //--------------------
+    // Scheduled functionality
+    //--------------------
 
     void Awake()
     {
@@ -64,8 +84,6 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += SetControllerAdapter;
-
-        myOT = GameObject.Find("GameStateManager").GetComponent<ObjectivesTracker>();
     }
 
     void Start()
@@ -81,14 +99,11 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             outputChoice1 = GameObject.Find("Canvas").transform.Find("C2 Choice 1").GetComponent<Text>();
             outputChoice2 = GameObject.Find("Canvas").transform.Find("C2 Choice 2").GetComponent<Text>();
         }
-        next = GetComponent<AudioSource>();
-        //StateChoices(dialogueStates.speaking);
+        next = GetAudio();
         myDM = transform.root.gameObject.GetComponent<DialogueManager>();
-        
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (currentState != null)
         {
@@ -100,6 +115,28 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             }
         }
     }
+
+
+    //--------------------
+    // Specific functionality
+    //--------------------
+
+    private AudioSource GetAudio()
+    {
+        AudioSource a = gameObject.AddComponent<AudioSource>();
+        a.clip = Resources.Load<AudioClip>("SFX/NextSound");
+        a.volume = .03f;
+        a.pitch = .5f;
+        a.loop = false;
+        a.playOnAwake = false;
+        a.Stop();
+        return a;
+    }
+
+
+    //--------------------
+    // IDialogue implementaiton
+    //--------------------
 
     private void Spoken()
     {
@@ -118,9 +155,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         outputChoice1.text = outputChoice2.text = "";
         //Debug.Log("in clean up");
         myEvent.NextLine();
-        next.Play();
         StateChoices(dialogueStates.inactive);
-        myOT.ObjectivesUpdate(gameObject.name);
     }
 
     private void Inactive()
@@ -133,6 +168,11 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log(Dialogue);
     }
 
+
+    //--------------------
+    // IControllable implemenation
+    //--------------------
+
     public void LeftStick(float leftRight, float upDown, int pNum) { }
 
     public void RightStick(float leftRight, float upDown, int pNum) { }
@@ -143,9 +183,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void LeftBumper(bool pushRelease, int pNum)
     {
-        //Debug.Log(pNum);
         if (pNum == whoseChoice && pushRelease && currentState == Spoken)
         {
+            next.Play();
+
             TriggerChoice(0);
             StateChoices(dialogueStates.cleanup);
         }
@@ -153,9 +194,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void RightBumper(bool pushRelease, int pNum)
     {
-        //Debug.Log(pNum);
         if (pNum == whoseChoice && pushRelease && currentState == Spoken)
         {
+            next.Play();
+
             TriggerChoice(1);
             StateChoices(dialogueStates.cleanup);
         }
@@ -177,7 +219,6 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         if (choiceNum == 0)
         {
             StartCoroutine(TriggerChoice1Coroutine());
-            //Debug.Log("Triggering choice 1");
         }
         else if (choiceNum == 1)
         {
@@ -185,6 +226,11 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             //Debug.Log("Triggering choice 2");
         }
     }
+
+
+    //--------------------
+    // Coroutines
+    //--------------------
 
     private IEnumerator TriggerChoice1Coroutine()
     {
