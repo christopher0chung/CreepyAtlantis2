@@ -7,14 +7,10 @@ public class CameraPositionScript : MonoBehaviour {
     public Transform p2;
     public Transform sub;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    private Vector3 camDest;
 
+    void Update()
+    {
         float lowestY = p1.position.y;
         if (p2.position.y < lowestY)
             lowestY = p2.position.y;
@@ -47,13 +43,17 @@ public class CameraPositionScript : MonoBehaviour {
 
         float depth = Mathf.Lerp(-25, -45, maxScalar);
 
-        Vector3 camDest = new Vector3((p1.position.x + p2.position.x) / 2, lowestY, depth);
+        camDest = new Vector3((p1.position.x + p2.position.x) / 2, lowestY, depth);
         if (camDest.x >= sub.position.x + 5)
             camDest.x = sub.position.x + 5;
         if (camDest.x <= sub.position.x - 5)
             camDest.x = sub.position.x - 5;
 
-        transform.position = Vector3.Lerp(transform.position, camDest, .05f);
+    }
+
+    void LateUpdate () {
+
+        transform.position = Vector3.Lerp(transform.position, camDest, 4 * Time.deltaTime);
 
     }
 }
