@@ -8,6 +8,11 @@ public class SubStationInteraction : SSInteractableObject {
     public SSInteractableObject nextInteractable;
     public DialogueEvents lineToStart;
 
+    //0 - player1
+    //1 - player2
+    //2 - either
+    public int whoCanInteract;
+
     void Awake()
     {
         Init(TriggerShape.sphere, Vector3.up);
@@ -16,13 +21,26 @@ public class SubStationInteraction : SSInteractableObject {
 
     void Start()
     {
-        myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        if (GameObject.Find("DialogueManager"))
+            myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
     public override void OnPress(int pNum)
     {
-        HideInteractable();
-        this.enabled = false;
+        if(pNum == whoCanInteract)
+        {
+            // set dialogue line to true
+            if (lineToStart != null)
+                myDM.FireEvent(myDM.ReturnEventIndex(lineToStart));
+
+            // make next interactable interactable
+            if (nextInteractable != null)
+                nextInteractable.SetInteractionActive(true);
+            GetComponent<SubStationInteraction>().SetInteractionActive(false);
+
+            HideInteractable();
+            SetInteractionActive(false);
+        }
     }
 
     void Update()
@@ -39,16 +57,6 @@ public class SubStationInteraction : SSInteractableObject {
     public override void Interact(int pNum, bool pressRelease)
     {
         base.Interact(pNum, pressRelease);
-
-        // set dialogue line to true
-        if (lineToStart != null)
-            myDM.FireEvent(myDM.ReturnEventIndex(lineToStart));
-
-        // make next interactable interactable
-        if (nextInteractable != null)
-            nextInteractable.SetInteractionActive(true);
-        GetComponent<SubStationInteraction>().SetInteractionActive(false);
-
         Debug.Log("interact");
     }
 }
