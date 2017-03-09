@@ -38,7 +38,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private IDialogueEvent myEvent;
 
     private int charCounter;
-    private int incCounter;
+    private float incCounter;
 
     private LinkToDialogueEvent myLink;
 
@@ -81,7 +81,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
-        GameStateManager.onEndDialogue += SetControllerAdapter;
+        GameStateManager.onEndDialogue += EndDialogue;
 
         myLink = GetComponent<LinkToDialogueEvent>();
     }
@@ -144,6 +144,20 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
+    private int PrintName()
+    {
+        for (int i = 1; i < Dialogue.Length; i++)
+        {
+            if (Dialogue[i] == ':')
+            {
+                //Debug.Log(Dialogue.Substring(0, i));
+                return i;
+
+            }
+        }
+        return 0;
+    }
+
 
     //--------------------
     // IDialogue implementation
@@ -155,9 +169,12 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             colorFlip = true;
             outputText.color = myColor;
+
+            // At the time of color flip, advances charCounter to name printed.
+            charCounter = PrintName();
         }
-        incCounter++;
-        if (incCounter >= 3)
+        incCounter+= Time.deltaTime;
+        if (incCounter >= .02f)
         {
             incCounter = 0;
             if (charCounter < Dialogue.Length)
@@ -239,8 +256,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             if (myControllable == Controllables.dialogue)
                 myAdapters[player].enabled = true;
-            else
-                myAdapters[player].enabled = false;
+        }
+    }
+    public void EndDialogue(int player, Controllables myControllable)
+    {
+        if (myAdapters[player] != null)
+        {
+            myAdapters[player].enabled = false;
         }
     }
 }
