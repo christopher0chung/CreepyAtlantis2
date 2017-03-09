@@ -81,7 +81,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
-        GameStateManager.onEndDialogue += SetControllerAdapter;
+        GameStateManager.onEndDialogue += EndDialogue;
 
         myLink = GetComponent<LinkToDialogueEvent>();
     }
@@ -256,8 +256,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             if (myControllable == Controllables.dialogue)
                 myAdapters[player].enabled = true;
-            else
-                myAdapters[player].enabled = false;
+        }
+    }
+    public void EndDialogue(int player, Controllables myControllable)
+    {
+        if (myAdapters[player] != null)
+        {
+            myAdapters[player].enabled = false;
         }
     }
 }

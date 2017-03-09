@@ -30,6 +30,8 @@ public class SubController : MonoBehaviour, IControllable {
     {
         if (canMove)
             myMovement.moveLeftRight(leftRight, pNum);
+        else
+            myMovement.moveLeftRight(0, pNum);
     }
 
     public void RightStick(float upDown, float leftRight, int pNum)

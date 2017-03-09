@@ -8,6 +8,7 @@ public class Add01StartObjective : Objective {
     {
         Init("ADD01Start", Complete);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveCheck(this);
+        Invoke("MakeTrigger", 2f);
     }
 
     void Complete()
@@ -18,7 +19,7 @@ public class Add01StartObjective : Objective {
     public override void Trigger()
     {
         base.Trigger();
-        GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(2);
+        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().FireEvent(0);
     }
 
     void MakeTrigger()
@@ -30,11 +31,12 @@ public class Add01StartObjective : Objective {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.name == "Sub")
+        if (other.transform.root.name == "Sub")
         {
             other.transform.parent.GetComponent<SubController>().canMove = false;
             other.transform.parent.GetComponent<SubController>().canGetOut = true;
             Trigger();
+            return;
         }
     }
 
