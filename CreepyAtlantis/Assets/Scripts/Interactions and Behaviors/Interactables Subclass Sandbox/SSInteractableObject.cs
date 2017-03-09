@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class SSInteractableObject : MonoBehaviour, IInteractable {
 
-    public TriggerShape triggerShape;
+    //Subclass Sandbox - Interactable Objects
 
-    public AssetDepot myAD;
+    [HideInInspector] public TriggerShape triggerShape;
 
+    [HideInInspector] public AssetDepot myAD;
+
+    public bool _detectFuncActive;
     public delegate void detectFunc();
     public detectFunc _detectFunc;
 
-    public Vector3 iconOffset;
+    [HideInInspector] public Vector3 iconOffset;
 
-    public Vector3 boxDim;
-    public Vector3 boxLoc;
+    [HideInInspector] public Vector3 boxDim;
+    [HideInInspector] public Vector3 boxLoc;
 
-    public float sphereRad;
-    public Vector3 sphereLoc;
+    [HideInInspector] public float sphereRad;
+    [HideInInspector] public Vector3 sphereLoc;
 
     public RaycastHit[] myHits;
 
     public Dictionary<int, string> numToName = new Dictionary<int, string>();
     public Dictionary<string, int> nameToNum = new Dictionary<string, int>();
 
-    public GameObject myIcon;
-    public bool _showInteractableIcon;
-    public bool showInteractableIcon
+    [HideInInspector] public GameObject myIcon;
+    private bool _showInteractableIcon;
+    [HideInInspector] public bool showInteractableIcon
     {
         get
         {
@@ -110,7 +113,13 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
 
     //-----------------------------------------------------------------
     // _detectFunc should be run in Update;
+    // _detectFuncActive is a bool to use if not always active.
     //-----------------------------------------------------------------
+
+    virtual public void SetInteractionActive (bool active)
+    {
+        _detectFuncActive = active;
+    }
 
     virtual public void BoxCastDetect ()
     {

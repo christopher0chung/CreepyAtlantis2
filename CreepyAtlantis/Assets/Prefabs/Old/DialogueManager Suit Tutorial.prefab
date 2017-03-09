@@ -5462,11 +5462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: "Doc: Yeah, if the contents of my stomach don\u2019t decide to egress
     out of my mouth, we should be good. "
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114041917707099732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5480,11 +5477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: I see they skipped the psych eval this time. You must be higher
     up than I thought. '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114063106904388522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5498,11 +5492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: "Ops: We just have seaweed in our props. I\u2019ll clear it once we\u2019re
     in the water. "
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114067043432137110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5565,8 +5556,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Again with the jargon? '
   Choice2: 'Ugh....still feel sick. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1945085602644746}
@@ -5596,11 +5585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: "Ops: Our bodies and suits can take more pressure than the sub\u2019s
     hull, so we can safely go deeper."
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114178318145407986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5673,13 +5659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I.: Obstruction in starboard propulsion.'
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114262021105802736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5706,10 +5687,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters:
-  - {fileID: 114749811665178442}
-  - {fileID: 114106727664549170}
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 0}
@@ -5740,8 +5717,6 @@ MonoBehaviour:
   whoseChoice: 0
   Choice1: 'It''s just seaweed. '
   Choice2: 'Calm down. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1368317776804818}
@@ -5808,8 +5783,6 @@ MonoBehaviour:
   whoseChoice: 0
   Choice1: 'It''s just seaweed. '
   Choice2: 'Calm down. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1368317776804818}
@@ -5828,10 +5801,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters:
-  - {fileID: 114869449575072204}
-  - {fileID: 114746237398185582}
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 0}
@@ -5850,8 +5819,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: Panic.
   Choice2: Pretend not to panic.
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1240631888017476}
@@ -5868,13 +5835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I.: Submersible at maximum safe depth. '
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114562550456295482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5889,8 +5851,6 @@ MonoBehaviour:
   whoseChoice: 0
   Choice1: 'Just press the button. '
   Choice2: 'Let''s get in the water. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1558412883032204}
@@ -5921,8 +5881,6 @@ MonoBehaviour:
   whoseChoice: 0
   Choice1: 'Just press the button. '
   Choice2: 'Let''s get in the water. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1558412883032204}
@@ -5940,11 +5898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Remember your training. Use the left thumbstick to boost up. Boosting
     takes air, so go back to the sub to top up as needed.'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114597557676915208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5957,11 +5912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: Can we bring the sub closer to us? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114616594446884678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5986,11 +5938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Just press the action button to get out. '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114626734543439118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6016,11 +5965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Now we should do an Op-Check of our suits. Press the Action button
     to access the egress hatch. Think you can do that? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114632495673776330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6034,11 +5980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: "Doc: I don\u2019t know what\u2019s more confusing, my vertigo or your
     operations jargon."
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114633964926770604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6063,13 +6006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I. : Air transfer valves functioning. '
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114657846720286258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6096,8 +6034,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about air. '
   Choice2: 'Ask about sub. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1591860409118618}
@@ -6115,11 +6051,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: We can transfer air to each other, but that should only be a last
     resort. Keep an eye on your levels.'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114746237398185582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6168,11 +6101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: Wait, so if I run out of air I can''t get back to the sub? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114806739387148104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6185,11 +6115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: What did she say? Is it the engines? Are we stuck down here? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114835796096820790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6202,11 +6129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: Why have we stopped? Did I mess something up?'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114869449575072204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6231,11 +6155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: "Ops: You\u2019ll feel better when you\u2019re in the water, promise."
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114892003691005464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6260,11 +6181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: This is fine. Everything is fine and I''m not panicking at all.'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114998659307869990
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -53,4 +53,21 @@ public class DialogueManager : MonoBehaviour {
             //Debug.Log(myEvents[i].DEventName);
         }
     }
+
+    public int ReturnEventIndex(DialogueEvents myDE)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (myEventsNames[i] == myDE.gameObject.name)
+            {
+                return i;
+            }
+        }
+        return 9999;
+    }
+
+    public void FireEvent(int index)
+    {
+        myEvents[index].TRIGGER = true;
+    }
 }

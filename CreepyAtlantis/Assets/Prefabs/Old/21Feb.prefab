@@ -4017,8 +4017,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Say you feel terrible. '
   Choice2: 'Deflect. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1381276370207022}
@@ -4108,13 +4106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I.: Nausea and fainting is sometimes a symptom of rapid pressure
     change. It should pass in less than thirty minutes.  '
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114206069833134520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4153,10 +4146,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters:
-  - {fileID: 114288719599783896}
-  - {fileID: 114573118787365234}
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 0}
@@ -4175,8 +4164,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Put on a brave face. '
   Choice2: 'Say you feel sick. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1462215580711358}
@@ -4205,11 +4192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: I feel like my stomach is in my throat. '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114279637839014728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4234,11 +4218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Are you OK, Doc? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114288719599783896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4264,11 +4245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: Any chance this sub comes with those little motion sickness bags
     they have on airplanes?'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114350793936874436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4293,11 +4271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: I thought that usually  happened on the way up, not the way down?'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114406023986486618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4312,8 +4287,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1991986164426636}
@@ -4344,10 +4317,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters:
-  - {fileID: 114755076638585036}
-  - {fileID: 114206069833134520}
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 0}
@@ -4365,11 +4334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: Any chance this sub comes with those little motion sickness bags
     they have on airplanes?'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114564387557456806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4429,11 +4395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Now you''re really glad you left that desk job, huh? '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114700716367167510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4470,11 +4433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Doc: I don''t know. I was out too.'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!114 &114720101507054816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4487,11 +4447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Ops: Whu....How long was I out?'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114740644449973292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4504,11 +4461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: "Doc: So glad. It\u2019s so boring, being conscious all the time."
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114755076638585036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4535,8 +4489,6 @@ MonoBehaviour:
   whoseChoice: 0
   Choice1: Ask how Doc is doing.
   Choice2: 'Make light of situation. '
-  myAdapters: []
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 1861130555147184}
@@ -4565,11 +4517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'Oh, I''m fine. How are you? You look a little green. '
-  outputText: {fileID: 0}
-  myAdapters: []
-  myOT: {fileID: 0}
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
   dialogueAdvanceTime: 0
+  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &114864831359680578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4582,13 +4531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I.: Sub lost power 200 meters from destination. '
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114876966679915372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4614,13 +4558,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: 'D.A.N.I.: Alert...alert...atmospheric pressure sensors stabilizing...all
     systems back online. '
-  outputText: {fileID: 0}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  myOT: {fileID: 0}
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
   dialogueAdvanceTime: 4
+  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
 --- !u!114 &114889056846198146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4647,10 +4586,6 @@ MonoBehaviour:
   whoseChoice: 1
   Choice1: 'Ask about sub movement. '
   Choice2: 'Ask about dive safety. '
-  myAdapters:
-  - {fileID: 114700716367167510}
-  - {fileID: 114437141550163288}
-  myOT: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dialogueAdvanceTime: 0
   eventChoice1: {fileID: 0}
