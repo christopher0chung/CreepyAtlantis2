@@ -7,6 +7,9 @@ public class SubController : MonoBehaviour, IControllable {
     public TrapDoorScript myTDS;
     public ControllerAdapter [] myAdapters;
 
+    public bool canGetOut;
+    public bool canMove;
+
     void Awake()
     {
         myMovement = GetComponent<SubControlScript>();
@@ -25,7 +28,8 @@ public class SubController : MonoBehaviour, IControllable {
 
     public void LeftStick(float upDown, float leftRight, int pNum)
     {
-        myMovement.moveLeftRight(leftRight, pNum);
+        if (canMove)
+            myMovement.moveLeftRight(leftRight, pNum);
     }
 
     public void RightStick(float upDown, float leftRight, int pNum)
@@ -35,7 +39,7 @@ public class SubController : MonoBehaviour, IControllable {
 
     public void AButton(bool pushRelease, int pNum)
     {
-        if (pushRelease)
+        if (pushRelease && canGetOut)
         {
             GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(pNum, Controllables.character);
             GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(pNum, false);

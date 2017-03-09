@@ -44,7 +44,18 @@ public class PlayerAction : MonoBehaviour {
                     return;
                 }
             }
-            //next is everything else
+            
+            //next is everything else on each collider
+            foreach (RaycastHit aHit in allInRange)
+            {
+                if (aHit.collider.transform.root.gameObject.GetComponent<IInteractable>() != null)
+                {
+                    aHit.collider.transform.root.gameObject.GetComponent<IInteractable>().Interact(playerNum, pushRelease);
+                    return;
+                }
+            }
+
+            //last is something that might be on the parent
             foreach (RaycastHit aHit in allInRange)
             {
                 if (aHit.collider.transform.root.gameObject.GetComponent<IInteractable>() != null)
