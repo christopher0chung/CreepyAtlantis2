@@ -31,12 +31,14 @@ public class Add01StartObjective : Objective {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root.name == "Sub")
+        Debug.Log("AHit");
+        if (other.name == "Sub" && other.GetComponent<SubController>() != null)
         {
-            other.transform.parent.GetComponent<SubController>().canMove = false;
-            other.transform.parent.GetComponent<SubController>().canGetOut = true;
+            Debug.Log("Hit something on sub");
+
+            other.GetComponent<SubController>().canMove = false;
+            other.GetComponent<SubController>().canGetOut = false;
             Trigger();
-            return;
         }
     }
 
