@@ -13,8 +13,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     public delegate void stateManager ();
     public stateManager currentState;
 
-    public float dialogueAdvanceTime;
-    
 
     //--------------------
     // Private properties
@@ -34,13 +32,15 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private float timer;
     private bool timerFlip;
 
-
     private IDialogueEvent myEvent;
 
     private int charCounter;
     private float incCounter;
 
     private LinkToDialogueEvent myLink;
+
+    private float dialogueAdvanceTime;
+    private float nextCharTime;
 
 
     //--------------------
@@ -122,24 +122,40 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         if (myST == soundType.line)
         {
+            if (Dialogue.Length == 0)
+            {
+                return null;
+            }
             AudioSource a = gameObject.AddComponent<AudioSource>();
             a.clip = Resources.Load<AudioClip>("Dialogue/" + (string)this.gameObject.name);
-            a.volume = 1;
-            a.loop = false;
-            a.playOnAwake = false;
-            a.Stop();
+            if (a.clip != null)
+            {
+                dialogueAdvanceTime = a.clip.length + 2;
+                nextCharTime = a.clip.length / Dialogue.Length;
+                a.volume = 1;
+                a.loop = false;
+                a.playOnAwake = false;
+                a.Stop();
+            }
+            else
+            {
+                nextCharTime = .02f;
+            }
             return a;
         }
         else
         {
             GameObject g = (GameObject)Instantiate(Resources.Load("Blank"), this.transform);
             AudioSource a = g.AddComponent<AudioSource>();
-            a.clip = Resources.Load<AudioClip>("SFX/NextSound");
-            a.volume = .03f;
-            a.pitch = .5f;
-            a.loop = false;
-            a.playOnAwake = false;
-            a.Stop();
+            if (a != null)
+            {
+                a.clip = Resources.Load<AudioClip>("SFX/NextSound");
+                a.volume = .03f;
+                a.pitch = .5f;
+                a.loop = false;
+                a.playOnAwake = false;
+                a.Stop();
+            }
             return a;
         }
     }
@@ -174,7 +190,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             charCounter = PrintName();
         }
         incCounter+= Time.deltaTime;
-        if (incCounter >= .02f)
+        if (incCounter >= nextCharTime)
         {
             incCounter = 0;
             if (charCounter < Dialogue.Length)
