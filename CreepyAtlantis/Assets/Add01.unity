@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e4b96da60b9204bb0878474a0e80c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventLink: {fileID: 912441875}
+  eventLink: {fileID: 1230096955}
 --- !u!1 &221799052
 GameObject:
   m_ObjectHideFlags: 0
@@ -8550,6 +8550,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
     type: 2}
   m_PrefabInternal: {fileID: 788249152}
+--- !u!1 &788249154 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010964759290, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
+    type: 2}
+  m_PrefabInternal: {fileID: 788249152}
 --- !u!1001 &793867821
 Prefab:
   m_ObjectHideFlags: 0
@@ -9074,11 +9079,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &912441875 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1186170430140286, guid: 70e0493e3b6ed9147a468ba59a33cc67,
-    type: 2}
-  m_PrefabInternal: {fileID: 912441874}
 --- !u!1001 &921193420
 Prefab:
   m_ObjectHideFlags: 0
@@ -9136,7 +9136,7 @@ Prefab:
         type: 2}
       propertyPath: eventChoice1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 788249154}
     - target: {fileID: 114553138527613282, guid: 67e71fa966226f34eb50936d29d52149,
         type: 2}
       propertyPath: eventChoice2
@@ -12777,7 +12777,7 @@ Prefab:
         type: 2}
       propertyPath: eventChoice1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 788249154}
     - target: {fileID: 114553138527613282, guid: 67e71fa966226f34eb50936d29d52149,
         type: 2}
       propertyPath: eventChoice2

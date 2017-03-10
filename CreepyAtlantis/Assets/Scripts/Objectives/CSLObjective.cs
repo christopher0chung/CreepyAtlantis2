@@ -7,7 +7,7 @@ public class CSLObjective : Objective {
 
     void Start()
     {
-        Init ("CSLLastDialogueLine", Complete);
+        Init ("CSLLastDialogueLine" + gameObject.name, Complete);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveCheck(this);
     }
 

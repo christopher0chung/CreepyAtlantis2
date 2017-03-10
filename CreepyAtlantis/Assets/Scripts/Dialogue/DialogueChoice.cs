@@ -45,6 +45,9 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     private DialogueManager myDM;
 
+    private GameObject lBIcon;
+    private GameObject rBIcon;
+
 
     //--------------------
     // State machine
@@ -93,11 +96,15 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         {
             outputChoice1 = GameObject.Find("Canvas").transform.Find("C1 Choice 1").GetComponent<Text>();
             outputChoice2 = GameObject.Find("Canvas").transform.Find("C1 Choice 2").GetComponent<Text>();
+            lBIcon = GameObject.Find("Canvas").transform.Find("LBIcon-Left").gameObject;
+            rBIcon = GameObject.Find("Canvas").transform.Find("RBIcon-Left").gameObject;
         }
         else
         {
             outputChoice1 = GameObject.Find("Canvas").transform.Find("C2 Choice 1").GetComponent<Text>();
             outputChoice2 = GameObject.Find("Canvas").transform.Find("C2 Choice 2").GetComponent<Text>();
+            lBIcon = GameObject.Find("Canvas").transform.Find("LBIcon-Right").gameObject;
+            rBIcon = GameObject.Find("Canvas").transform.Find("RBIcon-Right").gameObject;
         }
         next = GetAudio();
         myDM = transform.root.gameObject.GetComponent<DialogueManager>();
@@ -147,12 +154,16 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         }
         outputChoice1.text = Choice1;
         outputChoice2.text = Choice2;
+        lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = true;
+
     }
 
     private void Cleanup()
     {
         timerFlip = true;
         outputChoice1.text = outputChoice2.text = "";
+        lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = false;
+
         //Debug.Log("in clean up");
         myEvent.NextLine();
         StateChoices(dialogueStates.inactive);
