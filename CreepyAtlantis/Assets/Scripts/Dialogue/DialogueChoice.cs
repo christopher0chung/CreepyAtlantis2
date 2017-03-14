@@ -275,4 +275,4 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         }
     }
 }
-public enum dialogueStates { speaking, spoken, cleanup, inactive };
+public enum dialogueStates { speaking, spoken, cleanup, inactive, stopped };

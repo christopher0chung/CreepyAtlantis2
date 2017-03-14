@@ -35,9 +35,9 @@ public class CharacterIngressEgressManager : MonoBehaviour {
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (characters[0] != null && characters [1] != null)
+        if (characters[0] != null || characters [1] != null)
         {
             foreach (GameObject myChar in characters)
             {

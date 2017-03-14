@@ -35,7 +35,7 @@ public class SUBTUT2Objective5 : Objective
         if (GetComponent<SphereCollider>() == null)
         {
             SphereCollider myCol = gameObject.AddComponent<SphereCollider>();
-            myCol.radius = 2.5f;
+            myCol.radius = 1f;
             myCol.isTrigger = true;
         }
     }

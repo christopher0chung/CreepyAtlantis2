@@ -21,6 +21,7 @@ public class GameStateInitialization : MonoBehaviour {
         }
         else if (sceneName == "Add00" || sceneName == "Add01")
         {
+            Debug.Log("Scene: " + sceneName + " initialized");
             Invoke("SetLeftRightBounds", 1f);
             Invoke("SetSubProperties", 1f);
         }

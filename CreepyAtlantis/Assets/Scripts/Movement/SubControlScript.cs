@@ -24,12 +24,15 @@ public class SubControlScript : MonoBehaviour {
     [SerializeField] private Vector3 p2MoveVector;
     [SerializeField] private Vector3 resultantMoveVector;
 
+    private Controllables[] ctrlRef;
+
     private Rigidbody myRB;
 
     void Start ()
     {
         myLight = transform.Find("LightArray");
         myRB = GetComponent<Rigidbody>();
+        ctrlRef = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().currentPlayControlsRef;
     }
 
     void FixedUpdate ()
@@ -96,9 +99,57 @@ public class SubControlScript : MonoBehaviour {
         rightMax = rM;
     }
 
+    //private void MovementInput()
+    //{
+    //    if (!p1.activeSelf && !p2.activeSelf)
+    //    {
+    //        if (p1MoveVector == p2MoveVector)
+    //        {
+    //            resultantMoveVector = p1MoveVector;
+    //        }
+    //        else if (p1MoveVector != p2MoveVector)
+    //        {
+    //            if (p1MoveVector == Vector3.zero)
+    //            {
+    //                resultantMoveVector = p2MoveVector;
+    //            }
+    //            else if (p2MoveVector == Vector3.zero)
+    //            {
+    //                resultantMoveVector = p1MoveVector;
+    //            }
+    //            else
+    //            {
+    //                resultantMoveVector = Vector3.zero;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            resultantMoveVector = Vector3.zero;
+    //        }
+    //    }
+    //    else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
+    //    {
+    //        {
+    //            if (!p1.activeSelf)
+    //            {
+    //                resultantMoveVector = p1MoveVector;
+    //            }
+    //            else if (!p2.activeSelf)
+    //            {
+    //                resultantMoveVector = p2MoveVector;
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        resultantMoveVector = Vector3.zero;
+    //    }
+    //    myRB.AddForce(resultantMoveVector);
+    //}
+
     private void MovementInput()
     {
-        if (!p1.activeSelf && !p2.activeSelf)
+        if (ctrlRef[0] == Controllables.submarine && ctrlRef[1] == Controllables.submarine)
         {
             if (p1MoveVector == p2MoveVector)
             {
@@ -124,16 +175,18 @@ public class SubControlScript : MonoBehaviour {
                 resultantMoveVector = Vector3.zero;
             }
         }
-        else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
+        else if ((ctrlRef[0] == Controllables.submarine && ctrlRef[1] != Controllables.submarine) || (ctrlRef[1] == Controllables.submarine && ctrlRef[0] != Controllables.submarine))
         {
             {
-                if (!p1.activeSelf)
+                if (ctrlRef[0] == Controllables.submarine)
                 {
                     resultantMoveVector = p1MoveVector;
+                    p2MoveVector = Vector3.zero;
                 }
-                else if (!p2.activeSelf)
+                else if (ctrlRef[1] == Controllables.submarine)
                 {
                     resultantMoveVector = p2MoveVector;
+                    p1MoveVector = Vector3.zero;
                 }
             }
         }

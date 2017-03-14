@@ -20,9 +20,16 @@ public class DialogueManager : MonoBehaviour {
                 if (value != Trigger)
                 {
                     Trigger = value;
-                    Script.StartLines();
-                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
-                    GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
+                    if (Trigger)
+                    {
+                        Script.StartLines();
+                        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
+                        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
+                    }
+                    else
+                    {
+                        Script.StopLines();
+                    }
                 }
             }
         }
@@ -68,6 +75,12 @@ public class DialogueManager : MonoBehaviour {
 
     public void FireEvent(int index)
     {
+        //test to see if you can force everything to stop before playing the triggered one.
+        foreach (DialogueEventClass myE in myEvents)
+        {
+            myE.TRIGGER = false;
+        }
+
         myEvents[index].TRIGGER = true;
     }
 }

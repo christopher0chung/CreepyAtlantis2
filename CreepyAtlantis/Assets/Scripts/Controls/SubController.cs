@@ -22,7 +22,7 @@ public class SubController : MonoBehaviour, IControllable {
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
-        GameStateManager.onEndDialogue += SetControllerAdapter;
+        //GameStateManager.onEndDialogue += SetControllerAdapter;
 
     }
 
@@ -59,7 +59,7 @@ public class SubController : MonoBehaviour, IControllable {
         if (myControllable == Controllables.submarine)
             myAdapters[player].enabled = true;
         else if (myControllable == Controllables.dialogue)
-            myAdapters[player].enabled = myAdapters[player].enabled;
+            return;
         else
             myAdapters[player].enabled = false;
     }

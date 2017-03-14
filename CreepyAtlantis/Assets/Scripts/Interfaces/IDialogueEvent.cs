@@ -8,4 +8,6 @@ public interface IDialogueEvent {
     void StartLines();
 
     void NextLine();
+
+    void StopLines();
 }

@@ -21,6 +21,8 @@ public class Add00StartObjective : Objective {
     public override void Trigger()
     {
         GameObject.Find("DialogueManager").GetComponent<DialogueManager>().FireEvent(0);
+        GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
+        GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
         base.Trigger();
     }
 }

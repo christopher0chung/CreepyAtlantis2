@@ -27,7 +27,7 @@ public class SUBTUT2Objective0 : Objective {
         GameObject[] objectives = GameObject.FindGameObjectsWithTag("Objectives");
         foreach (GameObject obj in objectives)
         {
-            Debug.Log(obj.name);
+            //Debug.Log(obj.name);
 
             if (obj.name == "SubLOps" || obj.name == "SubROps")
             {
@@ -35,9 +35,6 @@ public class SUBTUT2Objective0 : Objective {
                 obj.GetComponent<IObjective>().Activate();
             }
         }
-
-        //GameObject.Find("SubLOps").SetActive(true);
-        //GameObject.Find("SubROps").SetActive(true);
 
         base.Trigger();
         Debug.Log("at the end of trigger");

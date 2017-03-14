@@ -9,7 +9,25 @@ public class Objective: MonoBehaviour, IObjective
     public delegate void OnComplete();
     public OnComplete myOC;
 
-    [HideInInspector] public bool complete;
+    private bool _complete;
+    [HideInInspector] public bool complete
+    {
+        get
+        {
+            return _complete;
+        }
+        set
+        {
+            if (value != _complete)
+            {
+                _complete = value;
+                if (_complete)
+                {
+                    myOC.Invoke();
+                }
+            }
+        }
+    }
 
     public UnityEvent OnActivate;
     public UnityEvent OnTrigger;
@@ -28,7 +46,6 @@ public class Objective: MonoBehaviour, IObjective
     public virtual void Trigger()
     {
         OnTrigger.Invoke();
-        complete = true;
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveUpdate(this);
     }
 }
@@ -103,6 +120,13 @@ public class ObjectivesTracker : MonoBehaviour {
                 {
                     myO.complete = true;
                     exists = true;
+                    break;
+                }
+                else
+                {
+                    exists = true;
+                    o.complete = true;
+                    myO.complete = true;
                     break;
                 }
             }

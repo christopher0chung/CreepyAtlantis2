@@ -6,7 +6,7 @@ public class SUBTUT2Objective2 : Objective
 {
     //Triggered after Ops gets left and right.
 
-    private int _progressVal;
+    public int _progressVal;
     public int progressVal
     {
         get

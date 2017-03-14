@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour {
         //Debug.Log(player + " " + target);
         
         onSetControls(player, target);
-        if (target != Controllables.dialogue && target != Controllables.none)
+        if (target != Controllables.dialogue)
             currentPlayControlsRef[player] = target;
     }
 
@@ -66,6 +66,20 @@ public class GameStateManager : MonoBehaviour {
         //    SetControls(1, Controllables.character);
         //}
     }
+
+    //void Update ()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        SetControls(0, Controllables.submarine);
+    //        SetControls(1, Controllables.none);
+    //    }
+    //    else if (Input.GetKeyDown(KeyCode.J))
+    //    {
+    //        SetControls(1, Controllables.submarine);
+    //        SetControls(0, Controllables.none);
+    //    }
+    //}
 }
 
 public enum Controllables { character, submarine, dialogue, none }

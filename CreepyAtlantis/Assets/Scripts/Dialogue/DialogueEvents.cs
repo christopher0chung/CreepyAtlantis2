@@ -61,6 +61,16 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
         StartCoroutine(DelayedNextLine());
     }
 
+    public void StopLines()
+    {
+        foreach(IDialogue myLine in myLines)
+        {
+            linesCounter = 0;
+            myLine.StateChoices(dialogueStates.stopped);
+            done = true;
+        }
+    }
+
     private IEnumerator DelayedNextLine ()
     {
         yield return new WaitForSeconds(.3f);

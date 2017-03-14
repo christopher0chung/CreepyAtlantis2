@@ -64,6 +64,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             case (dialogueStates.inactive):
                 currentState = Inactive;
                 break;
+            case (dialogueStates.stopped):
+                currentState = Stopped;
+                break;
         }
     }
 
@@ -216,23 +219,39 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         lines.Stop();
         StateChoices(dialogueStates.inactive);
 
+        //if (lines != null)
+        //{
+        //    Destroy(lines);
+        //}
+
+        //if (next != null)
+        //{
+        //    Destroy(next.gameObject);
+        //}
+
         if (myO != null)
         {
             myO.Trigger();
-            //Debug.Log("Objective fired");
         }
 
         if (myLink != null)
         {
             myLink.Link();
         }
-        Destroy(lines);
-        Destroy(next.gameObject);
     }
 
     private void Inactive()
     {
         return;
+    }
+
+    private void Stopped()
+    {
+        currentState = null;
+        colorFlip = false;
+        timerFlip = false;
+        outputText.text = "";
+        lines.Stop();
     }
 
     public void DebugPrint()
@@ -274,6 +293,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             if (myControllable == Controllables.dialogue)
                 myAdapters[player].enabled = true;
+            //Debug.Log("player" + player + " dialogue adapter enabled");
         }
     }
     public void EndDialogue(int player, Controllables myControllable)
@@ -281,6 +301,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         if (myAdapters[player] != null)
         {
             myAdapters[player].enabled = false;
+            //Debug.Log("player" + player + " dialogue adapter disabled");
         }
     }
 }

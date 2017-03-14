@@ -39,17 +39,17 @@ public class SUBTUT2Objective3 : Objective
         if (GetComponent<SphereCollider>() == null)
         {
             SphereCollider myCol = gameObject.AddComponent<SphereCollider>();
-            myCol.radius = 2.5f;
+            myCol.radius = 1f;
             myCol.isTrigger = true;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("AHit");
+        //Debug.Log("AHit");
         if (other.name == "Sub" && other.GetComponent<SubController>() != null)
         {
-            Debug.Log("Hit something on sub");
+            //Debug.Log("Hit something on sub");
             Trigger();
         }
     }

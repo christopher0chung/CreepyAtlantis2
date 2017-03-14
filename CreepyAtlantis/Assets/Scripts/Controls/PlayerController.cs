@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, IControllable {
         myAdapter.Initialize(charNum);
 
         GameStateManager.onSetControls += SetControllerAdapter;
-        GameStateManager.onEndDialogue += SetControllerAdapter;
+        //GameStateManager.onEndDialogue += SetControllerAdapter;
     }
 
     public void LeftStick(float upDown, float leftRight, int pNum) {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour, IControllable {
             if (myControllable == Controllables.character)
                 myAdapter.enabled = true;
             else if (myControllable == Controllables.dialogue)
-                myAdapter.enabled = myAdapter.enabled;
+                return;
             else
                 myAdapter.enabled = false;
         }
