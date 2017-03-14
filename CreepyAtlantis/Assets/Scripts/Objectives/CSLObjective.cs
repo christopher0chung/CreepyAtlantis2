@@ -18,8 +18,8 @@ public class CSLObjective : Objective {
 
     public override void Trigger()
     {
-        base.Trigger();
         GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(2);
+        base.Trigger();
     }
 
     public override void Activate()

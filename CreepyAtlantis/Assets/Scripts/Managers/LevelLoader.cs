@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour {
     //Event Manager should be handling this but music controls are here for the time being.
     private MusicManager myMM;
 
-    public string[] funcToLevel = new string[2];
+    private string[] funcToLevel = new string[3];
 
     private int _level;
     private int level
@@ -40,6 +40,7 @@ public class LevelLoader : MonoBehaviour {
     {
         funcToLevel[0] = "LoadLevelOne";
         funcToLevel[1] = "LoadLevelTwo";
+        funcToLevel[2] = "LoadLevelThree";
         myMM = GetComponent<MusicManager>();
     }
 
@@ -62,6 +63,8 @@ public class LevelLoader : MonoBehaviour {
         }
         else if (lvl == 2)
             return true;
+        else if (lvl == 3)
+            return true;
         else
             return false;
     }
@@ -76,6 +79,14 @@ public class LevelLoader : MonoBehaviour {
     }
 
     private void LoadLevelTwo()
+    {
+        SceneManager.LoadScene("Play01");
+        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
+        myMM.FadeOut(2);
+        myMM.FadeOut(3);
+    }
+
+    private void LoadLevelThree()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);

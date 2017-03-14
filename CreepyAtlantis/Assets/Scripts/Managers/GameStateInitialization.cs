@@ -19,7 +19,7 @@ public class GameStateInitialization : MonoBehaviour {
             //Invoke("SetControllersToChars", 1f);
             SetControllersToSub();
         }
-        else if (sceneName == "Add01")
+        else if (sceneName == "Add00" || sceneName == "Add01")
         {
             Invoke("SetLeftRightBounds", 1f);
             Invoke("SetSubProperties", 1f);

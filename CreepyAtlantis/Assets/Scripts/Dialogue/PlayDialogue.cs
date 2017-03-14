@@ -95,6 +95,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         if (GetComponent<IObjective>() != null)
         {
             myO = GetComponent<IObjective>();
+            //Debug.Log("Objective found");
         }
     }
 
@@ -218,6 +219,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         if (myO != null)
         {
             myO.Trigger();
+            //Debug.Log("Objective fired");
         }
 
         if (myLink != null)

@@ -17,9 +17,9 @@ public class SuitTutObjective : Objective {
 
     public override void Trigger()
     {
-        base.Trigger();
         GameObject.Find("Sub").GetComponent<SubController>().canMove = false;
         GameObject.Find("Sub").GetComponent<SubController>().canGetOut = true;
+        base.Trigger();
     }
 
     public override void Activate()

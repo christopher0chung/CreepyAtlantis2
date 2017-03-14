@@ -18,8 +18,8 @@ public class Add01StartObjective : Objective {
 
     public override void Trigger()
     {
-        base.Trigger();
         GameObject.Find("DialogueManager").GetComponent<DialogueManager>().FireEvent(0);
+        base.Trigger();
     }
 
     void MakeTrigger()
@@ -41,5 +41,4 @@ public class Add01StartObjective : Objective {
             Trigger();
         }
     }
-
 }
