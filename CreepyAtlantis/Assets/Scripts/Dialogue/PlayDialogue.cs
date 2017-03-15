@@ -8,25 +8,30 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     // Public properties
     //--------------------
 
+    public Speaker theSpeaker;
+
     public string Dialogue;
 
     public delegate void stateManager ();
     public stateManager currentState;
 
+    //public Color myColor;
 
     //--------------------
     // Private properties
     //--------------------
 
+    private Text speakerText;
     private Text outputText;
 
     private AudioSource lines;
     private AudioSource next;
 
+    private Color refColor;
+
     private ControllerAdapter[] myAdapters;
     private IObjective myO;
 
-    public Color myColor;
     private bool colorFlip;
 
     private float timer;
@@ -92,6 +97,10 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     void Start () {
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputText = GameObject.Find("Canvas").transform.Find("Subtitle").GetComponent<Text>();
+        speakerText = GameObject.Find("Canvas").transform.Find("Speaker").GetComponent<Text>();
+
+        GetMyColor();
+
         lines = GetAudio(soundType.line);
         next = GetAudio(soundType.sfx);
 
@@ -164,18 +173,57 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
-    private int PrintName()
-    {
-        for (int i = 1; i < Dialogue.Length; i++)
-        {
-            if (Dialogue[i] == ':')
-            {
-                //Debug.Log(Dialogue.Substring(0, i));
-                return i;
+    //private int PrintName()
+    //{
+    //    for (int i = 1; i < Dialogue.Length; i++)
+    //    {
+    //        if (Dialogue[i] == ':')
+    //        {
+    //            //Debug.Log(Dialogue.Substring(0, i));
+    //            return i;
 
+    //        }
+    //    }
+    //    return 0;
+    //}
+
+    private void DisplayName(bool showOrDont)
+    {
+        if (showOrDont)
+        {
+            if (theSpeaker == Speaker.DANI)
+            {
+                speakerText.text = "D.A.N.I.";
+            }
+            else if (theSpeaker == Speaker.Doc)
+            {
+                speakerText.text = "Doc";
+            }
+            else if (theSpeaker == Speaker.Ops)
+            {
+                speakerText.text = "Ops";
             }
         }
-        return 0;
+        else
+        {
+            speakerText.text = "";
+        }
+    }
+
+    private void GetMyColor ()
+    {
+        if (theSpeaker == Speaker.DANI)
+        {
+            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().DANI;
+        }
+        else if (theSpeaker == Speaker.Doc)
+        {
+            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().Doc;
+        }
+        else if (theSpeaker == Speaker.Ops)
+        {
+            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().Ops;
+        }
     }
 
 
@@ -185,13 +233,14 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Speaking ()
     {
+        DisplayName(true);
         if (!colorFlip)
         {
             colorFlip = true;
-            outputText.color = myColor;
+            outputText.color = refColor;
 
-            // At the time of color flip, advances charCounter to name printed.
-            charCounter = PrintName();
+            //// At the time of color flip, advances charCounter to name printed.
+            //charCounter = PrintName();
         }
         incCounter+= Time.deltaTime;
         if (incCounter >= nextCharTime)
@@ -208,11 +257,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Spoken ()
     {
+        DisplayName(true);
         outputText.text = Dialogue;
     }
 
     private void Cleanup ()
     {
+        DisplayName(false);
         timerFlip = true;
         outputText.text = "";
         myEvent.NextLine();
@@ -250,6 +301,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         currentState = null;
         colorFlip = false;
         timerFlip = false;
+        DisplayName(false);
         outputText.text = "";
         lines.Stop();
     }
@@ -305,3 +357,5 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 }
+
+public enum Speaker { DANI, Doc, Ops }

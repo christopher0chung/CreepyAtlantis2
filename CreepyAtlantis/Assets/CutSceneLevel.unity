@@ -135,6 +135,16 @@ Prefab:
       propertyPath: m_Name
       value: SUBTUTT-DOC-0004
       objectReference: {fileID: 0}
+    - target: {fileID: 114689736837939344, guid: 4e5e75b1493393c4981d8a481c4da750,
+        type: 2}
+      propertyPath: theSpeaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689736837939344, guid: 4e5e75b1493393c4981d8a481c4da750,
+        type: 2}
+      propertyPath: Dialogue
+      value: I don't know. I just woke up, too.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e5e75b1493393c4981d8a481c4da750, type: 2}
   m_IsPrefabParent: 0
@@ -243,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: We should do a systems control check.'
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: We should do a systems control check.
 --- !u!1 &102147080
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,11 +328,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000068, y: 1.0000068, z: 1.0000068}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -44.5}
+  m_AnchoredPosition: {x: 563, y: -483}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &147101718
@@ -345,7 +355,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 548bf7da29f294d49adc069c2a608262, type: 3}
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -394,7 +404,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -655,9 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: We are not in close enough range with the surface station.
-    Directive?'
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: We are not in close enough range with the surface station. Directive?
 --- !u!1001 &346846017
 Prefab:
   m_ObjectHideFlags: 0
@@ -809,10 +818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: System controls operational. The Left Thumbstick is mapped
-    to the ship''s maneuvering and propulsion controls. The Right Thumbstick is mapped
-    to the Sub''s forward light.'
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: System controls operational. The Left Thumbstick is mapped to the ship's
+    maneuvering and propulsion controls. The Right Thumbstick is mapped to the Sub's
+    forward light.
 --- !u!1 &384930767
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,10 +919,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.8094459
+    e00: 1.8093356
     e01: 0
-    e02: -1.0658449
-    e03: -3.0806227
+    e02: -1.0657799
+    e03: -3.0804348
     e10: -0.7885017
     e11: -3.3933156
     e12: -1.3386103
@@ -927,10 +936,10 @@ MonoBehaviour:
     e32: 0.78342444
     e33: 26.349682
   LastMatrixVP:
-    e00: 1.8094459
+    e00: 1.8093356
     e01: 0
-    e02: -1.0658449
-    e03: -3.0806227
+    e02: -1.0657799
+    e03: -3.0804348
     e10: 0.7885017
     e11: 3.3933156
     e12: 1.3386103
@@ -1180,9 +1189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: Any chance this sub comes with those little motion sickness bags
-    they have on airplanes?'
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 1
+  Dialogue: Any chance this sub comes with those little motion sickness bags they
+    have on airplanes?
 --- !u!1 &466822751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,9 +1413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Analyzing...I don''t detect excessive compromises to cognitive
-    functions.'
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: Analyzing...I don't detect excessive compromises to cognitive functions.
 --- !u!1001 &731808235
 Prefab:
   m_ObjectHideFlags: 0
@@ -1506,8 +1514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: Get that, Doc?'
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
+  theSpeaker: 2
+  Dialogue: Get that, Doc?
 --- !u!1 &759862626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,8 +1559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: All systems back online. '
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: 'All systems back online. '
 --- !u!1 &792818775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,8 +1604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: Contact surface station. '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: 'Contact surface station. '
 --- !u!1 &796366997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,8 +1649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: I''m sorry, could you translate that to human-speak?'
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
+  theSpeaker: 1
+  Dialogue: I'm sorry, could you translate that to human-speak?
 --- !u!1 &883045315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,8 +1704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: I thought that usually happened on the way up, not the way down?'
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 1
+  Dialogue: I thought that usually happened on the way up, not the way down?
 --- !u!1 &908303441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,8 +1749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: Continue to crew-swap Waypoint Alpha.'
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: Continue to crew-swap Waypoint Alpha.
 --- !u!1 &914652505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,8 +1792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theSpeaker: 1
   Dialogue: 'Oh, I''m fine. How are you? You look a little green. '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
 --- !u!114 &914652509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,8 +1959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: Thanks.'
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
+  theSpeaker: 1
+  Dialogue: Thanks.
 --- !u!1 &1043361649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,9 +2004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: Defending my dissertation was hard. Moving a joystick left and right
+  theSpeaker: 1
+  Dialogue: 'Defending my dissertation was hard. Moving a joystick left and right
     is not hard. '
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
 --- !u!1 &1051556818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,11 +2035,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000042, y: 1.0000042, z: 1.0000042}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125, y: -44.5}
+  m_AnchoredPosition: {x: -577, y: -483}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1051556820
@@ -2054,7 +2062,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 548bf7da29f294d49adc069c2a608262, type: 3}
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -2258,8 +2266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: That''s...reassuring. '
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
+  theSpeaker: 1
+  Dialogue: 'That''s...reassuring. '
 --- !u!1 &1238789554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,8 +2297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: Are you OK, Doc? '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: 'Are you OK, Doc? '
 --- !u!4 &1260454494
 Transform:
   m_ObjectHideFlags: 0
@@ -2333,11 +2341,11 @@ RectTransform:
   m_LocalScale: {x: 0.14999872, y: 0.14999872, z: 0.14999872}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.3, y: -111.89}
+  m_AnchoredPosition: {x: -504, y: -550}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1290781349
@@ -2402,9 +2410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Nausea and fainting is sometimes a symptom of rapid pressure
-    change. Effects nominally pass inside thirty minutes.  '
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: 'Nausea and fainting is sometimes a symptom of rapid pressure change.
+    Effects nominally pass inside thirty minutes.  '
 --- !u!4 &1300752807
 Transform:
   m_ObjectHideFlags: 0
@@ -2447,11 +2455,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000042, y: 1.0000042, z: 1.0000042}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125, y: -136.5}
+  m_AnchoredPosition: {x: -577, y: -575}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1333203912
@@ -2474,7 +2482,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 548bf7da29f294d49adc069c2a608262, type: 3}
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -2523,11 +2531,11 @@ RectTransform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 54.27, y: -21.2}
+  m_AnchoredPosition: {x: 493, y: -459}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1344643816
@@ -2605,6 +2613,12 @@ Prefab:
     - target: {fileID: 1979415476286410, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
       propertyPath: m_Name
       value: SUBTUTT-DAN-0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145019190255016, guid: fa9a042813da8a247a844e5f16f94b7a,
+        type: 2}
+      propertyPath: Dialogue
+      value: 'Alert...alert...atmospheric pressure sensors stabilizing... Ship lost
+        power 200 meters from destination.  '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
@@ -2757,8 +2771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Yes, that is correct. '
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: 'Yes, that is correct. '
 --- !u!1 &1421657944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,8 +2813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: Is it safe for us to dive? '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 1
+  Dialogue: 'Is it safe for us to dive? '
 --- !u!1 &1443059295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,8 +2856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Doc: I feel like my stomach is in my throat. '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 1
+  Dialogue: 'I feel like my stomach is in my throat. '
 --- !u!114 &1443059299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,6 +2954,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1877131716}
   - {fileID: 1539948464}
   - {fileID: 147101717}
   - {fileID: 1476319723}
@@ -3043,11 +3058,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000068, y: 1.0000068, z: 1.0000068}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -136.5}
+  m_AnchoredPosition: {x: 563, y: -575}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1476319724
@@ -3070,7 +3085,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 548bf7da29f294d49adc069c2a608262, type: 3}
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -3121,7 +3136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 
-  complete: 0
   OnActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -3158,9 +3172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: "Ops: Let\u2019s just get some practice in. Once you\u2019ve got it we
-    can suit up. "
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: "Let\u2019s just get some practice in. Once you\u2019ve got it we can
+    suit up. "
 --- !u!1 &1539948463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,11 +3203,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -469}
+  m_AnchoredPosition: {x: 450, y: -482}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1539948465
@@ -3216,7 +3230,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 548bf7da29f294d49adc069c2a608262, type: 3}
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -3228,7 +3242,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '
+
+'
 --- !u!222 &1539948466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3293,7 +3309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: 
-  complete: 0
   OnActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -3330,9 +3345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: "Ops: We\u2019ll see. Let\u2019s get some practice in. Once I\u2019m sure
-    you\u2019ve got it we can suit up. "
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: "We\u2019ll see. Let\u2019s get some practice in. Once I\u2019m sure you\u2019ve
+    got it we can suit up. "
 --- !u!1001 &1600207539
 Prefab:
   m_ObjectHideFlags: 0
@@ -3432,8 +3447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.:Directive? '
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: 'Directive? '
 --- !u!1 &1616142618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,11 +3477,11 @@ RectTransform:
   m_LocalScale: {x: 0.14999872, y: 0.14999872, z: 0.14999872}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.3, y: -21.2}
+  m_AnchoredPosition: {x: -504, y: -459}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1616142620
@@ -3732,8 +3747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'D.A.N.I.: Recalculating....'
-  myColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}
+  theSpeaker: 0
+  Dialogue: Recalculating....
 --- !u!4 &1696081834
 Transform:
   m_ObjectHideFlags: 0
@@ -3776,11 +3791,11 @@ RectTransform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 54.27, y: -111.89}
+  m_AnchoredPosition: {x: 493, y: -550}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1735139141
@@ -3869,8 +3884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: "Doc: So glad. It\u2019s so boring, being conscious all the time."
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 1
+  Dialogue: "So glad. It\u2019s so boring, being conscious all the time."
 --- !u!1001 &1848568950
 Prefab:
   m_ObjectHideFlags: 0
@@ -3913,6 +3928,16 @@ Prefab:
     - target: {fileID: 1186170430140286, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
       propertyPath: m_Name
       value: SUBTUTT-OPS-0003
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718721114552450, guid: 70e0493e3b6ed9147a468ba59a33cc67,
+        type: 2}
+      propertyPath: theSpeaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718721114552450, guid: 70e0493e3b6ed9147a468ba59a33cc67,
+        type: 2}
+      propertyPath: Dialogue
+      value: Whu....How long was I out?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
@@ -3989,8 +4014,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: Now you''re really glad you left that desk job, huh? '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: 'Now you''re really glad you left that desk job, huh? '
+--- !u!1 &1877131715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1877131716}
+  - component: {fileID: 1877131718}
+  - component: {fileID: 1877131717}
+  m_Layer: 5
+  m_Name: Speaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1877131716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877131715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1444868826}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -409}
+  m_SizeDelta: {x: 200, y: 60}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1877131717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877131715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '
+
+'
+--- !u!222 &1877131718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877131715}
 --- !u!1 &1889468350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,7 +4120,7 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1444868826}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4158,8 +4259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue: 'Ops: Pro-tip: Take off your helmet BEFORE you throw up. '
-  myColor: {r: 0.40343857, g: 0.60294116, b: 0.5616647, a: 1}
+  theSpeaker: 2
+  Dialogue: 'Pro-tip: Take off your helmet BEFORE you throw up. '
 --- !u!1001 &2042688100
 Prefab:
   m_ObjectHideFlags: 0
