@@ -34,6 +34,15 @@ public class GameStateManager : MonoBehaviour {
         onEndDialogue(player, currentPlayControlsRef[player]);
     }
 
+    public delegate void ControlsPreLoadLevel();
+    public static event ControlsPreLoadLevel onPreLoadLevel;
+
+    public void PreLoadLevel()
+    {
+        if (onPreLoadLevel != null)
+        onPreLoadLevel();
+    }
+
     public delegate void IngressEgress(int player, bool ingress);
     public static event IngressEgress onSubInteract;
 

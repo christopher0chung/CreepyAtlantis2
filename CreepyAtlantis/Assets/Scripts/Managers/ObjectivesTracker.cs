@@ -83,6 +83,8 @@ public class ObjectivesTracker : MonoBehaviour {
     //}
 
     public List<Objective> Objectives = new List<Objective>();
+    public List<string> ObjectivesIDs = new List<string>();
+    public List<bool> ObjectivesComplete = new List<bool>();
 
     //Will be called for each Objective in a scene at Start.
     //Each Objective will pass itself to the OM see its status compared to stored status.
@@ -91,11 +93,11 @@ public class ObjectivesTracker : MonoBehaviour {
     public void ObjectiveCheck(Objective myO)
     {
         bool exists = false;
-        foreach(Objective o in Objectives)
+        for (int i = 0; i < ObjectivesIDs.Count; i++)
         {
-            if (o.uniqueID == myO.uniqueID)
+            if (ObjectivesIDs[i] == myO.uniqueID)
             {
-                if (o.complete)
+                if (ObjectivesComplete[i])
                 {
                     myO.myOC();
                     exists = true;
@@ -106,17 +108,19 @@ public class ObjectivesTracker : MonoBehaviour {
         if (!exists)
         {
             Objectives.Add(myO);
+            ObjectivesIDs.Add(myO.uniqueID);
+            ObjectivesComplete.Add(myO.complete);
         }
     }
 
     public void ObjectiveUpdate(Objective myO)
     {
         bool exists = false;
-        foreach (Objective o in Objectives)
+        for (int i = 0; i < ObjectivesIDs.Count; i++)
         {
-            if (o.uniqueID == myO.uniqueID)
+            if (ObjectivesIDs[i] == myO.uniqueID)
             {
-                if (o.complete)
+                if (ObjectivesComplete[i])
                 {
                     myO.complete = true;
                     exists = true;
@@ -125,11 +129,14 @@ public class ObjectivesTracker : MonoBehaviour {
                 else
                 {
                     exists = true;
-                    o.complete = true;
+                    ObjectivesComplete[i] = true;
+                    Objectives[i].complete = true;
                     myO.complete = true;
                     break;
                 }
             }
+            else
+                continue;
         }
         if (!exists)
         {

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IControllable {
 
     public int charNum;
 
-    private ControllerAdapter myAdapter;
+    [SerializeField] private ControllerAdapter myAdapter;
 
 
     void Awake()
@@ -29,7 +29,14 @@ public class PlayerController : MonoBehaviour, IControllable {
         myAdapter.Initialize(charNum);
 
         GameStateManager.onSetControls += SetControllerAdapter;
+        GameStateManager.onPreLoadLevel += UnSub;
         //GameStateManager.onEndDialogue += SetControllerAdapter;
+    }
+
+    public void UnSub ()
+    {
+        GameStateManager.onSetControls -= SetControllerAdapter;
+        GameStateManager.onPreLoadLevel -= UnSub;
     }
 
     public void LeftStick(float upDown, float leftRight, int pNum) {

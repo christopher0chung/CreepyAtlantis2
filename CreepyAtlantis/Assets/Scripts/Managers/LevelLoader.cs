@@ -21,18 +21,19 @@ public class LevelLoader : MonoBehaviour {
         {
             if (value != _level)
             {
+                GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
                 Invoke(funcToLevel[value - 1], 0.5f);
                 _level = value;
             }
         }
     }
-    public int LEVEL
-    {
-        get
-        {
-            return _level;
-        }
-    }
+    //public int LEVEL
+    //{
+    //    get
+    //    {
+    //        return _level;
+    //    }
+    //}
 
     public
 
@@ -98,7 +99,7 @@ public class LevelLoader : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LoadLevel(2);
+            LoadLevel(level+1);
         }
     }
 }

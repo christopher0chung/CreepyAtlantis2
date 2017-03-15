@@ -7,6 +7,11 @@ public class ControllerAdapter : MonoBehaviour {
     private bool initialized;
     private IControllable myControllable;
 
+    private void Awake()
+    {
+        GameStateManager.onPreLoadLevel += OnDisable;
+    }
+
     public void Initialize (int myPlayerNum)
     {
         charNum = myPlayerNum;

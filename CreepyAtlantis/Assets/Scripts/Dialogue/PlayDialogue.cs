@@ -90,8 +90,16 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += EndDialogue;
+        GameStateManager.onPreLoadLevel += UnSub;
 
         myLink = GetComponent<LinkToDialogueEvent>();
+    }
+
+    private void UnSub ()
+    {
+        GameStateManager.onSetControls -= SetControllerAdapter;
+        GameStateManager.onEndDialogue -= EndDialogue;
+        GameStateManager.onPreLoadLevel -= UnSub;
     }
 
     void Start () {

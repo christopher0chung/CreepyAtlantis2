@@ -53,6 +53,7 @@ public class AirMeter : MonoBehaviour {
                 if (_crossInterval)
                 {
                     StopAllCoroutines();
+                    displayTopOff = false;
                     StartCoroutine("AnimateAirBar", displayedPercentage);
                 }
                 else
@@ -80,6 +81,7 @@ public class AirMeter : MonoBehaviour {
                 if (_displayTopOff)
                 {
                     StopAllCoroutines();
+                    crossInterval = false;
                     StartCoroutine("DisplayAirBar");
                 }
                 else

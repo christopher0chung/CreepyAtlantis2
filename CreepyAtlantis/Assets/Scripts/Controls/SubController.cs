@@ -22,8 +22,13 @@ public class SubController : MonoBehaviour, IControllable {
         myAdapters[1].Initialize(1);
 
         GameStateManager.onSetControls += SetControllerAdapter;
-        //GameStateManager.onEndDialogue += SetControllerAdapter;
+        GameStateManager.onPreLoadLevel += UnSub;
+    }
 
+    public void UnSub()
+    {
+        GameStateManager.onSetControls -= SetControllerAdapter;
+        GameStateManager.onPreLoadLevel -= UnSub;
     }
 
     public void LeftStick(float upDown, float leftRight, int pNum)
