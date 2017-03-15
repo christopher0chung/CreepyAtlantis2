@@ -51,8 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d63d53c05ed1498bbc478b9deecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theSpeaker: 1
   Dialogue: 'Doc: I don''t know. I was out too.'
-  outputText: {fileID: 0}
-  myAdapters: []
-  myColor: {r: 0.4233348, g: 0.5729701, b: 0.66176474, a: 1}
-  dialogueAdvanceTime: 0
