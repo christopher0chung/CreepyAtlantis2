@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4731088092450046}
   - component: {fileID: 33460344718362516}
-  - component: {fileID: 135311012313001044}
   - component: {fileID: 23865576443875800}
   - component: {fileID: 114356143575882184}
   m_Layer: 0
@@ -182,18 +181,6 @@ MonoBehaviour:
   myLM:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!135 &135311012313001044
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658458746149744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222886476213069864
 CanvasRenderer:
   m_ObjectHideFlags: 1
