@@ -7,6 +7,8 @@ public class CameraPositionScript : MonoBehaviour {
     public Transform p2;
     public Transform sub;
 
+    public Transform ind;
+
     private Vector3 camDest;
 
     void Update()
@@ -94,6 +96,7 @@ public class CameraPositionScript : MonoBehaviour {
             maxScalar = maxYScalar;
 
         float depth = Mathf.Lerp(-25, -45, maxScalar);
+        MoveIndicatorTrigger(maxScalar);
 
         camDest = new Vector3((p1.position.x + p2.position.x) / 2, lowestY, depth);
         if (camDest.x >= sub.position.x + 5)
@@ -106,5 +109,12 @@ public class CameraPositionScript : MonoBehaviour {
         //Debug.Log(Vector3.Distance(prev, transform.position));
 
         transform.position = camDest;
+    }
+
+    private void MoveIndicatorTrigger (float zeroToOne)
+    {
+        Debug.Log(zeroToOne);
+        ind.transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Lerp(8.66f, 15.6f, zeroToOne), 0);
+        ind.transform.localScale = new Vector3(Mathf.Lerp(30, 54, zeroToOne), Mathf.Lerp(14.66f, 26.4f, zeroToOne), 10f);
     }
 }
