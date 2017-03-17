@@ -14,6 +14,12 @@ public class GameStateInitialization : MonoBehaviour {
     {
         sceneName = scene.name;
         //Debug.Log(sceneName);
+
+        if (sceneName == "ControllerCharacterHookup")
+        {
+            //GetComponent<SelectionManager>().Init();
+            SetControllersToChars();
+        }
         if (sceneName == "Play01")
         {
             //Invoke("SetControllersToChars", 1f);
@@ -21,7 +27,7 @@ public class GameStateInitialization : MonoBehaviour {
         }
         else if (sceneName == "Add00" || sceneName == "Add01")
         {
-            Debug.Log("Scene: " + sceneName + " initialized");
+            //Debug.Log("Scene: " + sceneName + " initialized");
             Invoke("SetLeftRightBounds", 1f);
             Invoke("SetSubProperties", 1f);
         }

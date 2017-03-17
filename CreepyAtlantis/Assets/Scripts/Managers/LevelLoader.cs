@@ -8,9 +8,9 @@ public class LevelLoader : MonoBehaviour {
     //Event Manager should be handling this but music controls are here for the time being.
     private MusicManager myMM;
 
-    private string[] funcToLevel = new string[3];
+    private string[] funcToLevel = new string[4];
 
-    private int _level;
+    [SerializeField] private int _level;
     private int level
     {
         get
@@ -21,9 +21,9 @@ public class LevelLoader : MonoBehaviour {
         {
             if (value != _level)
             {
-                GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
-                Invoke(funcToLevel[value - 1], 0.5f);
                 _level = value;
+                GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
+                Invoke(funcToLevel[value - 1], 0.5f);              
             }
         }
     }
@@ -42,6 +42,7 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[0] = "LoadLevelOne";
         funcToLevel[1] = "LoadLevelTwo";
         funcToLevel[2] = "LoadLevelThree";
+        funcToLevel[3] = "LoadLevelFour";
         myMM = GetComponent<MusicManager>();
     }
 
@@ -66,11 +67,18 @@ public class LevelLoader : MonoBehaviour {
             return true;
         else if (lvl == 3)
             return true;
+        else if (lvl == 4)
+            return true;
         else
             return false;
     }
 
     private void LoadLevelOne()
+    {
+        SceneManager.LoadScene("ControllerCharacterHookup");
+    }
+
+    private void LoadLevelTwo()
     {
         SceneManager.LoadScene("CutSceneLevel");
         myMM.FadeOut(0);
@@ -79,7 +87,7 @@ public class LevelLoader : MonoBehaviour {
         myMM.FadeIn(3);
     }
 
-    private void LoadLevelTwo()
+    private void LoadLevelThree()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
@@ -87,7 +95,7 @@ public class LevelLoader : MonoBehaviour {
         myMM.FadeOut(3);
     }
 
-    private void LoadLevelThree()
+    private void LoadLevelFour()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);

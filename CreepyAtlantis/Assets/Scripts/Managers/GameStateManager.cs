@@ -39,8 +39,9 @@ public class GameStateManager : MonoBehaviour {
 
     public void PreLoadLevel()
     {
+        //Debug.Log("PreLoad");
         if (onPreLoadLevel != null)
-        onPreLoadLevel();
+            onPreLoadLevel();
     }
 
     public delegate void IngressEgress(int player, bool ingress);

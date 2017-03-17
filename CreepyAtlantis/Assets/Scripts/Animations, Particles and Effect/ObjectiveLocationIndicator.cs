@@ -84,7 +84,7 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
         {
             if (myHit.transform.name == "MarkerBounds")
             {
-                Debug.Log("Hit");
+                //Debug.Log("Hit");
                 return myHit;
             }
         }

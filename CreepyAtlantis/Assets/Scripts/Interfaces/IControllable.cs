@@ -3,9 +3,9 @@ using System.Collections;
 
 public interface IControllable {
 
-    void LeftStick(float leftRight, float upDown, int pNum);
+    void LeftStick(float upDown, float leftRight, int pNum);
 
-    void RightStick(float leftRight, float upDown, int pNum);
+    void RightStick(float upDown, float leftRight, int pNum);
 
     void AButton(bool pushRelease, int pNum);
 

@@ -113,7 +113,7 @@ public class CameraPositionScript : MonoBehaviour {
 
     private void MoveIndicatorTrigger (float zeroToOne)
     {
-        Debug.Log(zeroToOne);
+        //Debug.Log(zeroToOne);
         ind.transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Lerp(8.66f, 15.6f, zeroToOne), 0);
         ind.transform.localScale = new Vector3(Mathf.Lerp(30, 54, zeroToOne), Mathf.Lerp(14.66f, 26.4f, zeroToOne), 10f);
     }

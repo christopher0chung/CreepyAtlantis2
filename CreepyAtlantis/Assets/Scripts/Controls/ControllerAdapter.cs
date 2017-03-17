@@ -27,6 +27,7 @@ public class ControllerAdapter : MonoBehaviour {
         //Debug.Log("OnEnable run on " + gameObject.name + " and initialized is " + initialized);
         if (initialized)
         {
+            //Debug.Log("Actual OnEnable in Controller Adapter");
             if (charNum == 0)
             {
                 GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
@@ -84,6 +85,7 @@ public class ControllerAdapter : MonoBehaviour {
 
     public void LeftStick(float upDown, float leftRight, int pNum)
     {
+        //Debug.Log(leftRight);
         myControllable.LeftStick(upDown, leftRight, pNum);
     }
 

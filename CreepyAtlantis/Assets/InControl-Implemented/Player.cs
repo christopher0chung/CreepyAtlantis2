@@ -144,7 +144,7 @@ namespace MultiplayerWithBindingsExample
                 transform.Rotate(Vector3.right, 500.0f * Time.deltaTime * Actions.Rotate.Y, Space.World);
             }
 
-            if (Actions.Start || Input.GetKeyDown(KeyCode.Space))
+            if (Actions.Start)
             {
                 GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(1);
             }
@@ -232,7 +232,7 @@ namespace MultiplayerWithBindingsExample
             {
                 assignControlIO(controlSchemes.joinIO);
             }
-            else if (scene.buildIndex == 1)
+            else
             {
                 assignControlIO(controlSchemes.playIO);
                 if (GetComponent<MeshRenderer>().enabled)

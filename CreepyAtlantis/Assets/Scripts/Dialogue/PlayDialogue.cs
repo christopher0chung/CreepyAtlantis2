@@ -86,7 +86,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         gameObject.AddComponent<ControllerAdapter>();
         myAdapters = GetComponents<ControllerAdapter>();
         myAdapters[0].Initialize(0);
+        //Debug.Log(gameObject.name + " run Initialize for 0");
         myAdapters[1].Initialize(1);
+        //Debug.Log(gameObject.name + " run Initialize for 1");
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += EndDialogue;
