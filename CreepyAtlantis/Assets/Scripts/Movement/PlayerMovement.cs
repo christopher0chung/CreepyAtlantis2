@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour{
     private bool nowBoosting;
     private float justUp;
 
-    private Vector3 baseForce;
+    [SerializeField] private Vector3 baseForce;
 
     public facingDirection myDir;
     private Vector3 myCharRot;
@@ -175,7 +175,6 @@ public class PlayerMovement : MonoBehaviour{
     {
         DetectGround();
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(myCharRot), .09f);
-
         myRB.AddForce(baseForce);
     }
 

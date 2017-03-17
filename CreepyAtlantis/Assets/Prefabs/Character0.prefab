@@ -592,6 +592,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1433672289035544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4134614551724010}
+  m_Layer: 0
+  m_Name: Barks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1434632786974318
 GameObject:
   m_ObjectHideFlags: 1
@@ -1396,6 +1411,19 @@ Transform:
   m_Father: {fileID: 4621002876516782}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4134614551724010
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433672289035544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4207502803408414}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4164856397280482
 Transform:
   m_ObjectHideFlags: 1
@@ -1524,6 +1552,7 @@ Transform:
   - {fileID: 4338077626943806}
   - {fileID: 4908311820725430}
   - {fileID: 4189335791148264}
+  - {fileID: 4134614551724010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2580,7 +2609,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 0
-  m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
+  m_Color: {r: 0.8784314, g: 1, b: 0.7490196, a: 1}
   m_Intensity: 5
   m_Range: 15
   m_SpotAngle: 30
@@ -2614,7 +2643,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 0.8206897, g: 1, b: 0.75, a: 1}
+  m_Color: {r: 0.8784314, g: 1, b: 0.7490196, a: 1}
   m_Intensity: 0.25
   m_Range: 4
   m_SpotAngle: 30
@@ -2688,7 +2717,7 @@ MonoBehaviour:
   TintGradient: 0.2
   Intensity: 0.5
   Strength: 1
-  Color: {r: 0.70436114, g: 1, b: 0.6102941, a: 1}
+  Color: {r: 0.8784314, g: 1, b: 0.7490196, a: 1}
   MieScattering: 0.05
   SunSize: 0
   SunBleed: 1
@@ -2702,7 +2731,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5322.902, y: 5322.902, z: 0}
+  Offset: {x: 5407.21, y: 5407.21, z: 0}
 --- !u!114 &114061999051983966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2752,7 +2781,7 @@ MonoBehaviour:
   TintGradient: 0.2
   Intensity: 0.1
   Strength: 1
-  Color: {r: 0.70436114, g: 1, b: 0.6102941, a: 1}
+  Color: {r: 0.878, g: 1, b: 0.7490196, a: 1}
   MieScattering: 0.05
   SunSize: 0
   SunBleed: 1
@@ -2766,7 +2795,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5481.976, y: 5481.976, z: 0}
+  Offset: {x: 5562.2905, y: 5562.2905, z: 0}
 --- !u!114 &114123833455504048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2778,7 +2807,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407ac85e9f99e3545b56cd5553da4156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airTankPercent: 100
+  airLowAlert:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  airLowWarning:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114381743175357924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2817,6 +2855,7 @@ MonoBehaviour:
   myPA: {fileID: 114791078303523146}
   myLA: {fileID: 114634047986295054}
   charNum: 0
+  myAdapter: {fileID: 0}
 --- !u!114 &114741906605297858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2842,6 +2881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1
+  myLM:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &114858839641163728
 MonoBehaviour:
   m_ObjectHideFlags: 1

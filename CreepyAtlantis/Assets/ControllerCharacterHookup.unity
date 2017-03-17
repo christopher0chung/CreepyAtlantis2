@@ -569,7 +569,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 0.0021390212
+    e00: 0.0021395474
     e01: 0
     e02: 0
     e03: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
     e32: 0
     e33: 1
   LastMatrixVP:
-    e00: 0.0021390212
+    e00: 0.0021395474
     e01: 0
     e02: 0
     e03: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   _scanLineJitter: 0.085
   _verticalJump: 0.001
   _horizontalShake: 0.001
-  _colorDrift: 0.046
+  _colorDrift: 0.027
   _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
 --- !u!1 &466822751
 GameObject:
@@ -2611,7 +2611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -18.400024, y: 16.529999}
+  m_AnchoredPosition: {x: -18.400024, y: 16.53003}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1889468352

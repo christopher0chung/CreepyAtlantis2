@@ -1,12 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerAir : MonoBehaviour {
 
-    public float airTankPercent;
+    private float _lastVal;
+    private float _airTankPercent;
+    public float airTankPercent
+    {
+        get
+        {
+            return _airTankPercent;
+        }
+        set
+        {
+            _airTankPercent = value;
+            if (_airTankPercent < 30 && _lastVal >= 30)
+                airLowAlert.Invoke();
+            if (_airTankPercent < 10 && _lastVal >= 10)
+                airLowWarning.Invoke();
+            _lastVal = _airTankPercent;
+        }
+    }
 
     private AirMeter airBar;
+
+    public UnityEvent airLowAlert;
+    public UnityEvent airLowWarning;
 
 	// Use this for initialization
 	void Start () {

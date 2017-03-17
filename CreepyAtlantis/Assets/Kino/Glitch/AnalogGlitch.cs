@@ -93,7 +93,7 @@ namespace Kino
                 _material.hideFlags = HideFlags.DontSave;
             }
 
-            _verticalJumpTime += Time.deltaTime * _verticalJump * .0113f;
+            _verticalJumpTime += Time.deltaTime * _verticalJump * 11.3f;
 
             var sl_thresh = Mathf.Clamp01(1.0f - _scanLineJitter * 1.2f);
             var sl_disp = 0.002f + Mathf.Pow(_scanLineJitter, 3) * 0.05f;
