@@ -14,6 +14,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     public string Choice1;
     public string Choice2;
 
+    private Text label;
     private Text outputChoice1;
     private Text outputChoice2;
 
@@ -98,6 +99,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             outputChoice2 = GameObject.Find("Canvas").transform.Find("C1 Choice 2").GetComponent<Text>();
             lBIcon = GameObject.Find("Canvas").transform.Find("LBIcon-Left").gameObject;
             rBIcon = GameObject.Find("Canvas").transform.Find("RBIcon-Left").gameObject;
+            label = GameObject.Find("Canvas").transform.Find("C1 Label").GetComponent<Text>();
         }
         else
         {
@@ -105,6 +107,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             outputChoice2 = GameObject.Find("Canvas").transform.Find("C2 Choice 2").GetComponent<Text>();
             lBIcon = GameObject.Find("Canvas").transform.Find("LBIcon-Right").gameObject;
             rBIcon = GameObject.Find("Canvas").transform.Find("RBIcon-Right").gameObject;
+            label = GameObject.Find("Canvas").transform.Find("C2 Label").GetComponent<Text>();
         }
         next = GetAudio();
         myDM = transform.root.gameObject.GetComponent<DialogueManager>();
@@ -155,7 +158,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         outputChoice1.text = Choice1;
         outputChoice2.text = Choice2;
         lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = true;
-
+        label.enabled = true;
     }
 
     private void Cleanup()
@@ -163,6 +166,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         timerFlip = true;
         outputChoice1.text = outputChoice2.text = "";
         lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = false;
+        label.enabled = false;
 
         //Debug.Log("in clean up");
         myEvent.NextLine();

@@ -204,14 +204,20 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             if (theSpeaker == Speaker.DANI)
             {
                 speakerText.text = "D.A.N.I.";
+                speakerText.rectTransform.position = new Vector3((Screen.width / 2), speakerText.transform.position.y, speakerText.transform.position.z);
+                outputText.rectTransform.position = new Vector3((Screen.width / 2), outputText.transform.position.y, outputText.transform.position.z);
             }
             else if (theSpeaker == Speaker.Doc)
             {
                 speakerText.text = "Doc";
+                speakerText.rectTransform.position = new Vector3((Screen.width / 2) + 200, speakerText.transform.position.y, speakerText.transform.position.z);
+                outputText.rectTransform.position = new Vector3((Screen.width / 2) + 200, outputText.transform.position.y, outputText.transform.position.z);
             }
             else if (theSpeaker == Speaker.Ops)
             {
                 speakerText.text = "Ops";
+                speakerText.rectTransform.position = new Vector3((Screen.width / 2) - 200, speakerText.transform.position.y, speakerText.transform.position.z);
+                outputText.rectTransform.position = new Vector3((Screen.width / 2) - 200, outputText.transform.position.y, outputText.transform.position.z);
             }
         }
         else
