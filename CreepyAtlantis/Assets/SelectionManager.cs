@@ -15,6 +15,9 @@ public class SelectionManager : MonoBehaviour {
     [SerializeField] private Text c2Label;
     [SerializeField] private Text ops;
     [SerializeField] private Text doc;
+    [SerializeField] private Image ind1;
+    [SerializeField] private Image ind2;
+
 
     private ColorManager myCM;
 
@@ -120,6 +123,9 @@ public class SelectionManager : MonoBehaviour {
 
             c1Label = GameObject.Find("Controller1").GetComponentInChildren<Text>();
             c2Label = GameObject.Find("Controller2").GetComponentInChildren<Text>();
+
+            ind1 = GameObject.Find("Channel1Tab").transform.GetChild(2).GetComponent<Image>();
+            ind2 = GameObject.Find("Channel2Tab").transform.GetChild(2).GetComponent<Image>();
         }
     }
 
@@ -182,6 +188,9 @@ public class SelectionManager : MonoBehaviour {
         {
             c2.color = new Color(myCM.Doc.r, myCM.Doc.g, myCM.Doc.b, c2.color.a);
         }
+
+        ind1.color = c1.color;
+        ind2.color = c2.color;
     }
 
     private void NameColor ()
