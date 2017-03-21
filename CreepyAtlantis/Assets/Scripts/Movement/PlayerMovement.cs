@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour{
                 nowBoosting = false;
             }
             // Calculates the baseForce
-            baseForce = new Vector3(leftRight, upDown + justUp * .85f, 0) * appliedThrustForce;
+            baseForce = new Vector3(leftRight, 2 * justUp * .85f, 0) * appliedThrustForce;
         }
         else if (grounded && groundedCastCheck)
         {
