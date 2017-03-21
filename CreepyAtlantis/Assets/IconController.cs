@@ -130,17 +130,17 @@ public class IconController : MonoBehaviour, IControllable {
         if (mySP == SelectChoice.Ops)
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(-256, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(-250, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 82.4f, transform.position.z);
         }
         else if (mySP == SelectChoice.None)
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -11, transform.position.z);
         }
         else
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(256, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(250, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -131f, transform.position.z);
         }
     }
 
@@ -149,13 +149,13 @@ public class IconController : MonoBehaviour, IControllable {
         //Debug.Log(leftRight + " " + upDown + " " + pNum);
         if ((gameObject.name == "Controller1" && pNum == 0) || (gameObject.name == "Controller2" && pNum == 1))
         {
-            if (leftRight > .7f)
-            {
-                pressRight = true;
-            }
-            else if (leftRight < -.7f)
+            if (upDown > .7f)
             {
                 pressLeft = true;
+            }
+            else if (upDown < -.7f)
+            {
+                pressRight = true;
             }
             else
             {
