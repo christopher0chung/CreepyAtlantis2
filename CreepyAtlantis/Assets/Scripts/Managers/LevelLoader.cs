@@ -82,10 +82,10 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevelOne()
     {
-        //Debug.Log("LoadLevelOne");
-        //SceneManager.LoadScene("ControllerCharacterHookup");
-        SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
+        Debug.Log("LoadLevelOne");
+        SceneManager.LoadScene("ControllerCharacterHookup");
+        //SceneManager.LoadScene("Play01");
+        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
     }
 
     private void LoadLevelTwo()
@@ -100,7 +100,9 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelThree()
     {
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("Play01");
+        //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
         myMM.FadeOut(2);
         myMM.FadeOut(3);
     }
