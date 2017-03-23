@@ -2,37 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentScript : MonoBehaviour {
+public class CurrentScript : MonoBehaviour, ICurrent {
 
     private Rigidbody myRB;
 
-    [SerializeField] private float leftRightForce; //12
-    private float appliedLeftRightForce;
+    private Vector3 currentVal;
 
-    [SerializeField] private float upDownForce; //12
-    private float appliedUpDownForce;
-
-    private float timer;
+    [SerializeField] private float forceScalar;
 
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        myRB.AddForce(BuoyancyVector());
+        currentVal = Vector3.Lerp(currentVal, Vector3.zero, Time.deltaTime);
     }
 
-    private Vector3 BuoyancyVector()
+    void FixedUpdate()
     {
-        timer += Time.deltaTime;
-        if (timer > 4)
-        {
-            timer -= 4;
-            appliedLeftRightForce = Random.Range(-leftRightForce, leftRightForce);
-            appliedUpDownForce = Random.Range(-5, upDownForce);
-        }
-        return (Vector3.right * appliedLeftRightForce + Vector3.up * appliedUpDownForce);
+        myRB.AddForce(currentVal);
     }
+
+    public void PushWithCurrent(Vector3 dir)
+    {
+        currentVal = dir * forceScalar;
+    }
+    
 }
