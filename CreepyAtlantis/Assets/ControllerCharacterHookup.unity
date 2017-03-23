@@ -647,7 +647,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 0.0021395474
+    e00: 0.0021400596
     e01: 0
     e02: 0
     e03: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
     e32: 0
     e33: 1
   LastMatrixVP:
-    e00: 0.0021395474
+    e00: 0.0021400596
     e01: 0
     e02: 0
     e03: 0
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Suit 1 Occupant:'
+  m_Text: 'Suit 2 Occupant:'
 --- !u!222 &548639004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.309}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

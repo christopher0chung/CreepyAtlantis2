@@ -25,7 +25,7 @@ public class GameStateInitialization : MonoBehaviour {
             //Invoke("SetControllersToChars", 1f);
             SetControllersToSub();
         }
-        else if (sceneName == "Add00" || sceneName == "Add01")
+        else if (sceneName == "Add00" || sceneName == "Add01" || sceneName == "Add02")
         {
             //Debug.Log("Scene: " + sceneName + " initialized");
             Invoke("SetLeftRightBounds", 1f);
@@ -50,7 +50,7 @@ public class GameStateInitialization : MonoBehaviour {
 
     private void SetLeftRightBounds()
     {
-        if (sceneName == "Add01")
+        if (sceneName == "Add00" || sceneName == "Add01" || sceneName == "Add02")
         {
             //For any level where Play01 is the base level, this manager will assume a LevelSpecs component with relevant information to exist in the added scene.
             GameObject.Find("Sub").GetComponent<SubControlScript>().SetLeftRightMax(GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().leftMax, GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().rightMax);
@@ -59,7 +59,7 @@ public class GameStateInitialization : MonoBehaviour {
 
     private void SetSubProperties()
     {
-        if (sceneName == "Add01")
+        if (sceneName == "Add00" || sceneName == "Add01" || sceneName == "Add02")
         {
             GameObject.Find("Sub").GetComponent<SubController>().canGetOut = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canGetOutInitial;
             GameObject.Find("Sub").GetComponent<SubController>().canMove = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canMoveInitial;

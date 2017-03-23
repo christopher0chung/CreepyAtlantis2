@@ -22,7 +22,7 @@ public class SubControlScript : MonoBehaviour {
     [SerializeField] private float moveForce;
     [SerializeField] private Vector3 p1MoveVector;
     [SerializeField] private Vector3 p2MoveVector;
-    [SerializeField] private Vector3 resultantMoveVector;
+    public Vector3 resultantMoveVector;
 
     private Controllables[] ctrlRef;
 
@@ -46,14 +46,14 @@ public class SubControlScript : MonoBehaviour {
         }
     }
 
-    public void moveLeftRight (float leftRight, int pNum)
+    public void Move (float upDown, float leftRight, int pNum)
     {
         Vector3 assignedV3;
 
-        if (Mathf.Abs(leftRight) >= 0.25f)
+        if (Mathf.Abs((leftRight * leftRight) + (upDown * upDown)) >= 0.25f)
         {
             //appliedMoveScalar = (appliedMoveScalar + leftRight) / 2;
-            assignedV3 = Mathf.Sign(leftRight) * Vector3.right * moveForce;
+            assignedV3 = leftRight * Vector3.right * moveForce + upDown * Vector3.up * moveForce /2;
         }
         else
         {
@@ -98,54 +98,6 @@ public class SubControlScript : MonoBehaviour {
         leftMax = lM;
         rightMax = rM;
     }
-
-    //private void MovementInput()
-    //{
-    //    if (!p1.activeSelf && !p2.activeSelf)
-    //    {
-    //        if (p1MoveVector == p2MoveVector)
-    //        {
-    //            resultantMoveVector = p1MoveVector;
-    //        }
-    //        else if (p1MoveVector != p2MoveVector)
-    //        {
-    //            if (p1MoveVector == Vector3.zero)
-    //            {
-    //                resultantMoveVector = p2MoveVector;
-    //            }
-    //            else if (p2MoveVector == Vector3.zero)
-    //            {
-    //                resultantMoveVector = p1MoveVector;
-    //            }
-    //            else
-    //            {
-    //                resultantMoveVector = Vector3.zero;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            resultantMoveVector = Vector3.zero;
-    //        }
-    //    }
-    //    else if ((!p1.activeSelf && p2.activeSelf) || (!p2.activeSelf && p1.activeSelf))
-    //    {
-    //        {
-    //            if (!p1.activeSelf)
-    //            {
-    //                resultantMoveVector = p1MoveVector;
-    //            }
-    //            else if (!p2.activeSelf)
-    //            {
-    //                resultantMoveVector = p2MoveVector;
-    //            }
-    //        }
-    //    }
-    //    else
-    //    {
-    //        resultantMoveVector = Vector3.zero;
-    //    }
-    //    myRB.AddForce(resultantMoveVector);
-    //}
 
     private void MovementInput()
     {

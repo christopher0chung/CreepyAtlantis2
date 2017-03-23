@@ -75,7 +75,9 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevelOne()
     {
-        SceneManager.LoadScene("ControllerCharacterHookup");
+        //SceneManager.LoadScene("ControllerCharacterHookup");
+        SceneManager.LoadScene("Play01");
+        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
     }
 
     private void LoadLevelTwo()

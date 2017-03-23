@@ -34,9 +34,9 @@ public class SubController : MonoBehaviour, IControllable {
     public void LeftStick(float upDown, float leftRight, int pNum)
     {
         if (canMove)
-            myMovement.moveLeftRight(leftRight, pNum);
+            myMovement.Move(upDown, leftRight, pNum);
         else
-            myMovement.moveLeftRight(0, pNum);
+            myMovement.Move(0, 0, pNum);
     }
 
     public void RightStick(float upDown, float leftRight, int pNum)
