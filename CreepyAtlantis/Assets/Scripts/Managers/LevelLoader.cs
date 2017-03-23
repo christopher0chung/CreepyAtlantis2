@@ -46,6 +46,13 @@ public class LevelLoader : MonoBehaviour {
         myMM = GetComponent<MusicManager>();
     }
 
+    public void ReloadLevel()
+    {
+        int currentLevel = level;
+        _level = 0;
+        LoadLevel(currentLevel);
+    }
+
     public void LoadLevel (int lvl)
     {
         if (CheckReady(lvl))
@@ -75,9 +82,10 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevelOne()
     {
-        //SceneManager.LoadScene("ControllerCharacterHookup");
-        SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
+        Debug.Log("LoadLevelOne");
+        SceneManager.LoadScene("ControllerCharacterHookup");
+        //SceneManager.LoadScene("Play01");
+        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
     }
 
     private void LoadLevelTwo()
