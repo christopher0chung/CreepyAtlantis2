@@ -14796,11 +14796,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4313244481145524, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.499864
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4313244481145524, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.3965487
+      value: -6.565
       objectReference: {fileID: 0}
     - target: {fileID: 4313244481145524, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14853,6 +14853,22 @@ Prefab:
     - target: {fileID: 1114329852488690, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
       propertyPath: m_Name
       value: Propeller
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131955634934384, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708309280083472, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026009691593316, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026009691593316, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.561
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136042956059543922, guid: a31aee167ee63fa429b08b6b1d3405d0, type: 2}

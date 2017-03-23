@@ -16,6 +16,8 @@ public class CollisionDeath : MonoBehaviour {
     private float timer;
     [SerializeField]private float normalizedTime;
 
+    private float storedVel;
+
 	void Start () {
         myBDeath = GameObject.Find("VignMasks").GetComponent<VignetteController>();
         myRDeath = GameObject.Find("DeathMasks").GetComponent<VignetteController>();
@@ -23,7 +25,11 @@ public class CollisionDeath : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (bDeath || rDeath)
+
+        storedVel = Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity);
+
+
+        if (bDeath || rDeath)
         {
             timer += Time.deltaTime / normalizedTime;
             timer = Mathf.Clamp01(timer);
@@ -57,24 +63,24 @@ public class CollisionDeath : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
 
         if (whoThisIsFor == DeathControlType.Character)
         {
-            Debug.Log("on Character");
+            //Debug.Log("on Character");
 
             if (GetComponent<PlayerMovement>().grounded && other.gameObject.name == "Sub" && thisDeathStyle == DeathStyle.Red)
             {
-                Debug.Log("with Sub");
+                //Debug.Log("with Sub");
                 StartDeathSeq();
             } 
         }
         else if (whoThisIsFor == DeathControlType.Sub)
         {
-            Debug.Log("as Sub");
-            if (other.gameObject.isStatic && Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) > .25f)
+            Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
+            if (storedVel >= 3.0f)
             {
-                Debug.Log("Exceeding threshold");
+                //Debug.Log("Exceeding threshold");
                 StartDeathSeq();
                 transform.Find("Effects").GetChild(0).GetComponent<ParticleSystem>().Play();
                 transform.Find("Effects").GetChild(1).GetComponent<ParticleSystem>().Play();
@@ -85,7 +91,7 @@ public class CollisionDeath : MonoBehaviour {
 
     void Reload()
     {
-        Debug.Log("Invoked");
+        //Debug.Log("Invoked");
         GameObject.Find("GameStateManager").GetComponent<LevelLoader>().ReloadLevel();
     }
 }
