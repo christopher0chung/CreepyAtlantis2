@@ -9278,7 +9278,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5769.564, y: 5769.564, z: 0}
+  Offset: {x: 5845.626, y: 5845.626, z: 0}
 --- !u!108 &429222543
 Light:
   m_ObjectHideFlags: 0
@@ -10152,7 +10152,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5769.818, y: 5769.818, z: 0}
+  Offset: {x: 5845.88, y: 5845.88, z: 0}
 --- !u!108 &845227570
 Light:
   m_ObjectHideFlags: 0
@@ -12414,7 +12414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 41, y: 59.200012}
+  m_AnchoredPosition: {x: 40.99994, y: 59.200012}
   m_SizeDelta: {x: 672.8, y: 72.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1818611771
@@ -13015,8 +13015,8 @@ GameObject:
   - component: {fileID: 1994886693}
   - component: {fileID: 1994886692}
   - component: {fileID: 1994886698}
-  - component: {fileID: 1994886700}
   - component: {fileID: 1994886699}
+  - component: {fileID: 1994886701}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -13043,7 +13043,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994886690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b5ec6153a1d55438228df10fe66844, type: 3}
   m_Name: 
@@ -13281,7 +13281,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994886690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
@@ -13308,7 +13308,7 @@ MonoBehaviour:
   _horizontalShake: 0
   _colorDrift: 0
   _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
---- !u!114 &1994886700
+--- !u!114 &1994886701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -13316,21 +13316,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994886690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88a26a276b4e47619ce2c5adad33fab, type: 3}
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monochrome: 1
-  grainIntensityMin: 0.1
-  grainIntensityMax: 0.2
-  grainSize: 1
-  scratchIntensityMin: 0
-  scratchIntensityMax: 0
-  scratchFPS: 1
-  scratchJitter: 0
-  grainTexture: {fileID: 2800000, guid: ffa9c02760c2b4e8eb9814ec06c4b05b, type: 3}
-  scratchTexture: {fileID: 2800000, guid: 6205c27cc031f4e66b8ea90d1bfaa158, type: 3}
-  shaderRGB: {fileID: 4800000, guid: 5d7f4c401ae8946bcb0d6ff68a9e7466, type: 3}
-  shaderYUV: {fileID: 4800000, guid: 0e447868506ba49f0a73235b8a8b647a, type: 3}
+  profile: {fileID: 11400000, guid: ec362b73bc4d4184b8c61d964bc09315, type: 2}
 --- !u!1 &1999364550
 GameObject:
   m_ObjectHideFlags: 0

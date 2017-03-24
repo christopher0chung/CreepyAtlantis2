@@ -30,7 +30,7 @@ public class SubControlScript : MonoBehaviour {
 
     void Start ()
     {
-        myLight = transform.Find("LightArray");
+        myLight = transform.Find("Model").Find("LightArray");
         myRB = GetComponent<Rigidbody>();
         ctrlRef = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().currentPlayControlsRef;
     }
@@ -42,7 +42,7 @@ public class SubControlScript : MonoBehaviour {
         if (!freeze0 || !freeze1)
         {
             lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
-            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
+            myLight.localEulerAngles = new Vector3(0, -90, lightAng);
         }
     }
 
@@ -94,7 +94,7 @@ public class SubControlScript : MonoBehaviour {
 
     public void SetLeftRightMax(float lM, float rM)
     {
-        Debug.Log("left and right bounds set");
+        //Debug.Log("left and right bounds set");
         leftMax = lM;
         rightMax = rM;
     }

@@ -73,16 +73,16 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
 
     private void Opening()
     {
-        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, -90), doorOpeningRate);
-        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 90), doorOpeningRate);
+        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(0, 90, -90), doorOpeningRate);
+        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(0, 90, 90), doorOpeningRate);
         lightSwitch = true;
     }
 
     private void Closing()
     {
-        trapDoorPort.rotation = Quaternion.RotateTowards(trapDoorPort.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
-        trapDoorStbd.rotation = Quaternion.RotateTowards(trapDoorStbd.rotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
-        if (trapDoorPort.rotation.eulerAngles.z < 1)
+        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
+        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
+        if (trapDoorPort.localRotation.eulerAngles.z < 1)
             lightSwitch = false;
     }
 
