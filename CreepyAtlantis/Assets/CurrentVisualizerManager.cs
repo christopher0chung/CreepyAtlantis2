@@ -67,7 +67,7 @@ public class CurrentVisualizerManager : MonoBehaviour {
                 }
             }
 
-            if (myCVs[i].GetComponent<CVInfo>().marked && myCVs[i].GetComponent<CVInfo>().timer >= 5)
+            if (myCVs[i].GetComponent<CVInfo>().marked && myCVs[i].GetComponent<CVInfo>().timer >= myCVs[i].GetComponent<ParticleSystem>().main.duration)
             {
                 GameObject thisCV = myCVs[i];
                 myCVs.Remove(thisCV);
@@ -79,7 +79,7 @@ public class CurrentVisualizerManager : MonoBehaviour {
 
     void MakeAnother()
     {
-        GameObject myCV = (GameObject)Instantiate(Resources.Load("CurrentVisualizer"), new Vector3(transform.position.x + Random.Range(-20, 20), transform.position.y + Random.Range(-12, 12), 0), Quaternion.identity);
+        GameObject myCV = (GameObject)Instantiate(Resources.Load("CurrentVisualizer"), new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-5, 5), 0), Quaternion.identity);
         myCV.AddComponent<CVInfo>();
         myCVs.Add(myCV);
     }

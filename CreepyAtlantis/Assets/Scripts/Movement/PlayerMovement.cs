@@ -126,9 +126,10 @@ public class PlayerMovement : MonoBehaviour{
             else
             {
                 nowBoosting = false;
+                justUp = 0;
             }
             // Calculates the baseForce
-            baseForce = new Vector3(leftRight, 2 * justUp * .85f, 0) * appliedThrustForce;
+            baseForce = new Vector3(leftRight, Mathf.Lerp(upDown, justUp, .5f) * .9f, 0) * appliedThrustForce;
         }
         else if (grounded && groundedCastCheck)
         {
