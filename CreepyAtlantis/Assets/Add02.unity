@@ -334,6 +334,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -391,6 +395,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -1795,6 +1803,10 @@ Prefab:
       propertyPath: m_Name
       value: CurrentZone (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -3005,6 +3017,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -44
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -3461,6 +3477,10 @@ Prefab:
       propertyPath: m_Name
       value: CurrentZone (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -3790,6 +3810,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -3859,6 +3883,10 @@ Prefab:
     - target: {fileID: 100000, guid: b0c452200b8e4f146992c0381de22be2, type: 3}
       propertyPath: m_TagString
       value: Walkable
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b0c452200b8e4f146992c0381de22be2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c452200b8e4f146992c0381de22be2, type: 3}
@@ -4403,6 +4431,10 @@ Prefab:
     - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
       propertyPath: m_Name
       value: CurrentZone (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
@@ -5220,6 +5252,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -7816,6 +7852,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -8557,7 +8597,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526822165}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 1458.3, y: 0, z: 0}
   m_LocalScale: {x: 150.00015, y: 150.00026, z: 186.3803}
   m_Children: []
@@ -9250,6 +9290,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -44
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -9358,6 +9402,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -10959,6 +11007,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -215.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -11735,6 +11787,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -11963,6 +12019,10 @@ Prefab:
     - target: {fileID: 4624619174382288, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -215.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
@@ -12808,6 +12868,10 @@ Prefab:
       propertyPath: currentMag
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -12878,6 +12942,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -44
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -12935,6 +13003,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -13462,6 +13534,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -13890,6 +13966,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -15860,6 +15940,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -16258,6 +16342,62 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1457988749341194, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303307703452882, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399890440883600, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393011751042940, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211101427778222, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962745119647998, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763357249056644, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675053723894746, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166531220125664, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266548633413734, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449562050888364, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549683794390968, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457443577626306, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140081986306366, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3e331eba1fd6464d8c4f7d9b62cce77, type: 2}
   m_IsPrefabParent: 0
@@ -16320,6 +16460,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -16519,6 +16663,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -16576,6 +16724,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -17122,6 +17274,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -17593,6 +17749,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -17751,6 +17911,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -17967,6 +18131,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -18064,7 +18232,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1339725481}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 195, y: 0, z: 0}
   m_LocalScale: {x: 150.00005, y: 150.00005, z: 186.38}
   m_Children: []
@@ -18165,7 +18333,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342633969}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 825.5, y: 0, z: 0}
   m_LocalScale: {x: 149.99997, y: 150.00005, z: 186.38005}
   m_Children: []
@@ -18821,6 +18989,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -19039,7 +19211,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1437635397
 Transform:
@@ -19362,6 +19534,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -19532,6 +19708,10 @@ Prefab:
     - target: {fileID: 4624619174382288, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -215.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
@@ -19771,6 +19951,10 @@ Prefab:
     - target: {fileID: 4624619174382288, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -77.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
@@ -20184,6 +20368,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -20443,6 +20631,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -21529,6 +21721,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -21804,6 +22000,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -22430,6 +22630,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -22543,6 +22747,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -23760,6 +23968,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -77.74
       objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
   m_IsPrefabParent: 0
@@ -23926,6 +24138,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -24190,6 +24406,10 @@ Prefab:
       propertyPath: m_Name
       value: PileOfSand (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
   m_IsPrefabParent: 0
@@ -24247,6 +24467,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
@@ -25002,6 +25226,10 @@ Prefab:
     - target: {fileID: 4624619174382288, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -77.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561710805595754, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
+      propertyPath: m_TagString
+      value: Current
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d12f3e0e95309b48bacaa22c4b60cee, type: 2}
@@ -25888,7 +26116,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 6b16ebb7cb1f09846b310e20894b68b0, type: 2}
     - target: {fileID: 1801168945467680, guid: 7995d948a0733774d86010ed8b9f995d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801168945467680, guid: 7995d948a0733774d86010ed8b9f995d, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7995d948a0733774d86010ed8b9f995d, type: 2}
@@ -25947,6 +26179,10 @@ Prefab:
     - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
       propertyPath: m_Name
       value: PileOfSand (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151656123897704, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8d357f8c34bb7458756caafbaf8e37, type: 2}

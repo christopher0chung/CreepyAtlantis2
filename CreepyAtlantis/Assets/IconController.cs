@@ -67,7 +67,7 @@ public class IconController : MonoBehaviour, IControllable {
 
         gameObject.AddComponent<ControllerAdapter>();
         myCA = GetComponent<ControllerAdapter>();
-        Debug.Log(gameObject.name + " run Initialize for " + myNum);
+        //Debug.Log(gameObject.name + " run Initialize for " + myNum);
         myCA.Initialize(myNum);
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onPreLoadLevel += UnSub;

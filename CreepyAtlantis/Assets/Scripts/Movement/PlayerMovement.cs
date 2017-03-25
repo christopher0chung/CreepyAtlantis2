@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour{
     private float appliedThrustForce;
 
     private bool _grounded;
-    private bool grounded
+    public bool grounded
     {
         get
         {
