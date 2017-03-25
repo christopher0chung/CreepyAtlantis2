@@ -10,11 +10,26 @@ public class CollisionDeath : MonoBehaviour {
     private VignetteController myBDeath;
     private VignetteController myRDeath;
 
-    private bool bDeath;
-    private bool rDeath;
+    private bool _death;
+    private bool death
+    {
+        get
+        {
+            return _death;
+        }
+        set
+        {
+            if (value != _death)
+            {
+                _death = value;
+                Invoke("Reload", normalizedTime);
+            }
+        }
+    }
 
     private float timer;
-    [SerializeField]private float normalizedTime;
+    private float normalizedTime = 3;
+    private float delayTime = 2;
 
     [SerializeField] private float storedVel;
 
@@ -29,7 +44,7 @@ public class CollisionDeath : MonoBehaviour {
         storedVel = Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity);
 
 
-        if (bDeath || rDeath)
+        if (death)
         {
             timer += Time.deltaTime / normalizedTime;
             timer = Mathf.Clamp01(timer);
@@ -39,7 +54,7 @@ public class CollisionDeath : MonoBehaviour {
             }
             else if (thisDeathStyle == DeathStyle.Red)
             {
-                myRDeath.slider = (1 - timer);
+                myBDeath.slider = (1 - timer);
             }
         }
         else
@@ -52,13 +67,13 @@ public class CollisionDeath : MonoBehaviour {
     {
         if (thisDeathStyle == DeathStyle.Black)
         {
-            bDeath = true;
+            Invoke("DelayVign", delayTime);
         }
         else if (thisDeathStyle == DeathStyle.Red)
         {
-            rDeath = true;
+            Invoke("DelayVign", delayTime);
+            Instantiate(Resources.Load("BloodExplosion"), transform.position, Quaternion.identity);
         }
-        Invoke("Reload", normalizedTime + .5f);
     }
 
     void OnCollisionEnter(Collision other)
@@ -87,6 +102,11 @@ public class CollisionDeath : MonoBehaviour {
 
             }
         }
+    }
+
+    void DelayVign()
+    {
+        death = true;
     }
 
     void Reload()
