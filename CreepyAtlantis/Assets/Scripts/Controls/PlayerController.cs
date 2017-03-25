@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour, IControllable {
     {
         if (charNum == player)
         {
+            Debug.Assert(myAdapter != null, "myAdapter is null");
             if (myControllable == Controllables.character)
                 myAdapter.enabled = true;
             else if (myControllable == Controllables.dialogue)

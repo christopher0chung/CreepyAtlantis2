@@ -22,7 +22,7 @@ public class CurrentScript : MonoBehaviour, ICurrent {
 
     void FixedUpdate()
     {
-        myRB.AddForce(currentVal);
+        myRB.AddForce(currentVal, ForceMode.Acceleration);
     }
 
     public void PushWithCurrent(Vector3 dir)

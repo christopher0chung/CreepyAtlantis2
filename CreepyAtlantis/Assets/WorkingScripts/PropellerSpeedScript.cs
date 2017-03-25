@@ -10,7 +10,7 @@ public class PropellerSpeedScript : MonoBehaviour {
 
     private Rigidbody myRB;
 
-    private float rotSpeed;
+    public float rotSpeed;
 
 	void Start () {
         myRB = transform.root.GetComponent<Rigidbody>();

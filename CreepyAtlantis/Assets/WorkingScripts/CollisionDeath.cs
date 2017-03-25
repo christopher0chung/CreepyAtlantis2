@@ -63,7 +63,7 @@ public class CollisionDeath : MonoBehaviour {
         }
 	}
 
-    private void StartDeathSeq ()
+    public void StartDeathSeq ()
     {
         if (thisDeathStyle == DeathStyle.Black)
         {
