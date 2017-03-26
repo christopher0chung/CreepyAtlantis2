@@ -8,7 +8,7 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
 
     [HideInInspector] public TriggerShape triggerShape;
 
-    [HideInInspector] public AssetDepot myAD;
+    //[HideInInspector] public AssetDepot myAD;
 
     public bool _detectFuncActive;
     public delegate void detectFunc();
@@ -42,13 +42,15 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
                 _showInteractableIcon = value;
                 if (_showInteractableIcon)
                 {
-                    myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
-                    myIcon.transform.position = transform.position + iconOffset;
+                    myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + iconOffset, Quaternion.identity, transform);
+                    //myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
+                    //myIcon.transform.position = transform.position + iconOffset;
                     //Debug.Log("CreateIcon");
                 }
                 else
                 {
-                    myAD.DepotDeposit(DepotObjects.interactIcon, myIcon);
+                    Destroy(myIcon);
+                    //myAD.DepotDeposit(DepotObjects.interactIcon, myIcon);
                     //Debug.Log("DestroyIcon");
                 }
             }
@@ -72,7 +74,7 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         nameToNum.Add(numToName[0], 0);
         nameToNum.Add(numToName[1], 1);
 
-        myAD = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
+        //myAD = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
     }
     virtual public void InitBox(Vector3 dim, Vector3 loc)
     {

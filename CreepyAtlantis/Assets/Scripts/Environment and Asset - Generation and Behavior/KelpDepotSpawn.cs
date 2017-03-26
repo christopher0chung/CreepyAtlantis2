@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class KelpDepotSpawn : MonoBehaviour, ISpawnableUsingDepot {
+public class KelpDepotSpawn : MonoBehaviour {
 
     private List<GameObject> mySpawns = new List<GameObject>();
 
-    public AssetDepot myDepot;
+    //public AssetDepot myDepot;
 
-    public DepotObjects myDepotObject;
+    //public DepotObjects myDepotObject;
 
     public float howMany;
     public float xMinRelative;
@@ -18,18 +18,23 @@ public class KelpDepotSpawn : MonoBehaviour, ISpawnableUsingDepot {
 
     void Awake()
     {
-        myDepot = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
+        //myDepot = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
     }
 
 	void Start ()
     {
 	    for (int i = 0; i < howMany; i++)
         {
-            GameObject mySpawn = GetFromDepot(myDepotObject);
+            GameObject mySpawn;
+            int rand = Random.Range(0, 2);
+            if (rand == 0)
+                mySpawn = (GameObject)Instantiate(Resources.Load("stalkType1"), transform.position + new Vector3(Random.Range(xMinRelative, xMaxRelative), Random.Range(-3.0f, 0.0f), Random.Range(zMinRelative, zMaxRelative)), Quaternion.identity, transform);
+            else
+                mySpawn = (GameObject)Instantiate(Resources.Load("stalkType2"), transform.position + new Vector3(Random.Range(xMinRelative, xMaxRelative), Random.Range(-3.0f, 0.0f), Random.Range(zMinRelative, zMaxRelative)), Quaternion.identity, transform);
 
-            mySpawn.transform.parent = transform;
-            mySpawn.transform.localPosition = new Vector3(Random.Range(xMinRelative, xMaxRelative), Random.Range(-3.0f, 0.0f), Random.Range(zMinRelative, zMaxRelative));
-            mySpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //mySpawn.transform.parent = transform;
+            //mySpawn.transform.localPosition = new Vector3(Random.Range(xMinRelative, xMaxRelative), Random.Range(-3.0f, 0.0f), Random.Range(zMinRelative, zMaxRelative));
+            //mySpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
             mySpawn.transform.localScale = Vector3.one * (Random.Range(.75f, 1.5f));
             mySpawns.Add(mySpawn);
         }
@@ -63,13 +68,13 @@ public class KelpDepotSpawn : MonoBehaviour, ISpawnableUsingDepot {
     //    }
     //}
 	
-    public GameObject GetFromDepot(DepotObjects theDepotObject)
-    {
-        return myDepot.DepotRequest(theDepotObject);
-    }
+    //public GameObject GetFromDepot(DepotObjects theDepotObject)
+    //{
+    //    return myDepot.DepotRequest(theDepotObject);
+    //}
 
-    public void ReturnToDepot(DepotObjects theDepotObject, GameObject whatIWantSentToDepot)
-    {
-        myDepot.DepotDeposit(theDepotObject, whatIWantSentToDepot);
-    }
+    //public void ReturnToDepot(DepotObjects theDepotObject, GameObject whatIWantSentToDepot)
+    //{
+    //    myDepot.DepotDeposit(theDepotObject, whatIWantSentToDepot);
+    //}
 }

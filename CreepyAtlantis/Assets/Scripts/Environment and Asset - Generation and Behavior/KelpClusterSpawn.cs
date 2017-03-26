@@ -6,7 +6,7 @@ public class KelpClusterSpawn : MonoBehaviour {
 
     private List<GameObject> mySpawns = new List<GameObject>();
 
-    private AssetDepot myDepot;
+    //private AssetDepot myDepot;
 
     public float howManyClusters;
 
@@ -26,7 +26,7 @@ public class KelpClusterSpawn : MonoBehaviour {
 
     void Awake()
     {
-        myDepot = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
+        //myDepot = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
     }
 
     void Start()
@@ -39,10 +39,17 @@ public class KelpClusterSpawn : MonoBehaviour {
 
             for (int j = 0; j < Random.Range(clusterDensityMedian - clusterDensityRange/2, clusterDensityMedian + clusterDensityRange/2); j++)
             {
-                GameObject mySpawn = GetFromDepot(RandomDepotItem());
+                GameObject mySpawn;
+                int rand = Random.Range(0, 2);
+                if (rand == 0)
+                    mySpawn = (GameObject)Instantiate(Resources.Load("stalkType1"), node + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad)) * appliedRange, Quaternion.identity, transform);
+                else
+                    mySpawn = (GameObject)Instantiate(Resources.Load("stalkType2"), node + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad)) * appliedRange, Quaternion.identity, transform);
 
-                mySpawn.transform.parent = transform;
-                mySpawn.transform.localPosition = node + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad)) * appliedRange;
+                //GameObject mySpawn = GetFromDepot(RandomDepotItem());
+
+                //mySpawn.transform.parent = transform;
+                //mySpawn.transform.localPosition = node + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad)) * appliedRange;
 
                 angle += 60 * 1.6180339887f;
                 angle = (angle + 360) % 360;
@@ -50,29 +57,29 @@ public class KelpClusterSpawn : MonoBehaviour {
                 range += .65f;
                 appliedRange = Random.Range(0, range);
 
-                mySpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
+                //mySpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
                 mySpawn.transform.localScale = Vector3.one * (Random.Range(.75f, 1.5f));
                 mySpawns.Add(mySpawn);
             }
         }
     }
 
-    DepotObjects RandomDepotItem()
-    {
-        int myInt =  Random.Range(0, 2);
-        if (myInt == 0)
-            return DepotObjects.stalkType1;
-        else
-            return DepotObjects.stalkType2;
-    }
+    //DepotObjects RandomDepotItem()
+    //{
+    //    int myInt =  Random.Range(0, 2);
+    //    if (myInt == 0)
+    //        return DepotObjects.stalkType1;
+    //    else
+    //        return DepotObjects.stalkType2;
+    //}
 
-    public GameObject GetFromDepot(DepotObjects theDepotObject)
-    {
-        return myDepot.DepotRequest(theDepotObject);
-    }
+    //public GameObject GetFromDepot(DepotObjects theDepotObject)
+    //{
+    //    return myDepot.DepotRequest(theDepotObject);
+    //}
 
-    public void ReturnToDepot(DepotObjects theDepotObject, GameObject whatIWantSentToDepot)
-    {
-        myDepot.DepotDeposit(theDepotObject, whatIWantSentToDepot);
-    }
+    //public void ReturnToDepot(DepotObjects theDepotObject, GameObject whatIWantSentToDepot)
+    //{
+    //    myDepot.DepotDeposit(theDepotObject, whatIWantSentToDepot);
+    //}
 }
