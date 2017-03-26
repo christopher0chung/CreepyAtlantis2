@@ -4,7 +4,23 @@ using System.Collections;
 public class ControllerAdapter : MonoBehaviour {
 
     public int charNum;
-    private bool initialized;
+    private bool _initialized;
+    private bool initialized
+    {
+        get
+        {
+            return _initialized;
+        }
+        set
+        {
+            if (value != _initialized)
+            {
+                _initialized = value;
+                if (_initialized)
+                    OnEnable();
+            }
+        }
+    }
     private IControllable myControllable;
 
     private void Awake()
@@ -19,7 +35,6 @@ public class ControllerAdapter : MonoBehaviour {
         myControllable = GetComponent<IControllable>();
 
         initialized = true;
-        OnEnable();
     }
 
     public void OnEnable ()

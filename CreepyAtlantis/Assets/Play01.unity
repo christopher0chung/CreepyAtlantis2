@@ -679,7 +679,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 7500.5, y: 7500.5, z: 0}
+  Offset: {x: 7525.3477, y: 7525.3477, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.1007705
+    e00: 2.1000285
     e01: 0
     e02: 0
     e03: 0
@@ -1018,7 +1018,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.1007705
+    e00: 2.1000285
     e01: 0
     e02: 0
     e03: 0
@@ -16263,7 +16263,7 @@ MonoBehaviour:
   MaskFull: {fileID: 1326485179}
   MaskVign: {fileID: 2119450288}
   shouldScale: 0
-  slider: 1.1
+  slider: 1
 --- !u!95 &1073292211
 Animator:
   serializedVersion: 3
@@ -16622,7 +16622,7 @@ Prefab:
     - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
         type: 2}
       propertyPath: thrustForce
-      value: 25
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 54853291148825618, guid: ee0ad94bc13b7aa4a9710032192c05f7,
         type: 2}
@@ -16860,6 +16860,7 @@ GameObject:
   - component: {fileID: 1223295889}
   - component: {fileID: 1223295888}
   - component: {fileID: 1223295890}
+  - component: {fileID: 1223295891}
   m_Layer: 0
   m_Name: VignMasks
   m_TagString: Untagged
@@ -16949,6 +16950,17 @@ MonoBehaviour:
   MaskVign: {fileID: 2072203190}
   shouldScale: 1
   slider: 0
+--- !u!114 &1223295891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223295886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cf56b99728892489281b91f79bceec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230064293
 GameObject:
   m_ObjectHideFlags: 0
@@ -19885,7 +19897,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 786642384ceae8849ba1250b07b3ae91, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: -0.02}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1326227452
@@ -32017,7 +32029,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 6995.2534, y: 6995.2534, z: 0}
+  Offset: {x: 7020.101, y: 7020.101, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -38768,7 +38780,7 @@ Prefab:
     - target: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
         type: 2}
       propertyPath: thrustForce
-      value: 25
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 54853291148825618, guid: ee0ad94bc13b7aa4a9710032192c05f7,
         type: 2}
@@ -38985,7 +38997,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 763770b481e6d2341979497ddae6286d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: -0.02}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &2112171001

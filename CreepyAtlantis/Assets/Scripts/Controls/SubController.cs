@@ -61,6 +61,13 @@ public class SubController : MonoBehaviour, IControllable {
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {
+        if (myAdapters[0] == null || myAdapters[1] == null)
+        {
+            myAdapters = GetComponents<ControllerAdapter>();
+            myAdapters[0].Initialize(0);
+            myAdapters[1].Initialize(1);
+        }
+
         if (myControllable == Controllables.submarine)
             myAdapters[player].enabled = true;
         else if (myControllable == Controllables.dialogue)

@@ -43,6 +43,7 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
                 if (_showInteractableIcon)
                 {
                     myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + iconOffset, Quaternion.identity, transform);
+                    myIcon.transform.localScale = Vector3.one * .03f;
                     //myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
                     //myIcon.transform.position = transform.position + iconOffset;
                     //Debug.Log("CreateIcon");

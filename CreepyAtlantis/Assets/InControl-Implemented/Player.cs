@@ -152,7 +152,10 @@ namespace MultiplayerWithBindingsExample
 
         private void menuIOFunc()
         {
-
+            if (Actions.Start)
+            {
+                GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathLoad();
+            }
         }
 
         private void playIOFunc()
@@ -231,6 +234,10 @@ namespace MultiplayerWithBindingsExample
             if (scene.buildIndex ==0)
             {
                 assignControlIO(controlSchemes.joinIO);
+            }
+            if (scene.buildIndex == 1)
+            {
+                assignControlIO(controlSchemes.menuIO);
             }
             else
             {

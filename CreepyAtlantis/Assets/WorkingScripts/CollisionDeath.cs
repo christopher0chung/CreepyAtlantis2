@@ -22,7 +22,7 @@ public class CollisionDeath : MonoBehaviour {
             if (value != _death)
             {
                 _death = value;
-                Invoke("Reload", normalizedTime);
+                Invoke("Death", normalizedTime);
             }
         }
     }
@@ -72,6 +72,15 @@ public class CollisionDeath : MonoBehaviour {
         else if (thisDeathStyle == DeathStyle.Red)
         {
             Invoke("DelayVign", delayTime);
+
+            GetComponent<Collider>().enabled = false;
+
+            ShutDownControls();
+
+            transform.root.Find("Model").gameObject.SetActive(false);
+            transform.root.Find("Effects").gameObject.SetActive(false);
+            transform.root.Find("AirUnit").gameObject.SetActive(false);
+
             Instantiate(Resources.Load("BloodExplosion"), transform.position, Quaternion.identity);
         }
     }
@@ -109,10 +118,25 @@ public class CollisionDeath : MonoBehaviour {
         death = true;
     }
 
-    void Reload()
+    void Death()
     {
         //Debug.Log("Invoked");
-        GameObject.Find("GameStateManager").GetComponent<LevelLoader>().ReloadLevel();
+        GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathUnload();
+    }
+
+    void ShutDownControls()
+    {
+        GameObject[] theChars = GameObject.FindGameObjectsWithTag("Character");
+        foreach(GameObject theChar in theChars)
+        {
+            theChar.GetComponent<ControllerAdapter>().enabled = false;
+        }
+
+        ControllerAdapter[] theAdapters = GameObject.FindGameObjectWithTag("Sub").GetComponents<ControllerAdapter>();
+        foreach (ControllerAdapter theAdapter in theAdapters)
+        {
+            theAdapter.enabled = false;
+        }
     }
 }
 

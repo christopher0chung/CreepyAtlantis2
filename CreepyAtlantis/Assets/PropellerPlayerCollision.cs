@@ -26,9 +26,6 @@ public class PropellerPlayerCollision : MonoBehaviour {
         if (other.transform.root.gameObject.tag == "Character" && deadly)
         {
             other.transform.root.GetComponent<CollisionDeath>().StartDeathSeq();
-            other.enabled = false;
-            other.transform.root.Find("Model").gameObject.SetActive(false);
-            other.transform.root.Find("AirUnit").gameObject.SetActive(false);
         }
     }
 }
