@@ -8,8 +8,11 @@ public class SharkAttacking : MonoBehaviour {
     [SerializeField] private float range;
     private Camera myCam;
 
+    private Vector3[][] enumToV3;
+
     private enum SharkPos { OffLeft, OnScreen, OffRight }
-    private enum SharkStates { PatrolBackground, PatrolInView, PatrolInStrikingDist, Engage, Attack, Flee }
+    private enum SharkDist { Background, InView, InStrikingDist }
+    private enum SharkStates { Patrol, Engage, Attack, Flee }
 
     private delegate void SharkFunc();
     private SharkFunc activeFunc;
@@ -22,14 +25,8 @@ public class SharkAttacking : MonoBehaviour {
         currentState = state;
         switch (state)
         {
-            case SharkStates.PatrolBackground:
-                activeFunc = PatrolBackgroundFunc;
-                break;
-            case SharkStates.PatrolInView:
-                activeFunc = PatrolInViewFunc;
-                break;
-            case SharkStates.PatrolInStrikingDist:
-                activeFunc = PatrolInStrikingDistFunc;
+            case SharkStates.Patrol:
+                activeFunc = PatrolFunc;
                 break;
             case SharkStates.Engage:
                 activeFunc = EngageFunc;
@@ -48,31 +45,56 @@ public class SharkAttacking : MonoBehaviour {
         myCam = Camera.main;
     }
 
-    void PatrolBackgroundFunc()
+    void Start()
     {
+        SetInDict(SharkPos.OffLeft, SharkDist.Background, Vector3.zero);
+        SetInDict(SharkPos.OffLeft, SharkDist.InView, Vector3.zero);
+        SetInDict(SharkPos.OffLeft, SharkDist.InStrikingDist, Vector3.zero);
+
+        SetInDict(SharkPos.OnScreen, SharkDist.Background, Vector3.zero);
+        SetInDict(SharkPos.OnScreen, SharkDist.InView, Vector3.zero);
+        SetInDict(SharkPos.OnScreen, SharkDist.InStrikingDist, Vector3.zero);
+
+        SetInDict(SharkPos.OffRight, SharkDist.Background, Vector3.zero);
+        SetInDict(SharkPos.OffRight, SharkDist.InView, Vector3.zero);
+        SetInDict(SharkPos.OffRight, SharkDist.InStrikingDist, Vector3.zero);
     }
 
-    void PatrolInViewFunc()
+    void SetInDict (SharkPos pos, SharkDist dist, Vector3 val)
     {
+        enumToV3[(int)pos][(int)dist] = val;
     }
 
-    void PatrolInStrikingDistFunc()
+    Vector3 GetFromDict (SharkPos pos, SharkDist dist)
     {
+        return enumToV3[(int)pos][(int)dist];
+    }
+
+    void PlaceShark()
+    {
+        if (currentPos == SharkPos.OffLeft)
+        {
+        }
+
+        transform.position = myCam.transform.position + new Vector3();
+
+    }
+
+    void PatrolFunc()
+    {
+        
     }
 
     void EngageFunc()
     {
-
     }
 
     void AttackFunc()
     {
-
     }
 
     void FleeFunc()
     {
-
     }
 
     void Update()
