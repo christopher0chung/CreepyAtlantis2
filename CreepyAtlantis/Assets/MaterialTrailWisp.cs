@@ -21,6 +21,8 @@ public class MaterialTrailWisp : MonoBehaviour {
 
     private Vector3 tempVec;
 
+    [SerializeField] private AnimationCurve myAC;
+
     void Start()
     {
         tr = this.transform;
@@ -44,7 +46,8 @@ public class MaterialTrailWisp : MonoBehaviour {
 
     void Update()
     {
-        line.startWidth = Vector3.Magnitude(transform.root.GetComponent<Rigidbody>().velocity)/15;
+        line.widthCurve = myAC;
+        //line.startWidth = Vector3.Magnitude(transform.root.GetComponent<Rigidbody>().velocity)/15;
         timeSinceUpdate += Time.deltaTime; // Update time.
 
         // If it's time to update the line...

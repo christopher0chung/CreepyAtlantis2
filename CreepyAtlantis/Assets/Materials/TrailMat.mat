@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TrailMat
-  m_Shader: {fileID: 4800000, guid: 6562ed1722964fc4fa4eba1d756e19b7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 20f8b1d4e6c1ae2428465993533d660d, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -114,7 +114,7 @@ Material:
       second: 0.02
     - first:
         name: _RefractionIntensity
-      second: 1
+      second: 0.06
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -138,6 +138,9 @@ Material:
       second: 0
     m_Colors:
     - first:
+        name: _BaseColor
+      second: {r: 0.5661765, g: 0.5661765, b: 0.5661765, a: 1}
+    - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
@@ -145,7 +148,7 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _EmissiveColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
     - first:
         name: _FogColor
       second: {r: 1, g: 1, b: 1, a: 1}

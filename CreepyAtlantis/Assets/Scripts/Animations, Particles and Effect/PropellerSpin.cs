@@ -14,7 +14,7 @@ public class PropellerSpin : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.localRotation = Quaternion.Euler(0, 0, ang += 15.45f);
+        transform.localRotation = Quaternion.Euler(0, 0, ang += (2000 * Time.deltaTime));
 		
 	}
 }
