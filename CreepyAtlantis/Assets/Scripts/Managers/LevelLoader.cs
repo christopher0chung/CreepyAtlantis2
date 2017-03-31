@@ -68,23 +68,24 @@ public class LevelLoader : MonoBehaviour {
 
     private bool CheckReady (int lvl)
     {
-        if (lvl == 0)
-            return true;
-        if (lvl == 1)
-        {
-            if (GameObject.FindGameObjectWithTag("Player1"))
-                return true;
-            else
-                return false;
-        }
-        else if (lvl == 2)
-            return true;
-        else if (lvl == 3)
-            return true;
-        else if (lvl == 4)
-            return true;
-        else
-            return false;
+        return true;
+        //if (lvl == 0)
+        //    return true;
+        //if (lvl == 1)
+        //{
+        //    if (GameObject.FindGameObjectWithTag("Player1"))
+        //        return true;
+        //    else
+        //        return false;
+        //}
+        //else if (lvl == 2)
+        //    return true;
+        //else if (lvl == 3)
+        //    return true;
+        //else if (lvl == 4)
+        //    return true;
+        //else
+        //    return false;
     }
 
     private void DiedLevel()

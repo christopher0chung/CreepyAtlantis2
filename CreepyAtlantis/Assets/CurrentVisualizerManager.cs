@@ -36,19 +36,37 @@ public class CVInfo : MonoBehaviour
 public class CurrentVisualizerManager : MonoBehaviour {
 
     [SerializeField] private List<GameObject> myCVs = new List<GameObject>();
-	// Use this for initialization
+    // Use this for initialization
+
+    private int counter;
+
 	void Start () {
         for (int i = 0; i < 20; i++)
         {
-            GameObject myCV = (GameObject) Instantiate(Resources.Load("CurrentVisualizer"), new Vector3(transform.position.x + Random.Range(-20, 20), transform.position.y + Random.Range(-12, 12), 0), Quaternion.identity);
+            GameObject myCV = MakeSomeClose();
             myCV.AddComponent<CVInfo>();
             myCV.GetComponent<CVInfo>().timer = -i * 5;
             myCVs.Add(myCV);
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    GameObject MakeSomeClose()
+    {
+        counter++;
+        Debug.Log(counter);
+        if (counter >= 3)
+        {
+            counter = 0;
+            return (GameObject)Instantiate(Resources.Load("CurrentVisualizerClose"), new Vector3(transform.position.x + Random.Range(-20, 20), transform.position.y + Random.Range(-12, 12), 0), Quaternion.identity);
+        }
+        else
+        {   
+            return (GameObject)Instantiate(Resources.Load("CurrentVisualizer"), new Vector3(transform.position.x + Random.Range(-20, 20), transform.position.y + Random.Range(-12, 12), 0), Quaternion.identity);
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         for (int i = 0; i < myCVs.Count; i++)
         {
             myCVs[i].GetComponent<CVInfo>().CVUpdate();
@@ -79,7 +97,7 @@ public class CurrentVisualizerManager : MonoBehaviour {
 
     void MakeAnother()
     {
-        GameObject myCV = (GameObject)Instantiate(Resources.Load("CurrentVisualizer"), new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-5, 5), 0), Quaternion.identity);
+        GameObject myCV = MakeSomeClose();
         myCV.AddComponent<CVInfo>();
         myCVs.Add(myCV);
     }
