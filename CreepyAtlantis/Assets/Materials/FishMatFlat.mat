@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SubHull2
+  m_Name: FishMatFlat
   m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -87,7 +87,7 @@ Material:
       second: 0
     - first:
         name: _Gloss
-      second: 0.4682218
+      second: 0.5
     - first:
         name: _GlossMapScale
       second: 1
@@ -127,13 +127,13 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 0.18382353, g: 0.18382353, b: 0.18382353, a: 1}
+      second: {r: 0.30644464, g: 0.38235295, b: 0.3697888, a: 1}
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.05338235, g: 0.1102941, b: 0.105584174, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _FogColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 0, g: 0.075, b: 0.062323935, a: 1}

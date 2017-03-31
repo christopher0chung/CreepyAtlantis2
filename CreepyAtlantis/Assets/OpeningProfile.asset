@@ -69,7 +69,7 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       focusDistance: 21.4
       aperture: 0.87
@@ -79,9 +79,9 @@ MonoBehaviour:
   motionBlur:
     m_Enabled: 1
     m_Settings:
-      shutterAngle: 20
-      sampleCount: 5
-      frameBlending: 0.01
+      shutterAngle: 360
+      sampleCount: 32
+      frameBlending: 1
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -100,10 +100,10 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 1.2
-        threshold: 0.35
-        softKnee: 0.5
-        radius: 5
+        intensity: 0.4
+        threshold: 0.6
+        softKnee: 0.35
+        radius: 3.5
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
@@ -293,14 +293,14 @@ MonoBehaviour:
       size: 0.646
       luminanceContribution: 0.931
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.45
-      smoothness: 0.2
-      roundness: 0.117
+      intensity: 0.263
+      smoothness: 0.637
+      roundness: 1
       mask: {fileID: 0}
       opacity: 1
       rounded: 0

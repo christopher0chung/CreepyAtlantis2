@@ -5,6 +5,7 @@ using UnityEngine;
 public class PropellerSpin : MonoBehaviour {
 
     private float ang;
+    [SerializeField] private float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,7 @@ public class PropellerSpin : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.localRotation = Quaternion.Euler(0, 0, ang += (2000 * Time.deltaTime));
+        transform.localRotation = Quaternion.Euler(0, 0, ang += (speed * Time.deltaTime));
 		
 	}
 }

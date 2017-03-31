@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SubControlScript : MonoBehaviour {
 
-    private Transform myLight;
+    [SerializeField] private Transform myLight;
     public float angRate;
 
     public GameObject p1;
@@ -30,7 +30,6 @@ public class SubControlScript : MonoBehaviour {
 
     void Start ()
     {
-        myLight = transform.Find("Model").Find("LightArray");
         myRB = GetComponent<Rigidbody>();
         ctrlRef = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().currentPlayControlsRef;
     }
@@ -42,7 +41,7 @@ public class SubControlScript : MonoBehaviour {
         if (!freeze0 || !freeze1)
         {
             lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
-            myLight.localEulerAngles = new Vector3(0, -90, lightAng);
+            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
         }
     }
 
