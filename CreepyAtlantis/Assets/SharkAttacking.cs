@@ -17,7 +17,49 @@ public class SharkAttacking : MonoBehaviour {
     private delegate void SharkFunc();
     private SharkFunc activeFunc;
 
-    private SharkPos currentPos;
+    private Vector3 dirVec;
+
+    private SharkPos _currentPos;
+    private SharkPos currentPos
+    {
+        get
+        {
+            return _currentPos;
+        }
+        set
+        {
+            if (value != _currentPos)
+            {
+                if (_currentPos == SharkPos.OnScreen)
+                {
+                    //currentPos value placed twice for sequencing.
+                    _currentPos = value;
+                    PlaceShark();
+                }
+                else
+                {
+                    _currentPos = value;
+                }
+
+            }
+        }
+    }
+    private SharkDist _currentDist;
+    private SharkDist currentDist
+    {
+        get
+        {
+            return _currentDist;
+        }
+        set
+        {
+            if (value != _currentDist)
+            {
+                _currentDist = value;
+                PlaceShark();
+            }
+        }
+    }
 
     private SharkStates currentState;
     private void SetState(SharkStates state)
@@ -47,17 +89,17 @@ public class SharkAttacking : MonoBehaviour {
 
     void Start()
     {
-        SetInDict(SharkPos.OffLeft, SharkDist.Background, Vector3.zero);
-        SetInDict(SharkPos.OffLeft, SharkDist.InView, Vector3.zero);
-        SetInDict(SharkPos.OffLeft, SharkDist.InStrikingDist, Vector3.zero);
+        SetInDict(SharkPos.OffLeft, SharkDist.Background, new Vector3(-40, 0, 35));
+        SetInDict(SharkPos.OffLeft, SharkDist.InView, new Vector3(-35, 0, 20));
+        SetInDict(SharkPos.OffLeft, SharkDist.InStrikingDist, new Vector3(-30, 0, 10));
 
         SetInDict(SharkPos.OnScreen, SharkDist.Background, Vector3.zero);
         SetInDict(SharkPos.OnScreen, SharkDist.InView, Vector3.zero);
         SetInDict(SharkPos.OnScreen, SharkDist.InStrikingDist, Vector3.zero);
 
-        SetInDict(SharkPos.OffRight, SharkDist.Background, Vector3.zero);
-        SetInDict(SharkPos.OffRight, SharkDist.InView, Vector3.zero);
-        SetInDict(SharkPos.OffRight, SharkDist.InStrikingDist, Vector3.zero);
+        SetInDict(SharkPos.OffRight, SharkDist.Background, new Vector3(40, 0, 35));
+        SetInDict(SharkPos.OffRight, SharkDist.InView, new Vector3(35, 0, 20));
+        SetInDict(SharkPos.OffRight, SharkDist.InStrikingDist, new Vector3(30, 0, 10));
     }
 
     void SetInDict (SharkPos pos, SharkDist dist, Vector3 val)
@@ -72,17 +114,26 @@ public class SharkAttacking : MonoBehaviour {
 
     void PlaceShark()
     {
-        if (currentPos == SharkPos.OffLeft)
-        {
-        }
-
-        transform.position = myCam.transform.position + new Vector3();
-
+        transform.position = myCam.transform.position + GetFromDict(currentPos, currentDist);
     }
 
     void PatrolFunc()
     {
-        
+        if (currentPos == SharkPos.OffLeft)
+        {
+            currentPos = SharkPos.OnScreen;
+            dirVec = Vector3.right * speed * Time.deltaTime;
+        }
+        else if (currentPos == SharkPos.OffRight)
+        {
+            currentPos = SharkPos.OnScreen;
+            dirVec = Vector3.right * speed * -Time.deltaTime;
+        }
+
+        if (currentPos == SharkPos.OnScreen)
+        {
+            transform.position += dirVec;
+        }
     }
 
     void EngageFunc()
