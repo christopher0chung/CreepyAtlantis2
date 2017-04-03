@@ -24,9 +24,9 @@ public class PropellerSpeedScript : MonoBehaviour {
 
     void PropSpeed ()
     {
-        rotSpeed = Mathf.Lerp(rotSpeed, transform.root.GetComponent<SubControlScript>().resultantMoveVector.x, Time.deltaTime * 2);
+        rotSpeed = Mathf.Lerp(rotSpeed, transform.root.GetComponent<SubControlScript>().resultantMoveVector.x/10, Time.deltaTime * 2);
 
-        transform.Rotate(Vector3.up, rotSpeed);
+        transform.Rotate(Vector3.forward, rotSpeed);
     }
 
     void PropCav()
@@ -35,22 +35,33 @@ public class PropellerSpeedScript : MonoBehaviour {
         {
             for (int i = 0; i < myPS.Length; i++)
             {
-                myPS[i].transform.localRotation = Quaternion.Euler(-90, 0, 0);
+                myPS[i].transform.localRotation = Quaternion.Euler(180, 0, 0);
             }
         }
         else
         {
             for (int i = 0; i < myPS.Length; i++)
             {
-                myPS[i].transform.localRotation = Quaternion.Euler(90, 0, 0);
+                myPS[i].transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
 
         if (Mathf.Abs(transform.root.GetComponent<SubControlScript>().resultantMoveVector.x) > threshold)
         {
-            int whichOne = Random.Range(0, (int)Mathf.Abs(transform.root.GetComponent<SubControlScript>().resultantMoveVector.x));
+            int whichOne;
+            if (Mathf.Abs(rotSpeed) > 20)
+                whichOne = Random.Range(0, 12);
+            else if (Mathf.Abs(rotSpeed) > 10)
+                whichOne = Random.Range(0, 20);
+            else if (Mathf.Abs(rotSpeed) > 5)
+                whichOne = Random.Range(0, 30);
+            else
+                return;
+
             if (whichOne < 4)
+            {
                 myPS[whichOne].Emit(1);
+            }
         }
     }
 }

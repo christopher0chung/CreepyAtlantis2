@@ -19,7 +19,14 @@ public class CVInfo : MonoBehaviour
                 if (marked)
                 {
                     timer = 0;
-                    GetComponent<ParticleSystem>().Stop();
+                    if (GetComponent<ParticleSystem>() != null)
+                    {
+                        GetComponent<ParticleSystem>().Stop();
+                    }
+                    else if (GetComponentInChildren<ParticleSystem>() != null)
+                    {
+                        GetComponentInChildren<ParticleSystem>().Stop();
+                    }
                 }
             }
         }
