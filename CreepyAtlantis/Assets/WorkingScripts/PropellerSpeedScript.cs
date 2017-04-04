@@ -24,7 +24,7 @@ public class PropellerSpeedScript : MonoBehaviour {
 
     void PropSpeed ()
     {
-        rotSpeed = Mathf.Lerp(rotSpeed, transform.root.GetComponent<SubControlScript>().resultantMoveVector.x/10, Time.deltaTime * 2);
+        rotSpeed = Mathf.Lerp(rotSpeed, transform.root.GetComponent<SubControlScript>().resultantMoveVector.x/15, Time.deltaTime * 2);
 
         transform.Rotate(Vector3.forward, rotSpeed);
     }

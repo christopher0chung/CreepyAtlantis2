@@ -60,7 +60,7 @@ public class CurrentVisualizerManager : MonoBehaviour {
     GameObject MakeSomeClose()
     {
         counter++;
-        Debug.Log(counter);
+        //Debug.Log(counter);
         if (counter >= 3)
         {
             counter = 0;
