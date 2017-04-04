@@ -63,6 +63,15 @@ public class CollisionDeath : MonoBehaviour {
         }
 	}
 
+    public void Drown()
+    {
+        transform.root.Find("Effects").gameObject.SetActive(false);
+        transform.root.Find("AirUnit").gameObject.SetActive(false); thisDeathStyle = DeathStyle.Black;
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
+        StartDeathSeq();
+    }
+
     public void StartDeathSeq ()
     {
         if (thisDeathStyle == DeathStyle.Black)
