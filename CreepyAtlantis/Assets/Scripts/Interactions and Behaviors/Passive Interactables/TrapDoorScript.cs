@@ -73,15 +73,21 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
 
     private void Opening()
     {
-        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(0, 90, -90), doorOpeningRate);
-        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(0, 90, 90), doorOpeningRate);
+        trapDoorPort.localPosition = Vector3.MoveTowards(trapDoorPort.localPosition, new Vector3(-2.331184f, -1.295489f, 1.325f), doorOpeningRate / 100f);
+        trapDoorStbd.localPosition = Vector3.MoveTowards(trapDoorStbd.localPosition, new Vector3(-2.331184f, -1.295489f, -1.325f), doorOpeningRate / 100f);
+
+        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(-125, 0, 90), doorOpeningRate);
+        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(-125, 0, 90), doorOpeningRate);
         lightSwitch = true;
     }
 
     private void Closing()
     {
-        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
-        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(0, 90, 0), doorOpeningRate);
+        trapDoorPort.localPosition = Vector3.MoveTowards(trapDoorPort.localPosition, new Vector3(-2.331184f, -1.295489f, 0.3802599f), doorOpeningRate / 100f);
+        trapDoorStbd.localPosition = Vector3.MoveTowards(trapDoorStbd.localPosition, new Vector3(-2.331184f, -1.295489f, -0.3802599f), doorOpeningRate / 100f);
+
+        trapDoorPort.localRotation = Quaternion.RotateTowards(trapDoorPort.localRotation, Quaternion.Euler(-90, 0, 90), doorOpeningRate);
+        trapDoorStbd.localRotation = Quaternion.RotateTowards(trapDoorStbd.localRotation, Quaternion.Euler(-90, 0, 90), doorOpeningRate);
         if (trapDoorPort.localRotation.eulerAngles.z < 1)
             lightSwitch = false;
     }

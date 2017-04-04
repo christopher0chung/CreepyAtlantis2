@@ -26,11 +26,11 @@ public class SuctionZone : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay (Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.transform.root.gameObject.tag == "Character" && deadly)
         {
-            other.transform.root.GetComponent<Rigidbody>().AddForce((transform.parent.position - other.transform.position) * 60 * (6 - Vector3.Distance(transform.parent.position, other.transform.position)));
+            other.transform.root.GetComponent<Rigidbody>().AddForce((transform.parent.position - other.transform.position) * 60);
         }
     }
 

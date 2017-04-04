@@ -9224,7 +9224,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8675.224, y: 8675.224, z: 0}
+  Offset: {x: 8676.401, y: 8676.401, z: 0}
 --- !u!108 &429222543
 Light:
   m_ObjectHideFlags: 0
@@ -9994,7 +9994,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8676.4795, y: 8676.4795, z: 0}
+  Offset: {x: 8677.657, y: 8677.657, z: 0}
 --- !u!108 &845227570
 Light:
   m_ObjectHideFlags: 0
@@ -10182,7 +10182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fa1775b7f1ea441b56f16fe76acb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 700
+  speed: -700
 --- !u!4 &923608028 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4150138386681200, guid: d3d865c24a663cc46865edc3b28c05cc,
@@ -11104,7 +11104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fa1775b7f1ea441b56f16fe76acb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 700
+  speed: -700
 --- !u!1 &1470752755
 GameObject:
   m_ObjectHideFlags: 0
@@ -11908,7 +11908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 40.999695, y: 59.200012}
+  m_AnchoredPosition: {x: 40.999634, y: 59.200012}
   m_SizeDelta: {x: 672.8, y: 72.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1818611771

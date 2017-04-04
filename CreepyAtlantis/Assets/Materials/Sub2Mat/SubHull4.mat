@@ -127,13 +127,13 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 0.33088237, g: 0.33088237, b: 0.33088237, a: 1}
+      second: {r: 0, g: 1, b: 0.627451, a: 1}
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.349, g: 0.24119374, b: 0, a: 1}
+      second: {r: 1, g: 0.6037736, b: 0.27044022, a: 1}
     - first:
         name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
