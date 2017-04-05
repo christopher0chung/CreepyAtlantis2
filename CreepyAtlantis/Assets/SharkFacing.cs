@@ -18,7 +18,7 @@ public class SharkFacing : MonoBehaviour {
         dir = Vector3.Normalize(transform.position - lastPos);
         if (dir != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir, Vector3.up), .09f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir, Vector3.up), Time.deltaTime);
         }
         lastPos = transform.position;
     }
