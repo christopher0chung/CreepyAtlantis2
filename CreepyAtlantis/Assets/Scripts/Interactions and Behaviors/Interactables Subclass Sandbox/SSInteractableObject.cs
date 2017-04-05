@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SSInteractableObject : MonoBehaviour, IInteractable {
+public class SSInteractableObject : MonoBehaviour, IInteractable, IIlluminable {
 
     //Subclass Sandbox - Interactable Objects
 
     [HideInInspector] public TriggerShape triggerShape;
 
     //[HideInInspector] public AssetDepot myAD;
+
+    public float letGoTimer;
 
     public bool _detectFuncActive;
     public delegate void detectFunc();
@@ -37,6 +39,9 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         }
         set
         {
+            if (value)
+                letGoTimer = 0;
+
             if (value != _showInteractableIcon)
             {
                 _showInteractableIcon = value;
@@ -91,6 +96,16 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
     }
 
     //-----------------------------------------------------------------
+    // Part of IIlluminable
+    //-----------------------------------------------------------------
+
+    virtual public void Illuminate(GameObject who)
+    {
+        ShowInteractable();
+    }
+
+
+    //-----------------------------------------------------------------
     // Part of interface
     // Interact will be handled by parent class
     // Functionality should be overridden in OnPress and OnRelease
@@ -131,10 +146,10 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         {
             ShowInteractable();
         }
-        else
-        {
-            HideInteractable();
-        }
+        //else
+        //{
+        //    HideInteractable();
+        //}
     }
 
     virtual public void SphereCastDetect ()
@@ -145,10 +160,10 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         {
             ShowInteractable();
         }
-        else
-        {
-            HideInteractable();
-        }
+        //else
+        //{
+        //    HideInteractable();
+        //}
     }
 
     protected int CastCheck (RaycastHit[] hits)
@@ -166,6 +181,15 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
             }
         }
         return -1;
+    }
+
+    protected void CleanUp()
+    {
+        letGoTimer += Time.deltaTime;
+        if ( letGoTimer >= .25f)
+        {
+            HideInteractable();
+        }
     }
 
     protected void ShowInteractable()

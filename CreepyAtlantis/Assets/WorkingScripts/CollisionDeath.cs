@@ -31,22 +31,18 @@ public class CollisionDeath : MonoBehaviour {
     private float normalizedTime = 3;
     private float delayTime = 2;
 
-    private GameObject sub;
-
     [SerializeField] private float storedVel;
 
 	void Start () {
         myBDeath = GameObject.Find("VignMasks").GetComponent<VignetteController>();
         myRDeath = GameObject.Find("DeathMasks").GetComponent<VignetteController>();
         //Debug.Log("myBDeath found is " + myBDeath);
-        sub = GameObject.Find("Sub");
 	}
 	
 	void Update () {
 
         storedVel = Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity);
 
-        CheckOffScreen();
 
         if (death)
         {
@@ -74,6 +70,13 @@ public class CollisionDeath : MonoBehaviour {
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
         StartDeathSeq();
+    }
+
+    public void Disappear()
+    {
+        transform.root.Find("Model").gameObject.SetActive(false);
+        transform.root.Find("Effects").gameObject.SetActive(false);
+        transform.root.Find("AirUnit").gameObject.SetActive(false);
     }
 
     public void StartDeathSeq ()
@@ -150,28 +153,6 @@ public class CollisionDeath : MonoBehaviour {
         {
             theAdapter.enabled = false;
         }
-    }
-
-    void CheckOffScreen()
-    {
-        if (Mathf.Abs(transform.position.x - sub.transform.position.x) >= 32 || sub.transform.position.y - transform.position.y > 44)
-        {
-            DisappearDeath();
-        }
-    }
-
-    void DisappearDeath()
-    {
-        Invoke("Drown", 2);
-
-        GetComponent<Collider>().enabled = false;
-
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
-
-        transform.root.Find("Model").gameObject.SetActive(false);
-        transform.root.Find("Effects").gameObject.SetActive(false);
-        transform.root.Find("AirUnit").gameObject.SetActive(false);
     }
 }
 

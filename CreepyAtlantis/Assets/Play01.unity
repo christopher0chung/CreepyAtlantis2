@@ -6431,7 +6431,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.100531
+    e00: 2.1013067
     e01: 0
     e02: 0
     e03: 0
@@ -6448,22 +6448,22 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.100531
+    e00: 0
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 3.6048841
-    e12: -0.96592623
-    e13: -53.125942
+    e11: 0
+    e12: 0
+    e13: 0
     e20: 0
-    e21: -0.00007765863
-    e22: -0.00028982584
-    e23: 0.2841496
+    e21: 0
+    e22: 0
+    e23: 0
     e30: 0
-    e31: 0.25881916
-    e32: 0.9659258
-    e33: 53.12592
+    e31: 0
+    e32: 0
+    e33: 0
   LastMatrixVPInv:
     e00: 0
     e01: 0
@@ -25555,6 +25555,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4134614551724010, guid: ee0ad94bc13b7aa4a9710032192c05f7,
     type: 2}
   m_PrefabInternal: {fileID: 1138494333}
+--- !u!1 &1138494335 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1596259400162248, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+--- !u!114 &1138494336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138494335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e05e7e3559912644be1d4b5af85bc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  distance: 0
 --- !u!1001 &1151172634
 Prefab:
   m_ObjectHideFlags: 0
