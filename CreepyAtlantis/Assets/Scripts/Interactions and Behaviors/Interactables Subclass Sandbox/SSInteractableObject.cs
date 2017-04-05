@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SSInteractableObject : MonoBehaviour, IInteractable {
+public class SSInteractableObject : MonoBehaviour, IInteractable, IIlluminable {
 
     //Subclass Sandbox - Interactable Objects
 
     [HideInInspector] public TriggerShape triggerShape;
 
-    [HideInInspector] public AssetDepot myAD;
+    //[HideInInspector] public AssetDepot myAD;
+
+    public float letGoTimer;
 
     public bool _detectFuncActive;
     public delegate void detectFunc();
@@ -37,18 +39,24 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         }
         set
         {
+            if (value)
+                letGoTimer = 0;
+
             if (value != _showInteractableIcon)
             {
                 _showInteractableIcon = value;
                 if (_showInteractableIcon)
                 {
-                    myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
-                    myIcon.transform.position = transform.position + iconOffset;
+                    myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + iconOffset, Quaternion.identity, transform);
+                    myIcon.transform.localScale = Vector3.one * .03f;
+                    //myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
+                    //myIcon.transform.position = transform.position + iconOffset;
                     //Debug.Log("CreateIcon");
                 }
                 else
                 {
-                    myAD.DepotDeposit(DepotObjects.interactIcon, myIcon);
+                    Destroy(myIcon);
+                    //myAD.DepotDeposit(DepotObjects.interactIcon, myIcon);
                     //Debug.Log("DestroyIcon");
                 }
             }
@@ -72,7 +80,7 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         nameToNum.Add(numToName[0], 0);
         nameToNum.Add(numToName[1], 1);
 
-        myAD = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
+        //myAD = GameObject.Find("AssetDepot").GetComponent<AssetDepot>();
     }
     virtual public void InitBox(Vector3 dim, Vector3 loc)
     {
@@ -86,6 +94,16 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         sphereLoc = loc;
         _detectFunc = SphereCastDetect;
     }
+
+    //-----------------------------------------------------------------
+    // Part of IIlluminable
+    //-----------------------------------------------------------------
+
+    virtual public void Illuminate(GameObject who)
+    {
+        ShowInteractable();
+    }
+
 
     //-----------------------------------------------------------------
     // Part of interface
@@ -128,10 +146,10 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         {
             ShowInteractable();
         }
-        else
-        {
-            HideInteractable();
-        }
+        //else
+        //{
+        //    HideInteractable();
+        //}
     }
 
     virtual public void SphereCastDetect ()
@@ -142,10 +160,10 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
         {
             ShowInteractable();
         }
-        else
-        {
-            HideInteractable();
-        }
+        //else
+        //{
+        //    HideInteractable();
+        //}
     }
 
     protected int CastCheck (RaycastHit[] hits)
@@ -163,6 +181,15 @@ public class SSInteractableObject : MonoBehaviour, IInteractable {
             }
         }
         return -1;
+    }
+
+    protected void CleanUp()
+    {
+        letGoTimer += Time.deltaTime;
+        if ( letGoTimer >= .25f)
+        {
+            HideInteractable();
+        }
     }
 
     protected void ShowInteractable()

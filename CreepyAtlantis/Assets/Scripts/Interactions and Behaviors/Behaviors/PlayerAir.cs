@@ -20,6 +20,8 @@ public class PlayerAir : MonoBehaviour {
                 airLowAlert.Invoke();
             if (_airTankPercent < 10 && _lastVal >= 10)
                 airLowWarning.Invoke();
+            if (_airTankPercent <= 0 && _lastVal > 0)
+                airZero.Invoke();
             _lastVal = _airTankPercent;
         }
     }
@@ -28,6 +30,7 @@ public class PlayerAir : MonoBehaviour {
 
     public UnityEvent airLowAlert;
     public UnityEvent airLowWarning;
+    public UnityEvent airZero;
 
 	// Use this for initialization
 	void Start () {

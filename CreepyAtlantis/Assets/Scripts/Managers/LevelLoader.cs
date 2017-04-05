@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour {
     //Event Manager should be handling this but music controls are here for the time being.
     private MusicManager myMM;
 
-    private string[] funcToLevel = new string[4];
+    private string[] funcToLevel = new string[5];
 
     [SerializeField] private int _level;
     private int level
@@ -23,7 +23,7 @@ public class LevelLoader : MonoBehaviour {
             {
                 _level = value;
                 GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
-                Invoke(funcToLevel[value - 1], 0.5f);              
+                Invoke(funcToLevel[value], 0.5f);              
             }
         }
     }
@@ -35,22 +35,27 @@ public class LevelLoader : MonoBehaviour {
     //    }
     //}
 
-    public
+    private int hold;
 
     void Awake()
     {
-        funcToLevel[0] = "LoadLevelOne";
-        funcToLevel[1] = "LoadLevelTwo";
-        funcToLevel[2] = "LoadLevelThree";
-        funcToLevel[3] = "LoadLevelFour";
+        funcToLevel[0] = "DiedLevel";
+        funcToLevel[1] = "LoadLevelOne";
+        funcToLevel[2] = "LoadLevelTwo";
+        funcToLevel[3] = "LoadLevelThree";
+        funcToLevel[4] = "LoadLevelFour";
         myMM = GetComponent<MusicManager>();
     }
 
-    public void ReloadLevel()
+    public void DeathUnload()
     {
-        int currentLevel = level;
-        _level = 0;
-        LoadLevel(currentLevel);
+        hold = level;
+        LoadLevel(0);
+    }
+
+    public void DeathLoad()
+    {
+        LoadLevel(hold);
     }
 
     public void LoadLevel (int lvl)
@@ -63,29 +68,38 @@ public class LevelLoader : MonoBehaviour {
 
     private bool CheckReady (int lvl)
     {
-        if (lvl == 1)
-        {
-            if (GameObject.FindGameObjectWithTag("Player1"))
-                return true;
-            else
-                return false;
-        }
-        else if (lvl == 2)
-            return true;
-        else if (lvl == 3)
-            return true;
-        else if (lvl == 4)
-            return true;
-        else
-            return false;
+        return true;
+        //if (lvl == 0)
+        //    return true;
+        //if (lvl == 1)
+        //{
+        //    if (GameObject.FindGameObjectWithTag("Player1"))
+        //        return true;
+        //    else
+        //        return false;
+        //}
+        //else if (lvl == 2)
+        //    return true;
+        //else if (lvl == 3)
+        //    return true;
+        //else if (lvl == 4)
+        //    return true;
+        //else
+        //    return false;
+    }
+
+    private void DiedLevel()
+    {
+        Debug.Log("Loading Empty");
+        SceneManager.LoadScene("Empty");
     }
 
     private void LoadLevelOne()
     {
-        Debug.Log("LoadLevelOne");
-        SceneManager.LoadScene("ControllerCharacterHookup");
-        //SceneManager.LoadScene("Play01");
-        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
+        //Debug.Log("LoadLevelOne");
+        //SceneManager.LoadScene("ControllerCharacterHookup");
+        SceneManager.LoadScene("Play01");
+        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
     }
 
     private void LoadLevelTwo()

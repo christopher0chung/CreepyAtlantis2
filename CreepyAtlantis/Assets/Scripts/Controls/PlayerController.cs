@@ -73,8 +73,15 @@ public class PlayerController : MonoBehaviour, IControllable {
 
     public void SetControllerAdapter(int player, Controllables myControllable)
     {
+        if (myAdapter == null)
+        {
+            myAdapter = GetComponent<ControllerAdapter>();
+            myAdapter.Initialize(charNum);
+        }
+
         if (charNum == player)
         {
+            Debug.Assert(myAdapter != null, "myAdapter is null");
             if (myControllable == Controllables.character)
                 myAdapter.enabled = true;
             else if (myControllable == Controllables.dialogue)

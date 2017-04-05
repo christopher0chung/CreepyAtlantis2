@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SubControlScript : MonoBehaviour {
 
-    private Transform myLight;
+    [SerializeField] private Transform myLight;
     public float angRate;
 
     public GameObject p1;
@@ -30,7 +30,6 @@ public class SubControlScript : MonoBehaviour {
 
     void Start ()
     {
-        myLight = transform.Find("LightArray");
         myRB = GetComponent<Rigidbody>();
         ctrlRef = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().currentPlayControlsRef;
     }
@@ -94,7 +93,7 @@ public class SubControlScript : MonoBehaviour {
 
     public void SetLeftRightMax(float lM, float rM)
     {
-        Debug.Log("left and right bounds set");
+        //Debug.Log("left and right bounds set");
         leftMax = lM;
         rightMax = rM;
     }
