@@ -17,6 +17,7 @@ public class PileOfSand : SSInteractableObject {
 
     void Update () {
         _detectFunc();
+        CleanUp();
 	}
 
     public override void SphereCastDetect()

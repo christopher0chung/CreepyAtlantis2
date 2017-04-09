@@ -58,12 +58,14 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             case (dialogueStates.speaking):
                 lines.Play();
+                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
                 currentState = Speaking;
                 break;
             case (dialogueStates.spoken):
                 currentState = Spoken;
                 break;
             case (dialogueStates.cleanup):
+                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
                 currentState = Cleanup;
                 break;
             case (dialogueStates.inactive):
@@ -107,7 +109,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     void Start () {
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputText = GameObject.Find("Canvas").transform.Find("Subtitle").GetComponent<Text>();
-        speakerText = GameObject.Find("Canvas").transform.Find("Speaker").GetComponent<Text>();
+        //speakerText = GameObject.Find("Canvas").transform.Find("Speaker").GetComponent<Text>();
 
         GetMyColor();
 
@@ -197,34 +199,34 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     //    return 0;
     //}
 
-    private void DisplayName(bool showOrDont)
-    {
-        if (showOrDont)
-        {
-            if (theSpeaker == Speaker.DANI)
-            {
-                speakerText.text = "D.A.N.I.";
-                speakerText.rectTransform.position = new Vector3((Screen.width / 2), speakerText.transform.position.y, speakerText.transform.position.z);
-                outputText.rectTransform.position = new Vector3((Screen.width / 2), outputText.transform.position.y, outputText.transform.position.z);
-            }
-            else if (theSpeaker == Speaker.Doc)
-            {
-                speakerText.text = "Doc";
-                speakerText.rectTransform.position = new Vector3((Screen.width / 2) + 300, speakerText.transform.position.y, speakerText.transform.position.z);
-                outputText.rectTransform.position = new Vector3((Screen.width / 2) + 300, outputText.transform.position.y, outputText.transform.position.z);
-            }
-            else if (theSpeaker == Speaker.Ops)
-            {
-                speakerText.text = "Ops";
-                speakerText.rectTransform.position = new Vector3((Screen.width / 2) - 300, speakerText.transform.position.y, speakerText.transform.position.z);
-                outputText.rectTransform.position = new Vector3((Screen.width / 2) - 300, outputText.transform.position.y, outputText.transform.position.z);
-            }
-        }
-        else
-        {
-            speakerText.text = "";
-        }
-    }
+    //private void DisplayName(bool showOrDont)
+    //{
+    //    if (showOrDont)
+    //    {
+    //        if (theSpeaker == Speaker.DANI)
+    //        {
+    //            speakerText.text = "D.A.N.I.";
+    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2), speakerText.transform.position.y, speakerText.transform.position.z);
+    //            outputText.rectTransform.position = new Vector3((Screen.width / 2), outputText.transform.position.y, outputText.transform.position.z);
+    //        }
+    //        else if (theSpeaker == Speaker.Doc)
+    //        {
+    //            speakerText.text = "Doc";
+    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2) + 300, speakerText.transform.position.y, speakerText.transform.position.z);
+    //            outputText.rectTransform.position = new Vector3((Screen.width / 2) + 300, outputText.transform.position.y, outputText.transform.position.z);
+    //        }
+    //        else if (theSpeaker == Speaker.Ops)
+    //        {
+    //            speakerText.text = "Ops";
+    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2) - 300, speakerText.transform.position.y, speakerText.transform.position.z);
+    //            outputText.rectTransform.position = new Vector3((Screen.width / 2) - 300, outputText.transform.position.y, outputText.transform.position.z);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        speakerText.text = "";
+    //    }
+    //}
 
     private void GetMyColor ()
     {
@@ -249,7 +251,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Speaking ()
     {
-        DisplayName(true);
+        //DisplayName(true);
         if (!colorFlip)
         {
             colorFlip = true;
@@ -273,13 +275,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private void Spoken ()
     {
-        DisplayName(true);
+        //DisplayName(true);
         outputText.text = Dialogue;
     }
 
     private void Cleanup ()
     {
-        DisplayName(false);
+        //DisplayName(false);
         timerFlip = true;
         outputText.text = "";
         myEvent.NextLine();
@@ -317,7 +319,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         currentState = null;
         colorFlip = false;
         timerFlip = false;
-        DisplayName(false);
+        //DisplayName(false);
         outputText.text = "";
         lines.Stop();
     }
