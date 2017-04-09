@@ -130,17 +130,17 @@ public class IconController : MonoBehaviour, IControllable {
         if (mySP == SelectChoice.Ops)
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(-256, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, 82.4f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 55f, transform.position.z);
         }
         else if (mySP == SelectChoice.None)
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, -11, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -27, transform.position.z);
         }
         else
         {
             //transform.position = Vector3.Lerp(transform.position, new Vector3(256, transform.position.y, transform.position.z), 8 * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, -131f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -108f, transform.position.z);
         }
     }
 

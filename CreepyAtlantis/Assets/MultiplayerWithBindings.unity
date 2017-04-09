@@ -9224,7 +9224,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8690.211, y: 8690.211, z: 0}
+  Offset: {x: 8691.23, y: 8691.23, z: 0}
 --- !u!108 &429222543
 Light:
   m_ObjectHideFlags: 0
@@ -9994,7 +9994,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8691.467, y: 8691.467, z: 0}
+  Offset: {x: 8692.486, y: 8692.486, z: 0}
 --- !u!108 &845227570
 Light:
   m_ObjectHideFlags: 0
@@ -11238,8 +11238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0b7688010a0054cbac7e6cf179903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  C1Select: 0
-  C2Select: 0
+  C1Select: 1
+  C2Select: 1
   c1: {fileID: 0}
   c2: {fileID: 0}
   c1Label: {fileID: 0}

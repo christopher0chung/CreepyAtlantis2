@@ -7,7 +7,15 @@ using UnityEngine.SceneManagement;
 public class SelectionManager : MonoBehaviour {
 
     [SerializeField] private SelectChoice C1Select;
+    public SelectChoice C1
+    {
+        get { return C1Select; }
+    }
     [SerializeField] private SelectChoice C2Select;
+    public SelectChoice C2
+    {
+        get { return C2Select; }
+    }
 
     [SerializeField] private Image c1;
     [SerializeField] private Image c2;
@@ -124,8 +132,11 @@ public class SelectionManager : MonoBehaviour {
             c1Label = GameObject.Find("Controller1").GetComponentInChildren<Text>();
             c2Label = GameObject.Find("Controller2").GetComponentInChildren<Text>();
 
-            ind1 = GameObject.Find("Channel1Tab").transform.GetChild(2).GetComponent<Image>();
-            ind2 = GameObject.Find("Channel2Tab").transform.GetChild(2).GetComponent<Image>();
+            //ind1 = GameObject.Find("Channel1Tab").transform.GetChild(2).GetComponent<Image>();
+            //ind2 = GameObject.Find("Channel2Tab").transform.GetChild(2).GetComponent<Image>();
+
+            ind1 = GameObject.Find("Ch1Ind").GetComponent<Image>();
+            ind2 = GameObject.Find("Ch2Ind").GetComponent<Image>();
         }
     }
 
