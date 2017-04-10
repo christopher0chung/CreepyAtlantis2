@@ -442,7 +442,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -3410,7 +3410,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -9224,7 +9224,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8691.23, y: 8691.23, z: 0}
+  Offset: {x: 8727.44, y: 8727.44, z: 0}
 --- !u!108 &429222543
 Light:
   m_ObjectHideFlags: 0
@@ -9994,7 +9994,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8692.486, y: 8692.486, z: 0}
+  Offset: {x: 8728.696, y: 8728.696, z: 0}
 --- !u!108 &845227570
 Light:
   m_ObjectHideFlags: 0
@@ -10728,7 +10728,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -10740,7 +10740,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '             START'
+  m_Text: '          START'
 --- !u!222 &1163389575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11381,7 +11381,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -11455,7 +11455,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -11467,7 +11467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '              ANY BUTTON'
+  m_Text: '          ANY BUTTON'
 --- !u!222 &1579746181
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11629,14 +11629,14 @@ RectTransform:
   m_GameObject: {fileID: 1662099072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1999364554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 59.02, y: -62}
+  m_AnchoredPosition: {x: 59.02, y: 68.8}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1662099074
@@ -12067,7 +12067,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8e18ed93d4e35a4abb73464cc5bc92a, type: 3}
+    m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -12079,7 +12079,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS              TO BEGIN
+  m_Text: PRESS           TO BEGIN
 --- !u!222 &1880586813
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12531,10 +12531,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: -0.5425736
+    e00: -0.54372
     e01: 0
-    e02: -2.0249104
-    e03: 6.9454365
+    e02: -2.029189
+    e03: 6.9601126
     e10: 0
     e11: -3.7320507
     e12: 0
@@ -12548,22 +12548,22 @@ MonoBehaviour:
     e32: -0.25881934
     e33: 20.887762
   LastMatrixVP:
-    e00: -0.5425736
+    e00: 0
     e01: 0
-    e02: -2.0249104
-    e03: 6.9454365
+    e02: 0
+    e03: 0
     e10: 0
-    e11: 3.7320507
+    e11: 0
     e12: 0
-    e13: -7.837306
-    e20: -0.000009672379
+    e13: 0
+    e20: 0
     e21: 0
-    e22: 0.0000025917084
-    e23: 0.009790939
-    e30: 0.9659261
+    e22: 0
+    e23: 0
+    e30: 0
     e31: 0
-    e32: -0.25881934
-    e33: 20.887762
+    e32: 0
+    e33: 0
   LastMatrixVPInv:
     e00: 0
     e01: 0
