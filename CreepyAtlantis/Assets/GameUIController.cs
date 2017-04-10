@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameUIController : MonoBehaviour {
 
+    public SelectionManager mySM;
+
     public Image[] Base = new Image[3];
     public Image[] Ch0 = new Image[3];
     public Image[] Ch1 = new Image[3];
@@ -25,6 +27,11 @@ public class GameUIController : MonoBehaviour {
     public Color ind_Off;
 
     public float rate;
+    
+    private void Awake()
+    {
+        mySM = GameObject.Find("GameStateManager").GetComponent<SelectionManager>();
+    }
 
     private void Start()
     {
@@ -37,6 +44,22 @@ public class GameUIController : MonoBehaviour {
             Field_Assigned[i] = new Color(1, 1, 1, 0);
         }
         Field_Assigned[3] = new Color(1, 1, 1, 0);
+
+        if (mySM.C1 == SelectChoice.Ops)
+        {
+            transform.Find("Overlays").Find("P1_Label").GetComponent<Text>().text = "CHANNEL 1: Ops";
+            transform.Find("Overlays").Find("P2_Label").GetComponent<Text>().text = "CHANNEL 2: Doc";
+        }
+        else if (mySM.C1 == SelectChoice.Doc)
+        {
+            transform.Find("Overlays").Find("P1_Label").GetComponent<Text>().text = "CHANNEL 1: Doc";
+            transform.Find("Overlays").Find("P2_Label").GetComponent<Text>().text = "CHANNEL 2: Ops";
+        }
+        else
+        {
+            transform.Find("Overlays").Find("P1_Label").GetComponent<Text>().text = "CHANNEL 1: N/A";
+            transform.Find("Overlays").Find("P2_Label").GetComponent<Text>().text = "CHANNEL 2: N/A";
+        }
     }
 
     public void Update()
@@ -77,11 +100,6 @@ public class GameUIController : MonoBehaviour {
 
     private void DANISpeak()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOn");
-        //StartCoroutine("_Ch0On");
-        //StartCoroutine("_FieldOn");
-
         Ch0[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().DANI;
         Ch1[1].color = ind_Off;
         Ch2[1].color = ind_Off;
@@ -102,11 +120,6 @@ public class GameUIController : MonoBehaviour {
     }
     private void DANIDone()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOff");
-        //StartCoroutine("_Ch0Off");
-        //StartCoroutine("_FieldOff");
-
         Ch0_Assigned[1] = ind_Off;
         Ch1_Assigned[1] = ind_Off;
         Ch2_Assigned[1] = ind_Off;
@@ -124,24 +137,35 @@ public class GameUIController : MonoBehaviour {
 
     private void DocSpeak()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOn");
-        //StartCoroutine("_Ch2On");
-        //StartCoroutine("_FieldOn");
+        if (mySM.C1 == SelectChoice.Ops)
+        {
+            Ch2[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+            Ch0[1].color = ind_Off;
+            Ch1[1].color = ind_Off;
 
-        Ch2[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
-        Ch0[1].color = ind_Off;
-        Ch1[1].color = ind_Off;
+            Ch2_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+            Ch0_Assigned[1] = ind_Off;
+            Ch1_Assigned[1] = ind_Off;
 
-        Ch2_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
-        Ch0_Assigned[1] = ind_Off;
-        Ch1_Assigned[1] = ind_Off;
+            Ch2_Assigned[0] = frame_On;
+            Ch2_Assigned[2] = field_On;
+        }
+        else
+        {
+            Ch1[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+            Ch0[1].color = ind_Off;
+            Ch2[1].color = ind_Off;
+
+            Ch1_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+            Ch0_Assigned[1] = ind_Off;
+            Ch2_Assigned[1] = ind_Off;
+
+            Ch1_Assigned[0] = frame_On;
+            Ch1_Assigned[2] = field_On;
+        }
 
         Base_Assigned[0] = frame_On;
         Base_Assigned[2] = field_On;
-
-        Ch2_Assigned[0] = frame_On;
-        Ch2_Assigned[2] = field_On;
 
         Field_Assigned[0] = frame_On;
         Field_Assigned[2] = field_On;
@@ -149,11 +173,6 @@ public class GameUIController : MonoBehaviour {
     }
     private void DocDone()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOff");
-        //StartCoroutine("_Ch2Off");
-        //StartCoroutine("_FieldOff");
-
         Ch0_Assigned[1] = ind_Off;
         Ch1_Assigned[1] = ind_Off;
         Ch2_Assigned[1] = ind_Off;
@@ -161,6 +180,8 @@ public class GameUIController : MonoBehaviour {
         Base_Assigned[0] = frame_Off;
         Base_Assigned[2] = field_Off;
 
+        Ch1_Assigned[0] = frame_Off;
+        Ch1_Assigned[2] = field_Off;
         Ch2_Assigned[0] = frame_Off;
         Ch2_Assigned[2] = field_Off;
 
@@ -171,24 +192,35 @@ public class GameUIController : MonoBehaviour {
 
     private void OpsSpeak()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOn");
-        //StartCoroutine("_Ch1On");
-        //StartCoroutine("_FieldOn");
+        if (mySM.C1 == SelectChoice.Ops)
+        {
+            Ch1[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+            Ch0[1].color = ind_Off;
+            Ch2[1].color = ind_Off;
 
-        Ch1[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
-        Ch0[1].color = ind_Off;
-        Ch2[1].color = ind_Off;
+            Ch1_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+            Ch0_Assigned[1] = ind_Off;
+            Ch2_Assigned[1] = ind_Off;
 
-        Ch1_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
-        Ch0_Assigned[1] = ind_Off;
-        Ch2_Assigned[1] = ind_Off;
+            Ch1_Assigned[0] = frame_On;
+            Ch1_Assigned[2] = field_On;
+        }
+        else
+        {
+            Ch2[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+            Ch0[1].color = ind_Off;
+            Ch1[1].color = ind_Off;
+
+            Ch2_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+            Ch0_Assigned[1] = ind_Off;
+            Ch1_Assigned[1] = ind_Off;
+
+            Ch2_Assigned[0] = frame_On;
+            Ch2_Assigned[2] = field_On;
+        }
 
         Base_Assigned[0] = frame_On;
         Base_Assigned[2] = field_On;
-
-        Ch1_Assigned[0] = frame_On;
-        Ch1_Assigned[2] = field_On;
 
         Field_Assigned[0] = frame_On;
         Field_Assigned[2] = field_On;
@@ -196,11 +228,6 @@ public class GameUIController : MonoBehaviour {
     }
     private void OpsDone()
     {
-        //StopAllCoroutines();
-        //StartCoroutine("_BaseOff");
-        //StartCoroutine("_Ch1Off");
-        //StartCoroutine("_FieldOff");
-
         Ch0_Assigned[1] = ind_Off;
         Ch1_Assigned[1] = ind_Off;
         Ch2_Assigned[1] = ind_Off;
@@ -210,6 +237,8 @@ public class GameUIController : MonoBehaviour {
 
         Ch1_Assigned[0] = frame_Off;
         Ch1_Assigned[2] = field_Off;
+        Ch2_Assigned[0] = frame_Off;
+        Ch2_Assigned[2] = field_Off;
 
         Field_Assigned[0] = frame_Off;
         Field_Assigned[2] = field_Off;
