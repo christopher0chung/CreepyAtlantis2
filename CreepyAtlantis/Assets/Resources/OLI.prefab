@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223557535377790798}
   - component: {fileID: 222886476213069864}
   - component: {fileID: 114424736944843890}
+  - component: {fileID: 114005570715552876}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -129,6 +130,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658458746149744}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114005570715552876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270275877471240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1756dcaaa1edd41bc6a52009767714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114356143575882184
 MonoBehaviour:
   m_ObjectHideFlags: 1

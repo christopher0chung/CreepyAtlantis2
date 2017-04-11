@@ -201,7 +201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1465207037339472, guid: 4e5e75b1493393c4981d8a481c4da750, type: 2}
       propertyPath: m_Name
-      value: SUBTUTT-DOC-0004
+      value: SUBTUTT-0004-DOC
       objectReference: {fileID: 0}
     - target: {fileID: 114689736837939344, guid: 4e5e75b1493393c4981d8a481c4da750,
         type: 2}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 86684088}
   - component: {fileID: 86684089}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0024
+  m_Name: SUBTUTT-0024-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 319567980}
   - component: {fileID: 319567978}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0022
+  m_Name: SUBTUTT-0022-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 378151108}
   - component: {fileID: 378151109}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0025
+  m_Name: SUBTUTT-0025-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 412531314}
   - component: {fileID: 412531312}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0010
+  m_Name: SUBTUTT-0010-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 1558632551}
   - component: {fileID: 661665185}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0015
+  m_Name: SUBTUTT-0015-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1754,7 +1754,7 @@ GameObject:
   - component: {fileID: 737974571}
   - component: {fileID: 737974572}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0026
+  m_Name: SUBTUTT-0026-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 759862627}
   - component: {fileID: 759862629}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0002
+  m_Name: SUBTUTT-0002-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,7 +1912,7 @@ GameObject:
   - component: {fileID: 792818776}
   - component: {fileID: 792818777}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0020
+  m_Name: SUBTUTT-0020-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 796366998}
   - component: {fileID: 796366999}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0027
+  m_Name: SUBTUTT-0027-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2150,7 +2150,7 @@ GameObject:
   - component: {fileID: 883045319}
   - component: {fileID: 883045317}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0012
+  m_Name: SUBTUTT-0012-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 908303442}
   - component: {fileID: 908303443}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0021
+  m_Name: SUBTUTT-0021-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2250,7 +2250,7 @@ GameObject:
   - component: {fileID: 914652508}
   - component: {fileID: 914652509}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0008
+  m_Name: SUBTUTT-0008-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2350,10 +2350,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2701,7 +2701,7 @@ GameObject:
   - component: {fileID: 1020578737}
   - component: {fileID: 1020578736}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0017
+  m_Name: SUBTUTT-0017-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2744,7 +2744,7 @@ GameObject:
   - component: {fileID: 1043361650}
   - component: {fileID: 1043361651}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0028
+  m_Name: SUBTUTT-0028-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3074,7 +3074,7 @@ GameObject:
   - component: {fileID: 1189862248}
   - component: {fileID: 1189862247}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0018
+  m_Name: SUBTUTT-0018-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3185,7 +3185,7 @@ GameObject:
   - component: {fileID: 1300752807}
   - component: {fileID: 1238789555}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0005
+  m_Name: SUBTUTT-0005-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3298,7 +3298,7 @@ GameObject:
   - component: {fileID: 1906888176}
   - component: {fileID: 1300419296}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0011
+  m_Name: SUBTUTT-0011-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3374,7 +3374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1979415476286410, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
       propertyPath: m_Name
-      value: SUBTUTT-DAN-0001
+      value: SUBTUTT-0001-DAN
       objectReference: {fileID: 0}
     - target: {fileID: 114145019190255016, guid: fa9a042813da8a247a844e5f16f94b7a,
         type: 2}
@@ -3583,7 +3583,7 @@ GameObject:
   - component: {fileID: 1696081834}
   - component: {fileID: 1405136524}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0014
+  m_Name: SUBTUTT-0014-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3613,7 +3613,7 @@ GameObject:
   - component: {fileID: 1421657945}
   - component: {fileID: 1421657948}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0013
+  m_Name: SUBTUTT-0013-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3724,7 +3724,7 @@ GameObject:
   - component: {fileID: 1443059298}
   - component: {fileID: 1443059299}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0007
+  m_Name: SUBTUTT-0007-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3836,7 +3836,7 @@ GameObject:
   - component: {fileID: 1499261857}
   - component: {fileID: 1499261855}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0029
+  m_Name: SUBTUTT-0029-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 1587240072}
   - component: {fileID: 1587240070}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0030
+  m_Name: SUBTUTT-0030-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4125,7 +4125,7 @@ GameObject:
   - component: {fileID: 1614515549}
   - component: {fileID: 1614515550}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0019
+  m_Name: SUBTUTT-0019-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4555,7 +4555,7 @@ GameObject:
   - component: {fileID: 1695477499}
   - component: {fileID: 1695477497}
   m_Layer: 0
-  m_Name: SUBTUTT-DAN-0023
+  m_Name: SUBTUTT-0023-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 1771816186}
   - component: {fileID: 1771816184}
   m_Layer: 0
-  m_Name: SUBTUTT-DOC-0009
+  m_Name: SUBTUTT-0009-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4991,7 +4991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1186170430140286, guid: 70e0493e3b6ed9147a468ba59a33cc67, type: 2}
       propertyPath: m_Name
-      value: SUBTUTT-OPS-0003
+      value: SUBTUTT-0003-OPS
       objectReference: {fileID: 0}
     - target: {fileID: 114718721114552450, guid: 70e0493e3b6ed9147a468ba59a33cc67,
         type: 2}
@@ -5128,7 +5128,7 @@ GameObject:
   - component: {fileID: 1569656521}
   - component: {fileID: 1865259203}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0006
+  m_Name: SUBTUTT-0006-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5229,7 +5229,7 @@ GameObject:
   - component: {fileID: 1260454494}
   - component: {fileID: 1996984305}
   m_Layer: 0
-  m_Name: SUBTUTT-OPS-0016
+  m_Name: SUBTUTT-0016-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

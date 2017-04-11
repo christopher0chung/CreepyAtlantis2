@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour {
 
     private string[] funcToLevel = new string[5];
 
-    [SerializeField] private int _level;
+    private int _level;
     private int level
     {
         get
@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour {
     //    }
     //}
 
-    private int hold;
+    public int hold;
 
     void Awake()
     {
@@ -68,24 +68,24 @@ public class LevelLoader : MonoBehaviour {
 
     private bool CheckReady (int lvl)
     {
-        return true;
-        //if (lvl == 0)
-        //    return true;
-        //if (lvl == 1)
-        //{
-        //    if (GameObject.FindGameObjectWithTag("Player1"))
-        //        return true;
-        //    else
-        //        return false;
-        //}
-        //else if (lvl == 2)
-        //    return true;
-        //else if (lvl == 3)
-        //    return true;
-        //else if (lvl == 4)
-        //    return true;
-        //else
-        //    return false;
+        //return true;
+        if (lvl == 0)
+            return true;
+        if (lvl == 1)
+        {
+            if (GameObject.FindGameObjectWithTag("Player1"))
+                return true;
+            else
+                return false;
+        }
+        else if (lvl == 2)
+            return true;
+        else if (lvl == 3)
+            return true;
+        else if (lvl == 4)
+            return true;
+        else
+            return false;
     }
 
     private void DiedLevel()
@@ -113,10 +113,10 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevelThree()
     {
-        SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
         //SceneManager.LoadScene("Play01");
-        //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Play01");
+        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
         myMM.FadeOut(2);
         myMM.FadeOut(3);
     }
