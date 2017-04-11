@@ -47,6 +47,15 @@ public class LevelLoader : MonoBehaviour {
         myMM = GetComponent<MusicManager>();
     }
 
+    public int GetLevel()
+    {
+        return level;
+    }
+    public int GetHold()
+    {
+        return hold;
+    }
+
     public void DeathUnload()
     {
         hold = level;

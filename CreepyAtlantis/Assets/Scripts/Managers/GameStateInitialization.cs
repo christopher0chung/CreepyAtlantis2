@@ -30,6 +30,11 @@ public class GameStateInitialization : MonoBehaviour {
             //Debug.Log("Scene: " + sceneName + " initialized");
             Invoke("SetLeftRightBounds", 1f);
             Invoke("SetSubProperties", 1f);
+
+            if (GetComponent<LevelLoader>().GetLevel() == GetComponent<LevelLoader>().GetHold())
+            {
+                Invoke("MoveSub", 1f);
+            }
         }
     }
 
@@ -64,5 +69,10 @@ public class GameStateInitialization : MonoBehaviour {
             GameObject.Find("Sub").GetComponent<SubController>().canGetOut = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canGetOutInitial;
             GameObject.Find("Sub").GetComponent<SubController>().canMove = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canMoveInitial;
         }
+    }
+
+    private void MoveSub()
+    {
+        GameObject.Find("Sub").transform.position = GetComponent<ObjectivesTracker>().respawnPos;
     }
 }
