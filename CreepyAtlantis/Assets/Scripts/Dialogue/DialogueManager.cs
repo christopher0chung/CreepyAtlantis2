@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour {
         {
             if (myEventsNames[i] == myDE.gameObject.name)
             {
+                Debug.Log("the index is " + i);
                 return i;
             }
         }
@@ -76,11 +77,11 @@ public class DialogueManager : MonoBehaviour {
     public void FireEvent(int index)
     {
         //test to see if you can force everything to stop before playing the triggered one.
-        foreach (DialogueEventClass myE in myEvents)
-        {
-            myE.TRIGGER = false;
-        }
-
+        //foreach (DialogueEventClass myE in myEvents)
+        //{
+        //    myE.TRIGGER = false;
+        //}
+        //Debug.Log(myEvents[index].DEventName);
         myEvents[index].TRIGGER = true;
     }
 }

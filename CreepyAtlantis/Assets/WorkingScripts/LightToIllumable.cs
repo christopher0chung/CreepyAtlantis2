@@ -47,7 +47,10 @@ public class LightToIllumable : MonoBehaviour {
         foreach(RaycastHit RCH in hitGOs)
         {
             if (RCH.transform.root.gameObject.GetComponent<IIlluminable>() != null)
+            {
                 RCH.transform.root.gameObject.GetComponent<IIlluminable>().Illuminate(this.gameObject);
+                Debug.Log(RCH.transform.gameObject.name);
+            }
         }
 		
 	}
