@@ -26,6 +26,9 @@ public class SharkSwinAnim : MonoBehaviour {
     private float TimeToAng ()
     {
         timer += Time.deltaTime;
-        return Mathf.Sin(freqModifier * timer * transform.root.GetComponent<SharkAttacking>().appliedSpeed);
+        if (transform.root.GetComponent<SharkAttacking>() != null)
+            return Mathf.Sin(freqModifier * timer * transform.root.GetComponent<SharkAttacking>().appliedSpeed);
+        else
+            return Mathf.Sin(freqModifier * timer);
     }
 }

@@ -143,4 +143,50 @@ public class ObjectivesTracker : MonoBehaviour {
             Debug.Log("Unregistered Objective Completed.");
         }
     }
+
+    private float timer;
+    private int levelNum;
+
+    [SerializeField] Vector3[] subPos = new Vector3[5];
+    public Vector3 respawnPos = new Vector3();
+    public bool[] subMoves = new bool[5];
+    public bool[] subExits = new bool[5];
+    public bool respawnSubMove;
+    public bool respawnSubExit;
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 1 )
+        {
+            timer -= 1;
+            if (GameObject.Find("Sub") != null)
+            {
+
+
+                for (int i = 0; i <subPos.Length - 1; i++)
+                {
+                    if (subPos[i + 1] != Vector3.zero)
+                    {
+                        subPos[i] = subPos[i + 1];
+                        subExits[i] = subExits[i + 1];
+                        subMoves[i] = subMoves[i + 1];
+                    }
+                }
+
+                subPos[4] = GameObject.Find("Sub").transform.position;
+                subExits[4] = GameObject.Find("Sub").GetComponent<SubController>().canGetOut;
+                subMoves[4] = GameObject.Find("Sub").GetComponent<SubController>().canMove;
+
+                if (subPos[0] != Vector3.zero)
+                {
+                    respawnPos = subPos[0];
+                }
+            }
+            else
+            {
+                subPos = new Vector3[5];
+            }
+        }
+    }
 }

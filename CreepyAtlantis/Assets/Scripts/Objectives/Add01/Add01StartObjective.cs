@@ -9,6 +9,7 @@ public class Add01StartObjective : Objective {
         Init("ADD01Start", Complete);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveCheck(this);
         Invoke("MakeTrigger", 2f);
+        GameObject.Find("KelpInProps").GetComponent<KelpInProps>()._detectFuncActive = true;
     }
 
     void Complete()

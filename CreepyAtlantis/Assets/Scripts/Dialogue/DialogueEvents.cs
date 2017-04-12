@@ -73,7 +73,7 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     private IEnumerator DelayedNextLine ()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.1f);
         linesCounter++;
         if (linesCounter < transform.childCount)
         {

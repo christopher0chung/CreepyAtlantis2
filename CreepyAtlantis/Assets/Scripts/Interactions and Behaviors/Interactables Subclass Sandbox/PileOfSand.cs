@@ -5,7 +5,7 @@ using UnityEngine;
 public class PileOfSand : SSInteractableObject {
 
 	void Awake () {
-        Init(TriggerShape.sphere, Vector3.up);
+        Init(TriggerShape.sphere, Vector3.up, .03f);
         InitSphere(2, transform.position);
 	}
 

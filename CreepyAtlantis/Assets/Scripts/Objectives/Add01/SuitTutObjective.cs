@@ -6,7 +6,7 @@ public class SuitTutObjective : Objective {
 
     void Start()
     {
-        Init("CSLLastDialogueLine", Complete);
+        Init("SuitTutObjective" + gameObject.name, Complete);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveCheck(this);
     }
 

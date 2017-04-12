@@ -10,7 +10,9 @@ public class SSInteractableObject : MonoBehaviour, IInteractable, IIlluminable {
 
     //[HideInInspector] public AssetDepot myAD;
 
-    public float letGoTimer;
+    private float iconScale;
+
+    private float letGoTimer;
 
     public bool _detectFuncActive;
     public delegate void detectFunc();
@@ -48,7 +50,7 @@ public class SSInteractableObject : MonoBehaviour, IInteractable, IIlluminable {
                 if (_showInteractableIcon)
                 {
                     myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + iconOffset, Quaternion.identity, transform);
-                    myIcon.transform.localScale = Vector3.one * .03f;
+                    myIcon.transform.localScale = Vector3.one * iconScale;
                     //myIcon = myAD.DepotRequest(DepotObjects.interactIcon);
                     //myIcon.transform.position = transform.position + iconOffset;
                     //Debug.Log("CreateIcon");
@@ -67,12 +69,14 @@ public class SSInteractableObject : MonoBehaviour, IInteractable, IIlluminable {
     // Init and either InitBox or InitSphere is necessary to be run in Awake()
     //-----------------------------------------------------------------
 
-    virtual public void Init(TriggerShape shape, Vector3 offset)
+    virtual public void Init(TriggerShape shape, Vector3 offset, float iScale)
     {
         //Should run on awake
         triggerShape = shape;
 
         iconOffset = offset;
+
+        iconScale = iScale;
 
         numToName.Add(0, "Character0");
         numToName.Add(1, "Character1");

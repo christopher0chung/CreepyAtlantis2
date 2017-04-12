@@ -40,12 +40,12 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private IDialogueEvent myEvent;
 
     private int charCounter;
-    private float incCounter;
+    private float charTimer;
 
     private LinkToDialogueEvent myLink;
 
     private float dialogueAdvanceTime;
-    private float nextCharTime;
+    private float nextCharInterval;
 
 
     //--------------------
@@ -156,7 +156,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             if (a.clip != null)
             {
                 dialogueAdvanceTime = a.clip.length + 2;
-                nextCharTime = a.clip.length / Dialogue.Length;
+                nextCharInterval = (a.clip.length - 1) / Dialogue.Length;
                 a.volume = 1;
                 a.loop = false;
                 a.playOnAwake = false;
@@ -164,7 +164,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             }
             else
             {
-                nextCharTime = .02f;
+                nextCharInterval = .02f;
             }
             return a;
         }
@@ -184,49 +184,6 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             return a;
         }
     }
-
-    //private int PrintName()
-    //{
-    //    for (int i = 1; i < Dialogue.Length; i++)
-    //    {
-    //        if (Dialogue[i] == ':')
-    //        {
-    //            //Debug.Log(Dialogue.Substring(0, i));
-    //            return i;
-
-    //        }
-    //    }
-    //    return 0;
-    //}
-
-    //private void DisplayName(bool showOrDont)
-    //{
-    //    if (showOrDont)
-    //    {
-    //        if (theSpeaker == Speaker.DANI)
-    //        {
-    //            speakerText.text = "D.A.N.I.";
-    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2), speakerText.transform.position.y, speakerText.transform.position.z);
-    //            outputText.rectTransform.position = new Vector3((Screen.width / 2), outputText.transform.position.y, outputText.transform.position.z);
-    //        }
-    //        else if (theSpeaker == Speaker.Doc)
-    //        {
-    //            speakerText.text = "Doc";
-    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2) + 300, speakerText.transform.position.y, speakerText.transform.position.z);
-    //            outputText.rectTransform.position = new Vector3((Screen.width / 2) + 300, outputText.transform.position.y, outputText.transform.position.z);
-    //        }
-    //        else if (theSpeaker == Speaker.Ops)
-    //        {
-    //            speakerText.text = "Ops";
-    //            speakerText.rectTransform.position = new Vector3((Screen.width / 2) - 300, speakerText.transform.position.y, speakerText.transform.position.z);
-    //            outputText.rectTransform.position = new Vector3((Screen.width / 2) - 300, outputText.transform.position.y, outputText.transform.position.z);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        speakerText.text = "";
-    //    }
-    //}
 
     private void GetMyColor ()
     {
@@ -260,17 +217,20 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             //// At the time of color flip, advances charCounter to name printed.
             //charCounter = PrintName();
         }
-        incCounter+= Time.deltaTime;
-        if (incCounter >= nextCharTime)
-        {
-            incCounter = 0;
-            if (charCounter < Dialogue.Length)
-                charCounter++;
-        }
+        charTimer+= Time.deltaTime;
+
+        charCounter = (int) (charTimer / nextCharInterval);
+
+        //if (charTimer >= nextCharInterval)
+        //{
+        //    charTimer = 0;
+        //    if (charCounter < Dialogue.Length)
+        //        charCounter++;
+        //}
         if (charCounter >= Dialogue.Length)
             StateChoices(dialogueStates.spoken);
-
-        outputText.text = Dialogue.Substring(0, charCounter);
+        else
+            outputText.text = Dialogue.Substring(0, charCounter);
     }
 
     private void Spoken ()

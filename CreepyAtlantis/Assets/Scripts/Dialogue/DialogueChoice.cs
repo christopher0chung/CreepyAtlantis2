@@ -74,6 +74,9 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             case (dialogueStates.inactive):
                 currentState = Inactive;
                 break;
+            case (dialogueStates.stopped):
+                currentState = Stopped;
+                break;
         }
     }
 
@@ -180,6 +183,13 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         //Debug.Log("in clean up");
         myEvent.NextLine();
         StateChoices(dialogueStates.inactive);
+    }
+
+    private void Stopped()
+    {
+        Cleanup();
+        currentState = null;
+
     }
 
     private void Inactive()
