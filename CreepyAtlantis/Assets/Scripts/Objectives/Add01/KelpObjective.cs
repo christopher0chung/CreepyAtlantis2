@@ -17,12 +17,14 @@ public class KelpObjective : Objective {
 
     void Complete()
     {
-
+        Destroy(this.gameObject);
     }
 
     public override void Trigger()
     {
-        myDM.FireEvent(66);
+        myDM.FireEvent(myDM.ReturnEventIndex(whatDEToFire));
+        GameObject.Find("Sub").GetComponent<SubController>().canMove = true;
+        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = true;
         base.Trigger();
     }
 

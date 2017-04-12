@@ -74,5 +74,7 @@ public class GameStateInitialization : MonoBehaviour {
     private void MoveSub()
     {
         GameObject.Find("Sub").transform.position = GetComponent<ObjectivesTracker>().respawnPos;
+        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = GetComponent<ObjectivesTracker>().respawnSubExit;
+        GameObject.Find("Sub").GetComponent<SubController>().canMove = GetComponent<ObjectivesTracker>().respawnSubMove;
     }
 }

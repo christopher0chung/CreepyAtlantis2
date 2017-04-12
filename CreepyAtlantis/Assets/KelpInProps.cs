@@ -7,6 +7,8 @@ public class KelpInProps : SSInteractableObject {
     Transform sub;
     public Vector3 offset;
 
+    private int interactCounter;
+
     void Awake()
     {
         Init(TriggerShape.sphere, Vector3.up, 1.5f);
@@ -19,9 +21,17 @@ public class KelpInProps : SSInteractableObject {
     {
         if (pNum == 0)
         {
-            HideInteractable();
-            Destroy(this.gameObject);
-            GetComponent<Objective>().Trigger();
+            if (interactCounter <= 5)
+            {
+                interactCounter++;
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
+            else
+            {
+                HideInteractable();
+                Destroy(this.gameObject);
+                GetComponent<Objective>().Trigger();
+            }
         }
     }
 
