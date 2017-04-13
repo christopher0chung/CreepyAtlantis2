@@ -16,7 +16,7 @@ public class PlayerAction : MonoBehaviour {
             //From player's feet, down .25, and in front by .5
             //At a radius of interactionRange
             //To upward direction for 1.5
-            RaycastHit[] allInRange = Physics.SphereCastAll(transform.position + Vector3.down *.25f - transform.forward * .5f, interactionRange, Vector3.up, 2f, myLM, QueryTriggerInteraction.UseGlobal);
+            RaycastHit[] allInRange = Physics.SphereCastAll(transform.position + Vector3.down *.25f - transform.forward * .5f, interactionRange, Vector3.up, 2f, myLM, QueryTriggerInteraction.Collide);
             Debug.DrawLine(transform.position + Vector3.down * .25f - transform.forward * .5f, transform.position + Vector3.up * 1.75f - transform.forward * .5f);
 
             //Debug
@@ -48,9 +48,9 @@ public class PlayerAction : MonoBehaviour {
             //next is everything else on each collider
             foreach (RaycastHit aHit in allInRange)
             {
-                if (aHit.collider.transform.root.gameObject.GetComponent<IInteractable>() != null)
+                if (aHit.collider.gameObject.GetComponent<IInteractable>() != null)
                 {
-                    aHit.collider.transform.root.gameObject.GetComponent<IInteractable>().Interact(playerNum, pushRelease);
+                    aHit.collider.GetComponent<IInteractable>().Interact(playerNum, pushRelease);
                     return;
                 }
             }

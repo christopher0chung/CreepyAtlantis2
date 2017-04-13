@@ -12,10 +12,8 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public string Dialogue;
 
-    public delegate void stateManager ();
-    public stateManager currentState;
-
-    //public Color myColor;
+    //public delegate void stateManager ();
+    //public stateManager currentState;
 
     //--------------------
     // Private properties
@@ -34,55 +32,19 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     private bool colorFlip;
 
-    private float timer;
-    private bool timerFlip;
-
     private IDialogueEvent myEvent;
-
-    private int charCounter;
-    private float charTimer;
 
     private LinkToDialogueEvent myLink;
 
     private float dialogueAdvanceTime;
     private float nextCharInterval;
 
+    private float startTalkTime;
+    private float audioLength;
 
-    //--------------------
-    // State machine
-    //--------------------
+    private FSM<PlayDialogue> _fsm;
 
-    public void StateChoices (dialogueStates dS)
-    {
-        switch (dS)
-        {
-            case (dialogueStates.speaking):
-                lines.Play();
-                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
-                currentState = Speaking;
-                break;
-            case (dialogueStates.spoken):
-                currentState = Spoken;
-                break;
-            case (dialogueStates.cleanup):
-                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
-                currentState = Cleanup;
-                break;
-            case (dialogueStates.inactive):
-                currentState = Inactive;
-                break;
-            case (dialogueStates.stopped):
-                currentState = Stopped;
-                break;
-        }
-    }
-
-
-    //--------------------
-    // Scheduled functionality
-    //--------------------
-
-    void Awake ()
+    void Awake()
     {
         gameObject.AddComponent<ControllerAdapter>();
         gameObject.AddComponent<ControllerAdapter>();
@@ -99,17 +61,47 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         myLink = GetComponent<LinkToDialogueEvent>();
     }
 
-    private void UnSub ()
+    //------------------------------------------------
+    //Event System
+    //------------------------------------------------
+
+    private void UnSub()
     {
         GameStateManager.onSetControls -= SetControllerAdapter;
         GameStateManager.onEndDialogue -= EndDialogue;
         GameStateManager.onPreLoadLevel -= UnSub;
     }
 
-    void Start () {
+    public void SetControllerAdapter(int player, Controllables myControllable)
+    {
+        if (myAdapters[player] != null)
+        {
+            if (myControllable == Controllables.dialogue)
+                myAdapters[player].enabled = true;
+            //Debug.Log("player" + player + " dialogue adapter enabled");
+        }
+    }
+    public void EndDialogue(int player, Controllables myControllable)
+    {
+        if (myAdapters[player] != null)
+        {
+            myAdapters[player].enabled = false;
+            //Debug.Log("player" + player + " dialogue adapter disabled");
+        }
+    }
+
+    //------------------------------------------------
+    // Basic
+    //------------------------------------------------
+
+    private void Start()
+    {
+        _fsm = new FSM<PlayDialogue>(this);
+
+        _fsm.TransitionTo<Standby>();
+
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         outputText = GameObject.Find("Canvas").transform.Find("Subtitle").GetComponent<Text>();
-        //speakerText = GameObject.Find("Canvas").transform.Find("Speaker").GetComponent<Text>();
 
         GetMyColor();
 
@@ -119,23 +111,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         if (GetComponent<IObjective>() != null)
         {
             myO = GetComponent<IObjective>();
-            //Debug.Log("Objective found");
         }
     }
 
-    void Update () {
-        if (currentState != null)
-        {
-            currentState();
-            timer += Time.deltaTime;
-            if (dialogueAdvanceTime != 0 && timer>= dialogueAdvanceTime && !timerFlip)
-            {
-                currentState = Cleanup;
-            }
-        }
-
-	}
-
+    private void Update()
+    {
+        _fsm.Update();
+    }
 
     //--------------------
     // Specific functionality
@@ -143,7 +125,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public enum soundType { sfx, line }
 
-    private AudioSource GetAudio (soundType myST)
+    private AudioSource GetAudio(soundType myST)
     {
         if (myST == soundType.line)
         {
@@ -155,6 +137,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             a.clip = Resources.Load<AudioClip>("Dialogue/" + (string)this.gameObject.name);
             if (a.clip != null)
             {
+                audioLength = a.clip.length;
                 dialogueAdvanceTime = a.clip.length + 2;
                 nextCharInterval = (a.clip.length - 1) / Dialogue.Length;
                 a.volume = 1;
@@ -165,6 +148,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
             else
             {
                 nextCharInterval = .02f;
+                audioLength = .02f * Dialogue.Length;
             }
             return a;
         }
@@ -185,7 +169,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
-    private void GetMyColor ()
+    private void GetMyColor()
     {
         if (theSpeaker == Speaker.DANI)
         {
@@ -201,94 +185,71 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         }
     }
 
-
     //--------------------
     // IDialogue implementation
     //--------------------
 
-    private void Speaking ()
+    public void StateChoices(dialogueStates dS)
     {
-        //DisplayName(true);
-        if (!colorFlip)
+        if (dS == dialogueStates.speaking)
         {
-            colorFlip = true;
-            outputText.color = refColor;
-
-            //// At the time of color flip, advances charCounter to name printed.
-            //charCounter = PrintName();
+            lines.Play();
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
+            _fsm.TransitionTo<SpeakingState>();
         }
-        charTimer+= Time.deltaTime;
 
-        charCounter = (int) (charTimer / nextCharInterval);
+        if (dS == dialogueStates.spoken)
+        {
+            _fsm.TransitionTo<SpokenState>();
+        }
 
-        //if (charTimer >= nextCharInterval)
-        //{
-        //    charTimer = 0;
-        //    if (charCounter < Dialogue.Length)
-        //        charCounter++;
-        //}
-        if (charCounter >= Dialogue.Length)
-            StateChoices(dialogueStates.spoken);
-        else
-            outputText.text = Dialogue.Substring(0, charCounter);
+        if (dS == dialogueStates.complete)
+        {
+            _fsm.TransitionTo<CompleteState>();
+        }
+
+        if (dS == dialogueStates.cleanup)
+        {
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
+            _fsm.TransitionTo<CleanupState>();
+        }
+
+        if (dS == dialogueStates.inactive)
+        {
+            _fsm.TransitionTo<Standby>();
+        }
+
+        if (dS == dialogueStates.stopped)
+        {
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
+            _fsm.TransitionTo<CleanupState>();
+        }
+
     }
 
-    private void Spoken ()
+    private void Speaking()
     {
-        //DisplayName(true);
-        outputText.text = Dialogue;
     }
 
-    private void Cleanup ()
+    private void Spoken()
     {
-        //DisplayName(false);
-        timerFlip = true;
-        outputText.text = "";
-        myEvent.NextLine();
-        lines.Stop();
-        StateChoices(dialogueStates.inactive);
+    }
 
-        //if (lines != null)
-        //{
-        //    Destroy(lines);
-        //}
-
-        //if (next != null)
-        //{
-        //    Destroy(next.gameObject);
-        //}
-
-        if (myO != null)
-        {
-            myO.Trigger();
-        }
-
-        if (myLink != null)
-        {
-            myLink.Link();
-        }
+    private void Cleanup()
+    {
     }
 
     private void Inactive()
     {
-        return;
     }
 
     private void Stopped()
     {
-        currentState = null;
-        colorFlip = false;
-        timerFlip = false;
-        //DisplayName(false);
-        outputText.text = "";
-        lines.Stop();
     }
 
     public void DebugPrint()
     {
-        Debug.Log(Dialogue);
     }
-
 
     //--------------------
     // IControllable implementation
@@ -304,12 +265,13 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         if (pushRelease)
         {
-            if (next != null)
-                next.Play();
-            if (currentState == Speaking)
+            //Debug.Log("Y Pressed");
+            //if (next != null)
+            //    next.Play();
+            if (((BasicState)_fsm.CurrentState).name == "SpeakingState")
                 StateChoices(dialogueStates.spoken);
-            else if (currentState == Spoken)
-                StateChoices(dialogueStates.cleanup);
+            else if (((BasicState)_fsm.CurrentState).name == "SpokenState")
+                StateChoices(dialogueStates.complete);
         }
     }
 
@@ -317,23 +279,168 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
 
     public void RightBumper(bool pushRelease, int pNum) { }
 
-    public void SetControllerAdapter(int player, Controllables myControllable)
+
+
+    //------------------------------------------------
+    // States
+    //------------------------------------------------
+
+    private class BasicState : FSM<PlayDialogue>.State
     {
-        if (myAdapters[player] != null)
+        public string name;
+    }
+
+    private class Standby : BasicState
+    {
+        public override void Init()
         {
-            if (myControllable == Controllables.dialogue)
-                myAdapters[player].enabled = true;
-            //Debug.Log("player" + player + " dialogue adapter enabled");
+            name = "Standby";
+        }
+
+        public override void OnEnter()
+        {
+
+        }
+
+        public override void Update()
+        {
+            return;
+        }
+
+        public override void OnExit()
+        {
+
         }
     }
-    public void EndDialogue(int player, Controllables myControllable)
+
+    private class SpeakingState : BasicState
     {
-        if (myAdapters[player] != null)
+        private float charTimer;
+        private int charCounter;
+
+        public override void Init()
         {
-            myAdapters[player].enabled = false;
-            //Debug.Log("player" + player + " dialogue adapter disabled");
+            name = "SpeakingState";
+        }
+
+        public override void OnEnter()
+        {
+            if (!Context.colorFlip)
+            {
+                Context.colorFlip = true;
+                Context.outputText.color = Context.refColor;
+            }
+
+            charTimer = 0;
+            Context.startTalkTime = Time.time;
+        }
+
+        public override void Update()
+        {
+            charTimer += Time.deltaTime;
+
+            charCounter = (int)(charTimer / Context.nextCharInterval);
+
+            if (charCounter >= Context.Dialogue.Length)
+                TransitionTo<SpokenState>();
+            else
+                Context.outputText.text = Context.Dialogue.Substring(0, charCounter);
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class SpokenState : BasicState
+    {
+        public override void Init()
+        {
+            name = "SpokenState";
+        }
+
+        public override void OnEnter()
+        {
+            Context.outputText.text = Context.Dialogue;
+        }
+
+        public override void Update()
+        {
+            if (Time.time - Context.startTalkTime >= Context.audioLength)
+            {
+                TransitionTo<CompleteState>();
+            }
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class CompleteState : BasicState
+    {
+        public override void Init()
+        {
+            name = "CompleteState";
+        }
+
+        public override void OnEnter()
+        {
+
+        }
+
+        public override void Update()
+        {
+            TransitionTo<CleanupState>();
+        }
+
+        public override void OnExit()
+        {
+            Context.myEvent.NextLine();
+
+            if (Context.myO != null)
+            {
+                Context.myO.Trigger();
+            }
+
+            if (Context.myLink != null)
+            {
+                Context.myLink.Link();
+            }
+        }
+    }
+
+    private class CleanupState : BasicState
+    {
+        public override void Init()
+        {
+            name = "CleanupState";
+        }
+
+        public override void OnEnter()
+        {
+            //Debug.Log("OnEnter() called");
+
+            Context.lines.Stop();
+            if (Context.outputText.text != "")
+            {
+                Context.outputText.text = "";
+            }
+        }
+
+        public override void Update()
+        {
+            TransitionTo<Standby>();
+        }
+
+        public override void OnExit()
+        {
+
         }
     }
 }
+
 
 public enum Speaker { DANI, Doc, Ops }

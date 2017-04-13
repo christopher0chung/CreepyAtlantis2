@@ -37,6 +37,6 @@ public class SUBTUT2Objective0 : Objective {
         }
 
         base.Trigger();
-        Debug.Log("at the end of trigger");
+        //Debug.Log("at the end of trigger");
     }
 }

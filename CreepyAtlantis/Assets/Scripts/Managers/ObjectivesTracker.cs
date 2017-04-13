@@ -147,10 +147,10 @@ public class ObjectivesTracker : MonoBehaviour {
     private float timer;
     private int levelNum;
 
-    [SerializeField] Vector3[] subPos = new Vector3[5];
+    Vector3[] subPos = new Vector3[5];
     public Vector3 respawnPos = new Vector3();
-    public bool[] subMoves = new bool[5];
-    public bool[] subExits = new bool[5];
+    bool[] subMoves = new bool[5];
+    bool[] subExits = new bool[5];
     public bool respawnSubMove;
     public bool respawnSubExit;
 
@@ -181,6 +181,8 @@ public class ObjectivesTracker : MonoBehaviour {
                 if (subPos[0] != Vector3.zero)
                 {
                     respawnPos = subPos[0];
+                    respawnSubExit = subExits[0];
+                    respawnSubMove = subMoves[0];
                 }
             }
             else
