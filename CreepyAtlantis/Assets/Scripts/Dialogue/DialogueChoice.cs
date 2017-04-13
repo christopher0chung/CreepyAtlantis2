@@ -33,14 +33,13 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
     // Private properties
     //--------------------
 
+    private FSM<DialogueChoice> _fsm;
+
     private ControllerAdapter[] myAdapters;
     
     private bool colorFlip;
 
     private AudioSource next;
-
-    private float timer;
-    private bool timerFlip;
 
     private IDialogueEvent myEvent;
 
@@ -58,25 +57,38 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void StateChoices(dialogueStates dS)
     {
-        switch (dS)
+        if (dS == dialogueStates.speaking)
         {
-            case (dialogueStates.speaking):
-                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
-                StateChoices(dialogueStates.spoken);
-                break;
-            case (dialogueStates.spoken):
-                currentState = Spoken;
-                break;
-            case (dialogueStates.cleanup):
-                GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
-                currentState = Cleanup;
-                break;
-            case (dialogueStates.inactive):
-                currentState = Inactive;
-                break;
-            case (dialogueStates.stopped):
-                currentState = Stopped;
-                break;
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
+            _fsm.TransitionTo<SpokenState>();
+        }
+
+        if (dS == dialogueStates.spoken)
+        {
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, true);
+            _fsm.TransitionTo<SpokenState>();
+        }
+
+        if (dS == dialogueStates.complete)
+        {
+            _fsm.TransitionTo<CompleteState>();
+        }
+
+        if (dS == dialogueStates.cleanup)
+        {
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
+            _fsm.TransitionTo<CleanupState>();
+        }
+
+        if (dS == dialogueStates.inactive)
+        {
+            _fsm.TransitionTo<Standby>();
+        }
+
+        if (dS == dialogueStates.stopped)
+        {
+            GameObject.Find("Canvas").GetComponent<GameUIController>().DialogueFunction(theSpeaker, false);
+            _fsm.TransitionTo<CleanupState>();
         }
     }
 
@@ -95,6 +107,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
         GameStateManager.onSetControls += SetControllerAdapter;
         GameStateManager.onEndDialogue += EndDialogue;
+        GameStateManager.onPreLoadLevel += UnSub;
 
         if (whoseChoice == 0)
             theSpeaker = Speaker.Ops;
@@ -104,6 +117,10 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     void Start()
     {
+        _fsm = new FSM<DialogueChoice>(this);
+
+        _fsm.TransitionTo<Standby>();
+
         myEvent = transform.parent.GetComponent<IDialogueEvent>();
         if (whoseChoice == 0)
         {
@@ -127,15 +144,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     void Update()
     {
-        if (currentState != null)
-        {
-            currentState();
-            timer += Time.deltaTime;
-            if (dialogueAdvanceTime != 0 && timer >= dialogueAdvanceTime && !timerFlip)
-            {
-                currentState = Cleanup;
-            }
-        }
+        _fsm.Update();
     }
 
 
@@ -162,33 +171,16 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     private void Spoken()
     {
-        if (!colorFlip)
-        {
-            colorFlip = true;
-            outputChoice1.color = outputChoice2.color = myColor;
-        }
-        outputChoice1.text = Choice1;
-        outputChoice2.text = Choice2;
-        lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = true;
-        //label.enabled = true;
+
     }
 
     private void Cleanup()
     {
-        timerFlip = true;
-        outputChoice1.text = outputChoice2.text = "";
-        lBIcon.GetComponent<Image>().enabled = rBIcon.GetComponent<Image>().enabled = false;
-        //label.enabled = false;
 
-        //Debug.Log("in clean up");
-        myEvent.NextLine();
-        StateChoices(dialogueStates.inactive);
     }
 
     private void Stopped()
     {
-        Cleanup();
-        currentState = null;
 
     }
 
@@ -217,7 +209,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void LeftBumper(bool pushRelease, int pNum)
     {
-        if (pNum == whoseChoice && pushRelease && currentState == Spoken)
+        if (pNum == whoseChoice && pushRelease && ((BasicState)_fsm.CurrentState).name == "SpokenState")
         {
             next.Play();
 
@@ -228,7 +220,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
 
     public void RightBumper(bool pushRelease, int pNum)
     {
-        if (pNum == whoseChoice && pushRelease && currentState == Spoken)
+        if (pNum == whoseChoice && pushRelease && ((BasicState)_fsm.CurrentState).name == "SpokenState")
         {
             next.Play();
 
@@ -251,6 +243,13 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         {
             myAdapters[player].enabled = false;
         }
+    }
+
+    private void UnSub()
+    {
+        GameStateManager.onSetControls -= SetControllerAdapter;
+        GameStateManager.onEndDialogue -= EndDialogue;
+        GameStateManager.onPreLoadLevel -= UnSub;
     }
 
     private void TriggerChoice(int choiceNum)
@@ -297,5 +296,138 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             }
         }
     }
+
+    //------------------------------------------------
+    // States
+    //------------------------------------------------
+
+    private class BasicState : FSM<DialogueChoice>.State
+    {
+        public string name;
+    }
+
+    private class Standby : BasicState
+    {
+        public override void Init()
+        {
+            name = "Standby";
+        }
+
+        public override void OnEnter()
+        {
+
+        }
+
+        public override void Update()
+        {
+            return;
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class SpeakingState : BasicState
+    {
+        public override void Init()
+        {
+            name = "SpeakingState";
+        }
+
+        public override void OnEnter()
+        {
+
+        }
+
+        public override void Update()
+        {
+            TransitionTo<SpokenState>();
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class SpokenState : BasicState
+    {
+        public override void Init()
+        {
+            name = "SpokenState";
+            Debug.Log("In Choice SpokenState");
+        }
+
+        public override void OnEnter()
+        {
+            if (!Context.colorFlip)
+            {
+                Context.colorFlip = true;
+                Context.outputChoice1.color = Context.outputChoice2.color = Context.myColor;
+            }
+            Context.outputChoice1.text = Context.Choice1;
+            Context.outputChoice2.text = Context.Choice2;
+            Context.lBIcon.GetComponent<Image>().enabled = Context.rBIcon.GetComponent<Image>().enabled = true;
+        }
+
+        public override void Update()
+        {
+
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class CompleteState : BasicState
+    {
+        public override void Init()
+        {
+            name = "CompleteState";
+        }
+
+        public override void OnEnter()
+        {
+
+        }
+
+        public override void Update()
+        {
+            TransitionTo<CleanupState>();
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
+
+    private class CleanupState : BasicState
+    {
+        public override void Init()
+        {
+            name = "CleanupState";
+        }
+
+        public override void OnEnter()
+        {
+            Context.outputChoice1.text = Context.outputChoice2.text = "";
+            Context.lBIcon.GetComponent<Image>().enabled = Context.rBIcon.GetComponent<Image>().enabled = false;
+        }
+
+        public override void Update()
+        {
+            TransitionTo<Standby>();
+        }
+
+        public override void OnExit()
+        {
+
+        }
+    }
 }
-public enum dialogueStates { speaking, spoken, cleanup, inactive, stopped };
+public enum dialogueStates { speaking, spoken, complete, cleanup, inactive, stopped };

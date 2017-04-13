@@ -77,10 +77,10 @@ public class DialogueManager : MonoBehaviour {
     public void FireEvent(int index)
     {
         //test to see if you can force everything to stop before playing the triggered one.
-        //foreach (dialogueeventclass mye in myevents)
-        //{
-        //    mye.trigger = false;
-        //}
+        foreach (DialogueEventClass mye in myEvents)
+        {
+            mye.TRIGGER = false;
+        }
         //Debug.Log(myEvents[index].DEventName);
         myEvents[index].TRIGGER = true;
     }

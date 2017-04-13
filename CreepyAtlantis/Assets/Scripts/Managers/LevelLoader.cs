@@ -99,13 +99,13 @@ public class LevelLoader : MonoBehaviour {
 
     private void DiedLevel()
     {
-        Debug.Log("Loading Empty");
+        //Debug.Log("Loading Empty");
         SceneManager.LoadScene("Empty");
     }
 
     private void LoadLevelOne()
     {
-        Debug.Log("LoadLevelOne");
+        //Debug.Log("LoadLevelOne");
         SceneManager.LoadScene("ControllerCharacterHookup");
         //SceneManager.LoadScene("Play01");
         //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);

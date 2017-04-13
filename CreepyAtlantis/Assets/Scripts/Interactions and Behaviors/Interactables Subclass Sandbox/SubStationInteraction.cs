@@ -15,7 +15,7 @@ public class SubStationInteraction : SSInteractableObject {
 
     void Awake()
     {
-        Init(TriggerShape.sphere, Vector3.up, .03f);
+        Init(TriggerShape.sphere, Vector3.up, 1f);
         InitSphere(2, transform.position);
     }
 
@@ -27,6 +27,8 @@ public class SubStationInteraction : SSInteractableObject {
 
     public override void OnPress(int pNum)
     {
+        base.OnPress(pNum);
+        Debug.Log("On Press registered");
         if(pNum == whoCanInteract)
         {
             // set dialogue line to true
@@ -40,6 +42,7 @@ public class SubStationInteraction : SSInteractableObject {
 
             HideInteractable();
             SetInteractionActive(false);
+            GetComponent<SubStationObjective>().Trigger();
         }
     }
 
@@ -47,6 +50,13 @@ public class SubStationInteraction : SSInteractableObject {
     {
         if (_detectFuncActive)
             _detectFunc();
+        CleanUp();
+    }
+
+    public override void SetInteractionActive(bool active)
+    {
+        Instantiate(Resources.Load("OLI"), transform.position, Quaternion.identity, transform);
+        base.SetInteractionActive(active);
     }
 
     public override void SphereCastDetect()
