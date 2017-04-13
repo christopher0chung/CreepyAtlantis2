@@ -32,7 +32,7 @@ public class SpriteIndicatorAnimation : MonoBehaviour {
 
     private void OpacityCalc()
     {
-        opacity = .1f * (2 - timer);
+        opacity = (2 - timer) / 1.4f;
     }
     private void SizeCalc()
     {

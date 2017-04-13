@@ -5,14 +5,9 @@ using UnityEngine;
 public class EPIRBAlertObjective : Objective
 {
 
-    public DialogueEvents whatDEToFire;
-
-    private DialogueManager myDM;
-
     void Start()
     {
         Init("EPIRBAlertObjective", Complete);
-        myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         GameObject.FindGameObjectWithTag("Managers").GetComponent<ObjectivesTracker>().ObjectiveCheck(this);
     }
 
@@ -23,7 +18,6 @@ public class EPIRBAlertObjective : Objective
 
     public override void Trigger()
     {
-        myDM.FireEvent(myDM.ReturnEventIndex(whatDEToFire));
         base.Trigger();
     }
 
