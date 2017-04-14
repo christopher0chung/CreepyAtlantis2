@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum PlayerID { p1, p2 }
 public enum Stick { Left, Right }
-public enum Button { Action, Dialogue, Choice1, Choice2 }
+public enum Button { Action, Dialogue, Choice1, Choice2, Start }
 
 public abstract class GameEvent
 {

@@ -11,8 +11,6 @@
 	//
 	public class PlayerManager : MonoBehaviour
 	{
-        private int playerNum;
-
         public GameObject playerPrefab;
 
 		const int maxPlayers = 4;
@@ -140,12 +138,8 @@
                 
                 // Assigns player number to Player prefab 
                 // Resets to 0 if all controllers are disconnected
-                if (players.Count == 0)
-                {
-                    playerNum = 0;
-                }
-                player.playerNum = playerNum;
-                playerNum++;
+
+                player.playerNum = players.Count;
 
 
                 if (inputDevice == null)

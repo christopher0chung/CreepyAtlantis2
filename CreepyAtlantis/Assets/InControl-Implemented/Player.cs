@@ -4,25 +4,45 @@ namespace MultiplayerWithBindingsExample
     using UnityEngine.SceneManagement;
 
 
-	// This is just a simple "player" script that rotates and colors a cube
-	// based on input read from the actions field.
-	//
-	// See comments in PlayerManager.cs for more details.
-	//
-	public class Player : MonoBehaviour, IPlayer
-	{
-		public PlayerActions Actions { get; set; }
+    // This is just a simple "player" script that rotates and colors a cube
+    // based on input read from the actions field.
+    //
+    // See comments in PlayerManager.cs for more details.
+    //
+    public class Player : MonoBehaviour, IPlayer
+    {
+        public PlayerActions Actions { get; set; }
 
         private float stickThresh = .5f;
 
-        public int playerNum;
+        public PlayerID myPID;
+        private int _playerNum;
+        public int playerNum
+        {
+            get
+            {
+                return _playerNum;
+            }
+            set
+            {
+                if (value == 0)
+                {
+                    myPID = PlayerID.p1;
+                }
+                else
+                {
+                    myPID = PlayerID.p2;
+                }
+                _playerNum = value;
+            }
+        }
 
-		Renderer cachedRenderer;
+        Renderer cachedRenderer;
 
         private delegate void runningControlIO();
         private runningControlIO controlIO;
 
-        public void assignControlIO (controlSchemes scheme)
+        public void assignControlIO(controlSchemes scheme)
         {
             switch (scheme)
             {
@@ -43,7 +63,7 @@ namespace MultiplayerWithBindingsExample
 
 
 
-        public delegate void LeftStick (float upDown, float leftRight, int pNum);
+        public delegate void LeftStick(float upDown, float leftRight, int pNum);
         public event LeftStick onXmitLeftStick;
 
         public void XmitLeftStick(float upDown, float leftRight, int pNum)
@@ -92,12 +112,12 @@ namespace MultiplayerWithBindingsExample
         }
 
         void OnDisable()
-		{
-			if (Actions != null)
-			{
-				Actions.Destroy();
-			}
-		}
+        {
+            if (Actions != null)
+            {
+                Actions.Destroy();
+            }
+        }
 
         private TitleMenu myTM;
 
@@ -110,9 +130,9 @@ namespace MultiplayerWithBindingsExample
         }
 
 
-		void Start()
-		{
-			cachedRenderer = GetComponent<Renderer>();
+        void Start()
+        {
+            cachedRenderer = GetComponent<Renderer>();
             if (playerNum == 0)
                 this.gameObject.tag = "Player0";
             else
@@ -121,12 +141,83 @@ namespace MultiplayerWithBindingsExample
         }
 
 
-		void Update()
-		{
-            controlIO();
-            //Debug.Log(XInputDotNetPure.P);
-		}
+        void Update()
+        {
+            //controlIO();
+            TestFunc();
+        }
 
+
+        private void TestFunc()
+        {
+            if (Mathf.Abs(Actions.Rotate.X) >= stickThresh || Mathf.Abs(Actions.Rotate.Y) >= stickThresh)
+            {
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Left, Mathf.Abs(Actions.Rotate.X), Mathf.Abs(Actions.Rotate.Y)));
+            }
+            else
+            {
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Left, 0, 0));
+            }
+
+            if (Mathf.Abs(Actions.RRotate.X) >= stickThresh || Mathf.Abs(Actions.RRotate.Y) >= stickThresh)
+            {
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Right, Mathf.Abs(Actions.Rotate.X), Mathf.Abs(Actions.Rotate.Y)));
+            }
+            else
+            {
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Left, 0, 0));
+            }
+
+            if (Actions.AButton.WasPressed)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Action, true));
+            }
+            else if (Actions.AButton.WasReleased)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Action, false));
+            }
+
+            if (Actions.YButton.WasPressed)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Dialogue, true));
+            }
+            else if (Actions.YButton.WasReleased)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Dialogue, false));
+            }
+
+            if (Actions.LBumper.WasPressed)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Choice1, true));
+            }
+            else if (Actions.LBumper.WasReleased)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Choice1, false));
+            }
+
+            if (Actions.RBumper.WasPressed)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Choice2, true));
+            }
+            else if (Actions.RBumper.WasReleased)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Choice2, false));
+            }
+
+            if (Actions.Start.WasPressed)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Start, true));
+            }
+            else if (Actions.Start.WasReleased)
+            {
+                EventManager.instance.Fire(new Button_GE(myPID, Button.Start, false));
+            }
+        }
+    
+
+        //------------------------------------------------------------------------------------------------------------------------------
+        // Stuff
+        //------------------------------------------------------------------------------------------------------------------------------
 
         private void joinIOFunc ()
         {
