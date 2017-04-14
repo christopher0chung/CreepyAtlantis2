@@ -124,6 +124,7 @@ namespace MultiplayerWithBindingsExample
 		void Update()
 		{
             controlIO();
+            //Debug.Log(XInputDotNetPure.P);
 		}
 
 
@@ -160,7 +161,6 @@ namespace MultiplayerWithBindingsExample
 
         private void playIOFunc()
         {
-            XInputDotNetPure.GamePad.SetVibration(0, .5f, .5f);
             if (Mathf.Abs(Actions.Rotate.X) >= stickThresh || Mathf.Abs(Actions.Rotate.Y) >= stickThresh)
             {
                 if (onXmitLeftStick != null)

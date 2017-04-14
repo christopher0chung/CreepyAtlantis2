@@ -3,15 +3,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerID { p1, p2 }
+public enum Stick { Left, Right }
+public enum Button { Action, Dialogue, Choice1, Choice2 }
+
 public abstract class GameEvent
 {
     public delegate void Handler(GameEvent e);
 }
 
+
+//---------------------------------------
+// Rumble Events
+//---------------------------------------
+
 public class P1_DialogueChoiceRumble_GE : GameEvent { }
 
 public class P2_DialogueChoiceRumble_GE : GameEvent { }
 
+
+//---------------------------------------
+// Control Events
+//---------------------------------------
+
+public class Stick_GE : GameEvent
+{
+    public PlayerID thisPID;
+    public Stick stick;
+    public float upDown;
+    public float leftRight;
+
+    public Stick_GE(PlayerID pID, Stick s, float uD, float lR)
+    {
+        thisPID = pID;
+        stick = s;
+        upDown = uD;
+        leftRight = lR;
+    }
+}
+
+public class Button_GE : GameEvent
+{
+    public PlayerID thisPID;
+    public Button button;
+    public bool pressedReleased;
+
+    public Button_GE(PlayerID pID, Button b, bool pR)
+    {
+        thisPID = pID;
+        button = b;
+        pressedReleased = pR;
+    }
+}
+
+
+//---------------------------------------
+// Event Manager
+//---------------------------------------
 
 public class EventManager : ScriptableObject {
     //---------------------
