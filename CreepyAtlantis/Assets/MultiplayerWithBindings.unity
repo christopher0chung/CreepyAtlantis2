@@ -9436,7 +9436,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   suspendInBackground: 0
   enableICade: 0
-  enableXInput: 0
+  enableXInput: 1
   xInputOverrideUpdateRate: 0
   xInputUpdateRate: 0
   xInputOverrideBufferSize: 0
@@ -11121,6 +11121,7 @@ GameObject:
   - component: {fileID: 1470752762}
   - component: {fileID: 1470752763}
   - component: {fileID: 1470752764}
+  - component: {fileID: 1470752765}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Managers
@@ -11190,6 +11191,9 @@ MonoBehaviour:
   Objectives: []
   ObjectivesIDs: []
   ObjectivesComplete: 
+  respawnPos: {x: 0, y: 0, z: 0}
+  respawnSubMove: 0
+  respawnSubExit: 0
 --- !u!114 &1470752761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11201,6 +11205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427fffe42e5849049ad60628390d4fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hold: 0
 --- !u!114 &1470752762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11247,6 +11252,17 @@ MonoBehaviour:
   doc: {fileID: 0}
   ind1: {fileID: 0}
   ind2: {fileID: 0}
+--- !u!114 &1470752765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470752755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fc2e6ca7c7c7745b503260c48c76c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500670678
 GameObject:
   m_ObjectHideFlags: 0
