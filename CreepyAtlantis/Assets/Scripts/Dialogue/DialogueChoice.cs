@@ -370,6 +370,11 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
             Context.outputChoice1.text = Context.Choice1;
             Context.outputChoice2.text = Context.Choice2;
             Context.lBIcon.GetComponent<Image>().enabled = Context.rBIcon.GetComponent<Image>().enabled = true;
+
+            if (Context.whoseChoice == 0)
+                EventManager.instance.Fire(new P1_DialogueChoiceRumble_GE());
+            if (Context.whoseChoice == 1)
+                EventManager.instance.Fire(new P2_DialogueChoiceRumble_GE());
         }
 
         public override void Update()

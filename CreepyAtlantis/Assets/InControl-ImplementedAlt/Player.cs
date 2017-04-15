@@ -46,6 +46,7 @@ namespace MultiplayerBasicExample
             DontDestroyOnLoad(this.gameObject);
             myTM = GameObject.Find("Canvas").GetComponent<TitleMenu>();
             EventManager.instance.Register<P1_DialogueChoiceRumble_GE>(Rumble);
+            EventManager.instance.Register<P2_DialogueChoiceRumble_GE>(Rumble);
         }
 
         void Start()
@@ -61,6 +62,7 @@ namespace MultiplayerBasicExample
         {
             InputFunc();
             _fsm.Update();
+            Device.Vibrate(intensity);
             //EventManager.instance.Fire(new Device_GE(myPID, Device));
 
             //if (Input.GetKeyDown(KeyCode.T))
