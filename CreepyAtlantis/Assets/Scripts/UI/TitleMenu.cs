@@ -60,4 +60,9 @@ public class TitleMenu : MonoBehaviour {
     {
         states = i;
     }
+
+    public int GetState()
+    {
+        return states;
+    }
 }

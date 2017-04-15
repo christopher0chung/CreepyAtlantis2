@@ -12,6 +12,26 @@ public abstract class GameEvent
     public delegate void Handler(GameEvent e);
 }
 
+//---------------------------------------
+// Value Storage Test Events
+//---------------------------------------
+
+public class Test_GE: GameEvent
+{
+    public readonly float myA;
+    public readonly float myB;
+    public readonly string myC;
+    public readonly int myD;
+
+    public Test_GE(float a, float b, string c, int d)
+    {
+        myA = a;
+        myB = b;
+        myC = c;
+        myD = d;
+    }
+}
+
 
 //---------------------------------------
 // Rumble Events
@@ -26,12 +46,24 @@ public class P2_DialogueChoiceRumble_GE : GameEvent { }
 // Control Events
 //---------------------------------------
 
+public class Device_GE :GameEvent
+{
+    public readonly PlayerID thisPID;
+    public readonly InControl.InputDevice thisDev;
+
+    public Device_GE (PlayerID pID, InControl.InputDevice dev)
+    {
+        thisPID = pID;
+        thisDev = dev;
+    }
+}
+
 public class Stick_GE : GameEvent
 {
-    public PlayerID thisPID;
-    public Stick stick;
-    public float upDown;
-    public float leftRight;
+    public readonly PlayerID thisPID;
+    public readonly Stick stick;
+    public readonly float upDown;
+    public readonly float leftRight;
 
     public Stick_GE(PlayerID pID, Stick s, float uD, float lR)
     {
@@ -61,7 +93,7 @@ public class Button_GE : GameEvent
 // Event Manager
 //---------------------------------------
 
-public class EventManager : ScriptableObject {
+public class EventManager {
     //---------------------
     // Creates singleton for ease of access
     //---------------------
@@ -72,7 +104,7 @@ public class EventManager : ScriptableObject {
         get
         {
             if (_instance == null)
-                return _instance = EventManager.CreateInstance<EventManager>();
+                return _instance = new EventManager();
             else
                 return _instance;
         }
@@ -139,9 +171,9 @@ public class EventManager : ScriptableObject {
             handlers(e);
             //Debug.Log("Event Fired");
         }
-        else
-        {
-            Debug.Log(handlers);
-        }
+        //else
+        //{
+        //    Debug.Log(handlers);
+        //}
     }
 }

@@ -97,9 +97,9 @@ public class SelectionManager : MonoBehaviour {
                             GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
                             GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
                             p0.tag = "Player1";
-                            p0.GetComponent<MultiplayerWithBindingsExample.Player>().playerNum = 1;
+                            p0.GetComponent<MultiplayerBasicExample.Player>().playerNum = 1;
                             p1.tag = "Player0";
-                            p1.GetComponent<MultiplayerWithBindingsExample.Player>().playerNum = 0;
+                            p1.GetComponent<MultiplayerBasicExample.Player>().playerNum = 0;
                         }
                     }
                 }
