@@ -339,9 +339,9 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         {
             charTimer += Time.deltaTime;
 
-            charCounter = (int)(charTimer / Context.nextCharInterval);
+            charCounter = Mathf.Abs((int)(charTimer / Context.nextCharInterval));
 
-            if (charCounter >= Context.Dialogue.Length)
+            if (charCounter > Context.Dialogue.Length)
                 TransitionTo<SpokenState>();
             else
                 Context.outputText.text = Context.Dialogue.Substring(0, charCounter);

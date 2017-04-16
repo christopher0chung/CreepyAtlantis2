@@ -17,7 +17,7 @@ public class KelpHeadNode : MonoBehaviour {
         }
         else
         {
-            head = (GameObject)Instantiate(Resources.Load("headType1"), transform.position, Quaternion.Euler(-90, -90, 0), transform);
+            head = (GameObject)Instantiate(Resources.Load("headType2"), transform.position, Quaternion.Euler(-90, -90, 0), transform);
             //head = myAD.DepotRequest(DepotObjects.headType2);
         }
 

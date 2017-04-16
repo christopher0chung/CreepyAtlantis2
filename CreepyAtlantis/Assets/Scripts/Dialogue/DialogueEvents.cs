@@ -73,15 +73,16 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
 
     private IEnumerator DelayedNextLine ()
     {
-        yield return new WaitForSeconds(.3f);
         linesCounter++;
         if (linesCounter < transform.childCount)
         {
+            yield return new WaitForSeconds(.3f);
             myLines[linesCounter].StateChoices(dialogueStates.speaking);
         }
         else
         {
             done = true;
+            yield break;
         }
     }
 }

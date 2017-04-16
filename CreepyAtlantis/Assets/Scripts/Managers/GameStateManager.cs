@@ -31,7 +31,8 @@ public class GameStateManager : MonoBehaviour {
 
     public void EndDialogue(int player)
     {
-        onEndDialogue(player, currentPlayControlsRef[player]);
+        if (onEndDialogue != null)
+            onEndDialogue(player, currentPlayControlsRef[player]);
     }
 
     public delegate void ControlsPreLoadLevel();
@@ -75,6 +76,7 @@ public class GameStateManager : MonoBehaviour {
         //    SetControls(0, Controllables.character);
         //    SetControls(1, Controllables.character);
         //}
+        onEndDialogue = null;
     }
 
     //void Update ()
