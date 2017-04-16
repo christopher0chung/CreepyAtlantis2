@@ -246,7 +246,7 @@ namespace MultiplayerWithBindingsExample
         {
             if (Actions.Start)
             {
-                GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathLoad();
+                //GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathLoad();
             }
         }
 

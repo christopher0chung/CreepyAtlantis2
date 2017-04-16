@@ -49,7 +49,7 @@ public class LightToIllumable : MonoBehaviour {
             if (RCH.transform.root.gameObject.GetComponent<IIlluminable>() != null)
             {
                 RCH.transform.root.gameObject.GetComponent<IIlluminable>().Illuminate(this.gameObject);
-                Debug.Log(RCH.transform.gameObject.name);
+                //Debug.Log(RCH.transform.gameObject.name);
             }
         }
 		

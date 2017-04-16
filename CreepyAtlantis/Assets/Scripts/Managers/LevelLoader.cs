@@ -45,6 +45,8 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[3] = "LoadLevelThree";
         funcToLevel[4] = "LoadLevelFour";
         myMM = GetComponent<MusicManager>();
+
+        EventManager.instance.Register<Button_GE>(DeathLoad);
     }
 
     public int GetLevel()
@@ -62,8 +64,9 @@ public class LevelLoader : MonoBehaviour {
         LoadLevel(0);
     }
 
-    public void DeathLoad()
+    public void DeathLoad(GameEvent e)
     {
+        if (hold != 0 && level == 0)
         LoadLevel(hold);
     }
 
@@ -125,7 +128,8 @@ public class LevelLoader : MonoBehaviour {
         //SceneManager.LoadScene("Play01");
         //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
         myMM.FadeOut(2);
         myMM.FadeOut(3);
     }

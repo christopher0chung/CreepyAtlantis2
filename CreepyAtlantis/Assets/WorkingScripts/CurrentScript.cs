@@ -27,7 +27,7 @@ public class CurrentScript : MonoBehaviour, ICurrent {
 
     public void PushWithCurrent(Vector3 dir)
     {
-        currentVal = dir * forceScalar;
+        currentVal = (currentVal + dir * forceScalar) /2;
     }
     
 }
