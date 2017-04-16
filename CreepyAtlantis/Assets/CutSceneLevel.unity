@@ -996,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSpeaker: 2
-  Dialogue: We should do a systems control check.
+  Dialogue: Well we should do a systems control check.
 --- !u!1 &90755138
 GameObject:
   m_ObjectHideFlags: 0
@@ -9454,7 +9454,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 730746378}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 195, y: 0, z: 0}
   m_LocalScale: {x: 150.00005, y: 150.00005, z: 186.38}
   m_Children: []
@@ -10667,7 +10667,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802282256}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 1458.3, y: 0, z: 0}
   m_LocalScale: {x: 150.00015, y: 150.00026, z: 186.3803}
   m_Children: []
@@ -12144,7 +12144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSpeaker: 1
-  Dialogue: 'Oh, I''m fine. How are you? You look a little green. '
+  Dialogue: "I\u2019m in a glorified underwater coffin when I should be in my nice
+    dry office. I\u2019m feeling great."
 --- !u!114 &914652509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13548,8 +13549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSpeaker: 1
-  Dialogue: 'Defending my dissertation was hard. Moving a joystick left and right
-    is not hard. '
+  Dialogue: 'Defending my dissertation was hard. Moving a joystick around is not hard. '
 --- !u!1 &1051826002
 GameObject:
   m_ObjectHideFlags: 0
@@ -14407,7 +14407,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201825970}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 825.5, y: 0, z: 0}
   m_LocalScale: {x: 149.99997, y: 150.00005, z: 186.38005}
   m_Children: []
@@ -17522,7 +17522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSpeaker: 1
-  Dialogue: 'Is it safe for us to dive? '
+  Dialogue: 'Is it safe for us to dive right now? '
 --- !u!1 &1438451849
 GameObject:
   m_ObjectHideFlags: 0
@@ -18743,7 +18743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theSpeaker: 2
   Dialogue: "We\u2019ll see. Let\u2019s get some practice in. Once I\u2019m sure you\u2019ve
-    got it we can suit up. "
+    got it we can throw on our helmets and get out there. "
 --- !u!1001 &1600207539
 Prefab:
   m_ObjectHideFlags: 0
@@ -21106,7 +21106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSpeaker: 1
-  Dialogue: "So glad. It\u2019s so boring, being conscious all the time."
+  Dialogue: "Well, I didn\u2019t really have much choice. This happen every time?"
 --- !u!1 &1774460651
 GameObject:
   m_ObjectHideFlags: 0
@@ -25164,39 +25164,39 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6505553
-    e01: 0.000000015627203
-    e02: 1.2942002
-    e03: -1.9481106
-    e10: -0.5281959
-    e11: -3.6325512
-    e12: 0.67363364
-    e13: 80.74075
-    e20: 0.00018020543
-    e21: -0.00006882252
-    e22: -0.00022982458
-    e23: 0.2836497
+    e00: 1.6411986
+    e01: 0.000000015538616
+    e02: 1.2868637
+    e03: -1.9370672
+    e10: 0.5281959
+    e11: 3.6325512
+    e12: -0.67363364
+    e13: -80.74075
+    e20: -0.60094553
+    e21: 0.22950798
+    e22: 0.7664145
+    e23: 54.224575
     e30: -0.6005851
     e31: 0.22937034
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6505553
-    e01: 0.000000015627203
-    e02: 1.2942002
-    e03: -1.9481106
-    e10: 0.5281959
-    e11: 3.6325512
-    e12: -0.67363364
-    e13: -80.74075
-    e20: 0.00018020543
-    e21: -0.00006882252
-    e22: -0.00022982458
-    e23: 0.2836497
-    e30: -0.6005851
-    e31: 0.22937034
-    e32: 0.76595485
-    e33: 54.791874
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
   LastMatrixVPInv:
     e00: 0
     e01: 0
