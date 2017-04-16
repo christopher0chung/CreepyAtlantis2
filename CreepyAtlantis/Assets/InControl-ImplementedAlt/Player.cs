@@ -92,11 +92,11 @@ namespace MultiplayerBasicExample
 
             if (Mathf.Abs((float)Device.RightStickY) >= stickThresh || Mathf.Abs((float)Device.RightStickX) >= stickThresh)
             {
-                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Left, (float)Device.RightStickY, (float)Device.RightStickX));
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Right, (float)Device.RightStickY, (float)Device.RightStickX));
             }
             else
             {
-                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Left, 0, 0));
+                EventManager.instance.Fire(new Stick_GE(myPID, Stick.Right, 0, 0));
             }
 
             if (Device.Action1.WasPressed)
