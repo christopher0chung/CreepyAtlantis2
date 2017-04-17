@@ -24,7 +24,7 @@ public class Level1Timer : MonoBehaviour {
 
     void Start()
     {
-        timer = 45;
+        timer = 180;
         myLL = GameObject.Find("GameStateManager").GetComponent<LevelLoader>();
     }
 
