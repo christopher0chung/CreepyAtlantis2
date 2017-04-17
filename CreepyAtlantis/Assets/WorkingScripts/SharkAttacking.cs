@@ -74,8 +74,9 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
     private void Advance(SharkDir thisDir)
     {
         appliedSpeed = patrolSpeed;
-        if (this.transform.position.z >=4)
+        if (this.transform.position.x >=6)
         {
+            Debug.Log("advancing");
             if (thisDir == SharkDir.Right)
             {
                 transform.position += (Vector3.right - Vector3.forward) * appliedSpeed * Time.deltaTime;
@@ -207,7 +208,7 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
         public override void Update()
         {
             timer += Time.deltaTime;
-            if (timer >= 5)
+            if (timer >= 1)
             {
                 if (Context.passCounter >= 4)
                     Destroy(Context.gameObject);
@@ -311,6 +312,7 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
         {
             name = "Interact";
             players = GameObject.FindWithTag("Sub").GetComponent<PlayerArrayReference>().players;
+            Context.transform.GetChild(0).GetChild(0).GetComponentInChildren<SkinnedMeshRenderer>().material = (Material)Resources.Load("SharkMatAlt");
         }
 
         public override void OnEnter()

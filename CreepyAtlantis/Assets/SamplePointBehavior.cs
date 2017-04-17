@@ -13,7 +13,7 @@ public class SamplePointBehavior : MonoBehaviour {
 
     void Start()
     {
-        timer = 60;
+        timer = 120;
         myLL = GameObject.Find("GameStateManager").GetComponent<LevelLoader>();
     }
 
@@ -24,14 +24,26 @@ public class SamplePointBehavior : MonoBehaviour {
             done = true;
         }
         if (!done)
-            SampleTimer.text = "0:" + ((int)timer).ToString();
+        {
+            int m = (int)(timer / 60);
+            int sInt = (int)(timer % 60);
+            string s;
+            if ((int)sInt >= 10)
+                s = sInt.ToString();
+            else if (sInt < 10)
+                s = "0" + sInt.ToString();
+            else
+                s = "00";
+
+            SampleTimer.text = m + ":" + s;
+        }
     }
 
-    void OnTriggerEnter (Collider other)
+    void OnTriggerStay (Collider other)
     {
-        if (other.transform.root.gameObject.tag == "Character1")
+        if (other.transform.root.gameObject.name == "Character1")
         {
-
+            timer -= Time.fixedDeltaTime;
         }
     }
 

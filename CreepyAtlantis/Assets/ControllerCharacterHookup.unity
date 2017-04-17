@@ -280,7 +280,8 @@ Prefab:
     - target: {fileID: 114145019190255016, guid: fa9a042813da8a247a844e5f16f94b7a,
         type: 2}
       propertyPath: Dialogue
-      value: 'Diagnostics in progress.  Align and confirm radio channel and suit connections. '
+      value: Systems diagnostics in progress. Align and confirm radio channel and
+        suit connections.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa9a042813da8a247a844e5f16f94b7a, type: 2}
@@ -1097,7 +1098,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 0.0021403034
+    e00: 0.0021361131
     e01: 0
     e02: 0
     e03: 0
@@ -1114,7 +1115,7 @@ MonoBehaviour:
     e32: 0
     e33: 1
   LastMatrixVP:
-    e00: 0.0021403034
+    e00: 0.0021361131
     e01: 0
     e02: 0
     e03: 0

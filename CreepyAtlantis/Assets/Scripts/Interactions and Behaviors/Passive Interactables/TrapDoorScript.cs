@@ -42,9 +42,45 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
         }
     }
 
+    private float letGoTimer;
+    private float iconScale = 1.3f;
+    private Vector3 iconOffset = new Vector3(-2.44f, -2.56f, 0);
 
-	// Use this for initialization
-	void Start () {
+    [HideInInspector]
+    public GameObject myIcon;
+    private bool _showInteractableIcon;
+    [HideInInspector]
+    public bool showInteractableIcon
+    {
+        get
+        {
+            return _showInteractableIcon;
+        }
+        set
+        {
+            if (value)
+                letGoTimer = 0;
+
+            if (value != _showInteractableIcon)
+            {
+                _showInteractableIcon = value;
+                if (_showInteractableIcon)
+                {
+                    myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + iconOffset, Quaternion.identity, transform);
+                    myIcon.transform.localScale = Vector3.one * iconScale;
+
+                }
+                else
+                {
+                    Destroy(myIcon);
+                }
+            }
+        }
+    }
+
+
+    // Use this for initialization
+    void Start () {
         CDO = Closing;
 
         nameToNum.Add("Character0", 0);
@@ -68,8 +104,23 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
         }
 
         CDO();
-	}
 
+        letGoTimer += Time.deltaTime;
+
+        if (GameObject.FindGameObjectsWithTag("Character") != null)
+        {
+            GameObject[] theGOs = GameObject.FindGameObjectsWithTag("Character");
+            foreach (GameObject thisChar in theGOs)
+            {
+                if (thisChar.activeSelf)
+                {
+                    ShowInteractable();
+                    return;
+                }
+            }
+        }
+        HideInteractable();
+    }
 
     private void Opening()
     {
@@ -96,5 +147,15 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
     {
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(playerNum, Controllables.submarine);
         GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(playerNum, true);
+    }
+
+    protected void ShowInteractable()
+    {
+        showInteractableIcon = true;
+    }
+
+    public void HideInteractable()
+    {
+        showInteractableIcon = false;
     }
 }

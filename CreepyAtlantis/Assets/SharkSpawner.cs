@@ -7,21 +7,27 @@ public class SharkSpawner : MonoBehaviour {
     int counter;
     float timer;
 
-	void Start() { 
+    private DialogueManager myDM;
+    public DialogueEvents theDE;
+
+	void Start() {
+        myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (counter >= 8)
+        if (counter >= 20)
             return;
 
 
         timer += Time.deltaTime;
-        if (timer > 8)
+        if (timer > 7)
         {
             timer -= 8;
             counter++;
-            Instantiate(Resources.Load("Shark"), new Vector3(-30, Random.Range(5f, 30f), Random.Range(10, 30)), Quaternion.identity);
+            if (counter == 8)
+                myDM.FireEvent(myDM.ReturnEventIndex(theDE));
+            Instantiate(Resources.Load("Shark"), new Vector3(-30, Random.Range(5f, 30f), Random.Range(6, 10)), Quaternion.identity);
         }
 
 

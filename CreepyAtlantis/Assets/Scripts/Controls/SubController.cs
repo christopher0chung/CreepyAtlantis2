@@ -33,7 +33,7 @@ public class SubController : MonoBehaviour, IControllable {
 
     public void LeftStick(float upDown, float leftRight, int pNum)
     {
-        Debug.Log("CanMove");
+        //Debug.Log("CanMove");
         if (canMove)
             myMovement.Move(upDown, leftRight, pNum);
         else

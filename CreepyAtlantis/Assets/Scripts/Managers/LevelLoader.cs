@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour {
     //Event Manager should be handling this but music controls are here for the time being.
     private MusicManager myMM;
 
-    private string[] funcToLevel = new string[5];
+    private string[] funcToLevel = new string[6];
 
     private int _level;
     private int level
@@ -44,6 +44,8 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[2] = "LoadLevelTwo";
         funcToLevel[3] = "LoadLevelThree";
         funcToLevel[4] = "LoadLevelFour";
+        funcToLevel[5] = "LoadLevelFive";
+
         myMM = GetComponent<MusicManager>();
 
         EventManager.instance.Register<Button_GE>(DeathLoad);
@@ -96,6 +98,8 @@ public class LevelLoader : MonoBehaviour {
             return true;
         else if (lvl == 4)
             return true;
+        else if (lvl == 5)
+            return true;
         else
             return false;
     }
@@ -129,7 +133,7 @@ public class LevelLoader : MonoBehaviour {
         //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
         SceneManager.LoadScene("Play01");
         //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
-        SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
         myMM.FadeOut(2);
         myMM.FadeOut(3);
     }
@@ -137,9 +141,14 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelFour()
     {
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
         myMM.FadeOut(2);
         myMM.FadeOut(3);
+    }
+
+    private void LoadLevelFive()
+    {
+        SceneManager.LoadScene("EndScreen");
     }
 
     private void Update ()
