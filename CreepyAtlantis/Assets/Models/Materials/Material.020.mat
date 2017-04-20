@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PlayerEmissive
-  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: Material.020
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -71,9 +71,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: _Bands
-      second: 2
-    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -85,12 +82,6 @@ Material:
     - first:
         name: _DstBlend
       second: 0
-    - first:
-        name: _EmissionMultiplier
-      second: 2
-    - first:
-        name: _Gloss
-      second: 0.4682218
     - first:
         name: _GlossMapScale
       second: 1
@@ -129,14 +120,8 @@ Material:
       second: 1
     m_Colors:
     - first:
-        name: DiffuseColor
-      second: {r: 0, g: 1, b: 0.6275861, a: 1}
-    - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.8000001, g: 0.0016605196, b: 0, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.043137256, g: 0.8470589, b: 0.9960785, a: 1}
-    - first:
-        name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}

@@ -86,6 +86,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _EmissionMultiplier
+      second: 1
+    - first:
         name: _Gloss
       second: 0.4682218
     - first:
@@ -133,7 +136,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.09303798, g: 0.13025317, b: 0.147, a: 1}
+      second: {r: 0.16455697, g: 0.2588547, b: 0.26, a: 1}
     - first:
         name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
