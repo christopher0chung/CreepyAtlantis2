@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type_GameObjective { Collect, Find, InteractSingle, InteractMultiple, Time, Collect_SubObjv, InteractMultiple_SubObjv }
+public enum Type_GameObjective { Collect, Find, Interact, Time, Collect_SubObjv, InteractMultiple }
 //-----------------------------------------
 // Created - base GObjv created (happen in Awake)
 // Subscription of substeps should happen before Initialization.  Sequenced by Manager.
@@ -42,6 +42,7 @@ public class GameObjective {
             if (value != _status)
             {
                 _status = value;
+                _ManagerUpdate();
                 EventManager.instance.Fire(new GameObjectiveEvent(this));
             }
         }
@@ -55,38 +56,90 @@ public class GameObjective {
         status = Status_GameObjective.Created;
     }
 
-    public Status_GameObjective ManagerCheckIn (GameObjective o)
+    public Status_GameObjective ManagerCheckIn ()
     {
         // placeholder
-        return Status_GameObjective.Initialized;
+        // happens in start after created in the obj.
+        return GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
+    }
+
+    private void _ManagerUpdate ()
+    {
+        // checks in everytime the status changes.
+        GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().ObjectiveUpdate(this);
     }
 }
 
-public class InteractSingle_GameObjective: GameObjective
+public class Interact_GameObjective: GameObjective
 {
-    public InteractSingle_GameObjective (string id, string l, string d)
+    public Interact_GameObjective(string id, string l, string d)
     {
-        Init(id, l, d);
         myType = Type_GameObjective.InteractSingle;
-        status = ManagerCheckIn(this);
+        Init(id, l, d);
     }
 }
 
-public class InteractMultiple_SubObjective_GameObjective: GameObjective
+public class CollectMultiple_SubObjective_GameObjective: GameObjective
 {
-    public InteractMultiple_SubObjective_GameObjective(string id, string l, string d)
+    private string iDOfIMGOToSubscribeTo;
+
+    public CollectMultiple_SubObjective_GameObjective(string id, string l, string d, string idToSub)
     {
         Init(id, l, d);
-        myType = Type_GameObjective.InteractMultiple_SubObjv;
+        myType = Type_GameObjective.Collect_SubObjv;
+        iDOfIMGOToSubscribeTo = idToSub;
     }
 }
 
-public class InteractMultiple_GameObjective: GameObjective
+public class CollectMultiple_GameObjective: GameObjective
 {
-    public InteractMultiple_GameObjective(string id, string l, string d)
+    public List<CollectMultiple_SubObjective_GameObjective> listOfSubs = new List<CollectMultiple_SubObjective_GameObjective>();
+    public int countTotal;
+    private int _countProgres;
+    public int countProgress
     {
-        Init(id, l, d);
-        myType = Type_GameObjective.InteractMultiple;
+        get
+        {
+            return _countProgres;
+        }
+        set
+        {
+            if (value != _countProgres)
+            {
+                _countProgres = value;
+                if (countTotal == _countProgres)
+                {
+                    status = Status_GameObjective.Completed;
+                }
+            }
+        }
     }
 
+    public CollectMultiple_GameObjective(string id, string l, string d)
+    {
+        Init(id, l, d);
+        myType = Type_GameObjective.Collect;
+    }
+    public void SubscribeToThisIMGO (CollectMultiple_SubObjective_GameObjective o)
+    {
+        listOfSubs.Add(o);
+        countTotal = listOfSubs.Count;
+
+    }
+
+    public void UpdateMySubs (GameEvent e)
+    {
+        int completeSubs = 0;
+
+        if(e.GetType() == typeof(GameObjectiveEvent))
+        {
+            GameObjectiveEvent GOE = (GameObjectiveEvent) e;
+            foreach(CollectMultiple_SubObjective_GameObjective sub in listOfSubs)
+            {
+                if (sub.iD == GOE.GObjv.iD)
+                    completeSubs++;
+            }
+        }
+        countProgress = completeSubs;
+    }
 }
