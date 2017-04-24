@@ -47,7 +47,6 @@ public class GameObjectiveManager : MonoBehaviour {
     {
         ObjectivesList = _SavedObjectivesList;
     }
-
 }
 
 

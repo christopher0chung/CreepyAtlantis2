@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type_GameObjective { Collect, Find, Interact, Time, Collect_SubObjv, InteractMultiple }
+public enum Type_GameObjective { InteractDiscrete, InteractOver, InteractOver_Sub }
 //-----------------------------------------
 // Created - base GObjv created (happen in Awake)
 // Subscription of substeps should happen before Initialization.  Sequenced by Manager.
 // Initialized - checked with manager to see if previously completed (happen in Start)
 // Active - when a GObjv goes Active, generally means that indicator is on, description is displayed, etc.
+// Triggered - interstitial step that fires effects, or enables the next in the chain
 // Completed - intended as point at which follow-on objectives can become active, etc.
 //           - happens when all requirements are met
 // CleanUp - either delete, turn off interactivity, etc.
-public enum Status_GameObjective { Created, Initialized, Active, Completed, CleanedUp }
+public enum Status_GameObjective { Created, Initialized, Active, Triggered, Completed, CleanedUp }
 
 public class GameObjectiveEvent : GameEvent
 {
@@ -70,30 +71,20 @@ public class GameObjective {
     }
 }
 
-public class Interact_GameObjective: GameObjective
+#region Child GameObjectives
+
+public class InteractDiscrete_GameObjective: GameObjective
 {
-    public Interact_GameObjective(string id, string l, string d)
+    public InteractDiscrete_GameObjective(string id, string l, string d)
     {
-        myType = Type_GameObjective.InteractSingle;
+        myType = Type_GameObjective.InteractDiscrete;
         Init(id, l, d);
     }
 }
 
-public class CollectMultiple_SubObjective_GameObjective: GameObjective
+public class InteractOver_GameObjective: GameObjective
 {
-    private string iDOfIMGOToSubscribeTo;
-
-    public CollectMultiple_SubObjective_GameObjective(string id, string l, string d, string idToSub)
-    {
-        Init(id, l, d);
-        myType = Type_GameObjective.Collect_SubObjv;
-        iDOfIMGOToSubscribeTo = idToSub;
-    }
-}
-
-public class CollectMultiple_GameObjective: GameObjective
-{
-    public List<CollectMultiple_SubObjective_GameObjective> listOfSubs = new List<CollectMultiple_SubObjective_GameObjective>();
+    public List<InteractOver_Sub_GameObjective> listOfSubs = new List<InteractOver_Sub_GameObjective>();
     public int countTotal;
     private int _countProgres;
     public int countProgress
@@ -115,16 +106,15 @@ public class CollectMultiple_GameObjective: GameObjective
         }
     }
 
-    public CollectMultiple_GameObjective(string id, string l, string d)
+    public InteractOver_GameObjective(string id, string l, string d)
     {
         Init(id, l, d);
-        myType = Type_GameObjective.Collect;
+        myType = Type_GameObjective.InteractOver;
     }
-    public void SubscribeToThisIMGO (CollectMultiple_SubObjective_GameObjective o)
+    public void SubscribeToThisIMGO (InteractOver_Sub_GameObjective o)
     {
         listOfSubs.Add(o);
         countTotal = listOfSubs.Count;
-
     }
 
     public void UpdateMySubs (GameEvent e)
@@ -134,7 +124,7 @@ public class CollectMultiple_GameObjective: GameObjective
         if(e.GetType() == typeof(GameObjectiveEvent))
         {
             GameObjectiveEvent GOE = (GameObjectiveEvent) e;
-            foreach(CollectMultiple_SubObjective_GameObjective sub in listOfSubs)
+            foreach(InteractOver_Sub_GameObjective sub in listOfSubs)
             {
                 if (sub.iD == GOE.GObjv.iD)
                     completeSubs++;
@@ -143,3 +133,17 @@ public class CollectMultiple_GameObjective: GameObjective
         countProgress = completeSubs;
     }
 }
+
+public class InteractOver_Sub_GameObjective: GameObjective
+{
+    private string iDOfIMGOToSubscribeTo;
+
+    public InteractOver_Sub_GameObjective(string id, string l, string d, string idToSub)
+    {
+        Init(id, l, d);
+        myType = Type_GameObjective.InteractOver_Sub;
+        iDOfIMGOToSubscribeTo = idToSub;
+    }
+}
+
+#endregion

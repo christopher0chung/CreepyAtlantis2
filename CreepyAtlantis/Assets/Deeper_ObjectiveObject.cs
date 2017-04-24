@@ -1,73 +1,116 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Deeper_ObjectiveObject : MonoBehaviour {
 
-    #region Creation Properties
-    [SerializeField]private readonly Type_GameObjective myType;
+    public enum Type_GameObjective_HowToTrigger { TimeInColllider, PositiveAction}
 
-    [SerializeField] private readonly string iD_name;
+    #region Creation Properties
+    [SerializeField] private Type_GameObjective myType;
+    [SerializeField] private Type_GameObjective_HowToTrigger myMethod;
+
+    [SerializeField] private string iD_name;
     private string iD_locSerial;
 
-    [SerializeField] private readonly string label;
-    [SerializeField] private readonly string description;
+    [SerializeField] private string label;
+    [SerializeField] private string description;
 
     [SerializeField] private Status_GameObjective myStatus;
     #endregion
 
     #region Optional Properties
-    [SerializeField] private readonly string optional_iDToSubScribeTo;
-    [SerializeField] private readonly int optional_timesToInteractToComplete;
-    [SerializeField] private readonly float optional_timeInsideToComplete;
-    [SerializeField] private readonly string[] optional_nameOfColliderOwners;
+    [SerializeField] private string optional_iDToSubScribeTo;
+    [SerializeField] private int optional_timesToInteractToComplete;
+    [SerializeField] private float optional_timeInsideToComplete;
+    [SerializeField] private string[] optional_nameOfColliderOwners;
+    [SerializeField] private DialogueEvents optional_dialogueEvent;
     #endregion
 
     #region Functional Vars
     private GameObjective _myObjv;
 
-    private delegate void SelectedUpdate();
-    private SelectedUpdate _mySU;
-
     [HideInInspector] public int interactCount;
     [HideInInspector] public float timer;
+
+    private GameObject myInd;
+    #endregion
+
+    #region UnityEvents
+    public UnityEvent onCreated;
+    public UnityEvent onInitialized;
+    public UnityEvent onActivated;
+    public UnityEvent onTriggered;
+    public UnityEvent onCompleted;
+    public UnityEvent onCleanedUp;
+
     #endregion
 
     void Awake()
     {
         iD_locSerial = transform.position.ToString();
         _myObjv = _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
+        EventManager.instance.Register<GameObjectiveEvent>(EventListener);
     }
 
 	void Start () {
         _myObjv.ManagerCheckIn();
 	}
 
-    void Update()
-    {
-        if (_mySU != null)
-            _mySU();
-    }
-
     void OnTriggerEnter(Collider other)
     {
         IsInside(other);
     }
 
-    #region Optional Updates
+    void EventListener(GameEvent e)
+    {
+        if (e.GetType() == typeof(GameObjectiveEvent))
+        {
+            GameObjectiveEvent GOE = (GameObjectiveEvent)e;
 
+            if (GOE.GObjv.iD == _myObjv.iD)
+            {
+                myStatus = GOE.GObjv.status;
+                if (GOE.GObjv.status == Status_GameObjective.Created)
+                {
+                    onCreated.Invoke();
+                }
+                else if (GOE.GObjv.status == Status_GameObjective.Initialized)
+                {
+                    onInitialized.Invoke();
+                }
+                else if (GOE.GObjv.status == Status_GameObjective.Active)
+                {
+                    myInd = (GameObject) Instantiate(Resources.Load("OLI"), transform);
+                    onActivated.Invoke();
+                }
+                else if (GOE.GObjv.status == Status_GameObjective.Triggered)
+                {
+                    DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+                    if (optional_dialogueEvent != null)
+                        myDM.FireEvent(myDM.ReturnEventIndex(optional_dialogueEvent));
+                        onTriggered.Invoke();
+                }
+                else if (GOE.GObjv.status == Status_GameObjective.Completed)
+                {
+                    if (myInd != null)
+                    Destroy(myInd);
+                    onCompleted.Invoke();
+                }
+                else if (GOE.GObjv.status == Status_GameObjective.CleanedUp)
+                {
+                    onCleanedUp.Invoke();
+                }
+            }
+        }
+    }
 
-    #endregion
 
     #region Contextual Functions
     public void WasInteracted()
     {
-        if (myType == Type_GameObjective.Interact)
-        {
-            if (_myObjv.status == Status_GameObjective.Active)
-                _myObjv.status = Status_GameObjective.Completed;
-        }
-        else if (myType == Type_GameObjective.InteractMultiple)
+        if (myMethod == Type_GameObjective_HowToTrigger.TimeInColllider)
         {
             if (_myObjv.status == Status_GameObjective.Active)
             {
@@ -75,16 +118,6 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 if (interactCount >= optional_timesToInteractToComplete)
                     _myObjv.status = Status_GameObjective.Completed;
             }
-        }
-        else if (myType == Type_GameObjective.Collect)
-        {
-            if (_myObjv.status == Status_GameObjective.Active)
-                _myObjv.status = Status_GameObjective.Completed;
-        }
-        else if (myType == Type_GameObjective.Collect_SubObjv)
-        {
-            if (_myObjv.status == Status_GameObjective.Active)
-                _myObjv.status = Status_GameObjective.Completed;
         }
     }
 
@@ -94,9 +127,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         {
             if (other.name == name)
             {
-                if (myType == Type_GameObjective.Find)
-                    _myObjv.status = Status_GameObjective.Completed;
-                else if (myType == Type_GameObjective.Time)
+                if (myMethod == Type_GameObjective_HowToTrigger.TimeInColllider)
                 {
                     timer += Time.fixedDeltaTime;
                     if (timer >= optional_timeInsideToComplete)
@@ -111,17 +142,17 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #region Internal Methods
     private GameObjective _MakeObj (Type_GameObjective t, string i, string l, string d, string s)
     {
-        if (t == Type_GameObjective.Interact || t == Type_GameObjective.InteractMultiple)
+        if (t == Type_GameObjective.InteractDiscrete)
         {
-            return new Interact_GameObjective(i, l, d);
+            return new InteractDiscrete_GameObjective(i, l, d);
         }
-        else if (t == Type_GameObjective.Collect)
+        else if (t == Type_GameObjective.InteractOver)
         {
-            return new CollectMultiple_GameObjective(i, l, d);
+            return new InteractOver_GameObjective(i, l, d);
         }
-        else if (t == Type_GameObjective.Collect_SubObjv)
+        else if (t == Type_GameObjective.InteractOver_Sub)
         {
-            return new CollectMultiple_SubObjective_GameObjective(i, l, d, s);
+            return new InteractOver_Sub_GameObjective(i, l, d, s);
         }
         return null;
     }
