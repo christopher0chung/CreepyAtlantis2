@@ -21,11 +21,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #endregion
 
     #region Optional Properties
+    [SerializeField] private bool optional_startActive;
     [SerializeField] private string optional_iDToSubScribeTo;
     [SerializeField] private int optional_timesToInteractToComplete;
     [SerializeField] private float optional_timeInsideToComplete;
     [SerializeField] private string[] optional_nameOfColliderOwners;
     [SerializeField] private DialogueEvents optional_dialogueEvent;
+    [SerializeField] private Deeper_ObjectiveObject optional_precedingObjective;
     #endregion
 
     #region Functional Vars
@@ -56,6 +58,10 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
 	void Start () {
         _myObjv.ManagerCheckIn();
+        if (optional_startActive)
+        {
+            _myObjv.status = Status_GameObjective.Active;
+        }
 	}
 
     void OnTriggerEnter(Collider other)
@@ -68,6 +74,14 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         if (e.GetType() == typeof(GameObjectiveEvent))
         {
             GameObjectiveEvent GOE = (GameObjectiveEvent)e;
+
+            if (GOE.GObjv.iD == optional_precedingObjective._myObjv.iD)
+            {
+                if (GOE.GObjv.status == Status_GameObjective.Completed || GOE.GObjv.status == Status_GameObjective.CleanedUp)
+                {
+                    _myObjv.status = Status_GameObjective.Active;
+                }
+            }
 
             if (GOE.GObjv.iD == _myObjv.iD)
             {
@@ -90,7 +104,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                     DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
                     if (optional_dialogueEvent != null)
                         myDM.FireEvent(myDM.ReturnEventIndex(optional_dialogueEvent));
-                        onTriggered.Invoke();
+                    onTriggered.Invoke();
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Completed)
                 {
@@ -110,13 +124,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #region Contextual Functions
     public void WasInteracted()
     {
-        if (myMethod == Type_GameObjective_HowToTrigger.TimeInColllider)
+        if (myMethod == Type_GameObjective_HowToTrigger.PositiveAction)
         {
             if (_myObjv.status == Status_GameObjective.Active)
             {
                 interactCount++;
                 if (interactCount >= optional_timesToInteractToComplete)
-                    _myObjv.status = Status_GameObjective.Completed;
+                    _myObjv.status = Status_GameObjective.Triggered;
             }
         }
     }
@@ -131,7 +145,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 {
                     timer += Time.fixedDeltaTime;
                     if (timer >= optional_timeInsideToComplete)
-                        _myObjv.status = Status_GameObjective.Completed;
+                        _myObjv.status = Status_GameObjective.Triggered;
                 }
             }
         }
