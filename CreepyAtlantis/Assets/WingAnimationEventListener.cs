@@ -11,7 +11,7 @@ public class WingAnimationEventListener : MonoBehaviour {
 
     private Vector3 wingRetracted;
     private Vector3 wingDeployed;
-    private Vector3 wingDeployed_Offset;
+    //private Vector3 wingDeployed_Offset;
 
     private FSM<WingAnimationEventListener> _fsm;
 
@@ -36,23 +36,13 @@ public class WingAnimationEventListener : MonoBehaviour {
         EventManager.instance.Register<Character_Grounded_GE>(DriveState);
 	}
 
-    void OnEnable()
-    {
-        _fsm.TransitionTo<Operate>();
-    }
+    //void OnEnable()
+    //{
+    //    _fsm.TransitionTo<Operate>();
+    //}
 
     // Update is called once per frame
     void Update () {
-        timer += Time.deltaTime;
-        if (timer >= wingTwitchTime)
-        {
-            timer = 0;
-            wingDeployed_Offset = new Vector3(
-                Random.Range(-135, -45),
-                Random.Range(-30, 30),
-                Random.Range(-30, 30));
-        }
-
         _fsm.Update();
     }
 
@@ -61,7 +51,7 @@ public class WingAnimationEventListener : MonoBehaviour {
         if (e.GetType() == typeof(Character_Grounded_GE))
         {
             Character_Grounded_GE g_GE = (Character_Grounded_GE)e;
-            if (g_GE.Name == gameObject.name)
+            if (g_GE.Name == transform.root.gameObject.name)
             {
                 if (g_GE.G == GroundStates.Grounded)
                 {
@@ -69,7 +59,8 @@ public class WingAnimationEventListener : MonoBehaviour {
                 }
                 else
                 {
-                    _fsm.TransitionTo<Deploy>();
+                    if (!(((BasicState)_fsm.CurrentState).name == "Deploy" || ((BasicState)_fsm.CurrentState).name == "Operate"))
+                        _fsm.TransitionTo<Deploy>();
                 }
             }
         }
@@ -94,7 +85,7 @@ public class WingAnimationEventListener : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("In " + name);
+            //Debug.Log("In " + name);
             
         }
 
@@ -118,14 +109,14 @@ public class WingAnimationEventListener : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("In " + name);
+            //Debug.Log("In " + name);
 
         }
 
         public override void Update()
         {
-            Context.transform.rotation = Quaternion.Slerp(Context.transform.rotation, Quaternion.Euler(Context.wingRetracted), .07f);
-            if (Quaternion.Angle(Context.transform.rotation, Quaternion.Euler(Context.wingRetracted)) <= 1)
+            Context.transform.localRotation = Quaternion.Slerp(Context.transform.localRotation, Quaternion.Euler(Context.wingRetracted), .07f);
+            if (Quaternion.Angle(Context.transform.localRotation, Quaternion.Euler(Context.wingRetracted)) <= 1)
                 TransitionTo<Standby>();
         }
 
@@ -144,25 +135,27 @@ public class WingAnimationEventListener : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("In " + name);
+            //Debug.Log("In " + name);
 
         }
 
         public override void Update()
         {
-            Context.transform.rotation = Quaternion.Slerp(Context.transform.rotation, Quaternion.Euler(Context.wingDeployed), .07f);
-            if (Quaternion.Angle(Context.transform.rotation, Quaternion.Euler(Context.wingDeployed)) <= 1)
+            Context.transform.localRotation = Quaternion.Slerp(Context.transform.localRotation, Quaternion.Euler(Context.wingDeployed), .07f);
+            if (Quaternion.Angle(Context.transform.localRotation, Quaternion.Euler(Context.wingDeployed)) <= 1)
                 TransitionTo<Operate>();
         }
 
         public override void OnExit()
         {
-            Context.transform.rotation = Quaternion.Euler(Context.wingDeployed);
+            Context.transform.localRotation = Quaternion.Euler(Context.wingDeployed);
         }
     }
 
     private class Operate : BasicState
     {
+        private float timer;
+        private Vector3 wingDeployed_Offset;
         public override void Init()
         {
             name = "Operate";
@@ -170,13 +163,24 @@ public class WingAnimationEventListener : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("In " + name);
-
+            //Debug.Log("In " + name);
+            timer = 0;
         }
 
         public override void Update()
         {
-            Context.transform.rotation = Quaternion.Slerp(Context.transform.rotation, Quaternion.Euler(Context.wingDeployed + Context.wingDeployed_Offset), .07f);
+            timer += Time.deltaTime;
+            if (timer >= Context.wingTwitchTime)
+            {
+                timer = 0;
+                wingDeployed_Offset = new Vector3(
+                    Random.Range(-45, 45),
+                    Random.Range(-30, 30),
+                    Random.Range(-30, 30));
+                //Debug.Log(wingDeployed_Offset);
+            }
+
+            Context.transform.localRotation = Quaternion.Slerp(Context.transform.localRotation, Quaternion.Euler(Context.wingDeployed + wingDeployed_Offset), .07f);
         }
 
         public override void OnExit()
@@ -194,20 +198,20 @@ public class WingAnimationEventListener : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("In " + name);
+            //Debug.Log("In " + name);
 
         }
 
         public override void Update()
         {
-            Context.transform.rotation = Quaternion.Slerp(Context.transform.rotation, Quaternion.Euler(Context.wingDeployed), .07f);
-            if (Quaternion.Angle(Context.transform.rotation, Quaternion.Euler(Context.wingDeployed)) <= 1)
+            Context.transform.localRotation = Quaternion.Slerp(Context.transform.localRotation, Quaternion.Euler(Context.wingDeployed), .07f);
+            if (Quaternion.Angle(Context.transform.localRotation, Quaternion.Euler(Context.wingDeployed)) <= 1)
                 TransitionTo<Retract>();
         }
 
         public override void OnExit()
         {
-            Context.transform.rotation = Quaternion.Euler(Context.wingDeployed);
+            Context.transform.localRotation = Quaternion.Euler(Context.wingDeployed);
         }
     }
     #endregion

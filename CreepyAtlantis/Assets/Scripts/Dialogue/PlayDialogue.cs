@@ -23,7 +23,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     private Text outputText;
 
     private AudioSource lines;
-    private AudioSource next;
+    //private AudioSource next;
 
     private Color refColor;
 
@@ -106,7 +106,7 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
         GetMyColor();
 
         lines = GetAudio(soundType.line);
-        next = GetAudio(soundType.sfx);
+        //next = GetAudio(soundType.sfx);
 
         if (GetComponent<IObjective>() != null)
         {

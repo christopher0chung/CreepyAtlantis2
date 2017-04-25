@@ -110,6 +110,9 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
+        name: _OutlineWidth
+      second: 0
+    - first:
         name: _Parallax
       second: 0.02
     - first:
@@ -130,13 +133,16 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 0, g: 1, b: 0.627451, a: 1}
+      second: {r: 0.169663, g: 0.403, b: 0.2581702, a: 1}
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0.028546706, g: 0.15625219, b: 0.16176468, a: 1}
+      second: {r: 0.2794118, g: 0.24858013, b: 0, a: 1}
     - first:
         name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 1, g: 1, b: 1, a: 1}
