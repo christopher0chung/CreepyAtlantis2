@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour {
 	void Start () {
         myAS = GetComponent<AudioSource>();
         LoadSounds();
-        EventkManager.instance.Register<P1_DialogueChoiceRumble_GE>(PlaySFX);
+        EventManager.instance.Register<P1_DialogueChoiceRumble_GE>(PlaySFX);
 	}
 
     void LoadSounds()
