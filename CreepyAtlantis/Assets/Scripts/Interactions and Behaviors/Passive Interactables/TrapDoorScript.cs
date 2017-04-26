@@ -43,7 +43,8 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
     }
 
     private float letGoTimer;
-    private float iconScale = 1.3f;
+    //private float iconScale = 1.3f;
+    float iconScale = 0;
     private Vector3 iconOffset = new Vector3(-2.44f, -2.56f, 0);
 
     [HideInInspector]

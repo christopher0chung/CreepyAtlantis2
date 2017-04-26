@@ -34,7 +34,14 @@ public class WingAnimationEventListener : MonoBehaviour {
         wingDeployed = new Vector3(-90, 0, 0);
 
         EventManager.instance.Register<Character_Grounded_GE>(DriveState);
+        GameStateManager.onPreLoadLevel += OnPreLoadLevel;
 	}
+
+    void OnPreLoadLevel()
+    {
+        EventManager.instance.Unregister<Character_Grounded_GE>(DriveState);
+        GameStateManager.onPreLoadLevel -= OnPreLoadLevel;
+    }
 
     //void OnEnable()
     //{

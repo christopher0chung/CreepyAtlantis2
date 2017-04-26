@@ -14,6 +14,7 @@ public class RumbleManager : MonoBehaviour {
     {
         EventManager.instance.Register<P1_DialogueChoiceRumble_GE>(P1_DialogueRumble);
         EventManager.instance.Register<P2_DialogueChoiceRumble_GE>(P2_DialogueRumble);
+        GameStateManager.onPreLoadLevel += OnPreLoadLevel;
     }
 
     void Start () {
@@ -22,6 +23,13 @@ public class RumbleManager : MonoBehaviour {
 
         _fsm_P2 = new FSM<RumbleManager>(this);
         _fsm_P2.TransitionTo<Standby_P2>();
+    }
+
+    void OnPreLoadLevel()
+    {
+        EventManager.instance.Unregister<P1_DialogueChoiceRumble_GE>(P1_DialogueRumble);
+        EventManager.instance.Unregister<P2_DialogueChoiceRumble_GE>(P2_DialogueRumble);
+        GameStateManager.onPreLoadLevel -= OnPreLoadLevel;
     }
 
     void Update()

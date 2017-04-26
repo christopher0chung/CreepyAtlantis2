@@ -54,6 +54,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         iD_locSerial = transform.position.ToString();
         _myObjv = _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
         EventManager.instance.Register<GameObjectiveEvent>(EventListener);
+        GameStateManager.onPreLoadLevel += OnPreLoadLevel;
+    }
+
+    void OnPreLoadLevel()
+    {
+        EventManager.instance.Unregister<GameObjectiveEvent>(EventListener);
+        GameStateManager.onPreLoadLevel -= OnPreLoadLevel;
     }
 
 	void Start () {
