@@ -152,7 +152,7 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
 
     private void IlluminTrigger()
     {
-        if (p1Illumin && p2Illumin)
+        if ((p1Illumin && p2Illumin) && ((BasicState)_fsm.CurrentState).name != "Flee")
             _fsm.TransitionTo<Flee>();
     }
 
