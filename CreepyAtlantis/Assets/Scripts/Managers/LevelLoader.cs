@@ -10,6 +10,8 @@ public class LevelLoader : MonoBehaviour {
 
     private string[] funcToLevel = new string[6];
 
+    public Scene[] myScenes = new Scene[3];
+
     private int _level;
     private int level
     {
