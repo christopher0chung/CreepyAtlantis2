@@ -3962,7 +3962,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9086.892, y: 9086.892, z: 0}
+  Offset: {x: 9086.981, y: 9086.981, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -6931,7 +6931,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5551.6504, y: 5551.6504, z: 0}
+  Offset: {x: 5551.7407, y: 5551.7407, z: 0}
 --- !u!108 &277469036
 Light:
   m_ObjectHideFlags: 0
@@ -7210,7 +7210,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.1001027
+    e00: 2.1000285
     e01: 0
     e02: 0
     e03: 0
@@ -7227,7 +7227,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.1001027
+    e00: 2.1000285
     e01: 0
     e02: 0
     e03: 0
@@ -55734,7 +55734,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8581.525, y: 8581.525, z: 0}
+  Offset: {x: 8581.615, y: 8581.615, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -55767,7 +55767,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &1678822779
@@ -74535,7 +74535,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5706.731, y: 5706.731, z: 0}
+  Offset: {x: 5706.8213, y: 5706.8213, z: 0}
 --- !u!108 &2013639889
 Light:
   m_ObjectHideFlags: 0
