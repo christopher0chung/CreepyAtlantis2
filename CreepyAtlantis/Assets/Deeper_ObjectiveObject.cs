@@ -21,16 +21,24 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #endregion
 
     #region Optional Properties
-    //[Header("Time In Collider Data")]
+    [Header("Check TRUE if active from start.")]
     [SerializeField] private bool optional_startActive;
-    [SerializeField] private string optional_iDToSubScribeTo;
-    [SerializeField] private int optional_timesToInteractToComplete;
-    [SerializeField] private float optional_timeInsideToComplete;
 
-    //[Header("Positive Action Data")]
-    [SerializeField] private string[] optional_nameOfColliderOwners;
-    [SerializeField] private DialogueEvents optional_dialogueEvent;
+    [Header("Objective that activates this OnComplete")]
     [SerializeField] private Deeper_ObjectiveObject optional_precedingObjective;
+
+    [Header("For Interactable Objectives")]
+    [SerializeField] private int optional_timesToInteractToComplete;
+
+    [Header("For Collider Objectives")]
+    [SerializeField] private float optional_timeInsideToComplete;
+    [SerializeField] private string[] optional_nameOfColliderOwners;
+
+    [Header("Dialogue Event to Fire")]
+    [SerializeField] private DialogueEvents optional_dialogueEvent;
+
+    [Header("Name of id if part of set")]
+    [SerializeField] private string optional_iDToSubScribeTo;
     #endregion
 
     #region Functional Vars
