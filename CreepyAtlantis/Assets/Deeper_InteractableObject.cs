@@ -9,7 +9,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
     public Interactors whoCanInteract;
     public float iconScale;
     public float sphereRad;
-    public Vector3 sphereLoc;
+    public Vector3 sphereOffset;
 
     [Header("Fill in to spawn on Interaction")]
     public string NameOfToSpawn;
@@ -120,7 +120,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 
     public void SphereCastDetect()
     {
-        myHits = Physics.SphereCastAll(sphereLoc, sphereRad, Vector3.up * .05f);
+        myHits = Physics.SphereCastAll(transform.position + sphereOffset, sphereRad, Vector3.up * .05f);
         if (CastCheck(myHits) >= 0)
         {
             ShowInteractable();

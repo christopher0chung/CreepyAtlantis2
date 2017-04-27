@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651068368589572}
   m_LocalRotation: {x: 0.20289896, y: 0.67737144, z: 0.67737144, w: -0.20289896}
-  m_LocalPosition: {x: 2.71, y: 7.38, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -8.45, y: 10, z: 0}
+  m_LocalScale: {x: 100.00034, y: 100.00021, z: 100.00018}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMR: {fileID: 23451906793808124}
-  nameOfBaseMat: 
+  nameOfBaseMat: SandMatBase
 --- !u!114 &114426167592335782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,14 +138,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  myMethod: 0
-  iD_name: 
-  label: 
-  description: 
+  myMethod: 1
+  iD_name: PileOfSandTest
+  label: Pile of sand
+  description: Kick
   myStatus: 0
-  optional_startActive: 0
+  optional_startActive: 1
   optional_precedingObjective: {fileID: 0}
-  optional_timesToInteractToComplete: 0
+  optional_timesToInteractToComplete: 1
   optional_timeInsideToComplete: 0
   optional_nameOfColliderOwners: []
   optional_dialogueEvent: {fileID: 0}
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoCanInteract: 0
-  iconScale: 0
-  sphereRad: 0
-  sphereLoc: {x: 0, y: 0, z: 0}
-  NameOfToSpawn: 
+  iconScale: 1
+  sphereRad: 6
+  sphereOffset: {x: 0, y: 0, z: 0}
+  NameOfToSpawn: KickSand
   myIcon: {fileID: 0}

@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: d8e196901c93aa04082a0e965589aa9c,
+  m_LightingDataAsset: {fileID: 112000001, guid: 1775250b5463580429e5fa078ee9efaf,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -3962,7 +3962,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9086.981, y: 9086.981, z: 0}
+  Offset: {x: 9089.278, y: 9089.278, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -6931,7 +6931,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5551.7407, y: 5551.7407, z: 0}
+  Offset: {x: 5554.038, y: 5554.038, z: 0}
 --- !u!108 &277469036
 Light:
   m_ObjectHideFlags: 0
@@ -55734,7 +55734,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8581.615, y: 8581.615, z: 0}
+  Offset: {x: 8583.912, y: 8583.912, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -74535,7 +74535,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5706.8213, y: 5706.8213, z: 0}
+  Offset: {x: 5709.1187, y: 5709.1187, z: 0}
 --- !u!108 &2013639889
 Light:
   m_ObjectHideFlags: 0
