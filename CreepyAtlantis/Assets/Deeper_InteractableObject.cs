@@ -92,7 +92,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
     {
         if (GetComponent<Deeper_ObjectiveObject>() != null)
         {
-
+            GetComponent<Deeper_ObjectiveObject>().WasInteracted();
         }
     }
 
