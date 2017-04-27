@@ -86,6 +86,9 @@ Material:
         name: _DstBlend
       second: 10
     - first:
+        name: _EmissionMultiplier
+      second: 1
+    - first:
         name: _Gloss
       second: 0.4682218
     - first:
@@ -110,6 +113,9 @@ Material:
         name: _Opacity
       second: 0
     - first:
+        name: _OutlineWidth
+      second: 0.003
+    - first:
         name: _Parallax
       second: 0.02
     - first:
@@ -130,13 +136,16 @@ Material:
     m_Colors:
     - first:
         name: DiffuseColor
-      second: {r: 1, g: 0.9040567, b: 0.36764705, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _Color
       second: {r: 0.9852941, g: 0.47605896, b: 0.32601646, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 1, g: 0.47794116, b: 0.47794116, a: 1}
+      second: {r: 0.2794118, g: 0.2768614, b: 0.24243082, a: 1}
     - first:
         name: _FogColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 1, g: 0, b: 0, a: 1}

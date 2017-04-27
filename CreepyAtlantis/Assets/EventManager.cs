@@ -13,6 +13,25 @@ public abstract class GameEvent
 }
 
 //---------------------------------------
+// Character Events
+//---------------------------------------
+
+public enum GroundStates { Grounded, NotGrounded }
+
+public class Character_Grounded_GE: GameEvent
+{
+    public string Name;
+    public GroundStates G;
+
+    public Character_Grounded_GE (string n, GroundStates g)
+    {
+        Name = n;
+        G = g;
+    }
+}
+
+
+//---------------------------------------
 // Value Storage Test Events
 //---------------------------------------
 

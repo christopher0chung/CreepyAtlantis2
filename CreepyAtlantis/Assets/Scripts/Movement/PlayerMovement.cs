@@ -197,12 +197,16 @@ public class PlayerMovement : MonoBehaviour{
         }
         groundedCastCheck = false;
         grounded = false;
+        EventManager.instance.Fire(new Character_Grounded_GE(transform.root.gameObject.name, GroundStates.NotGrounded));
         myAC.SetGrounded(false);
     }
     void OnCollisionEnter (Collision other)
     {
         if (groundedCastCheck && other.gameObject.tag == "Walkable")
+        {
             grounded = true;
+            EventManager.instance.Fire(new Character_Grounded_GE(transform.root.gameObject.name, GroundStates.Grounded));
+        }
     }
 }
 

@@ -6,9 +6,11 @@ using UnityEngine.EventSystems;
 public class LevelLoader : MonoBehaviour {
 
     //Event Manager should be handling this but music controls are here for the time being.
-    private MusicManager myMM;
+    //private MusicManager myMM;
 
     private string[] funcToLevel = new string[6];
+
+    public Scene[] myScenes = new Scene[3];
 
     private int _level;
     private int level
@@ -46,7 +48,7 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[4] = "LoadLevelFour";
         funcToLevel[5] = "LoadLevelFive";
 
-        myMM = GetComponent<MusicManager>();
+        //myMM = GetComponent<MusicManager>();
 
         EventManager.instance.Register<Button_GE>(DeathLoad);
     }
@@ -121,10 +123,10 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelTwo()
     {
         SceneManager.LoadScene("CutSceneLevel");
-        myMM.FadeOut(0);
-        myMM.FadeIn(1);
-        myMM.FadeIn(2);
-        myMM.FadeIn(3);
+        //myMM.FadeOut(0);
+        //myMM.FadeIn(1);
+        //myMM.FadeIn(2);
+        //myMM.FadeIn(3);
     }
 
     private void LoadLevelThree()
@@ -134,16 +136,16 @@ public class LevelLoader : MonoBehaviour {
         SceneManager.LoadScene("Play01");
         //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
-        myMM.FadeOut(2);
-        myMM.FadeOut(3);
+        //myMM.FadeOut(2);
+        //myMM.FadeOut(3);
     }
 
     private void LoadLevelFour()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
-        myMM.FadeOut(2);
-        myMM.FadeOut(3);
+        //myMM.FadeOut(2);
+        //myMM.FadeOut(3);
     }
 
     private void LoadLevelFive()
