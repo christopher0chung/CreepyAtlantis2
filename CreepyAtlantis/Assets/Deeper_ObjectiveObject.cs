@@ -21,10 +21,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #endregion
 
     #region Optional Properties
+    [Header("Time In Collider Data")]
     [SerializeField] private bool optional_startActive;
     [SerializeField] private string optional_iDToSubScribeTo;
     [SerializeField] private int optional_timesToInteractToComplete;
     [SerializeField] private float optional_timeInsideToComplete;
+
+    [Header("Positive Action Data")]
     [SerializeField] private string[] optional_nameOfColliderOwners;
     [SerializeField] private DialogueEvents optional_dialogueEvent;
     [SerializeField] private Deeper_ObjectiveObject optional_precedingObjective;

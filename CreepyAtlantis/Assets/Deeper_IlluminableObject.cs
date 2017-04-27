@@ -19,22 +19,22 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
     #region Hidden Properties
     private Material newMat;
 
-    private bool _showInteractable;
-    [HideInInspector] public bool showInteractable
+    private bool _showHighlight;
+    [HideInInspector] public bool showHighlight
     {
         get
         {
-            return _showInteractable;
+            return _showHighlight;
         }
         set
         {
             if (value)
                 letGoTimer = 0;
 
-            if (value != _showInteractable)
+            if (value != _showHighlight)
             {
-                _showInteractable = value;
-                if (_showInteractable)
+                _showHighlight = value;
+                if (_showHighlight)
                 {
                     newMat.SetFloat("_OutlineWidth", .0003f);
                 }
@@ -57,7 +57,7 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
     {
         newMat = (Material)Instantiate(Resources.Load(nameOfBaseMat));
         myMR.material = newMat;
-        showInteractable = false;
+        showHighlight = false;
     }
 
     void Update()
@@ -71,7 +71,7 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
 
     virtual public void Illuminate(GameObject who)
     {
-        ShowInteractable();
+        ShowHighlight();
     }
 
     #region Internal Functions
@@ -80,18 +80,18 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
         letGoTimer += Time.deltaTime;
         if (letGoTimer >= .25f)
         {
-            HideInteractable();
+            HideHighlight();
         }
     }
 
-    private void ShowInteractable()
+    private void ShowHighlight()
     {
-        showInteractable = true;
+        showHighlight = true;
     }
 
-    private void HideInteractable()
+    private void HideHighlight()
     {
-        showInteractable = false;
+        showHighlight = false;
     }
     #endregion
 }
