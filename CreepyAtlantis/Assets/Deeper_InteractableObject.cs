@@ -11,6 +11,9 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
     public float sphereRad;
     public Vector3 sphereLoc;
 
+    [Header("Fill in to spawn on Interaction")]
+    public string NameOfToSpawn;
+
     private bool _detectFuncActive;
     private RaycastHit[] myHits;
     private Dictionary<int, string> numToName = new Dictionary<int, string>();
@@ -93,6 +96,10 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         if (GetComponent<Deeper_ObjectiveObject>() != null)
         {
             GetComponent<Deeper_ObjectiveObject>().WasInteracted();
+        }
+        if (NameOfToSpawn != "")
+        {
+            Instantiate(Resources.Load(NameOfToSpawn), transform.position, Quaternion.identity, transform);
         }
     }
 
