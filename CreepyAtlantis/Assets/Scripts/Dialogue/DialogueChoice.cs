@@ -357,7 +357,7 @@ public class DialogueChoice : MonoBehaviour, IDialogue, IControllable{
         public override void Init()
         {
             name = "SpokenState";
-            Debug.Log("In Choice SpokenState");
+            //Debug.Log("In Choice SpokenState");
         }
 
         public override void OnEnter()

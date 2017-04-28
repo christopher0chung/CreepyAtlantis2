@@ -44,6 +44,7 @@ public class GameObjective {
             {
                 _status = value;
                 _ManagerUpdate();
+                Debug.Log("my new status is: " + _status.ToString());
                 EventManager.instance.Fire(new GameObjectiveEvent(this));
             }
         }
@@ -57,11 +58,12 @@ public class GameObjective {
         status = Status_GameObjective.Created;
     }
 
-    public Status_GameObjective ManagerCheckIn ()
+    public void ManagerCheckIn ()
     {
         // placeholder
         // happens in start after created in the obj.
-        return GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
+        Debug.Log("Checking in");
+        status = GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
     }
 
     private void _ManagerUpdate ()
@@ -100,7 +102,7 @@ public class InteractOver_GameObjective: GameObjective
                 _countProgres = value;
                 if (countTotal == _countProgres)
                 {
-                    status = Status_GameObjective.Completed;
+                    status = Status_GameObjective.Triggered;
                 }
             }
         }

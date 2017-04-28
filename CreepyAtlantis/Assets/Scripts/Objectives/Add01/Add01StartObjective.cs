@@ -32,10 +32,10 @@ public class Add01StartObjective : Objective {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("AHit");
+        //Debug.Log("AHit");
         if (other.name == "Sub" && other.GetComponent<SubController>() != null)
         {
-            Debug.Log("Hit something on sub");
+            //Debug.Log("Hit something on sub");
 
             other.GetComponent<SubController>().canMove = false;
             other.GetComponent<SubController>().canGetOut = false;

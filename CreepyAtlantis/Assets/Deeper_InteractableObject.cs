@@ -13,6 +13,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 
     [Header("Fill in to spawn on Interaction")]
     public string NameOfToSpawn;
+    public Vector3 spawnOffset;
 
     private bool _detectFuncActive;
     private RaycastHit[] myHits;
@@ -36,8 +37,9 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
                 _showInteractableIcon = value;
                 if (_showInteractableIcon)
                 {
-                    myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position, Quaternion.identity, transform);
+                    myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + spawnOffset, Quaternion.identity);
                     myIcon.transform.localScale = Vector3.one * iconScale;
+                    myIcon.transform.parent = transform;
                 }
                 else
                 {
@@ -99,7 +101,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         }
         if (NameOfToSpawn != "")
         {
-            Instantiate(Resources.Load(NameOfToSpawn), transform.position, Quaternion.identity, transform);
+            Instantiate(Resources.Load(NameOfToSpawn), transform.position, Quaternion.identity);
         }
     }
 
@@ -123,11 +125,11 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         myHits = Physics.SphereCastAll(transform.position + sphereOffset, sphereRad, Vector3.up * .05f);
         if (CastCheck(myHits) >= 0)
         {
-            ShowInteractable();
+            showInteractableIcon = true;
         }
         else
         {
-            HideInteractable();
+            showInteractableIcon = false;
         }
     }
 
@@ -145,16 +147,6 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
             }
         }
         return -1;
-    }
-
-    protected void ShowInteractable()
-    {
-        showInteractableIcon = true;
-    }
-
-    public void HideInteractable()
-    {
-        showInteractableIcon = false;
     }
     #endregion
 }

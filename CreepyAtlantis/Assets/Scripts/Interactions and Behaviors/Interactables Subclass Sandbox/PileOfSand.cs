@@ -29,7 +29,7 @@ public class PileOfSand : SSInteractableObject {
     {
         Instantiate(Resources.Load("KickSand"), transform.position + transform.up, Quaternion.identity);
         base.Interact(pNum, pressRelease);
-        Debug.Log("interact");
+        //Debug.Log("interact");
         //GameObject.FindGameObjectsWithTag
     }
 }

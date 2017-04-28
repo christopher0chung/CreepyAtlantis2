@@ -63,7 +63,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     void Awake()
     {
         iD_locSerial = transform.position.ToString();
-        _myObjv = _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
+        _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
         EventManager.instance.Register<GameObjectiveEvent>(EventListener);
         GameStateManager.onPreLoadLevel += OnPreLoadLevel;
     }
@@ -76,7 +76,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
 	void Start () {
         _myObjv.ManagerCheckIn();
-        if (optional_startActive)
+        if (optional_startActive && _myObjv.status == Status_GameObjective.Initialized)
         {
             _myObjv.status = Status_GameObjective.Active;
         }
@@ -93,11 +93,15 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         {
             GameObjectiveEvent GOE = (GameObjectiveEvent)e;
 
-            if (GOE.GObjv.iD == optional_precedingObjective._myObjv.iD)
+            if (optional_precedingObjective != null)
             {
-                if (GOE.GObjv.status == Status_GameObjective.Completed || GOE.GObjv.status == Status_GameObjective.CleanedUp)
+                if (GOE.GObjv.iD == optional_precedingObjective._myObjv.iD)
                 {
-                    _myObjv.status = Status_GameObjective.Active;
+                    if (GOE.GObjv.status == Status_GameObjective.Completed || GOE.GObjv.status == Status_GameObjective.CleanedUp)
+                    {
+                        if (_myObjv.status == Status_GameObjective.Initialized)
+                            _myObjv.status = Status_GameObjective.Active;
+                    }
                 }
             }
 
@@ -114,7 +118,8 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Active)
                 {
-                    myInd = (GameObject) Instantiate(Resources.Load("OLI"), transform);
+                    myInd = (GameObject) Instantiate(Resources.Load("OLI"), transform.position, Quaternion.identity);
+                    myInd.transform.parent = transform;
                     onActivated.Invoke();
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Triggered)
@@ -123,12 +128,14 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                     if (optional_dialogueEvent != null)
                         myDM.FireEvent(myDM.ReturnEventIndex(optional_dialogueEvent));
                     onTriggered.Invoke();
+                    _myObjv.status = Status_GameObjective.Completed;
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Completed)
                 {
                     if (myInd != null)
                     Destroy(myInd);
                     onCompleted.Invoke();
+                    _myObjv.status = Status_GameObjective.CleanedUp;
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.CleanedUp)
                 {
@@ -172,21 +179,20 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #endregion
 
     #region Internal Methods
-    private GameObjective _MakeObj (Type_GameObjective t, string i, string l, string d, string s)
+    private void _MakeObj (Type_GameObjective t, string i, string l, string d, string s)
     {
         if (t == Type_GameObjective.InteractDiscrete)
         {
-            return new InteractDiscrete_GameObjective(i, l, d);
+            _myObjv = new InteractDiscrete_GameObjective(i, l, d);
         }
         else if (t == Type_GameObjective.InteractOver)
         {
-            return new InteractOver_GameObjective(i, l, d);
+            _myObjv = new InteractOver_GameObjective(i, l, d);
         }
         else if (t == Type_GameObjective.InteractOver_Sub)
         {
-            return new InteractOver_Sub_GameObjective(i, l, d, s);
+            _myObjv =  new InteractOver_Sub_GameObjective(i, l, d, s);
         }
-        return null;
     }
     #endregion
 }
