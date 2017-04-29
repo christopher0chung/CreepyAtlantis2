@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Interactors {Unassigned, Ops, Doc, Either }
+
+
 public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 {
-    public enum Interactors { Ops, Doc, Either }
-
     public Interactors whoCanInteract;
     public float iconScale;
     public float sphereRad;
@@ -22,7 +23,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 
 
 
-    [HideInInspector] public GameObject myIcon;
+    private GameObject myIcon;
     private bool _showInteractableIcon;
     [HideInInspector] public bool showInteractableIcon
     {
@@ -37,6 +38,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
                 _showInteractableIcon = value;
                 if (_showInteractableIcon)
                 {
+                    Debug.Log("Making");
                     myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + spawnOffset, Quaternion.identity);
                     myIcon.transform.localScale = Vector3.one * iconScale;
                     myIcon.transform.parent = transform;
@@ -60,11 +62,6 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 
         nameToNum.Add(numToName[0], 0);
         nameToNum.Add(numToName[1], 1);
-    }
-
-    void Start()
-    {
-        myIcon = (GameObject)Resources.Load("interactIcon");
     }
 
     void Update()

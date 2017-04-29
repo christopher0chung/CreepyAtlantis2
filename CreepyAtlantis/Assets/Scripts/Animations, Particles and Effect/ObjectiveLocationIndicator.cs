@@ -1,8 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectiveLocationIndicator : MonoBehaviour {
+
+    public Interactors _who;
+    private Interactors who
+    {
+        get
+        {
+            return _who;
+        }
+        set
+        {
+            if (value != _who)
+            {
+                Debug.Log("Color change");
+                _who = value;
+                if (_who == Interactors.Ops)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+                }
+                else if (_who == Interactors.Doc)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+                }
+                else if (_who == Interactors.Either)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Either;
+                }
+            }
+        }
+    }
+    private Color myC;
 
     private Camera myCam;
     private Transform target;
@@ -38,12 +69,20 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
         }
     }
 
+
 	// Use this for initialization
 	void Start () {
         myCam = Camera.main;
         target = GameObject.Find("Sub").transform;
         arrow = transform.GetChild(0).gameObject;
         circle = transform.GetChild(1).gameObject;
+
+
+        arrow.GetComponent<Image>().color = myC;
+        Material indMat = (Material)Instantiate(Resources.Load("IndicatorMat"));
+        indMat.SetColor("_IndColor", myC);
+        circle.GetComponent<MeshRenderer>().material = indMat;
+
         arrow.SetActive(false);
         circle.SetActive(false);
         circleTArrowF = true;
@@ -95,5 +134,11 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
     {
         transform.GetChild(0).position = pos;
         transform.GetChild(0).rotation = Quaternion.Euler(0, 0, Mathf.Atan2(-target.position.y + transform.position.y, -target.position.x + transform.position.x) * Mathf.Rad2Deg);
+    }
+
+    public void AssignWho (Interactors i)
+    {
+        Debug.Log("Assigning a new interactor");
+        who = i;
     }
 }

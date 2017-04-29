@@ -4,6 +4,37 @@ using UnityEngine;
 
 public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
 {
+    #region ColorSet
+    public Interactors _who;
+    private Interactors who
+    {
+        get
+        {
+            return _who;
+        }
+        set
+        {
+            if (value != _who)
+            {
+                Debug.Log("Color change");
+                _who = value;
+                if (_who == Interactors.Ops)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+                }
+                else if (_who == Interactors.Doc)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+                }
+                else if (_who == Interactors.Either)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Either;
+                }
+            }
+        }
+    }
+    private Color myC;
+    #endregion
 
     //Subclass Sandbox - Interactable Objects
     [Header("Required Fields")]
@@ -37,6 +68,7 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
                 if (_showHighlight)
                 {
                     newMat.SetFloat("_OutlineWidth", .0003f);
+                    newMat.SetColor("_OutlineColor", myC);
                 }
                 else
                 {
@@ -94,4 +126,9 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
         showHighlight = false;
     }
     #endregion
+
+    public void AssignWho(Interactors i)
+    {
+        who = i;
+    }
 }

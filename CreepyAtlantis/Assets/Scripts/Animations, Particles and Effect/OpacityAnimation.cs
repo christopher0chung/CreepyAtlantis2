@@ -11,8 +11,7 @@ public class OpacityAnimation : MonoBehaviour {
     private float timer;
 	// Use this for initialization
 	void Start () {
-        myMat = (Material)Instantiate(Resources.Load("IndicatorMat"));
-        GetComponent<MeshRenderer>().material = myMat;
+        myMat = GetComponent<MeshRenderer>().material;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +33,6 @@ public class OpacityAnimation : MonoBehaviour {
     }
     private void SizeCalc()
     {
-        size = .25f + 2 * timer;
+        size = 6 - 2 * timer;
     }
 }

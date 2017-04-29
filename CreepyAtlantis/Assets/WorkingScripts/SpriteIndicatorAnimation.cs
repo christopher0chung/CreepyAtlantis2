@@ -36,6 +36,6 @@ public class SpriteIndicatorAnimation : MonoBehaviour {
     }
     private void SizeCalc()
     {
-        size = .25f + .75f * timer;
+        size = 1- .75f * timer;
     }
 }

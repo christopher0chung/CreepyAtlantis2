@@ -119,6 +119,17 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 else if (GOE.GObjv.status == Status_GameObjective.Active)
                 {
                     myInd = (GameObject) Instantiate(Resources.Load("OLI"), transform.position, Quaternion.identity);
+
+                    if (GetComponent<Deeper_InteractableObject>() != null)
+                    {
+                        myInd.GetComponent<ObjectiveLocationIndicator>().AssignWho(GetComponent<Deeper_InteractableObject>().whoCanInteract);
+                    }
+
+                    if (GetComponent<Deeper_IlluminableObject>() != null)
+                    {
+                        GetComponent<Deeper_IlluminableObject>().AssignWho(GetComponent<Deeper_InteractableObject>().whoCanInteract);
+                    }
+
                     myInd.transform.parent = transform;
                     onActivated.Invoke();
                 }
