@@ -8,6 +8,7 @@ public enum Interactors {Unassigned, Ops, Doc, Either }
 public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 {
     public Interactors whoCanInteract;
+    public float interactTime;
     public float iconScale;
     public float sphereRad;
     public Vector3 sphereOffset;
@@ -21,7 +22,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
     private Dictionary<int, string> numToName = new Dictionary<int, string>();
     private Dictionary<string, int> nameToNum = new Dictionary<string, int>();
 
-
+    FSM<Deeper_InteractableObject> _fsm;
 
     private GameObject myIcon;
     private bool _showInteractableIcon;
@@ -64,12 +65,21 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         nameToNum.Add(numToName[1], 1);
     }
 
+    void Start()
+    {
+        _fsm = new FSM<Deeper_InteractableObject>(this);
+
+        _fsm.TransitionTo<Standby>();
+    }
+
     void Update()
     {
         if (_detectFuncActive)
         {
             SphereCastDetect();
         }
+
+        _fsm.Update();
     }
 
     #region Internal Functions
@@ -146,4 +156,38 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         return -1;
     }
     #endregion
+
+    //------------------------------------------------
+    // States
+    //------------------------------------------------
+
+    private class BasicState : FSM<Deeper_InteractableObject>.State
+    {
+        public string name;
+    }
+
+    private class Standby : BasicState
+    {
+        float timer;
+
+        public override void Init()
+        {
+            name = "Standby";
+        }
+
+        public override void OnEnter()
+        {
+            timer = 0;
+        }
+
+        public override void Update()
+        {
+
+        }
+
+        public override void CleanUp()
+        {
+
+        }
+    }
 }
