@@ -182,7 +182,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 
         public override void Update()
         {
-
+            //Context.myIcon.GetComponent<InteractionProgress>().
         }
 
         public override void CleanUp()
