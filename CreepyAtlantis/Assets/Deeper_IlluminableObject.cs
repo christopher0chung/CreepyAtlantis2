@@ -97,14 +97,20 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
 
     void Start()
     {
-        newMat = (Material)Instantiate(Resources.Load(nameOfBaseMat));
-        myMR.material = newMat;
-        showHighlight = false;
+        if (myMR != null)
+        {
+            newMat = (Material)Instantiate(Resources.Load(nameOfBaseMat));
+            myMR.material = newMat;
+            showHighlight = false;
+        }
     }
 
     void Update()
     {
-        CleanUp();
+        if (myMR != null)
+        {
+            CleanUp();
+        }
     }
 
     //-----------------------------------------------------------------

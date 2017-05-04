@@ -30,6 +30,10 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
                 {
                     myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Either;
                 }
+                else if (_who == Interactors.Sub)
+                {
+                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().DANI;
+                }
             }
         }
     }

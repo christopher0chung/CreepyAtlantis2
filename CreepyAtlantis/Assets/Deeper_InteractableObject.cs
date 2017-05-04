@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Interactors {Unassigned, Ops, Doc, Either }
+public enum Interactors {Unassigned, Ops, Doc, Either, Sub }
 
 
 public class Deeper_InteractableObject : MonoBehaviour, IInteractable
