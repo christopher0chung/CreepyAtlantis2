@@ -82,7 +82,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         IsInside(other);
     }
