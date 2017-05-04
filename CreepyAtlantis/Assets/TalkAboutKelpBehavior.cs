@@ -15,7 +15,7 @@ public class TalkAboutKelpBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (timer > 30)
+        if (timer > 60)
         {
             GetComponent<TalkAboutKelpObjective>().Trigger();
         }
