@@ -152,8 +152,11 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
 
     private void IlluminTrigger()
     {
-        if ((p1Illumin && p2Illumin) && ((BasicState)_fsm.CurrentState).name != "Flee")
-            _fsm.TransitionTo<Flee>();
+        if ((p1Illumin && p2Illumin) && _fsm.CurrentState.GetType() == typeof(Flee))
+
+        //if ((p1Illumin && p2Illumin) && ((BasicState)_fsm.CurrentState).name != "Flee")
+        //if (_fsm.CurrentState.GetType() == typeof(Flee))
+        _fsm.TransitionTo<Flee>();
     }
 
     private void CheckToClearIllumination ()
