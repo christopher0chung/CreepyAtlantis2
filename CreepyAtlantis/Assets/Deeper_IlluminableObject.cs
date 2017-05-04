@@ -69,10 +69,18 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
                 {
                     newMat.SetFloat("_OutlineWidth", .0003f);
                     newMat.SetColor("_OutlineColor", myC);
+                    if (transform.Find("OLI(Clone)") != null)
+                    {
+                        transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = GetComponent<Deeper_ObjectiveObject>().description;
+                    }
                 }
                 else
                 {
                     newMat.SetFloat("_OutlineWidth", 0);
+                    if (transform.Find("OLI(Clone)") != null)
+                    {
+                        transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = "";
+                    }
                 }
             }
         }

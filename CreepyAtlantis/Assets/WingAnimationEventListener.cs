@@ -66,8 +66,10 @@ public class WingAnimationEventListener : MonoBehaviour {
                 }
                 else
                 {
-                    if (!(((BasicState)_fsm.CurrentState).name == "Deploy" || ((BasicState)_fsm.CurrentState).name == "Operate"))
+                    if (!(_fsm.CurrentState.GetType() == typeof(Deploy) || _fsm.CurrentState.GetType() == typeof(Operate)))
+                    {
                         _fsm.TransitionTo<Deploy>();
+                    }
                 }
             }
         }

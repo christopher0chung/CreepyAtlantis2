@@ -4218,7 +4218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &466822752
 Transform:
   m_ObjectHideFlags: 0
@@ -20482,7 +20482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1740665908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22315,7 +22315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1909196592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25011,10 +25011,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6525862
-    e01: 0.000000015646432
-    e02: 1.2957927
-    e03: -1.9505078
+    e00: 1.6535921
+    e01: 0.000000015655955
+    e02: 1.2965814
+    e03: -1.9516948
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -25028,10 +25028,10 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6525862
-    e01: 0.000000015646432
-    e02: 1.2957927
-    e03: -1.9505078
+    e00: 1.6535921
+    e01: 0.000000015655955
+    e02: 1.2965814
+    e03: -1.9516948
     e10: 0.5281959
     e11: 3.6325512
     e12: -0.67363364

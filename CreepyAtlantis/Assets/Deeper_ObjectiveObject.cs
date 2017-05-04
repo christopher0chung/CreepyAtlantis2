@@ -14,8 +14,8 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private string iD_name;
     private string iD_locSerial;
 
-    [SerializeField] private string label;
-    [SerializeField] private string description;
+    public string label;
+    public string description;
 
     [SerializeField] private Status_GameObjective myStatus;
     #endregion

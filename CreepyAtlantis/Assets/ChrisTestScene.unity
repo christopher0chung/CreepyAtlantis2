@@ -703,6 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db85023b4a0539d42b917cbdcd9c7012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _who: 0
   myLM:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1717,12 +1718,45 @@ MonoBehaviour:
   label: 
   description: 
   myStatus: 0
-  optional_iDToSubScribeTo: 
+  optional_startActive: 0
+  optional_precedingObjective: {fileID: 0}
   optional_timesToInteractToComplete: 0
   optional_timeInsideToComplete: 0
   optional_nameOfColliderOwners: []
+  optional_dialogueEvent: {fileID: 0}
+  optional_iDToSubScribeTo: 
   interactCount: 0
   timer: 0
+  onCreated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onInitialized:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onCleanedUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1686573960
 Transform:
   m_ObjectHideFlags: 0
