@@ -24919,8 +24919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monochrome: 1
   grainIntensityMin: 0.12
-  grainIntensityMax: 0.2
-  grainSize: 2.2
+  grainIntensityMax: 0.61
+  grainSize: 1.8
   scratchIntensityMin: 0
   scratchIntensityMax: 0
   scratchFPS: 1
@@ -25188,7 +25188,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2134793838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a3a070408aa941ab83ae10be1708848, type: 3}
   m_Name: 

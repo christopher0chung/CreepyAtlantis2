@@ -5,7 +5,7 @@ using UnityEngine;
 public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
 {
     #region ColorSet
-    public Interactors _who;
+    private Interactors _who;
     private Interactors who
     {
         get
@@ -34,6 +34,8 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
         }
     }
     private Color myC;
+    [SerializeField]
+    private float outlineThickness = .0003f;
     #endregion
 
     //Subclass Sandbox - Interactable Objects
@@ -67,7 +69,7 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
                 _showHighlight = value;
                 if (_showHighlight)
                 {
-                    newMat.SetFloat("_OutlineWidth", .0003f);
+                    newMat.SetFloat("_OutlineWidth", outlineThickness);
                     newMat.SetColor("_OutlineColor", myC);
                     if (transform.Find("OLI(Clone)") != null)
                     {
