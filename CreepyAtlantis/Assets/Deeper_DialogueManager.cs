@@ -3,48 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum DialogueLineAction { Play, Stop}
+public enum DialogueLinePriority { Normal, Interrupt}
 public class GE_Dia_Line : GameEvent
 {
     public Speaker speaker;
     public string line;
-    public DialogueLineAction action;
+    public DialogueLinePriority priority;
     public string audioFileName;
 
-    public GE_Dia_Line (Speaker s, string l, DialogueLineAction a, string n)
+    public GE_Dia_Line (Speaker s, string l, DialogueLinePriority p, string n)
     {
         speaker = s;
         line = l;
-        action = a;
+        priority = p;
         audioFileName = n;
     }
 }
 
-public enum DialogueEventStatus {Standby, Active, Complete }
-public class GE_Dia_Event : GameEvent
+public enum DialogueStatus { Start, Complete}
+public class GE_UI_Dia : GameEvent
 {
-    public DialogueEventStatus status;
-    public string eventName;
+    public Speaker speaker;
+    public DialogueStatus status;
 
-    public GE_Dia_Event (DialogueEventStatus s, string n)
+    public GE_UI_Dia (Speaker s, DialogueStatus dS)
     {
-        status = s;
-        eventName = n;
+        speaker = s;
+        status = dS;
     }
 }
 
-public enum DialogueLineStatus { Active, Complete}
-public class GE_DialogueManager_Status : GameEvent
-{
-    public DialogueLineStatus status;
-    public string audioFileName;
-
-    public GE_DialogueManager_Status (DialogueLineStatus s, string n)
-    {
-        status = s;
-        audioFileName = n;
-    }
-}
 
 [RequireComponent (typeof(AudioSource))]
 public class Deeper_DialogueManager : MonoBehaviour {
@@ -69,7 +57,10 @@ public class Deeper_DialogueManager : MonoBehaviour {
     private string currentActiveAudioFile;
 
     private AudioSource myAS;
+
+    private List<GE_Dia_Line> queuedLines = new List<GE_Dia_Line>();
     #endregion
+ 
 
     #region Mono Functions
     void Start () {
@@ -78,16 +69,16 @@ public class Deeper_DialogueManager : MonoBehaviour {
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
 
-        //if(GameObject.Find("GameStateManagers").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
-        //{
-        //    _speakerIndex.Add(Speaker.Ops, 0);
-        //    _speakerIndex.Add(Speaker.Doc, 2);
-        //}
-        //else
-        //{
+        if (GameObject.Find("GameStateManagers").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
+        {
+            _speakerIndex.Add(Speaker.Ops, 0);
+            _speakerIndex.Add(Speaker.Doc, 2);
+        }
+        else
+        {
             _speakerIndex.Add(Speaker.Doc, 0);
             _speakerIndex.Add(Speaker.Ops, 2);
-        //}
+        }
         _speakerIndex.Add(Speaker.DANI, 1);
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
@@ -95,12 +86,12 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
     void Update()
     {
-        _fsm.Update();
-
-        if(Input.GetKeyDown(KeyCode.Return))
+        // when queued lines has something in it, start playing the line 
+        if (queuedLines.Count > 0 && !(_fsm.CurrentState.GetType() == typeof(PrintStart) || _fsm.CurrentState.GetType() == typeof(PrintComplete)))
         {
-            EventManager.instance.Fire(new GE_Dia_Line((Speaker)Random.Range(0, 3), "Look at me, I'm DANI!", DialogueLineAction.Play, "AALERT1-XXXX-DAN"));
+            _fsm.TransitionTo<PrintStart>();
         }
+        _fsm.Update();
     }
     #endregion
 
@@ -111,11 +102,13 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             GE_Dia_Line d = (GE_Dia_Line)e;
 
-            if (d.action == DialogueLineAction.Play)
+            if (d.priority == DialogueLinePriority.Normal)
             {
-                currentActiveLine = d.line;
-                currentActiveSpeaker = d.speaker;
-                currentActiveAudioFile = d.audioFileName;
+                queuedLines.Add(d);
+            }
+            else if (d.priority == DialogueLinePriority.Interrupt)
+            {
+                queuedLines.Insert(0, d);
                 _fsm.TransitionTo<PrintStart>();
             }
         }
@@ -178,7 +171,13 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             Context.myAS.Stop();
 
+            Context.currentActiveLine = Context.queuedLines[0].line;
+            Context.currentActiveSpeaker = Context.queuedLines[0].speaker;
+            Context.currentActiveAudioFile = Context.queuedLines[0].audioFileName;
+
             theLine = Context.currentActiveLine;
+
+            EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Start));
 
             for (int i = 0; i < 3; i++)
             {
@@ -243,7 +242,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             theText.text = "";
             Context.myAS.Stop();
-            EventManager.instance.Fire(new GE_DialogueManager_Status(DialogueLineStatus.Complete, Context.myAS.clip.name));
+            Context.queuedLines.RemoveAt(0);
+            EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
         }
     }
     #endregion
