@@ -90,6 +90,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     [SerializeField] private Text[] TextBoxes = new Text[3];
     [SerializeField] private Text[] ChoiceBoxes = new Text[4];
     [SerializeField] private Image[] TextBorders = new Image[3];
+    [SerializeField] private Text DescriptionBox;
     #endregion
 
     #region Internal Convenience Variables
@@ -124,26 +125,36 @@ public class Deeper_DialogueManager : MonoBehaviour {
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
 
-        //if (GameObject.Find("GameStateManagers").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
-        //{
-        _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[0]);
-        _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[2]);
+        if (GameObject.Find("GameStateManager").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
+        {
+            _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[0]);
+            _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[2]);
 
-        Text[] leftFields = new Text[2];
-        leftFields[0] = ChoiceBoxes[0];
-        leftFields[1] = ChoiceBoxes[1];
-        Text[] rightFields = new Text[2];
-        rightFields[0] = ChoiceBoxes[2];
-        rightFields[1] = ChoiceBoxes[3];
+            Text[] leftFields = new Text[2];
+            leftFields[0] = ChoiceBoxes[0];
+            leftFields[1] = ChoiceBoxes[1];
+            Text[] rightFields = new Text[2];
+            rightFields[0] = ChoiceBoxes[2];
+            rightFields[1] = ChoiceBoxes[3];
 
-        _choiceSpeakerRefs.Add(Speaker.Ops, leftFields);
-        _choiceSpeakerRefs.Add(Speaker.Doc, rightFields);
-        //}
-        //else
-        //{
-        //    _speakerIndex.Add(Speaker.Doc, 0);
-        //    _speakerIndex.Add(Speaker.Ops, 2);
-        //}
+            _choiceSpeakerRefs.Add(Speaker.Ops, leftFields);
+            _choiceSpeakerRefs.Add(Speaker.Doc, rightFields);
+        }
+        else
+        {
+            _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[2]);
+            _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[0]);
+
+            Text[] leftFields = new Text[2];
+            leftFields[0] = ChoiceBoxes[0];
+            leftFields[1] = ChoiceBoxes[1];
+            Text[] rightFields = new Text[2];
+            rightFields[0] = ChoiceBoxes[2];
+            rightFields[1] = ChoiceBoxes[3];
+
+            _choiceSpeakerRefs.Add(Speaker.Ops, rightFields);
+            _choiceSpeakerRefs.Add(Speaker.Doc, leftFields);
+        }
         _standardSpeakerRef.Add(Speaker.DANI, TextBoxes[1]);
 	}
 
@@ -158,17 +169,25 @@ public class Deeper_DialogueManager : MonoBehaviour {
     void _LinesParser()
     {
         // when queued lines has something in it, start playing the line 
-        if (queuedLines.Count > 0 && !(_fsm.CurrentState.GetType() == typeof(PrintStart) || _fsm.CurrentState.GetType() == typeof(PrintComplete)))
+        if (queuedLines.Count > 0 && _fsm.CurrentState.GetType() == typeof(Standby))
         {
-            //_fsm.TransitionTo<PrintStart>();
-            if (queuedLines[0].GetType() == typeof(Deeper_DialogueChoice) && queuedLines[0].tag != DialogueLineTag.First)
-            {
-                //_fsm.TransitionTo</*something*/>();
-            }
-            else if (queuedLines[0].GetType() == typeof(Deeper_DialogueChoice) && queuedLines[0].tag != DialogueLineTag.First)
+            if (queuedLines[0].type == DialogueLineType.Standard && queuedLines[0].tag != DialogueLineTag.First && queuedLines[0].tag != DialogueLineTag.FirstAndLast)
             {
                 _fsm.TransitionTo<PrintStart>();
             }
+            else if (queuedLines[0].type == DialogueLineType.Choice && queuedLines[0].tag != DialogueLineTag.First && queuedLines[0].tag != DialogueLineTag.FirstAndLast)
+            {
+                _fsm.TransitionTo<ChoiceState>();
+            }
+            DescriptionBox.text = queuedLines[0].description;
+        }
+        else if (queuedLines.Count > 0 && (_fsm.CurrentState.GetType() == typeof(PrintStart) || _fsm.CurrentState.GetType() == typeof(PrintComplete)))
+        {
+            DescriptionBox.text = "Press Y to advance";
+        }
+        else
+        {
+            DescriptionBox.text = "";
         }
     }
 
@@ -231,7 +250,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             Button_GE b = (Button_GE)e;
             {
-                if (b.button == Button.Dialogue)
+                if (b.button == Button.Dialogue && b.pressedReleased)
                 {
                     //------------------------------------
                     // if lines are playing, advance
@@ -247,26 +266,34 @@ public class Deeper_DialogueManager : MonoBehaviour {
                     //------------------------------------
                     // if a new event's worth of dialogue is in the queue, start it in the appropriate way
                     //------------------------------------
-                    if (queuedLines.Count > 0 && !(_fsm.CurrentState.GetType() == typeof(PrintStart) || _fsm.CurrentState.GetType() == typeof(PrintComplete)))
+                    if (queuedLines.Count > 0 && _fsm.CurrentState.GetType() == typeof(Standby))
                     {
-                        if (queuedLines[0].tag == DialogueLineTag.First)
+                        if (queuedLines[0].tag == DialogueLineTag.First || queuedLines[0].tag == DialogueLineTag.FirstAndLast)
                         {
-                            if (queuedLines[0].GetType() == typeof(Deeper_DialogueStandard))
+                            if (queuedLines[0].type == DialogueLineType.Standard)
                             {
                                 _fsm.TransitionTo<PrintStart>();
                             }
-                            else if (queuedLines[0].GetType() == typeof(Deeper_DialogueChoice))
+                            else if (queuedLines[0].type == DialogueLineType.Choice)
                             {
-                                //_fsm.TransitionTo</*something*/>();
+                                _fsm.TransitionTo<ChoiceState>();
                             }
                         }
                     }
                 }
-                else if (b.button == Button.Choice1)
+                else if (b.button == Button.Choice1 && b.pressedReleased)
                 {
                     if(_fsm.CurrentState.GetType() == typeof(ChoiceState))
                     {
                         queuedLines[0].choice1Event.Fire();
+                        _fsm.TransitionTo<Standby>();
+                    }
+                }
+                else if (b.button == Button.Choice2 && b.pressedReleased)
+                {
+                    if (_fsm.CurrentState.GetType() == typeof(ChoiceState))
+                    {
+                        queuedLines[0].choice2Event.Fire();
                         _fsm.TransitionTo<Standby>();
                     }
                 }
@@ -286,7 +313,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Context.queuedLines.RemoveAt(0);
+            if (Context.queuedLines.Count > 0)
+                Context.queuedLines.RemoveAt(0);
             EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
         }
 
@@ -319,7 +347,10 @@ public class Deeper_DialogueManager : MonoBehaviour {
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
 
             theLine = Context.currentActiveLine;
-            audioLength = Context.myAS.clip.length;
+            if (Context.myAS.clip != null)
+                audioLength = Context.myAS.clip.length;
+            else
+                audioLength = 5;
             timer = 0;
 
             //start audio
@@ -329,6 +360,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
+            Debug.Log("In PrintStart");
+
             timer += Time.deltaTime;
             if (timer / audioLength >= 1)
             {
@@ -359,13 +392,17 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             //get or reset internal variables
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
-
-            timeRemaining = Context.myAS.clip.length - Context.myAS.time;
+            if (Context.myAS.clip != null)
+                timeRemaining = Context.myAS.clip.length - Context.myAS.time;
+            else
+                timeRemaining = 5;
             timer = 0;
         }
 
         public override void Update()
         {
+            Debug.Log("In PrintComplete");
+
             timer += Time.deltaTime;
             if (timer >= timeRemaining)
                 TransitionTo<Standby>();
@@ -409,6 +446,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
+            Debug.Log("In Choice");
 
         }
 
