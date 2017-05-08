@@ -9,5 +9,3 @@ public class Deeper_DialogueLine_Base : MonoBehaviour
     [Header("What it says before event starts")]
     public string description;
 }
-
-
