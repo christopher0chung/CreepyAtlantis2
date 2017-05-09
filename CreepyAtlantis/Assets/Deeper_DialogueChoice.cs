@@ -9,5 +9,5 @@ public class Deeper_DialogueChoice : Deeper_DialogueLine_Base
     public string choice2;
     [Header("Optional")]
     public Deeper_DialogueEvent choice1Event;
-    public Deeper_DialogueEvent choice2event;
+    public Deeper_DialogueEvent choice2Event;
 }

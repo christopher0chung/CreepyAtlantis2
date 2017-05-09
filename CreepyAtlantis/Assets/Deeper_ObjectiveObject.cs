@@ -35,10 +35,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private string[] optional_nameOfColliderOwners;
 
     [Header("Dialogue Event to Fire")]
-    [SerializeField] private DialogueEvents optional_dialogueEvent;
+    [SerializeField] private Deeper_DialogueEvent optional_dialogueEvent;
 
     [Header("Name of id if part of set")]
     [SerializeField] private string optional_iDToSubScribeTo;
+
+    [Header("Dialogue event reference ")]
+    private float nothing;
     #endregion
 
     #region Functional Vars
@@ -137,7 +140,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 {
                     DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
                     if (optional_dialogueEvent != null)
-                        myDM.FireEvent(myDM.ReturnEventIndex(optional_dialogueEvent));
+                        optional_dialogueEvent.Fire();
                     onTriggered.Invoke();
                     _myObjv.status = Status_GameObjective.Completed;
                 }

@@ -117,6 +117,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start () {

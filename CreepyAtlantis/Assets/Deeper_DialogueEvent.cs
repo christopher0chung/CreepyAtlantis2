@@ -53,7 +53,7 @@ public class Deeper_DialogueEvent : MonoBehaviour {
                     lineTag = DialogueLineTag.Last;
                 else
                     lineTag = DialogueLineTag.Middle;
-                EventManager.instance.Fire(new GE_Dia_Line(p, lineTag, lineRef.speaker, lineRef.description, lineRef.choice1, lineRef.choice2, lineRef.choice1Event, lineRef.choice2event));
+                EventManager.instance.Fire(new GE_Dia_Line(p, lineTag, lineRef.speaker, lineRef.description, lineRef.choice1, lineRef.choice2, lineRef.choice1Event, lineRef.choice2Event));
             }
         }
     }
