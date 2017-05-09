@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Deeper_ObjectiveObject : MonoBehaviour {
 
-    public enum Type_GameObjective_HowToTrigger { TimeInColllider, PositiveAction}
+    public enum Type_GameObjective_HowToTrigger { TimeInColllider, PositiveAction, HandOff }
 
     #region Creation Properties
     [SerializeField] private Type_GameObjective myType;
@@ -27,6 +27,9 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [Header("Objective that activates this OnComplete")]
     [SerializeField] private Deeper_ObjectiveObject optional_precedingObjective;
 
+    [Header("Objective that triggers this OnComplete for handoff")]
+    [SerializeField] private Deeper_ObjectiveObject optional_handoffObjective;
+
     [Header("For Interactable Objectives")]
     [SerializeField] private int optional_timesToInteractToComplete;
 
@@ -34,14 +37,22 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private float optional_timeInsideToComplete;
     [SerializeField] private string[] optional_nameOfColliderOwners;
 
-    [Header("Dialogue Event to Fire")]
-    [SerializeField] private Deeper_DialogueEvent optional_dialogueEvent;
+    [Header("Dialogue Event to Fire OnActive")]
+    [SerializeField] private Deeper_DialogueEvent optional_dialogueEventOnActive;
+
+    [Header("Dialogue Event to Fire OnTriggered")]
+    [SerializeField] private Deeper_DialogueEvent optional_dialogueEventOnTriggered;
 
     [Header("Name of id if part of set")]
     [SerializeField] private string optional_iDToSubScribeTo;
 
     [Header("Optional: Dialogue that activates this objective")]
     [SerializeField] private Deeper_DialogueLine_Base optional_DialogueToActivate;
+
+    [Header("Check first box if it should change sub status OnActive")]
+    [SerializeField] private bool AffectSubOnTrigger;
+    [SerializeField] private bool CanMoveNow;
+    [SerializeField] private bool CanGetOutNow;
     #endregion
 
     #region Functional Vars
@@ -109,6 +120,18 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                     }
                 }
             }
+            
+            if (optional_handoffObjective != null)
+            {
+                if (GOE.GObjv.iD == optional_handoffObjective._myObjv.iD)
+                {
+                    if (GOE.GObjv.status == Status_GameObjective.Active)
+                    {
+                        if (_myObjv.status == Status_GameObjective.Active)
+                            _myObjv.status = Status_GameObjective.Triggered;
+                    }
+                }
+            }
 
             if (GOE.GObjv.iD == _myObjv.iD)
             {
@@ -136,13 +159,25 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                     }
 
                     myInd.transform.parent = transform;
+
+                    if (optional_dialogueEventOnActive != null)
+                    {
+                        Debug.Log("In onActive with a dialogue");
+                        optional_dialogueEventOnActive.Fire();
+                    }
+
+                    if (AffectSubOnTrigger)
+                    {
+                        GameObject.Find("Sub").GetComponent<SubController>().canMove = CanMoveNow;
+                        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = CanGetOutNow;
+                    }
                     onActivated.Invoke();
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Triggered)
                 {
                     DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-                    if (optional_dialogueEvent != null)
-                        optional_dialogueEvent.Fire();
+                    if (optional_dialogueEventOnTriggered != null)
+                        optional_dialogueEventOnTriggered.Fire();
                     onTriggered.Invoke();
                     _myObjv.status = Status_GameObjective.Completed;
                 }
@@ -163,9 +198,16 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         if (e.GetType() == typeof(GE_DiaToObjv))
         {
             GE_DiaToObjv d = (GE_DiaToObjv)e;
-            if (d.DialogueLineSerial == optional_DialogueToActivate.gameObject.name)
+            if (optional_DialogueToActivate != null)
             {
-                _myObjv.status = Status_GameObjective.Active;
+                if (d.DialogueLineSerial == optional_DialogueToActivate.gameObject.name)
+                {
+                    if (_myObjv.status == Status_GameObjective.Initialized)
+                    {
+                        Debug.Log("Message received");
+                        _myObjv.status = Status_GameObjective.Active;
+                    }
+                }
             }
         }
     }

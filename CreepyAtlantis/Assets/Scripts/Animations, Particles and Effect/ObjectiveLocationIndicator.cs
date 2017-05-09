@@ -142,7 +142,7 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
 
     public void AssignWho (Interactors i)
     {
-        Debug.Log("Assigning a new interactor");
+        //Debug.Log("Assigning a new interactor");
         who = i;
     }
 }

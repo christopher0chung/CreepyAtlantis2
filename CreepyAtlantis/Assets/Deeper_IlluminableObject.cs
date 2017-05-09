@@ -16,7 +16,7 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
         {
             if (value != _who)
             {
-                Debug.Log("Color change");
+                //Debug.Log("Color change");
                 _who = value;
                 if (_who == Interactors.Ops)
                 {
@@ -67,21 +67,24 @@ public class Deeper_IlluminableObject : MonoBehaviour, IIlluminable
             if (value != _showHighlight)
             {
                 _showHighlight = value;
-                if (_showHighlight)
+                if (myMR != null)
                 {
-                    newMat.SetFloat("_OutlineWidth", outlineThickness);
-                    newMat.SetColor("_OutlineColor", myC);
-                    if (transform.Find("OLI(Clone)") != null)
+                    if (_showHighlight)
                     {
-                        transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = GetComponent<Deeper_ObjectiveObject>().description;
+                        newMat.SetFloat("_OutlineWidth", outlineThickness);
+                        newMat.SetColor("_OutlineColor", myC);
+                        if (transform.Find("OLI(Clone)") != null)
+                        {
+                            transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = GetComponent<Deeper_ObjectiveObject>().description;
+                        }
                     }
-                }
-                else
-                {
-                    newMat.SetFloat("_OutlineWidth", 0);
-                    if (transform.Find("OLI(Clone)") != null)
+                    else
                     {
-                        transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = "";
+                        newMat.SetFloat("_OutlineWidth", 0);
+                        if (transform.Find("OLI(Clone)") != null)
+                        {
+                            transform.Find("OLI(Clone)").Find("Description").GetComponent<TextMesh>().text = "";
+                        }
                     }
                 }
             }

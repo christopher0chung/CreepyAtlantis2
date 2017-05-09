@@ -182,6 +182,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
         {
             if (queuedLines[0].type == DialogueLineType.Standard && queuedLines[0].tag != DialogueLineTag.First && queuedLines[0].tag != DialogueLineTag.FirstAndLast)
             {
+                //Debug.Log("Line parser says to transition to print start");
                 _fsm.TransitionTo<PrintStart>();
             }
             else if (queuedLines[0].type == DialogueLineType.Choice && queuedLines[0].tag != DialogueLineTag.First && queuedLines[0].tag != DialogueLineTag.FirstAndLast)
@@ -252,7 +253,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
             else if (d.priority == DialogueLinePriority.Interrupt)
             {
                 queuedLines.Insert(0, d);
-                _fsm.TransitionTo<PrintStart>();
+                //_fsm.TransitionTo<PrintStart>();
             }
         }
         else if (e.GetType() == typeof(Button_GE))
@@ -322,6 +323,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
+            Debug.Log("Entering Standby in DM's FSM");
             if (Context.queuedLines.Count > 0)
                 Context.queuedLines.RemoveAt(0);
             EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
@@ -351,6 +353,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
+            Debug.Log("Entering PrintStart in DM's FSM");
+
             Context._HardInitialize();
             //get or reset internal variables
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
@@ -366,6 +370,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
             Context.myAS.clip = (AudioClip)Resources.Load("Dialogue/" + Context.currentActiveAudioFile);
             Context.myAS.Play();
 
+            Debug.Assert(Context.currentActiveAudioFile != null, "The active file is empty");
             EventManager.instance.Fire(new GE_DiaToObjv(Context.currentActiveAudioFile));
         }
 
@@ -401,6 +406,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
+            Debug.Log("Entering PrintComplete in DM's FSM");
+
             //get or reset internal variables
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
             if (Context.myAS.clip != null)
@@ -436,6 +443,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
+            Debug.Log("Entering ChoiceState in DM's FSM");
+
             Context._HardInitialize();
 
             Text[] fields;

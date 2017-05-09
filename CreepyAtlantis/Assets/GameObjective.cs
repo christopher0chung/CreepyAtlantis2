@@ -44,7 +44,7 @@ public class GameObjective {
             {
                 _status = value;
                 _ManagerUpdate();
-                Debug.Log("my new status is: " + _status.ToString());
+                //Debug.Log("my new status is: " + _status.ToString());
                 EventManager.instance.Fire(new GameObjectiveEvent(this));
             }
         }
@@ -62,7 +62,7 @@ public class GameObjective {
     {
         // placeholder
         // happens in start after created in the obj.
-        Debug.Log("Checking in");
+        //Debug.Log("Checking in");
         status = GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
     }
 
