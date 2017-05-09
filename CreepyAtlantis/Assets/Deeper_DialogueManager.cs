@@ -74,6 +74,14 @@ public class GE_UI_LineInQueue
     }
 }
 
+public class GE_DiaToObjv : GameEvent
+{
+    public string DialogueLineSerial;
+    public GE_DiaToObjv(string s)
+    {
+        DialogueLineSerial = s;
+    }
+}
 
 //---------------------------------------------------------------------------------------------------------------------------------
 // When an DialogueEvent fires, it gets added to the list of dialogue lines in chronological order as determined by the event.
@@ -357,6 +365,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
             //start audio
             Context.myAS.clip = (AudioClip)Resources.Load("Dialogue/" + Context.currentActiveAudioFile);
             Context.myAS.Play();
+
+            EventManager.instance.Fire(new GE_DiaToObjv(Context.currentActiveAudioFile));
         }
 
         public override void Update()

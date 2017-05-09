@@ -40,8 +40,8 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [Header("Name of id if part of set")]
     [SerializeField] private string optional_iDToSubScribeTo;
 
-    [Header("Dialogue event reference ")]
-    private float nothing;
+    [Header("Optional: Dialogue that activates this objective")]
+    [SerializeField] private Deeper_DialogueLine_Base optional_DialogueToActivate;
     #endregion
 
     #region Functional Vars
@@ -68,12 +68,14 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         iD_locSerial = transform.position.ToString();
         _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
         EventManager.instance.Register<GameObjectiveEvent>(EventListener);
+        EventManager.instance.Register<GE_DiaToObjv>(EventListener);
         GameStateManager.onPreLoadLevel += OnPreLoadLevel;
     }
 
     void OnPreLoadLevel()
     {
         EventManager.instance.Unregister<GameObjectiveEvent>(EventListener);
+        EventManager.instance.Unregister<GE_DiaToObjv>(EventListener);
         GameStateManager.onPreLoadLevel -= OnPreLoadLevel;
     }
 
@@ -155,6 +157,15 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 {
                     onCleanedUp.Invoke();
                 }
+            }
+        }
+
+        if (e.GetType() == typeof(GE_DiaToObjv))
+        {
+            GE_DiaToObjv d = (GE_DiaToObjv)e;
+            if (d.DialogueLineSerial == optional_DialogueToActivate.gameObject.name)
+            {
+                _myObjv.status = Status_GameObjective.Active;
             }
         }
     }
