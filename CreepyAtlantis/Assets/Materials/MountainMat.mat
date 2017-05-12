@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MountainMat
-  m_Shader: {fileID: 4800000, guid: d3df3900368c566479f64fd53f7ba744, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -86,6 +86,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _EmissionMultiplier
+      second: 1
+    - first:
         name: _Gloss
       second: 0.4682218
     - first:
@@ -106,6 +109,9 @@ Material:
     - first:
         name: _OcclusionStrength
       second: 1
+    - first:
+        name: _OutlineWidth
+      second: 0
     - first:
         name: _Parallax
       second: 0.02
@@ -137,3 +143,6 @@ Material:
     - first:
         name: _FogColor
       second: {r: 0.009160785, g: 0.03137255, b: 0.02624676, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 1, g: 1, b: 1, a: 1}
