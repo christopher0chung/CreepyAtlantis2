@@ -13,7 +13,10 @@ public class New_UI_Parent : MonoBehaviour {
 
     void Update()
     {
-        transform.position = myCam.transform.position;
+        if (myCam == null)
+            HookCam();
+        else
+            transform.position = myCam.transform.position;
     }
 
     public void HookCam()

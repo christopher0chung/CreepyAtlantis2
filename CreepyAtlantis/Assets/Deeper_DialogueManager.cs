@@ -134,17 +134,18 @@ public class Deeper_DialogueManager : MonoBehaviour {
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
 
+        Text[] leftFields = new Text[2];
+        leftFields[0] = ChoiceBoxes[0];
+        leftFields[1] = ChoiceBoxes[1];
+        Text[] rightFields = new Text[2];
+        rightFields[0] = ChoiceBoxes[2];
+        rightFields[1] = ChoiceBoxes[3];
+
         if (GameObject.Find("Managers").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
         {
             _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[0]);
+            _standardSpeakerRef.Add(Speaker.DANI, TextBoxes[1]);
             _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[2]);
-
-            Text[] leftFields = new Text[2];
-            leftFields[0] = ChoiceBoxes[0];
-            leftFields[1] = ChoiceBoxes[1];
-            Text[] rightFields = new Text[2];
-            rightFields[0] = ChoiceBoxes[2];
-            rightFields[1] = ChoiceBoxes[3];
 
             _choiceSpeakerRefs.Add(Speaker.Ops, leftFields);
             _choiceSpeakerRefs.Add(Speaker.Doc, rightFields);
@@ -152,19 +153,12 @@ public class Deeper_DialogueManager : MonoBehaviour {
         else
         {
             _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[2]);
+            _standardSpeakerRef.Add(Speaker.DANI, TextBoxes[1]);
             _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[0]);
-
-            Text[] leftFields = new Text[2];
-            leftFields[0] = ChoiceBoxes[0];
-            leftFields[1] = ChoiceBoxes[1];
-            Text[] rightFields = new Text[2];
-            rightFields[0] = ChoiceBoxes[2];
-            rightFields[1] = ChoiceBoxes[3];
 
             _choiceSpeakerRefs.Add(Speaker.Ops, rightFields);
             _choiceSpeakerRefs.Add(Speaker.Doc, leftFields);
         }
-        _standardSpeakerRef.Add(Speaker.DANI, TextBoxes[1]);
 	}
 
     void Update()
@@ -253,7 +247,10 @@ public class Deeper_DialogueManager : MonoBehaviour {
             else if (d.priority == DialogueLinePriority.Interrupt)
             {
                 queuedLines.Insert(0, d);
-                //_fsm.TransitionTo<PrintStart>();
+                if (queuedLines[0].type == DialogueLineType.Standard)
+                    _fsm.TransitionTo<PrintStart>();
+                else
+                    _fsm.TransitionTo<ChoiceState>();
             }
         }
         else if (e.GetType() == typeof(Button_GE))
@@ -359,16 +356,19 @@ public class Deeper_DialogueManager : MonoBehaviour {
             //get or reset internal variables
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
 
+            //start audio
+            Context.myAS.clip = (AudioClip)Resources.Load("Dialogue/" + Context.currentActiveAudioFile);
+            Context.myAS.Play();
+
             theLine = Context.currentActiveLine;
             if (Context.myAS.clip != null)
                 audioLength = Context.myAS.clip.length;
             else
+            {
+                Debug.Log("Logged 5");
                 audioLength = 5;
+            }
             timer = 0;
-
-            //start audio
-            Context.myAS.clip = (AudioClip)Resources.Load("Dialogue/" + Context.currentActiveAudioFile);
-            Context.myAS.Play();
 
             Debug.Assert(Context.currentActiveAudioFile != null, "The active file is empty");
             EventManager.instance.Fire(new GE_DiaToObjv(Context.currentActiveAudioFile));
