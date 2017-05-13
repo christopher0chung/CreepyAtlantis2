@@ -134,7 +134,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
 
-        if (GameObject.Find("GameStateManager").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
+        if (GameObject.Find("Managers").GetComponent<SelectionManager>().C1 == SelectChoice.Ops)
         {
             _standardSpeakerRef.Add(Speaker.Ops, TextBoxes[0]);
             _standardSpeakerRef.Add(Speaker.Doc, TextBoxes[2]);

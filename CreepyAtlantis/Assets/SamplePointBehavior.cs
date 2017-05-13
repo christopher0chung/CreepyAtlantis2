@@ -7,14 +7,14 @@ public class SamplePointBehavior : MonoBehaviour {
     public TextMesh SampleTimer;
     private float timer;
 
-    private LevelLoader myLL;
+    //private LevelLoader myLL;
 
     private bool done;
 
     void Start()
     {
         timer = 120;
-        myLL = GameObject.Find("GameStateManager").GetComponent<LevelLoader>();
+        //myLL = GameObject.Find("GameStateManager").GetComponent<LevelLoader>();
     }
 
     void Update()
@@ -50,7 +50,7 @@ public class SamplePointBehavior : MonoBehaviour {
     private IEnumerator delayedLoadLevel()
     {
         yield return new WaitForSeconds (3);
-        myLL.LoadLevel(myLL.GetLevel() + 1);
+        //myLL.LoadLevel(myLL.GetLevel() + 1);
         yield break;
     }
 }

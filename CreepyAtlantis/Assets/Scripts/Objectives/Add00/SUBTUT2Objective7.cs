@@ -24,8 +24,8 @@ public class SUBTUT2Objective7 : Objective
 
     public override void Trigger()
     {
-        GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(4);
-
+        //GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(4);
+        EventManager.instance.Fire(new GE_LoadLevelRequest(4));
         base.Trigger();
     }
 

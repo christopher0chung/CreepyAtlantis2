@@ -30,7 +30,7 @@ public class GameUIController : MonoBehaviour {
     
     private void Awake()
     {
-        mySM = GameObject.Find("GameStateManager").GetComponent<SelectionManager>();
+        mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
     }
 
     private void Start()
@@ -100,11 +100,11 @@ public class GameUIController : MonoBehaviour {
 
     private void DANISpeak()
     {
-        Ch0[1].color = GameObject.Find("GameStateManager").GetComponent<ColorManager>().DANI;
+        Ch0[1].color = GameObject.Find("Managers").GetComponent<ColorManager>().DANI;
         Ch1[1].color = ind_Off;
         Ch2[1].color = ind_Off;
 
-        Ch0_Assigned[1] = GameObject.Find("GameStateManager").GetComponent<ColorManager>().DANI;
+        Ch0_Assigned[1] = GameObject.Find("Managers").GetComponent<ColorManager>().DANI;
         Ch1_Assigned[1] = ind_Off;
         Ch2_Assigned[1] = ind_Off;
 

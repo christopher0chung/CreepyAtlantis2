@@ -173,15 +173,15 @@ public class PlayDialogue : MonoBehaviour, IDialogue, IControllable {
     {
         if (theSpeaker == Speaker.DANI)
         {
-            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().DANI;
+            refColor = GameObject.Find("Managers").GetComponent<ColorManager>().DANI;
         }
         else if (theSpeaker == Speaker.Doc)
         {
-            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().Doc;
+            refColor = GameObject.Find("Managers").GetComponent<ColorManager>().Doc;
         }
         else if (theSpeaker == Speaker.Ops)
         {
-            refColor = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>().Ops;
+            refColor = GameObject.Find("Managers").GetComponent<ColorManager>().Ops;
         }
     }
 

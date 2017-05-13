@@ -49,8 +49,7 @@ public class SelectionManager : MonoBehaviour {
                         c1Label.color = new Color(myCM.Doc.r, myCM.Doc.g, myCM.Doc.b, c1Label.color.a);
                     if (c2Confirm && C1Select != C2Select && C1Select != SelectChoice.None && C2Select != SelectChoice.None)
                     {
-                        GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(2);
-
+                        EventManager.instance.Fire(new GE_LoadLevelRequest(2));
                         if (C1Select == SelectChoice.Doc && C2Select == SelectChoice.Ops)
                         {
                             GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
@@ -90,8 +89,7 @@ public class SelectionManager : MonoBehaviour {
                         c2Label.color = new Color(myCM.Doc.r, myCM.Doc.g, myCM.Doc.b, c2Label.color.a);
                     if (c1Confirm && C1Select != C2Select && C1Select != SelectChoice.None && C2Select != SelectChoice.None)
                     {
-                        GameObject.FindGameObjectWithTag("Managers").GetComponent<LevelLoader>().LoadLevel(2);
-
+                        EventManager.instance.Fire(new GE_LoadLevelRequest(2));
                         if (C1Select == SelectChoice.Doc && C2Select == SelectChoice.Ops)
                         {
                             GameObject p0 = GameObject.FindGameObjectWithTag("Player0");
@@ -116,12 +114,13 @@ public class SelectionManager : MonoBehaviour {
         SceneManager.sceneLoaded += Init;
     }
 
+
     public void Init(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "ControllerCharacterHookup")
         {
             //Debug.Log("Ran Init in SelMan");
-            myCM = GameObject.FindGameObjectWithTag("Managers").GetComponent<ColorManager>();
+            myCM = GameObject.Find("Managers").GetComponent<ColorManager>();
 
             c1 = GameObject.Find("Controller1").GetComponent<Image>();
             c2 = GameObject.Find("Controller2").GetComponent<Image>();

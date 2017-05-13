@@ -238,7 +238,8 @@ namespace MultiplayerWithBindingsExample
 
             if (Actions.Start)
             {
-                GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(1);
+                //GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(1);
+                EventManager.instance.Fire(new GE_LoadLevelRequest(1));
             }
         }
 

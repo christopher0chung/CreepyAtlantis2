@@ -472,7 +472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49139044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.46, y: 3.9800007, z: 20}
+  m_LocalPosition: {x: 8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -1771,7 +1771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &152990030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c5af2713928c646bf6b8ed97dcb1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireAsInterrupt: 0
+  fireAsInterrupt: 1
 --- !u!4 &152990031
 Transform:
   m_ObjectHideFlags: 0
@@ -1799,7 +1799,7 @@ Transform:
   - {fileID: 1804584944}
   - {fileID: 1032971449}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &152990032
 MonoBehaviour:
@@ -2093,7 +2093,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 176461586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 3.54, z: 20}
+  m_LocalPosition: {x: -8.46, y: 3.51, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -4252,7 +4252,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 371364146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.46, y: 3.9800007, z: 20}
+  m_LocalPosition: {x: 8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -5268,7 +5268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &466822752
 Transform:
   m_ObjectHideFlags: 0
@@ -6064,7 +6064,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550723705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.02, y: 3.98, z: 20}
+  m_LocalPosition: {x: -8.02, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -10210,7 +10210,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 693644300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 3.98, z: 20}
+  m_LocalPosition: {x: -8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -11279,7 +11279,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 748515546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.02, y: 3.9799995, z: 20}
+  m_LocalPosition: {x: 8.02, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -11591,7 +11591,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 762853575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 3.98, z: 20}
+  m_LocalPosition: {x: -8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -13643,7 +13643,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 889116570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.460001, y: 4.4199996, z: 20.000002}
+  m_LocalPosition: {x: 8.46, y: 4.39, z: 20}
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -15046,7 +15046,7 @@ GameObject:
   - component: {fileID: 1032971449}
   - component: {fileID: 1032971450}
   m_Layer: 0
-  m_Name: Lines (3)
+  m_Name: SUBTUTT-0004-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15076,9 +15076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: 2
+  speaker: 1
   description: 
-  line: Really, I thought you were a robot.
+  line: Don't know. I just woke up, too.
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1034791416
 GameObject:
@@ -15205,7 +15205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039089745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.46, y: 3.9800007, z: 20}
+  m_LocalPosition: {x: 8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -15527,7 +15527,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1054773619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.900002, y: 3.9799993, z: 20}
+  m_LocalPosition: {x: 8.9, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -16200,7 +16200,7 @@ GameObject:
   - component: {fileID: 1164561619}
   - component: {fileID: 1164561620}
   m_Layer: 0
-  m_Name: Lines
+  m_Name: SUBTUTT-0001-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16231,8 +16231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speaker: 0
-  description: Talk about stuff.
-  line: I ama robot and stuff.
+  description: System restarting.
+  line: Alert! Alert!  Atmospheric sensors stabilizing.  Ship lost power 200 meters
+    from destination.
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1182295891
 GameObject:
@@ -20103,7 +20104,7 @@ GameObject:
   - component: {fileID: 1453076316}
   - component: {fileID: 1453076317}
   m_Layer: 0
-  m_Name: Lines (1)
+  m_Name: SUBTUTT-0002-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20133,9 +20134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: 1
+  speaker: 0
   description: 
-  line: I too am a robot and stuff.
+  line: All systems back online.
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1454371751
 GameObject:
@@ -21551,7 +21552,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1609119859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.460001, y: 3.5399995, z: 20.000002}
+  m_LocalPosition: {x: 8.46, y: 3.51, z: 20}
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -23155,7 +23156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1720968857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23179,6 +23180,7 @@ Transform:
   m_Children:
   - {fileID: 39296233}
   - {fileID: 131487402}
+  - {fileID: 1909196595}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23205,7 +23207,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732069921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.9, y: 3.98, z: 20}
+  m_LocalPosition: {x: -8.9, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -23365,7 +23367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1740665908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23987,7 +23989,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1778363944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 4.42, z: 20}
+  m_LocalPosition: {x: -8.46, y: 4.39, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -24341,7 +24343,7 @@ GameObject:
   - component: {fileID: 1804584944}
   - component: {fileID: 1804584945}
   m_Layer: 0
-  m_Name: Lines (2)
+  m_Name: SUBTUTT-0003-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24371,9 +24373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: 1
+  speaker: 2
   description: 
-  line: J/K.  I'm a person.
+  line: Ugh. How long was I out?
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1813867477
 GameObject:
@@ -25600,7 +25602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1909196592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25615,12 +25617,12 @@ MonoBehaviour:
   TextBoxes:
   - {fileID: 115241840}
   - {fileID: 1749286277}
-  - {fileID: 0}
+  - {fileID: 943670632}
   ChoiceBoxes:
-  - {fileID: 115241840}
   - {fileID: 1431133628}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1259808578}
+  - {fileID: 441427924}
+  - {fileID: 194766336}
   TextBorders:
   - {fileID: 0}
   - {fileID: 0}
@@ -25636,7 +25638,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -25744,8 +25746,8 @@ RectTransform:
   - {fileID: 441427923}
   - {fileID: 194766335}
   - {fileID: 703288848}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1720968858}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -27982,7 +27984,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2107644093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 3.98, z: 20}
+  m_LocalPosition: {x: -8.46, y: 3.95, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39296233}
@@ -28569,12 +28571,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2134793838}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870b9a8f0f82f4f56800cc427bcd1025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scanLineJitter: 0.085
+  _scanLineJitter: 0.008
   _verticalJump: 0.021
   _horizontalShake: 0.001
   _colorDrift: 0
@@ -28585,7 +28587,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2134793838}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a88a26a276b4e47619ce2c5adad33fab, type: 3}
   m_Name: 
@@ -28684,10 +28686,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.6531701
+    e01: 0.00000001565196
+    e02: 1.2962505
+    e03: -1.9511968
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -28701,22 +28703,22 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
-    e10: 0.5281959
-    e11: 3.6325512
-    e12: -0.67363364
-    e13: -80.74075
-    e20: 0.00018020543
-    e21: -0.00006882252
-    e22: -0.00022982458
-    e23: 0.2836497
-    e30: -0.6005851
-    e31: 0.22937034
-    e32: 0.76595485
-    e33: 54.791874
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
   LastMatrixVPInv:
     e00: 0
     e01: 0

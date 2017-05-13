@@ -3,10 +3,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
-public class LevelLoader : MonoBehaviour {
+public class GE_PreLoadLevel : GameEvent{ }
 
-    //Event Manager should be handling this but music controls are here for the time being.
-    //private MusicManager myMM;
+public class GE_LoadLevelRequest : GameEvent
+{
+    public int level;
+    public GE_LoadLevelRequest (int lvl)
+    {
+        level = lvl;
+    }
+}
+
+public class GE_PostAwakeLoadLevel : GameEvent { }
+
+public class LevelLoader : MonoBehaviour {
 
     private string[] funcToLevel = new string[6];
 
@@ -23,19 +33,14 @@ public class LevelLoader : MonoBehaviour {
         {
             if (value != _level)
             {
+                EventManager.instance.Fire(new GE_PreLoadLevel());
                 _level = value;
-                GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
-                Invoke(funcToLevel[value], 0.5f);              
+                Invoke(funcToLevel[value], 0);
+                //GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().PreLoadLevel();
+                //Invoke(funcToLevel[value], 0.5f);              
             }
         }
     }
-    //public int LEVEL
-    //{
-    //    get
-    //    {
-    //        return _level;
-    //    }
-    //}
 
     public int hold;
 
@@ -48,43 +53,13 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[4] = "LoadLevelFour";
         funcToLevel[5] = "LoadLevelFive";
 
-        //myMM = GetComponent<MusicManager>();
-
-        EventManager.instance.Register<Button_GE>(DeathLoad);
-    }
-
-    public int GetLevel()
-    {
-        return level;
-    }
-    public int GetHold()
-    {
-        return hold;
-    }
-
-    public void DeathUnload()
-    {
-        hold = level;
-        LoadLevel(0);
-    }
-
-    public void DeathLoad(GameEvent e)
-    {
-        if (hold != 0 && level == 0)
-        LoadLevel(hold);
-    }
-
-    public void LoadLevel (int lvl)
-    {
-        if (CheckReady(lvl))
-        {
-            level = lvl;
-        }
+        SceneManager.sceneLoaded += WhenSceneLoaded;
+        //EventManager.instance.Register<Button_GE>(DeathLoad);
+        EventManager.instance.Register<GE_LoadLevelRequest>(LoadLevelHandler);
     }
 
     private bool CheckReady (int lvl)
     {
-        //return true;
         if (lvl == 0)
             return true;
         if (lvl == 1)
@@ -106,46 +81,80 @@ public class LevelLoader : MonoBehaviour {
             return false;
     }
 
+    private void LoadLevelHandler (GameEvent e)
+    {
+        GE_LoadLevelRequest l = (GE_LoadLevelRequest)e;
+        if (CheckReady(l.level))
+        {
+            level = l.level;
+        }
+    }
+
+    //public void LoadLevel (int lvl)
+    //{
+    //    if (CheckReady(lvl))
+    //    {
+    //        level = lvl;
+    //    }
+    //}
+
+    private void WhenSceneLoaded (Scene scene, LoadSceneMode mode)
+    {
+        EventManager.instance.Fire(new GE_PostAwakeLoadLevel());
+    }
+
+    #region Death Level
+    public int GetLevel()
+    {
+        return level;
+    }
+    public int GetHold()
+    {
+        return hold;
+    }
+
+    public void DeathUnload()
+    {
+        hold = level;
+        //LoadLevel(0);
+    }
+
+    //public void DeathLoad(GameEvent e)
+    //{
+    //    //if (hold != 0 && level == 0)
+    //    //LoadLevel(hold);
+    //}
+
+
+
     private void DiedLevel()
     {
-        //Debug.Log("Loading Empty");
         SceneManager.LoadScene("Empty");
     }
 
+    #endregion
+
+    #region Level Loading Functions
     private void LoadLevelOne()
     {
-        //Debug.Log("LoadLevelOne");
         SceneManager.LoadScene("ControllerCharacterHookup");
-        //SceneManager.LoadScene("Play01");
-        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
     }
 
     private void LoadLevelTwo()
     {
         SceneManager.LoadScene("CutSceneLevel");
-        //myMM.FadeOut(0);
-        //myMM.FadeIn(1);
-        //myMM.FadeIn(2);
-        //myMM.FadeIn(3);
     }
 
     private void LoadLevelThree()
     {
-        //SceneManager.LoadScene("Play01");
-        //SceneManager.LoadScene("Add02", LoadSceneMode.Additive);
         SceneManager.LoadScene("Play01");
-        //SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
         SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
-        //myMM.FadeOut(2);
-        //myMM.FadeOut(3);
     }
 
     private void LoadLevelFour()
     {
         SceneManager.LoadScene("Play01");
         SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
-        //myMM.FadeOut(2);
-        //myMM.FadeOut(3);
     }
 
     private void LoadLevelFive()
@@ -153,11 +162,12 @@ public class LevelLoader : MonoBehaviour {
         SceneManager.LoadScene("EndScreen");
     }
 
-    private void Update ()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LoadLevel(level+1);
-        }
-    }
+    //private void Update ()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        LoadLevel(level+1);
+    //    }
+    //}
+    #endregion
 }

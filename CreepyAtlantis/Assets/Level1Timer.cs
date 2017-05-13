@@ -34,7 +34,7 @@ public class Level1Timer : MonoBehaviour {
         {
             done = true;
             SceneManager.sceneLoaded -= NextScene;
-            myLL.LoadLevel(myLL.GetLevel() + 1);
+            //myLL.LoadLevel(myLL.GetLevel() + 1);
         }
         if (!done)
         {
@@ -64,7 +64,7 @@ public class Level1Timer : MonoBehaviour {
     private IEnumerator delayedLoadLevel()
     {
         yield return new WaitForSeconds(3);
-        myLL.LoadLevel(myLL.GetLevel() + 1);
+        //myLL.LoadLevel(myLL.GetLevel() + 1);
         yield break;
     }
 

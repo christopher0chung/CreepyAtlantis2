@@ -52,8 +52,8 @@ public class DialogueEvents : MonoBehaviour, IDialogueEvent {
         //Debug.Log("Got to startLines");
         myLines[linesCounter].StateChoices(dialogueStates.speaking);
 
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.dialogue);
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.dialogue);
     }
 
     public void NextLine()

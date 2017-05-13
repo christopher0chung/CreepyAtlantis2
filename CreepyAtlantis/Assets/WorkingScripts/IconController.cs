@@ -57,7 +57,7 @@ public class IconController : MonoBehaviour, IControllable {
 
     void Start () {
         Position = SelectChoice.None;
-        mySM = GameObject.FindGameObjectWithTag("Managers").GetComponent<SelectionManager>();
+        mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
         if (gameObject.name == "Controller1")
             myNum = 0;
         else

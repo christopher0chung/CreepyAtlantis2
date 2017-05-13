@@ -63,12 +63,6 @@ namespace MultiplayerBasicExample
             InputFunc();
             _fsm.Update();
             Device.Vibrate(intensity);
-            //EventManager.instance.Fire(new Device_GE(myPID, Device));
-
-            //if (Input.GetKeyDown(KeyCode.T))
-            //{
-            //    EventManager.instance.Fire(new Test_GE(Random.Range(0.00f, 1f), Random.Range(-1.0000f, 1.0000f), "ardkdk", Random.Range(2, 500)));
-            //}
         }
 
         void Rumble(GameEvent e)
@@ -144,7 +138,9 @@ namespace MultiplayerBasicExample
                     {
                         if (myTM.GetState() == 2)
                         {
-                            GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(GameObject.Find("GameStateManager").GetComponent<LevelLoader>().GetLevel()+1);
+                            EventManager.instance.Fire(new GE_LoadLevelRequest(1));
+
+                            //GameObject.Find("GameStateManager").GetComponent<LevelLoader>().LoadLevel(GameObject.Find("GameStateManager").GetComponent<LevelLoader>().GetLevel()+1);
                             //Debug.Log(GameObject.Find("GameStateManager").GetComponent<LevelLoader>().GetLevel());
                         }
                     }
