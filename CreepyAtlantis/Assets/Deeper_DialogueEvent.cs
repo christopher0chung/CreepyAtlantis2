@@ -17,7 +17,7 @@ public class Deeper_DialogueEvent : MonoBehaviour {
         }
 	}
 
-    public void Fire()
+    public virtual void Fire()
     {
         DialogueLinePriority p;
         if (fireAsInterrupt)
