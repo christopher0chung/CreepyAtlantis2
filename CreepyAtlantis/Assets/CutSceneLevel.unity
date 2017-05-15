@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46659961}
   - component: {fileID: 46659962}
+  - component: {fileID: 46659963}
   m_Layer: 0
   m_Name: TextBoxIndicator_DANI
   m_TagString: Untagged
@@ -509,6 +510,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &46659963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46659960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 1
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &49139044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1447,7 @@ GameObject:
   - component: {fileID: 113924803}
   - component: {fileID: 113924805}
   - component: {fileID: 113924804}
+  - component: {fileID: 113924806}
   m_Layer: 0
   m_Name: SuitLabel_Left
   m_TagString: Untagged
@@ -1502,6 +1525,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &113924806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113924802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e488141677d7c5b45a828de262152313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  overrideTextOption: 0
+  overrideText: 
 --- !u!1 &115241839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1597,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: f;lakdsjf;lasjdf;lajsd;fljsa;dlfja;lsdkfj;alskdjf;alskdjf;laksdjf;lsakdjf;laksdjf;laskdjf;alskdjf;lsakdfj;alskdjf;alskdjf;alskdfj;alskdjf;ldsakjf;lsakdfj;lakdsjf;ladskjkdfj;alskdjf;ldsdasdfasdfasdfasdfasdf
+  m_Text: 01001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100100101100101010010101010101100101101110100010110110010101001001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100101010101111101001110101100101010001010101
 --- !u!222 &115241841
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1573,8 +1619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -599, y: 157}
-  m_SizeDelta: {x: 410, y: 103}
+  m_AnchoredPosition: {x: -584.6, y: 120.2}
+  m_SizeDelta: {x: 500.4, y: 146.21}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &118089068
 GameObject:
@@ -1859,6 +1905,7 @@ Transform:
   - {fileID: 1453076316}
   - {fileID: 1804584944}
   - {fileID: 1032971449}
+  - {fileID: 810191783}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2483,6 +2530,7 @@ GameObject:
   - component: {fileID: 201740107}
   - component: {fileID: 201740109}
   - component: {fileID: 201740108}
+  - component: {fileID: 201740110}
   m_Layer: 0
   m_Name: ChannelLabel_Left
   m_TagString: Untagged
@@ -2560,6 +2608,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &201740110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201740106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e488141677d7c5b45a828de262152313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  overrideTextOption: 1
+  overrideText: Channel 1
 --- !u!1 &202025321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2889,7 @@ GameObject:
   - component: {fileID: 220921141}
   - component: {fileID: 220921143}
   - component: {fileID: 220921142}
+  - component: {fileID: 220921144}
   m_Layer: 0
   m_Name: SuitLabel_Right
   m_TagString: Untagged
@@ -2897,6 +2969,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &220921144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220921140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e488141677d7c5b45a828de262152313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  overrideTextOption: 0
+  overrideText: 
 --- !u!1 &227184542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +3685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 308346016}
   - component: {fileID: 308346017}
+  - component: {fileID: 308346018}
   m_Layer: 0
   m_Name: TextBox_Left
   m_TagString: Untagged
@@ -3646,6 +3742,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &308346018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308346015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &311790166
 GameObject:
   m_ObjectHideFlags: 0
@@ -10531,8 +10648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 157}
-  m_SizeDelta: {x: 410, y: 103}
+  m_AnchoredPosition: {x: 0, y: 120.2}
+  m_SizeDelta: {x: 500.4, y: 146.21}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &703288849
 MonoBehaviour:
@@ -10566,7 +10683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: f;lakdsjf;lasjdf;lajsd;fljsa;dlfja;lsdkfj;alskdjf;alskdjf;laksdjf;lsakdjf;laksdjf;laskdjf;alskdjf;lsakdfj;alskdjf;alskdjf;alskdfj;alskdjf;ldsakjf;lsakdfj;lakdsjf;ladskjkdfj;alskdjf;ldsdasdfasdfasdfasdfasdf
+  m_Text: 01001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100100101100101010010101010101100101101110100010110110010101001001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100101010101111101001110101100101010001010101
 --- !u!222 &703288850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11040,7 +11157,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 730746378}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 195, y: 0, z: 0}
   m_LocalScale: {x: 150.00005, y: 150.00005, z: 186.38}
   m_Children: []
@@ -11327,6 +11444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 748515547}
   - component: {fileID: 748515548}
+  - component: {fileID: 748515549}
   m_Layer: 0
   m_Name: StatusIcon_Comms_Right
   m_TagString: Untagged
@@ -11382,6 +11500,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &748515549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748515546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &757041138
 GameObject:
   m_ObjectHideFlags: 0
@@ -12393,7 +12532,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802282256}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 1458.3, y: 0, z: 0}
   m_LocalScale: {x: 150.00015, y: 150.00026, z: 186.3803}
   m_Children: []
@@ -12570,6 +12709,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 808671695}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &810191782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 810191783}
+  - component: {fileID: 810191784}
+  m_Layer: 0
+  m_Name: SUBTUTT-0005-OPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &810191783
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 810191782}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 152990031}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810191784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 810191782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 2
+  description: 
+  choice1: Say "what's up?!"
+  choice2: Say "what's down?!"
+  choice1Event: {fileID: 152990030}
+  choice2Event: {fileID: 152990030}
 --- !u!1 &813456850
 GameObject:
   m_ObjectHideFlags: 0
@@ -14167,8 +14352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 587, y: 157}
-  m_SizeDelta: {x: 410, y: 103}
+  m_AnchoredPosition: {x: 587, y: 120.2}
+  m_SizeDelta: {x: 500.4, y: 146.21}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &943670632
 MonoBehaviour:
@@ -14202,7 +14387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: f;lakdsjf;lasjdf;lajsd;fljsa;dlfja;lsdkfj;alskdjf;alskdjf;laksdjf;lsakdjf;laksdjf;laskdjf;alskdjf;lsakdfj;alskdjf;alskdjf;alskdfj;alskdjf;ldsakjf;lsakdfj;lakdsjf;ladskjkdfj;alskdjf;ldsdasdfasdfasdfasdfasdf
+  m_Text: 01001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100100101100101010010101010101100101101110100010110110010101001001011001010100101010101011001011011101000101101100101010010010110010101001010101010110010110111010001011011001010100101010101111101001110101100101010001010101
 --- !u!222 &943670633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15841,6 +16026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1117811414}
   - component: {fileID: 1117811415}
+  - component: {fileID: 1117811416}
   m_Layer: 0
   m_Name: TextBoxIndicator_Left
   m_TagString: Untagged
@@ -15896,6 +16082,27 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0.71034503, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1117811416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117811413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &1124540069
 GameObject:
   m_ObjectHideFlags: 0
@@ -16371,6 +16578,7 @@ GameObject:
   - component: {fileID: 1182295892}
   - component: {fileID: 1182295894}
   - component: {fileID: 1182295893}
+  - component: {fileID: 1182295895}
   m_Layer: 0
   m_Name: ChannelLabel_Right
   m_TagString: Untagged
@@ -16450,6 +16658,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1182295895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182295891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e488141677d7c5b45a828de262152313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  overrideTextOption: 1
+  overrideText: Channel 2
 --- !u!1 &1184228889
 GameObject:
   m_ObjectHideFlags: 0
@@ -16584,7 +16815,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201825970}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 825.5, y: 0, z: 0}
   m_LocalScale: {x: 149.99997, y: 150.00005, z: 186.38005}
   m_Children: []
@@ -20209,6 +20440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1453377049}
   - component: {fileID: 1453377050}
+  - component: {fileID: 1453377051}
   m_Layer: 0
   m_Name: TextBox_Right
   m_TagString: Untagged
@@ -20265,6 +20497,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 1
   m_FlipY: 0
+--- !u!114 &1453377051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453377048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &1454371751
 GameObject:
   m_ObjectHideFlags: 0
@@ -20577,6 +20830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1480359434}
   - component: {fileID: 1480359435}
+  - component: {fileID: 1480359436}
   m_Layer: 0
   m_Name: TextBoxIndicator_Right
   m_TagString: Untagged
@@ -20632,6 +20886,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 0.68275857, b: 0, a: 0.39215687}
   m_FlipX: 1
   m_FlipY: 0
+--- !u!114 &1480359436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480359433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &1499261854
 GameObject:
   m_ObjectHideFlags: 0
@@ -23256,6 +23531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732069922}
   - component: {fileID: 1732069923}
+  - component: {fileID: 1732069924}
   m_Layer: 0
   m_Name: StatusIcon_Comms_Left
   m_TagString: Untagged
@@ -23311,6 +23587,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1732069924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732069921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &1739313503
 GameObject:
   m_ObjectHideFlags: 0
@@ -25548,10 +25845,6 @@ MonoBehaviour:
   - {fileID: 1259808578}
   - {fileID: 441427924}
   - {fileID: 194766336}
-  TextBorders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   DescriptionBox: {fileID: 314816004}
 --- !u!82 &1909196593
 AudioSource:
@@ -27098,6 +27391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035783617}
   - component: {fileID: 2035783618}
+  - component: {fileID: 2035783619}
   m_Layer: 0
   m_Name: TextBox_DANI
   m_TagString: Untagged
@@ -27154,6 +27448,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &2035783619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035783616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5af409c08231e4d915a4ccac6ecd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 1
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
 --- !u!1 &2048267346
 GameObject:
   m_ObjectHideFlags: 0
@@ -27164,6 +27479,7 @@ GameObject:
   - component: {fileID: 2048267347}
   - component: {fileID: 2048267349}
   - component: {fileID: 2048267348}
+  - component: {fileID: 2048267350}
   m_Layer: 0
   m_Name: Label_DANI
   m_TagString: Untagged
@@ -27186,7 +27502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: 4.88}
+  m_AnchoredPosition: {x: -0.88, y: 4.88}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!102 &2048267348
@@ -27196,7 +27512,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048267346}
-  m_Text: DANI
+  m_Text: D.A.N.I.
   m_OffsetZ: 0
   m_CharacterSize: 0.02
   m_LineSpacing: 1
@@ -27241,6 +27557,29 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &2048267350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048267346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e488141677d7c5b45a828de262152313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 1
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  overrideTextOption: 0
+  overrideText: 
 --- !u!4 &2057499997 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
@@ -28611,10 +28950,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.6527771
+    e01: 0.000000015648238
+    e02: 1.2959423
+    e03: -1.950733
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -28628,10 +28967,10 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.6527771
+    e01: 0.000000015648238
+    e02: 1.2959423
+    e03: -1.950733
     e10: 0.5281959
     e11: 3.6325512
     e12: -0.67363364

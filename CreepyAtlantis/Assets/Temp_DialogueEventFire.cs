@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Temp_DialogueEventFire : MonoBehaviour {
 
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            GetComponent<Deeper_DialogueEvent>().Fire();
-        }		
+	void Start () {
+            GetComponent<Deeper_DialogueEvent>().Fire();	
 	}
 }

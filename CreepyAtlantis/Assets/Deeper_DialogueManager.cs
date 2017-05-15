@@ -97,7 +97,6 @@ public class Deeper_DialogueManager : MonoBehaviour {
     [Header ("Length must be 3")]
     [SerializeField] private Text[] TextBoxes = new Text[3];
     [SerializeField] private Text[] ChoiceBoxes = new Text[4];
-    [SerializeField] private Image[] TextBorders = new Image[3];
     [SerializeField] private Text DescriptionBox;
     #endregion
 
@@ -118,6 +117,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
     private AudioSource myAS;
 
     private List<GE_Dia_Line> queuedLines = new List<GE_Dia_Line>();
+
+    private SelectionManager mySM;
     #endregion
  
     #region Mono Functions
@@ -125,11 +126,13 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
+        EventManager.instance.Register<GE_PreLoadLevel>(EventFunc);
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Start () {
         myAS = GetComponent<AudioSource>();
+        mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
 
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
@@ -236,7 +239,11 @@ public class Deeper_DialogueManager : MonoBehaviour {
     #region Event Related Functions
     void EventFunc (GameEvent e)
     {
-        if (e.GetType() == typeof(GE_Dia_Line))
+        if (e.GetType() == typeof(GE_PreLoadLevel))
+        {
+            queuedLines.RemoveAll(l => l.GetType() == typeof(GE_Dia_Line));
+        }
+        else if (e.GetType() == typeof(GE_Dia_Line))
         {
             GE_Dia_Line d = (GE_Dia_Line)e;
 
@@ -292,16 +299,26 @@ public class Deeper_DialogueManager : MonoBehaviour {
                 {
                     if(_fsm.CurrentState.GetType() == typeof(ChoiceState))
                     {
-                        queuedLines[0].choice1Event.Fire();
-                        _fsm.TransitionTo<Standby>();
+                        if (((b.thisPID == PlayerID.p1) && ((mySM.C1 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C1 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops)))
+                            || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
+                        {
+                            queuedLines[0].choice1Event.Fire();
+                                if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
+                                    _fsm.TransitionTo<Standby>();
+                        }
                     }
                 }
                 else if (b.button == Button.Choice2 && b.pressedReleased)
                 {
                     if (_fsm.CurrentState.GetType() == typeof(ChoiceState))
                     {
-                        queuedLines[0].choice2Event.Fire();
-                        _fsm.TransitionTo<Standby>();
+                        if (((b.thisPID == PlayerID.p1) && ((mySM.C1 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C1 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops)))
+                            || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
+                        {
+                            queuedLines[0].choice2Event.Fire();
+                            if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
+                                _fsm.TransitionTo<Standby>();
+                        }
                     }
                 }
             }
@@ -462,6 +479,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
             {
                 t.text = "";
             }
+            choice1Field.text = Context.queuedLines[0].choice1;
+            choice2Field.text = Context.queuedLines[0].choice2;
         }
 
         public override void Update()

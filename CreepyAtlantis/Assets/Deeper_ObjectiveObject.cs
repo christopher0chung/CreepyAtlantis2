@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Deeper_ObjectiveObject : MonoBehaviour {
 
-    public enum Type_GameObjective_HowToTrigger { TimeInColllider, PositiveAction, HandOff }
+    public enum Type_GameObjective_HowToTrigger { TimeInColllider, PositiveAction, HandOff, DialogueComplete }
 
     #region Creation Properties
     [SerializeField] private Type_GameObjective myType;
