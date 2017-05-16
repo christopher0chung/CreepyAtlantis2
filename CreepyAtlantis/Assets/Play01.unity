@@ -3962,7 +3962,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9092.317, y: 9092.317, z: 0}
+  Offset: {x: 9117.361, y: 9117.361, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -6931,7 +6931,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5557.078, y: 5557.078, z: 0}
+  Offset: {x: 5582.123, y: 5582.123, z: 0}
 --- !u!108 &277469036
 Light:
   m_ObjectHideFlags: 0
@@ -7210,7 +7210,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.0990207
+    e00: 2.09969
     e01: 0
     e02: 0
     e03: 0
@@ -7227,7 +7227,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.0990207
+    e00: 2.09969
     e01: 0
     e02: 0
     e03: 0
@@ -7341,7 +7341,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.038927346, g: 0.08823532, b: 0.078033656, a: 1}
+  m_BackGroundColor: {r: 0.088676475, g: 0.201, b: 0.1777606, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -29983,7 +29983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1223295887
 Transform:
   m_ObjectHideFlags: 0
@@ -55734,7 +55734,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8586.951, y: 8586.951, z: 0}
+  Offset: {x: 8611.995, y: 8611.995, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -74535,7 +74535,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5712.1587, y: 5712.1587, z: 0}
+  Offset: {x: 5737.2036, y: 5737.2036, z: 0}
 --- !u!108 &2013639889
 Light:
   m_ObjectHideFlags: 0

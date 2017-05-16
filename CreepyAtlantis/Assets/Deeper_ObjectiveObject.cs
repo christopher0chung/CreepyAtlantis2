@@ -53,6 +53,9 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private bool AffectSubOnTrigger;
     [SerializeField] private bool CanMoveNow;
     [SerializeField] private bool CanGetOutNow;
+
+    [Header("Optional - If not 999, the level that will be loaded OnComplete")]
+    [SerializeField] private int levelToLoad = 999;
     #endregion
 
     #region Functional Vars
@@ -175,16 +178,19 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Triggered)
                 {
-                    DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+                    //DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
                     if (optional_dialogueEventOnTriggered != null)
                         optional_dialogueEventOnTriggered.Fire();
+
                     onTriggered.Invoke();
                     _myObjv.status = Status_GameObjective.Completed;
                 }
                 else if (GOE.GObjv.status == Status_GameObjective.Completed)
                 {
                     if (myInd != null)
-                    Destroy(myInd);
+                        Destroy(myInd);
+                    if (levelToLoad != 999)
+                        EventManager.instance.Fire(new GE_LoadLevelRequest(levelToLoad));
                     onCompleted.Invoke();
                     _myObjv.status = Status_GameObjective.CleanedUp;
                 }
@@ -220,6 +226,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         {
             if (_myObjv.status == Status_GameObjective.Active)
             {
+                Debug.Log("Was interacted");
                 interactCount++;
                 if (interactCount >= optional_timesToInteractToComplete)
                     _myObjv.status = Status_GameObjective.Triggered;

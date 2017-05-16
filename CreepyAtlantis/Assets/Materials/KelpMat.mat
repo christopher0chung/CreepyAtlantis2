@@ -120,7 +120,7 @@ Material:
       second: 10
     - first:
         name: _FogDistSlider
-      second: 100
+      second: 75
     - first:
         name: _Gloss
       second: 0
@@ -190,7 +190,7 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _FogColor
-      second: {r: 0.039215688, g: 0.09019608, b: 0.078431375, a: 1}
+      second: {r: 0.003921569, g: 0.13725491, b: 0.12941177, a: 1}
     - first:
         name: _GlowColor
       second: {r: 1, g: 0.2391481, b: 0.1102941, a: 1}

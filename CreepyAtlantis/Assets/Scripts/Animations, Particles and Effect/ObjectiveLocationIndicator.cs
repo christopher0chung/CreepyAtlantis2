@@ -77,7 +77,8 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myCam = Camera.main;
-        target = GameObject.Find("Sub").transform;
+        if (GameObject.Find("Sub") != null)
+            target = GameObject.Find("Sub").transform;
         arrow = transform.GetChild(0).gameObject;
         circle = transform.GetChild(1).gameObject;
 
@@ -94,14 +95,16 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
 	}
 	
 	void LateUpdate() {
-
-        if (!CheckOnScreen(transform.position))
+        if (target != null)
         {
-            RaycastHit theHit = InterceptHit();
-            ArrowPosAndAng(theHit.point);
-        }
+            if (!CheckOnScreen(transform.position))
+            {
+                RaycastHit theHit = InterceptHit();
+                ArrowPosAndAng(theHit.point);
+            }
 
-        Debug.DrawRay(transform.position, target.position - transform.position, Color.green);
+            Debug.DrawRay(transform.position, target.position - transform.position, Color.green);
+        }
     }
 
     private bool CheckOnScreen (Vector3 pos)

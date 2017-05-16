@@ -63,13 +63,13 @@ public class GameObjective {
         // placeholder
         // happens in start after created in the obj.
         //Debug.Log("Checking in");
-        status = GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
+        status = GameObject.Find("Managers").GetComponent<GameObjectiveManager>().GameObjectiveCheckIn(this);
     }
 
     private void _ManagerUpdate ()
     {
         // checks in everytime the status changes.
-        GameObject.Find("GameStateManager").GetComponent<GameObjectiveManager>().ObjectiveUpdate(this);
+        GameObject.Find("Managers").GetComponent<GameObjectiveManager>().ObjectiveUpdate(this);
     }
 }
 
