@@ -124,8 +124,9 @@ public class Deeper_DialogueManager : MonoBehaviour {
     #region Mono Functions
     void Awake()
     {
+        _fsm = new FSM<Deeper_DialogueManager>(this);
+        _fsm.TransitionTo<Standby>();
      
-
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
         EventManager.instance.Register<GE_PreLoadLevel>(EventFunc);
@@ -133,8 +134,6 @@ public class Deeper_DialogueManager : MonoBehaviour {
     }
 
     void Start () {
-        _fsm = new FSM<Deeper_DialogueManager>(this);
-        _fsm.TransitionTo<Standby>();
 
         myAS = GetComponent<AudioSource>();
         mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
@@ -164,6 +163,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
             _choiceSpeakerRefs.Add(Speaker.Ops, rightFields);
             _choiceSpeakerRefs.Add(Speaker.Doc, leftFields);
         }
+        _fsm.Update();
 	}
 
     void Update()

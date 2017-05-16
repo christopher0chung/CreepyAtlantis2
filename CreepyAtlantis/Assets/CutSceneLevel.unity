@@ -11158,7 +11158,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 730746378}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 195, y: 0, z: 0}
   m_LocalScale: {x: 150.00005, y: 150.00005, z: 186.38}
   m_Children: []
@@ -12533,7 +12533,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802282256}
-  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
+  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
   m_LocalPosition: {x: 1458.3, y: 0, z: 0}
   m_LocalScale: {x: 150.00015, y: 150.00026, z: 186.3803}
   m_Children: []
@@ -12754,8 +12754,8 @@ MonoBehaviour:
   description: 
   choice1: Say "what's up?!"
   choice2: Say "what's down?!"
-  choice1Event: {fileID: 0}
-  choice2Event: {fileID: 0}
+  choice1Event: {fileID: 152990030}
+  choice2Event: {fileID: 152990030}
 --- !u!1 &813456850
 GameObject:
   m_ObjectHideFlags: 0
@@ -16816,7 +16816,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201825970}
-  m_LocalRotation: {x: 0.6415945, y: 0.28219077, z: 0.6477777, w: 0.29851112}
+  m_LocalRotation: {x: 0.6415946, y: 0.2821908, z: 0.64777774, w: 0.29851115}
   m_LocalPosition: {x: 825.5, y: 0, z: 0}
   m_LocalScale: {x: 149.99997, y: 150.00005, z: 186.38005}
   m_Children: []
@@ -28951,10 +28951,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.648947
+    e01: 0.000000015611976
+    e02: 1.2929391
+    e03: -1.9462124
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -28968,10 +28968,10 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.648947
+    e01: 0.000000015611976
+    e02: 1.2929391
+    e03: -1.9462124
     e10: 0.5281959
     e11: 3.6325512
     e12: -0.67363364
