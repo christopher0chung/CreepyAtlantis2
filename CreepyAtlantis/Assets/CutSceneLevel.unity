@@ -1870,8 +1870,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 152990031}
-  - component: {fileID: 152990030}
   - component: {fileID: 152990032}
+  - component: {fileID: 152990030}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -1887,10 +1887,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 152990029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c5af2713928c646bf6b8ed97dcb1b4, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ce130f5b75d2d48ab1e4d3d4d37302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireAsInterrupt: 1
+  myLines: []
 --- !u!4 &152990031
 Transform:
   m_ObjectHideFlags: 0
@@ -12753,8 +12754,8 @@ MonoBehaviour:
   description: 
   choice1: Say "what's up?!"
   choice2: Say "what's down?!"
-  choice1Event: {fileID: 152990030}
-  choice2Event: {fileID: 152990030}
+  choice1Event: {fileID: 0}
+  choice2Event: {fileID: 0}
 --- !u!1 &813456850
 GameObject:
   m_ObjectHideFlags: 0
@@ -28950,10 +28951,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6527771
-    e01: 0.000000015648238
-    e02: 1.2959423
-    e03: -1.950733
+    e00: 1.6523198
+    e01: 0.00000001564391
+    e02: 1.2955837
+    e03: -1.9501933
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -28967,10 +28968,10 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6527771
-    e01: 0.000000015648238
-    e02: 1.2959423
-    e03: -1.950733
+    e00: 1.6523198
+    e01: 0.00000001564391
+    e02: 1.2955837
+    e03: -1.9501933
     e10: 0.5281959
     e11: 3.6325512
     e12: -0.67363364

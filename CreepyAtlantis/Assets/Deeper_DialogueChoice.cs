@@ -8,6 +8,6 @@ public class Deeper_DialogueChoice : Deeper_DialogueLine_Base
     public string choice1;
     public string choice2;
     [Header("Optional")]
-    public Deeper_DialogueEvent choice1Event;
-    public Deeper_DialogueEvent choice2Event;
+    public Deeper_DialogueEvent_Base choice1Event;
+    public Deeper_DialogueEvent_Base choice2Event;
 }

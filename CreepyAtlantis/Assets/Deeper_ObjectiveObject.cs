@@ -38,10 +38,10 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private string[] optional_nameOfColliderOwners;
 
     [Header("Dialogue Event to Fire OnActive")]
-    [SerializeField] private Deeper_DialogueEvent optional_dialogueEventOnActive;
+    [SerializeField] private Deeper_DialogueEvent_Base optional_dialogueEventOnActive;
 
     [Header("Dialogue Event to Fire OnTriggered")]
-    [SerializeField] private Deeper_DialogueEvent optional_dialogueEventOnTriggered;
+    [SerializeField] private Deeper_DialogueEvent_Base optional_dialogueEventOnTriggered;
 
     [Header("Name of id if part of set")]
     [SerializeField] private string optional_iDToSubScribeTo;

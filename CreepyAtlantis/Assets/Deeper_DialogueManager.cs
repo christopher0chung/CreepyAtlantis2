@@ -17,15 +17,15 @@ public class GE_Dia_Line : GameEvent
 
     public string line;
     public string audioFileName;
-    public Deeper_DialogueEvent followOnEvent;
+    public Deeper_DialogueEvent_Base followOnEvent;
 
     public string choice1;
     public string choice2;
-    public Deeper_DialogueEvent choice1Event;
-    public Deeper_DialogueEvent choice2Event;
+    public Deeper_DialogueEvent_Base choice1Event;
+    public Deeper_DialogueEvent_Base choice2Event;
 
 
-    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string l, string n, Deeper_DialogueEvent f)
+    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string l, string n, Deeper_DialogueEvent_Base f)
     {
         type = DialogueLineType.Standard;
         priority = p;
@@ -37,7 +37,7 @@ public class GE_Dia_Line : GameEvent
         followOnEvent = f;
     }
 
-    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string c1, string c2, Deeper_DialogueEvent c1E, Deeper_DialogueEvent c2E)
+    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string c1, string c2, Deeper_DialogueEvent_Base c1E, Deeper_DialogueEvent_Base c2E)
     {
         type = DialogueLineType.Choice;
         priority = p;
@@ -124,6 +124,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
     #region Mono Functions
     void Awake()
     {
+     
+
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
         EventManager.instance.Register<GE_PreLoadLevel>(EventFunc);
@@ -131,11 +133,11 @@ public class Deeper_DialogueManager : MonoBehaviour {
     }
 
     void Start () {
-        myAS = GetComponent<AudioSource>();
-        mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
-
         _fsm = new FSM<Deeper_DialogueManager>(this);
         _fsm.TransitionTo<Standby>();
+
+        myAS = GetComponent<AudioSource>();
+        mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
 
         Text[] leftFields = new Text[2];
         leftFields[0] = ChoiceBoxes[0];
