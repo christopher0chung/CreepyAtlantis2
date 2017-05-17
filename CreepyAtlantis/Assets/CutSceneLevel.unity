@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ce130f5b75d2d48ab1e4d3d4d37302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireAsInterrupt: 1
+  fireAsInterrupt: 0
   myLines: []
 --- !u!4 &191206713
 Transform:
@@ -5332,8 +5332,8 @@ MonoBehaviour:
   description: 
   choice1: I feel like crap.
   choice2: Dive? Now?
-  choice1Event: {fileID: 703312884}
-  choice2Event: {fileID: 2097089715}
+  choice1Event: {fileID: 1443559121}
+  choice2Event: {fileID: 774594556}
 --- !u!1 &420377777
 GameObject:
   m_ObjectHideFlags: 0
@@ -16169,7 +16169,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980449118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.032999516, y: -0.024001122, z: 0}
+  m_LocalPosition: {x: 0.032999516, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 389677889}
@@ -17212,7 +17212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1060544298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 450571897}
@@ -24823,7 +24823,7 @@ GameObject:
   - component: {fileID: 1647981876}
   - component: {fileID: 1647981877}
   m_Layer: 0
-  m_Name: SUBTUTT-0017-DOC
+  m_Name: SUBTUTT-0018-DOC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26803,7 +26803,7 @@ GameObject:
   - component: {fileID: 1820592555}
   - component: {fileID: 1820592556}
   m_Layer: 0
-  m_Name: SUBTUTT-0020-OPS
+  m_Name: SUBTUTT-0024-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26834,7 +26834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speaker: 2
-  description: 
+  description: Systems control check.
   line: We should do a systems control check.
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1829970252
@@ -29033,7 +29033,7 @@ MonoBehaviour:
   choice1: Contact surface station.
   choice2: Continue to waypoint.
   choice1Event: {fileID: 703312884}
-  choice2Event: {fileID: 2097089715}
+  choice2Event: {fileID: 726552387}
 --- !u!1 &1948851104
 GameObject:
   m_ObjectHideFlags: 0
@@ -29159,7 +29159,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951701476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 450571897}
@@ -31455,10 +31455,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6529707
-    e01: 0.000000015650071
-    e02: 1.2960941
-    e03: -1.9509615
+    e00: 1.6523198
+    e01: 0.00000001564391
+    e02: 1.2955837
+    e03: -1.9501933
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -31472,10 +31472,10 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6529707
-    e01: 0.000000015650071
-    e02: 1.2960941
-    e03: -1.9509615
+    e00: 1.6523198
+    e01: 0.00000001564391
+    e02: 1.2955837
+    e03: -1.9501933
     e10: 0.5281959
     e11: 3.6325512
     e12: -0.67363364

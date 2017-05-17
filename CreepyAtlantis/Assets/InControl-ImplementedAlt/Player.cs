@@ -41,6 +41,8 @@ namespace MultiplayerBasicExample
         private FSM<MultiplayerBasicExample.Player> _fsm;
         private float intensity;
 
+
+
         void Awake()
         {
             DontDestroyOnLoad(this.gameObject);

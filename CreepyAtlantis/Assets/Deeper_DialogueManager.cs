@@ -117,6 +117,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     private AudioSource myAS;
 
     private List<GE_Dia_Line> queuedLines = new List<GE_Dia_Line>();
+    private GE_Dia_Line activeLine;
 
     private SelectionManager mySM;
     #endregion
@@ -170,6 +171,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         _LinesParser();
         _fsm.Update();
+        Debug.Log(queuedLines.Count);
     }
     #endregion
 
@@ -304,9 +306,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
                         if (((b.thisPID == PlayerID.p1) && ((mySM.C1 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C1 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops)))
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
-                                    _fsm.TransitionTo<Standby>();
-                            queuedLines[0].choice1Event.Fire();
-                                //if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
+                            activeLine.choice1Event.Fire();
+                            _fsm.TransitionTo<Standby>();
                         }
                     }
                 }
@@ -317,8 +318,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
                         if (((b.thisPID == PlayerID.p1) && ((mySM.C1 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C1 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops)))
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
-                                _fsm.TransitionTo<Standby>();
-                            queuedLines[0].choice2Event.Fire();
+                            activeLine.choice2Event.Fire();
+                            _fsm.TransitionTo<Standby>();
                         }
                     }
                 }
@@ -338,10 +339,6 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            //Debug.Log("Entering Standby in DM's FSM");
-            if (Context.queuedLines.Count > 0)
-                Context.queuedLines.RemoveAt(0);
-            EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
         }
 
         public override void Update()
@@ -368,6 +365,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
+
+            Context.activeLine = Context.queuedLines[0];
             //Debug.Log("Entering PrintStart in DM's FSM");
 
             Context._HardInitialize();
@@ -447,6 +446,12 @@ public class Deeper_DialogueManager : MonoBehaviour {
         public override void OnExit()
         {
             Context._SoftInitialize();
+
+            if (Context.activeLine.followOnEvent != null)
+                Context.activeLine.followOnEvent.Fire();
+
+            Context.queuedLines.Remove(Context.activeLine);
+            EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
         }
     }
 
@@ -462,6 +467,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
         public override void OnEnter()
         {
             Debug.Log("Entering ChoiceState in DM's FSM");
+
+            Context.activeLine = Context.queuedLines[0];
 
             Context._HardInitialize();
 
@@ -493,6 +500,10 @@ public class Deeper_DialogueManager : MonoBehaviour {
         public override void OnExit()
         {
             Context._SoftInitialize();
+
+            Context.queuedLines.Remove(Context.activeLine);
+
+            EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
         }
     }
     #endregion
