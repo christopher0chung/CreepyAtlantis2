@@ -20,19 +20,19 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
                 _who = value;
                 if (_who == Interactors.Ops)
                 {
-                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Ops;
+                    myC = GameObject.Find("Managers").GetComponent<ColorManager>().Ops;
                 }
                 else if (_who == Interactors.Doc)
                 {
-                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Doc;
+                    myC = GameObject.Find("Managers").GetComponent<ColorManager>().Doc;
                 }
                 else if (_who == Interactors.Either)
                 {
-                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().Either;
+                    myC = GameObject.Find("Managers").GetComponent<ColorManager>().Either;
                 }
                 else if (_who == Interactors.Sub)
                 {
-                    myC = GameObject.Find("GameStateManager").GetComponent<ColorManager>().DANI;
+                    myC = GameObject.Find("Managers").GetComponent<ColorManager>().DANI;
                 }
             }
         }

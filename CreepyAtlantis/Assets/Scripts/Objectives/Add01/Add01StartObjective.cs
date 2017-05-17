@@ -37,8 +37,8 @@ public class Add01StartObjective : Objective {
         {
             //Debug.Log("Hit something on sub");
 
-            other.GetComponent<SubController>().canMove = false;
-            other.GetComponent<SubController>().canGetOut = false;
+            other.GetComponent<SubControlScript>().canMove = false;
+            other.GetComponent<SubControlScript>().canGetOut = false;
             Trigger();
         }
     }

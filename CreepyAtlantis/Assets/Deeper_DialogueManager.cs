@@ -243,7 +243,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         if (e.GetType() == typeof(GE_PreLoadLevel))
         {
-            queuedLines.RemoveAll(l => l.GetType() == typeof(GE_Dia_Line));
+            //queuedLines.RemoveAll(l => l.GetType() == typeof(GE_Dia_Line));
         }
         else if (e.GetType() == typeof(GE_Dia_Line))
         {
@@ -305,7 +305,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             queuedLines[0].choice1Event.Fire();
-                                if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
+                                //if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
                                     _fsm.TransitionTo<Standby>();
                         }
                     }
@@ -318,7 +318,6 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             queuedLines[0].choice2Event.Fire();
-                            if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
                                 _fsm.TransitionTo<Standby>();
                         }
                     }
@@ -487,7 +486,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
-            Debug.Log("In Choice");
+            //Debug.Log("In Choice");
 
         }
 

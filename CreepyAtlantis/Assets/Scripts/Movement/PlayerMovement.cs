@@ -8,10 +8,6 @@ public class PlayerMovement : MonoBehaviour{
     private PlayerAir myAir;
     private AnimationControl myAC;
 
-    public KeyCode leftMove;
-    public KeyCode rightMove;
-    public KeyCode thrust;
-
     public float thrustForce;
     private float appliedThrustForce;
 

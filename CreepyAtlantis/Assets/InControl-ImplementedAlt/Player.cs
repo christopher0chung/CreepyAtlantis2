@@ -45,8 +45,6 @@ namespace MultiplayerBasicExample
         {
             DontDestroyOnLoad(this.gameObject);
             myTM = GameObject.Find("Canvas").GetComponent<TitleMenu>();
-            EventManager.instance.Register<P1_DialogueChoiceRumble_GE>(Rumble);
-            EventManager.instance.Register<P2_DialogueChoiceRumble_GE>(Rumble);
         }
 
         void Start()
@@ -56,6 +54,9 @@ namespace MultiplayerBasicExample
             myTM.setState(playerNum + 1);
             _fsm = new FSM<MultiplayerBasicExample.Player>(this);
             _fsm.TransitionTo<Standby>();
+            _fsm.Update();
+            EventManager.instance.Register<P1_DialogueChoiceRumble_GE>(Rumble);
+            EventManager.instance.Register<P2_DialogueChoiceRumble_GE>(Rumble);
         }
 
         void Update()

@@ -175,8 +175,8 @@ public class ObjectivesTracker : MonoBehaviour {
                 }
 
                 subPos[4] = GameObject.Find("Sub").transform.position;
-                subExits[4] = GameObject.Find("Sub").GetComponent<SubController>().canGetOut;
-                subMoves[4] = GameObject.Find("Sub").GetComponent<SubController>().canMove;
+                subExits[4] = GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut;
+                subMoves[4] = GameObject.Find("Sub").GetComponent<SubControlScript>().canMove;
 
                 if (subPos[0] != Vector3.zero)
                 {

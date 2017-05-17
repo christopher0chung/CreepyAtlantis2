@@ -2188,6 +2188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176461587}
   - component: {fileID: 176461588}
+  - component: {fileID: 176461589}
   m_Layer: 0
   m_Name: StatusIcon_Water_Left
   m_TagString: Untagged
@@ -2243,6 +2244,28 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &176461589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176461586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0a740ae2de02e42a298d0eafbc6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  myType: 1
 --- !u!1 &177238625
 GameObject:
   m_ObjectHideFlags: 0
@@ -13877,6 +13900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889116571}
   - component: {fileID: 889116572}
+  - component: {fileID: 889116573}
   m_Layer: 0
   m_Name: StatusIcon_Sub_Right
   m_TagString: Untagged
@@ -13932,6 +13956,28 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &889116573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889116570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0a740ae2de02e42a298d0eafbc6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  myType: 0
 --- !u!1 &897600492
 GameObject:
   m_ObjectHideFlags: 0
@@ -21941,6 +21987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609119860}
   - component: {fileID: 1609119861}
+  - component: {fileID: 1609119862}
   m_Layer: 0
   m_Name: StatusIcon_Water_Right
   m_TagString: Untagged
@@ -21996,6 +22043,28 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1609119862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609119859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0a740ae2de02e42a298d0eafbc6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  myType: 1
 --- !u!1 &1614515548
 GameObject:
   m_ObjectHideFlags: 0
@@ -23507,6 +23576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d990d7af2994d4d9f949a5bc2c983c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCam: {fileID: 0}
 --- !u!4 &1720968858
 Transform:
   m_ObjectHideFlags: 0
@@ -24262,6 +24332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778363945}
   - component: {fileID: 1778363946}
+  - component: {fileID: 1778363947}
   m_Layer: 0
   m_Name: StatusIcon_Sub_Left
   m_TagString: Untagged
@@ -24317,6 +24388,28 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1778363947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778363944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0a740ae2de02e42a298d0eafbc6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 1
+  overrideLitColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideUnlit: 1
+  overrideUnlitColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  myType: 0
 --- !u!1 &1785910133
 GameObject:
   m_ObjectHideFlags: 0
@@ -28933,7 +29026,7 @@ GameObject:
   - component: {fileID: 2134793848}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29059,10 +29152,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
+    e00: 1.6531701
+    e01: 0.00000001565196
+    e02: 1.2962505
+    e03: -1.9511968
     e10: -0.5281959
     e11: -3.6325512
     e12: 0.67363364
@@ -29076,22 +29169,22 @@ MonoBehaviour:
     e32: 0.76595485
     e33: 54.791874
   LastMatrixVP:
-    e00: 1.6523198
-    e01: 0.00000001564391
-    e02: 1.2955837
-    e03: -1.9501933
-    e10: 0.5281959
-    e11: 3.6325512
-    e12: -0.67363364
-    e13: -80.74075
-    e20: 0.00018020543
-    e21: -0.00006882252
-    e22: -0.00022982458
-    e23: 0.2836497
-    e30: -0.6005851
-    e31: 0.22937034
-    e32: 0.76595485
-    e33: 54.791874
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
   LastMatrixVPInv:
     e00: 0
     e01: 0

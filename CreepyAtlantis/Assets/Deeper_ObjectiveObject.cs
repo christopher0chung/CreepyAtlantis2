@@ -171,8 +171,8 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
                     if (AffectSubOnTrigger)
                     {
-                        GameObject.Find("Sub").GetComponent<SubController>().canMove = CanMoveNow;
-                        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = CanGetOutNow;
+                        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNow;
+                        GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNow;
                     }
                     onActivated.Invoke();
                 }
