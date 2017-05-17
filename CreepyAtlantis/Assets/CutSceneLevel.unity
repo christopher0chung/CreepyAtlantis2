@@ -2078,6 +2078,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 156330490}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &163621668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 163621669}
+  - component: {fileID: 163621670}
+  m_Layer: 0
+  m_Name: CHOICE-OPS-24/24
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &163621669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163621668}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774594557}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163621670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163621668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  choice1: Attempt to sound experienced.
+  choice2: Just check to see that ship is operational.
+  choice1Event: {fileID: 191206712}
+  choice2Event: {fileID: 191206712}
 --- !u!1 &163652910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2132,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 163652913}
-  - component: {fileID: 163652912}
   - component: {fileID: 163652911}
   m_Layer: 0
   m_Name: DE-SUBTUTT-0004-DOC
@@ -2108,17 +2153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireAsInterrupt: 1
   myLines: []
---- !u!114 &163652912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 163652910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb2598cf803e7e43a6ee31ac6ab7476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &163652913
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,6 +2560,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 180705930}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &191206711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 191206713}
+  - component: {fileID: 191206712}
+  m_Layer: 0
+  m_Name: DE-SUBTUTT-0024-OPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &191206712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191206711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ce130f5b75d2d48ab1e4d3d4d37302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireAsInterrupt: 1
+  myLines: []
+--- !u!4 &191206713
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191206711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1820592555}
+  - {fileID: 1269044914}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194766334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,6 +4379,50 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314816002}
+--- !u!1 &318016273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 318016274}
+  - component: {fileID: 318016275}
+  m_Layer: 0
+  m_Name: SUBTUTT-0007-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318016274
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318016273}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1443559122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318016275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318016273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  line: I feel like my stomach is in my throat.
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &319567977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4468,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theSpeaker: 0
   Dialogue: We are not in close enough range with the surface station. Directive?
+--- !u!1 &331961294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 331961295}
+  - component: {fileID: 331961296}
+  m_Layer: 0
+  m_Name: SUBTUTT-0016-OPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331961295
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331961294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1443559122}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331961296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331961294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 2
+  description: 
+  line: 'Pro Tip: Take off your helmet BEFORE you throw up.'
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1001 &335372842
 Prefab:
   m_ObjectHideFlags: 0
@@ -5162,10 +5328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: 2
+  speaker: 1
   description: 
-  choice1: Say "what's up?!"
-  choice2: Say "what's down?!"
+  choice1: I feel like crap.
+  choice2: Dive? Now?
   choice1Event: {fileID: 703312884}
   choice2Event: {fileID: 2097089715}
 --- !u!1 &420377777
@@ -6736,6 +6902,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555270431}
+--- !u!1 &561618282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 561618283}
+  - component: {fileID: 561618284}
+  m_Layer: 0
+  m_Name: CHOICE-DOC-07/13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561618283
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561618282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 726552389}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561618284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561618282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  choice1: I feel like crap.
+  choice2: Dive? Now?
+  choice1Event: {fileID: 1443559121}
+  choice2Event: {fileID: 774594556}
 --- !u!1 &572333066
 GameObject:
   m_ObjectHideFlags: 0
@@ -11230,7 +11442,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 703312886}
-  - component: {fileID: 703312885}
   - component: {fileID: 703312884}
   m_Layer: 0
   m_Name: DE-SUBTUTT-0020-OPS
@@ -11252,17 +11463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireAsInterrupt: 1
   myLines: []
---- !u!114 &703312885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 703312883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb2598cf803e7e43a6ee31ac6ab7476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &703312886
 Transform:
   m_ObjectHideFlags: 0
@@ -11793,7 +11993,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 726552389}
-  - component: {fileID: 726552388}
   - component: {fileID: 726552387}
   m_Layer: 0
   m_Name: DE-SUBTUTT-0021-OPS
@@ -11815,17 +12014,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireAsInterrupt: 1
   myLines: []
---- !u!114 &726552388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 726552386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb2598cf803e7e43a6ee31ac6ab7476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &726552389
 Transform:
   m_ObjectHideFlags: 0
@@ -11838,9 +12026,9 @@ Transform:
   m_Children:
   - {fileID: 1887880959}
   - {fileID: 1703460898}
-  - {fileID: 1203687172}
+  - {fileID: 561618283}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730746378
 GameObject:
@@ -12719,6 +12907,52 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &774594555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 774594557}
+  - component: {fileID: 774594556}
+  m_Layer: 0
+  m_Name: DE-SUBTUTT-0013-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774594556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774594555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ce130f5b75d2d48ab1e4d3d4d37302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireAsInterrupt: 1
+  myLines: []
+--- !u!4 &774594557
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774594555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1512042301}
+  - {fileID: 775924104}
+  - {fileID: 1647981876}
+  - {fileID: 163621669}
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775595406
 GameObject:
   m_ObjectHideFlags: 0
@@ -12783,6 +13017,50 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &775924103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 775924104}
+  - component: {fileID: 775924105}
+  m_Layer: 0
+  m_Name: SUBTUTT-0015-DAN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &775924104
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775924103}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774594557}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &775924105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775924103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 0
+  description: 
+  line: Analyzing... I don't detect excessive compromises to cognitive functions.
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &789578254
 GameObject:
   m_ObjectHideFlags: 0
@@ -14893,6 +15171,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 897600492}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &906640444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 906640445}
+  - component: {fileID: 906640446}
+  m_Layer: 0
+  m_Name: SUBTUTT-0017-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906640445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906640444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1443559122}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906640446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906640444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  line: Thanks.
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &908303441
 GameObject:
   m_ObjectHideFlags: 0
@@ -16278,7 +16600,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1030247704}
-  - component: {fileID: 1030247703}
   - component: {fileID: 1030247702}
   m_Layer: 0
   m_Name: DE-SUBTUTT-0003-OPS
@@ -16300,17 +16621,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireAsInterrupt: 1
   myLines: []
---- !u!114 &1030247703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1030247701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb2598cf803e7e43a6ee31ac6ab7476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1030247704
 Transform:
   m_ObjectHideFlags: 0
@@ -16449,13 +16759,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037576653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
   m_Children: []
   m_Father: {fileID: 389677889}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &1037576655
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18036,52 +18346,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201825970}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
---- !u!1 &1203687171
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1203687172}
-  - component: {fileID: 1203687173}
-  m_Layer: 0
-  m_Name: CHOICE-DOC-07/13
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1203687172
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203687171}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 726552389}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1203687173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203687171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speaker: 2
-  description: 
-  choice1: Say "what's up?!"
-  choice2: Say "what's down?!"
-  choice1Event: {fileID: 726552387}
-  choice2Event: {fileID: 2097089715}
 --- !u!1 &1213598521
 GameObject:
   m_ObjectHideFlags: 0
@@ -18854,13 +19118,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1253073058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 0.8000003, y: 0.8000003, z: 0.8000001}
   m_Children: []
   m_Father: {fileID: 450571897}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &1253073060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19155,6 +19419,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266908254}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &1269044913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1269044914}
+  - component: {fileID: 1269044915}
+  m_Layer: 0
+  m_Name: SUBTUTT-0022-DAN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269044914
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269044913}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 191206713}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269044915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269044913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 0
+  description: 
+  line: Systems controls operational. The LEFT thumbstick is mapped to the ship's
+    maneuvering and propulsion controls.  The RIGHT thumbstick is mapped to the ship's
+    forward light.
+  followOnDialogueEvent: {fileID: 2097089715}
 --- !u!1 &1282168798
 GameObject:
   m_ObjectHideFlags: 0
@@ -21522,6 +21832,52 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1 &1443559120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1443559122}
+  - component: {fileID: 1443559121}
+  m_Layer: 0
+  m_Name: DE-SUBTUTT-0007-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1443559121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1443559120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ce130f5b75d2d48ab1e4d3d4d37302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireAsInterrupt: 1
+  myLines: []
+--- !u!4 &1443559122
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1443559120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 318016274}
+  - {fileID: 331961295}
+  - {fileID: 906640445}
+  - {fileID: 1697305232}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444925603
 GameObject:
   m_ObjectHideFlags: 0
@@ -22313,6 +22669,50 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1512042300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1512042301}
+  - component: {fileID: 1512042302}
+  m_Layer: 0
+  m_Name: SUBTUTT-0013-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1512042301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512042300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774594557}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512042302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512042300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  line: Is it safe for us to dive right now?
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1528006440
 GameObject:
   m_ObjectHideFlags: 0
@@ -24413,6 +24813,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1646173802}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &1647981875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1647981876}
+  - component: {fileID: 1647981877}
+  m_Layer: 0
+  m_Name: SUBTUTT-0017-DOC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1647981876
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647981875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774594557}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647981877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647981875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  line: That's... reassuring.
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1669801590
 GameObject:
   m_ObjectHideFlags: 0
@@ -24691,6 +25135,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theSpeaker: 0
   Dialogue: Recalculating....
+--- !u!1 &1697305231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1697305232}
+  - component: {fileID: 1697305233}
+  m_Layer: 0
+  m_Name: CHOICE-OPS-24/24
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697305232
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697305231}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1443559122}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697305233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697305231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f0f656eff7187468d75f3c7430814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 1
+  description: 
+  choice1: Attempt to sound experienced.
+  choice2: Just check to see that ship is operational.
+  choice1Event: {fileID: 191206712}
+  choice2Event: {fileID: 191206712}
 --- !u!1 &1703460897
 GameObject:
   m_ObjectHideFlags: 0
@@ -24701,7 +25191,7 @@ GameObject:
   - component: {fileID: 1703460898}
   - component: {fileID: 1703460899}
   m_Layer: 0
-  m_Name: SUBTUTT-0022-DAN
+  m_Name: SUBTUTT-0023-DAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24733,7 +25223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: 0
   description: 
-  line: We are not in close enough range with the surface station.
+  line: Recalculating...
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1705166013
 GameObject:
@@ -26303,6 +26793,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813867477}
   m_Mesh: {fileID: 4300000, guid: 0edf63cde4bbdb2438145ba88daf48de, type: 3}
+--- !u!1 &1820592554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1820592555}
+  - component: {fileID: 1820592556}
+  m_Layer: 0
+  m_Name: SUBTUTT-0020-OPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1820592555
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820592554}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 191206713}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820592556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820592554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbca4be981516ad45aeb06c3855ca124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speaker: 2
+  description: 
+  line: We should do a systems control check.
+  followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1829970252
 GameObject:
   m_ObjectHideFlags: 0
@@ -27226,7 +27760,7 @@ GameObject:
   - component: {fileID: 1887880959}
   - component: {fileID: 1887880960}
   m_Layer: 0
-  m_Name: SUBTUTT-0020-OPS
+  m_Name: SUBTUTT-0021-OPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27258,7 +27792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: 2
   description: 
-  line: Contact surface station.
+  line: Continue to crew-swap Waypoint Alpha.
   followOnDialogueEvent: {fileID: 0}
 --- !u!1 &1888129568
 GameObject:
@@ -30149,7 +30683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101437790
 GameObject:
