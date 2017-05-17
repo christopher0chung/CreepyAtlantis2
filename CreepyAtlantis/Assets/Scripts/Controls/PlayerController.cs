@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IControllable {
     public PlayerMovement myMovement;
     public PlayerAction myPA;
     public PlayerLightAngle myLA;
+    public PlayerAir myPAir;
 
     public int charNum;
 
@@ -131,7 +132,10 @@ public class PlayerController : MonoBehaviour, IControllable {
     void Update()
     {
         if (inOut)
+        {
             myRB.MovePosition(GameObject.Find("Sub").transform.position);
+            myPAir.Supply(10 * Time.deltaTime);
+        }
         inOutTimer += Time.deltaTime;
         if (inOutTimer >= 1)
             inOutReady = true;

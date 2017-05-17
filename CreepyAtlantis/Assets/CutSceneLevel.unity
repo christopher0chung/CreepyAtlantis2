@@ -3364,6 +3364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287394798}
   - component: {fileID: 287394799}
+  - component: {fileID: 287394800}
   m_Layer: 0
   m_Name: AirBar2_Right
   m_TagString: Untagged
@@ -3419,6 +3420,32 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &287394800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 287394797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e5f2f43b38434458946d17855313f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 2
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  fullColor: {r: 0, g: 1, b: 0.4620688, a: 0.39215687}
+  midColorThres: 0.33
+  midColor: {r: 1, g: 1, b: 0, a: 0.39215687}
+  lowColorThresh: 0.15
+  lowColor: {r: 1, g: 0, b: 0, a: 0.39215687}
 --- !u!1 &290363774
 GameObject:
   m_ObjectHideFlags: 0
@@ -23199,6 +23226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629363876}
   - component: {fileID: 1629363877}
+  - component: {fileID: 1629363878}
   m_Layer: 0
   m_Name: AirBar2_Left
   m_TagString: Untagged
@@ -23254,6 +23282,32 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1629363878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629363875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e5f2f43b38434458946d17855313f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPos: 0
+  defaultOpacity: 100
+  overrideLit: 0
+  overrideLitColor: {r: 0, g: 0, b: 0, a: 0}
+  overrideUnlit: 0
+  overrideUnlitColor: {r: 0, g: 0, b: 0, a: 0}
+  thisSpeaker: 0
+  litColor: {r: 0, g: 0, b: 0, a: 0}
+  unlitColor: {r: 0, g: 0, b: 0, a: 0}
+  myCM: {fileID: 0}
+  fullColor: {r: 0, g: 1, b: 0.4620688, a: 0.39215687}
+  midColorThres: 0.33
+  midColor: {r: 1, g: 1, b: 0, a: 0.39215687}
+  lowColorThresh: 0.15
+  lowColor: {r: 1, g: 0, b: 0, a: 0.39215687}
 --- !u!1 &1630188928
 GameObject:
   m_ObjectHideFlags: 0
