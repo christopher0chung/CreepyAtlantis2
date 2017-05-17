@@ -103,7 +103,8 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        IsInside(other);
+        if (_myObjv.status == Status_GameObjective.Active)
+            IsInside(other);
     }
 
     void EventListener(GameEvent e)
