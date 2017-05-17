@@ -119,9 +119,16 @@ public class SubControlScript : MonoBehaviour {
                 }
                 if (s.stick == Stick.Right)
                 {
-                    desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
-                    //Debug.Log(s.thisPID + " " + desiredAngle);
-                    //Mathf.Clamp(desiredAngle, -120, 120);
+                    if (s.upDown == 0 && s.leftRight == 0)
+                    {
+                        freeze0 = true;
+                    }
+                    else
+                    {
+                        freeze0 = false;
+                        desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
+                        Mathf.Clamp(desiredAngle, 180, 360);
+                    }
                 }
             }
             else if (p2In && s.thisPID == PlayerID.p2 && canMove)
@@ -132,9 +139,16 @@ public class SubControlScript : MonoBehaviour {
                 }
                 if (s.stick == Stick.Right)
                 {
-                    desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
-                    //Debug.Log(s.thisPID + " " + desiredAngle);
-                    //Mathf.Clamp(desiredAngle, -120, 120);
+                    if (s.upDown == 0 && s.leftRight == 0)
+                    {
+                        freeze1 = true;
+                    }
+                    else
+                    {
+                        freeze1 = false;
+                        desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
+                        Mathf.Clamp(desiredAngle, 180,  360);
+                    }
                 }
             }
         }
@@ -166,8 +180,11 @@ public class SubControlScript : MonoBehaviour {
 
         if (!freeze0 || !freeze1)
         {
-            lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
-            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
+            if ((freeze0 && !freeze1) || (!freeze0 && freeze1))
+            {
+                lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
+                myLight.localEulerAngles = new Vector3(0, 0, lightAng);
+            }
         }
     }
 
