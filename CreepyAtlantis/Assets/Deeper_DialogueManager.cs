@@ -338,7 +338,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("Entering Standby in DM's FSM");
+            //Debug.Log("Entering Standby in DM's FSM");
             if (Context.queuedLines.Count > 0)
                 Context.queuedLines.RemoveAt(0);
             EventManager.instance.Fire(new GE_UI_Dia(Context.currentActiveSpeaker, DialogueStatus.Complete));
@@ -368,7 +368,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("Entering PrintStart in DM's FSM");
+            //Debug.Log("Entering PrintStart in DM's FSM");
 
             Context._HardInitialize();
             //get or reset internal variables
@@ -383,7 +383,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                 audioLength = Context.myAS.clip.length;
             else
             {
-                Debug.Log("Logged 5");
+                //Debug.Log("Logged 5");
                 audioLength = 5;
             }
             timer = 0;
@@ -394,7 +394,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
-            Debug.Log("In PrintStart");
+            //Debug.Log("In PrintStart");
 
             timer += Time.deltaTime;
             if (timer / audioLength >= 1)

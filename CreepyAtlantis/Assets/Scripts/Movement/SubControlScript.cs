@@ -57,6 +57,11 @@ public class SubControlScript : MonoBehaviour {
         EventManager.instance.Register<GE_PlayerIngressEgress>(LocalHandler);
     }
 
+    void Start()
+    {
+        lightAng = 300;
+    }
+
     void Unregister()
     {
         EventManager.instance.Unregister<Button_GE>(LocalHandler);
@@ -125,13 +130,19 @@ public class SubControlScript : MonoBehaviour {
                     }
                     else
                     {
+                        //Debug.Log("Right stick inputing player 0");
                         freeze0 = false;
-                        desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
-                        Mathf.Clamp(desiredAngle, 180, 360);
+
+                        float ang = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
+                        if (ang <= 90f)
+                            desiredAngle = 360;
+                        else
+                            desiredAngle = Mathf.Clamp(ang, 180, 360);
+                        //Debug.Log(desiredAngle);
                     }
                 }
             }
-            else if (p2In && s.thisPID == PlayerID.p2 && canMove)
+            else if (p2In && s.thisPID == PlayerID.p2)
             {
                 if (s.stick == Stick.Left)
                 {
@@ -145,9 +156,15 @@ public class SubControlScript : MonoBehaviour {
                     }
                     else
                     {
+                        //Debug.Log("Right stick inputing player 1");
                         freeze1 = false;
-                        desiredAngle = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
-                        Mathf.Clamp(desiredAngle, 180,  360);
+
+                        float ang = ((Mathf.Atan2(s.upDown, s.leftRight) * Mathf.Rad2Deg) + 360) % 360;
+                        if (ang <= 90f)
+                            desiredAngle = 360;
+                        else 
+                            desiredAngle = Mathf.Clamp(ang, 180,  360);
+                        //Debug.Log(desiredAngle);
                     }
                 }
             }
@@ -178,13 +195,17 @@ public class SubControlScript : MonoBehaviour {
 
         myRB.AddForce(resultantMoveVector);
 
-        if (!freeze0 || !freeze1)
+        if ((freeze0 && !freeze1))
         {
-            if ((freeze0 && !freeze1) || (!freeze0 && freeze1))
-            {
-                lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
-                myLight.localEulerAngles = new Vector3(0, 0, lightAng);
-            }
+            //Debug.Log("P2 Moving Light");
+            lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
+            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
+        }
+        if(!freeze0 && freeze1)
+        {
+            //Debug.Log("P1 Moving Light");
+            lightAng = Mathf.MoveTowards(lightAng, desiredAngle, angRate);
+            myLight.localEulerAngles = new Vector3(0, 0, lightAng);
         }
     }
 
