@@ -21418,7 +21418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1308f44d258e0934cb10aab1cb452d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -4.67, y: 0, z: 0}
+  offset: {x: -3.83, y: 1, z: -2.35}
 --- !u!114 &1257217727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21430,7 +21430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd85369af5e2541a485b8e8a27846a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoCanInteract: 1
+  whoCanInteract: 3
   interactTime: 0
   iconScale: 1
   sphereRad: 6
@@ -21471,7 +21471,7 @@ MonoBehaviour:
   label: Kelp lodged in Stbd Propulsion
   description: Pull out kelp
   myStatus: 0
-  optional_startActive: 0
+  optional_startActive: 1
   optional_precedingObjective: {fileID: 908457891}
   optional_handoffObjective: {fileID: 0}
   optional_timesToInteractToComplete: 3

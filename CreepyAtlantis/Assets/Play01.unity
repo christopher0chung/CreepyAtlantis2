@@ -3956,7 +3956,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9172.518, y: 9172.518, z: 0}
+  Offset: {x: 9175.883, y: 9175.883, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -6923,7 +6923,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5637.283, y: 5637.283, z: 0}
+  Offset: {x: 5640.6465, y: 5640.6465, z: 0}
 --- !u!108 &277469036
 Light:
   m_ObjectHideFlags: 0
@@ -7202,7 +7202,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.095404
+    e00: 2.0992785
     e01: 0
     e02: 0
     e03: 0
@@ -7219,7 +7219,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.095404
+    e00: 2.0992785
     e01: 0
     e02: 0
     e03: 0
@@ -22386,14 +22386,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 603298872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 0.5, w: -0.8660254}
   m_LocalPosition: {x: 1.5051478, y: -1.3799171, z: -0}
   m_LocalScale: {x: 80.000084, y: 80.00003, z: 80.0001}
   m_Children:
   - {fileID: 21649049}
   m_Father: {fileID: 1630317485}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 300}
 --- !u!1 &608197646
 GameObject:
   m_ObjectHideFlags: 0
@@ -55690,7 +55690,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8667.151, y: 8667.151, z: 0}
+  Offset: {x: 8670.517, y: 8670.517, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -74491,7 +74491,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5792.364, y: 5792.364, z: 0}
+  Offset: {x: 5795.727, y: 5795.727, z: 0}
 --- !u!108 &2013639889
 Light:
   m_ObjectHideFlags: 0
