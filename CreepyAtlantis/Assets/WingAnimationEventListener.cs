@@ -22,6 +22,7 @@ public class WingAnimationEventListener : MonoBehaviour {
 	void Start () {
         _fsm = new FSM<WingAnimationEventListener>(this);
         _fsm.TransitionTo<Operate>();
+        _fsm.Update();
 
         if (WingSelector == WingSide.Port)
         {

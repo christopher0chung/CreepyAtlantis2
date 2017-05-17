@@ -25,7 +25,7 @@ public class SUBTUT2Objective4 : Objective
         SRD.SetActive(true);
         SRD.GetComponent<IObjective>().Activate();
 
-        GameObject.Find("Sub").GetComponent<SubController>().canMove = true;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = true;
 
         base.Trigger();
     }

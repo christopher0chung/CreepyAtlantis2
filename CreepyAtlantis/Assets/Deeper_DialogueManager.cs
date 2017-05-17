@@ -17,15 +17,15 @@ public class GE_Dia_Line : GameEvent
 
     public string line;
     public string audioFileName;
-    public Deeper_DialogueEvent followOnEvent;
+    public Deeper_DialogueEvent_Base followOnEvent;
 
     public string choice1;
     public string choice2;
-    public Deeper_DialogueEvent choice1Event;
-    public Deeper_DialogueEvent choice2Event;
+    public Deeper_DialogueEvent_Base choice1Event;
+    public Deeper_DialogueEvent_Base choice2Event;
 
 
-    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string l, string n, Deeper_DialogueEvent f)
+    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string l, string n, Deeper_DialogueEvent_Base f)
     {
         type = DialogueLineType.Standard;
         priority = p;
@@ -37,7 +37,7 @@ public class GE_Dia_Line : GameEvent
         followOnEvent = f;
     }
 
-    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string c1, string c2, Deeper_DialogueEvent c1E, Deeper_DialogueEvent c2E)
+    public GE_Dia_Line (DialogueLinePriority p, DialogueLineTag t, Speaker s, string d, string c1, string c2, Deeper_DialogueEvent_Base c1E, Deeper_DialogueEvent_Base c2E)
     {
         type = DialogueLineType.Choice;
         priority = p;
@@ -124,6 +124,9 @@ public class Deeper_DialogueManager : MonoBehaviour {
     #region Mono Functions
     void Awake()
     {
+        _fsm = new FSM<Deeper_DialogueManager>(this);
+        _fsm.TransitionTo<Standby>();
+     
         EventManager.instance.Register<GE_Dia_Line>(EventFunc);
         EventManager.instance.Register<Button_GE>(EventFunc);
         EventManager.instance.Register<GE_PreLoadLevel>(EventFunc);
@@ -131,11 +134,9 @@ public class Deeper_DialogueManager : MonoBehaviour {
     }
 
     void Start () {
+
         myAS = GetComponent<AudioSource>();
         mySM = GameObject.Find("Managers").GetComponent<SelectionManager>();
-
-        _fsm = new FSM<Deeper_DialogueManager>(this);
-        _fsm.TransitionTo<Standby>();
 
         Text[] leftFields = new Text[2];
         leftFields[0] = ChoiceBoxes[0];
@@ -162,6 +163,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
             _choiceSpeakerRefs.Add(Speaker.Ops, rightFields);
             _choiceSpeakerRefs.Add(Speaker.Doc, leftFields);
         }
+        _fsm.Update();
 	}
 
     void Update()
@@ -241,7 +243,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         if (e.GetType() == typeof(GE_PreLoadLevel))
         {
-            queuedLines.RemoveAll(l => l.GetType() == typeof(GE_Dia_Line));
+            //queuedLines.RemoveAll(l => l.GetType() == typeof(GE_Dia_Line));
         }
         else if (e.GetType() == typeof(GE_Dia_Line))
         {
@@ -303,7 +305,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             queuedLines[0].choice1Event.Fire();
-                                if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
+                                //if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
                                     _fsm.TransitionTo<Standby>();
                         }
                     }
@@ -316,7 +318,6 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             queuedLines[0].choice2Event.Fire();
-                            if (queuedLines[0].priority != DialogueLinePriority.Interrupt)
                                 _fsm.TransitionTo<Standby>();
                         }
                     }
@@ -485,7 +486,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
-            Debug.Log("In Choice");
+            //Debug.Log("In Choice");
 
         }
 

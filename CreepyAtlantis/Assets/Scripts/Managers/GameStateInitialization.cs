@@ -66,15 +66,15 @@ public class GameStateInitialization : MonoBehaviour {
     {
         if (sceneName == "Add00" || sceneName == "Add01" || sceneName == "Add02" || sceneName == "Add03")
         {
-            GameObject.Find("Sub").GetComponent<SubController>().canGetOut = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canGetOutInitial;
-            GameObject.Find("Sub").GetComponent<SubController>().canMove = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canMoveInitial;
+            GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canGetOutInitial;
+            GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = GameObject.Find("LevelSpecs").GetComponent<LevelSpecs>().canMoveInitial;
         }
     }
 
     private void MoveSub()
     {
         GameObject.Find("Sub").transform.position = GetComponent<ObjectivesTracker>().respawnPos;
-        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = GetComponent<ObjectivesTracker>().respawnSubExit;
-        GameObject.Find("Sub").GetComponent<SubController>().canMove = GetComponent<ObjectivesTracker>().respawnSubMove;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = GetComponent<ObjectivesTracker>().respawnSubExit;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = GetComponent<ObjectivesTracker>().respawnSubMove;
     }
 }

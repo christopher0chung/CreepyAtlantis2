@@ -83,10 +83,13 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevelHandler (GameEvent e)
     {
-        GE_LoadLevelRequest l = (GE_LoadLevelRequest)e;
-        if (CheckReady(l.level))
+        if (e.GetType() == typeof(GE_LoadLevelRequest))
         {
-            level = l.level;
+            GE_LoadLevelRequest l = (GE_LoadLevelRequest)e;
+            if (CheckReady(l.level))
+            {
+                level = l.level;
+            }
         }
     }
 

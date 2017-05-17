@@ -19,7 +19,7 @@ public class SUBTUT2Objective0 : Objective {
 
     public override void Trigger()
     {
-        GameObject.Find("Sub").GetComponent<SubController>().canMove = true;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = true;
 
         GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(0, Controllables.submarine);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(1, Controllables.none);

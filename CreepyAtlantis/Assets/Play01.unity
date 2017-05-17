@@ -3742,12 +3742,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
     type: 2}
   m_PrefabInternal: {fileID: 126984622}
---- !u!114 &126984624 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012337261730, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 126984622}
-  m_Script: {fileID: 11500000, guid: 4dc45904c3ab9464d9f8baf027a586a9, type: 3}
 --- !u!1 &136962741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3962,7 +3956,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9092.317, y: 9092.317, z: 0}
+  Offset: {x: 9172.518, y: 9172.518, z: 0}
 --- !u!108 &171464054
 Light:
   m_ObjectHideFlags: 0
@@ -6816,8 +6810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3bfc28254966b4e8c12e38704b6ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: Air less than 30%
-  DEToTrigger: {fileID: 855531984}
 --- !u!1 &277469032
 GameObject:
   m_ObjectHideFlags: 0
@@ -6931,7 +6923,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5557.078, y: 5557.078, z: 0}
+  Offset: {x: 5637.283, y: 5637.283, z: 0}
 --- !u!108 &277469036
 Light:
   m_ObjectHideFlags: 0
@@ -7210,7 +7202,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 2.0990207
+    e00: 2.095404
     e01: 0
     e02: 0
     e03: 0
@@ -7227,7 +7219,7 @@ MonoBehaviour:
     e32: 0.9659258
     e33: 53.12592
   LastMatrixVP:
-    e00: 2.0990207
+    e00: 2.095404
     e01: 0
     e02: 0
     e03: 0
@@ -7341,7 +7333,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.038927346, g: 0.08823532, b: 0.078033656, a: 1}
+  m_BackGroundColor: {r: 0.088676475, g: 0.201, b: 0.1777606, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -22089,7 +22081,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 576430820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5267b57edd0dca0459a8f0b80b8b715b, type: 3}
   m_Name: 
@@ -22097,8 +22089,15 @@ MonoBehaviour:
   myMovement: {fileID: 576430829}
   myPA: {fileID: 576430825}
   myLA: {fileID: 1561219785}
+  myPAir: {fileID: 576430828}
   charNum: 0
-  myAdapter: {fileID: 0}
+  myCol: {fileID: 576430823}
+  myRB: {fileID: 576430824}
+  modelAndBarks:
+  - {fileID: 144614008}
+  - {fileID: 1848731798}
+  myPM: {fileID: 576430829}
+  inOutReady: 0
 --- !u!4 &576430827
 Transform:
   m_ObjectHideFlags: 0
@@ -22129,54 +22128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407ac85e9f99e3545b56cd5553da4156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airLowAlert:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 238905284}
-        m_MethodName: Fire
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  airLowWarning:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1326227454}
-        m_MethodName: Fire
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  airZero:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 576430821}
-        m_MethodName: Drown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  _airTankPercent: 0
 --- !u!114 &576430829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22190,9 +22142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPos: {fileID: 1428287694}
-  leftMove: 97
-  rightMove: 100
-  thrust: 119
   thrustForce: 45
   breathingAirRate: 0.3
   walkingAirRate: 0.4
@@ -25862,12 +25811,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
     type: 2}
   m_PrefabInternal: {fileID: 772490490}
---- !u!114 &772490492 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012337261730, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 772490490}
-  m_Script: {fileID: 11500000, guid: 4dc45904c3ab9464d9f8baf027a586a9, type: 3}
 --- !u!1 &779911177
 GameObject:
   m_ObjectHideFlags: 0
@@ -26981,12 +26924,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
     type: 2}
   m_PrefabInternal: {fileID: 848130238}
---- !u!114 &848130240 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012337261730, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 848130238}
-  m_Script: {fileID: 11500000, guid: 4dc45904c3ab9464d9f8baf027a586a9, type: 3}
 --- !u!1001 &855531982
 Prefab:
   m_ObjectHideFlags: 0
@@ -27038,12 +26975,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010992977426, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
     type: 2}
   m_PrefabInternal: {fileID: 855531982}
---- !u!114 &855531984 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012337261730, guid: d4a0c5204faadab42a5d4bae3b2ef1fa,
-    type: 2}
-  m_PrefabInternal: {fileID: 855531982}
-  m_Script: {fileID: 11500000, guid: 4dc45904c3ab9464d9f8baf027a586a9, type: 3}
 --- !u!1 &858054969
 GameObject:
   m_ObjectHideFlags: 0
@@ -27054,13 +26985,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1630317485}
   - component: {fileID: 858054985}
-  - component: {fileID: 858054984}
   - component: {fileID: 858054983}
   - component: {fileID: 858054970}
   - component: {fileID: 858054971}
   - component: {fileID: 858054978}
-  - component: {fileID: 858054986}
-  - component: {fileID: 858054987}
   m_Layer: 11
   m_Name: Sub
   m_TagString: Sub
@@ -27313,25 +27241,6 @@ CapsuleCollider:
   m_Height: 4.28
   m_Direction: 0
   m_Center: {x: -0.29, y: 0, z: 0}
---- !u!114 &858054984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000012015709656, guid: a31aee167ee63fa429b08b6b1d3405d0,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 858054969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42da660398d92264292c1fc59a02c4c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMovement: {fileID: 858054985}
-  myTDS: {fileID: 820319017}
-  myAdapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  canGetOut: 0
-  canMove: 0
 --- !u!114 &858054985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27348,6 +27257,10 @@ MonoBehaviour:
   angRate: 0.5
   p1: {fileID: 1429523505}
   p2: {fileID: 576430820}
+  p1In: 0
+  p2In: 0
+  canMove: 0
+  canGetOut: 0
   lightAng: -15.110535
   desiredAngle: 19.555592
   leftMax: -20
@@ -27356,33 +27269,6 @@ MonoBehaviour:
   p1MoveVector: {x: 0, y: 0, z: 0}
   p2MoveVector: {x: 0, y: 0, z: 0}
   resultantMoveVector: {x: 0, y: 0, z: 0}
---- !u!114 &858054986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 858054969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd6d04fb0dfed646a17a5918ac0e273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inKelp: 0
-  timer: 0
---- !u!114 &858054987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 858054969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b860d17261d94e4481fb61acab0c977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players:
-  - {fileID: 1429523505}
-  - {fileID: 576430820}
 --- !u!1 &860766584
 GameObject:
   m_ObjectHideFlags: 0
@@ -27918,8 +27804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3bfc28254966b4e8c12e38704b6ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: Air Less than 30%
-  DEToTrigger: {fileID: 848130240}
 --- !u!1 &921707252
 GameObject:
   m_ObjectHideFlags: 0
@@ -28994,8 +28878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3bfc28254966b4e8c12e38704b6ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: Air Less than 10%
-  DEToTrigger: {fileID: 772490492}
 --- !u!1 &1110699107
 GameObject:
   m_ObjectHideFlags: 0
@@ -29107,6 +28989,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: modelAndBarks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114123833455504048, guid: ee0ad94bc13b7aa4a9710032192c05f7,
         type: 2}
       propertyPath: airZero.m_PersistentCalls.m_Calls.Array.size
@@ -29390,12 +29277,61 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294955007
       objectReference: {fileID: 0}
+    - target: {fileID: 1160736299183584, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: myCol
+      value: 
+      objectReference: {fileID: 1138494340}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: myRB
+      value: 
+      objectReference: {fileID: 1138494339}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: modelAndBarks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1138494336}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: modelAndBarks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1138494335}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: myPM
+      value: 
+      objectReference: {fileID: 1138494341}
+    - target: {fileID: 114720493357541390, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+        type: 2}
+      propertyPath: myPAir
+      value: 
+      objectReference: {fileID: 1138494342}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0ad94bc13b7aa4a9710032192c05f7, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1138494334 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4134614551724010, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+--- !u!1 &1138494335 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1433672289035544, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+--- !u!1 &1138494336 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1271678785535172, guid: ee0ad94bc13b7aa4a9710032192c05f7,
     type: 2}
   m_PrefabInternal: {fileID: 1138494333}
 --- !u!1 &1138494337 stripped
@@ -29419,6 +29355,28 @@ MonoBehaviour:
   myLM:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!54 &1138494339 stripped
+Rigidbody:
+  m_PrefabParentObject: {fileID: 54853291148825618, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+--- !u!136 &1138494340 stripped
+CapsuleCollider:
+  m_PrefabParentObject: {fileID: 136296947901510866, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+--- !u!114 &1138494341 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114955005644989044, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+  m_Script: {fileID: 11500000, guid: a79e25a702a2456439c8c62699e9b0ae, type: 3}
+--- !u!114 &1138494342 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114123833455504048, guid: ee0ad94bc13b7aa4a9710032192c05f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1138494333}
+  m_Script: {fileID: 11500000, guid: 407ac85e9f99e3545b56cd5553da4156, type: 3}
 --- !u!1001 &1151172634
 Prefab:
   m_ObjectHideFlags: 0
@@ -36148,8 +36106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3bfc28254966b4e8c12e38704b6ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: Air less than 10%
-  DEToTrigger: {fileID: 126984624}
 --- !u!1 &1326485177
 GameObject:
   m_ObjectHideFlags: 0
@@ -36410,7 +36366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1364443734
 Transform:
   m_ObjectHideFlags: 0
@@ -46091,7 +46047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1488204048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52279,7 +52235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1610867995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55734,7 +55690,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 8586.951, y: 8586.951, z: 0}
+  Offset: {x: 8667.151, y: 8667.151, z: 0}
 --- !u!108 &1678822778
 Light:
   m_ObjectHideFlags: 0
@@ -74535,7 +74491,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 5712.1587, y: 5712.1587, z: 0}
+  Offset: {x: 5792.364, y: 5792.364, z: 0}
 --- !u!108 &2013639889
 Light:
   m_ObjectHideFlags: 0

@@ -146,8 +146,19 @@ public class TrapDoorScript : MonoBehaviour, IInteractable {
 
     public void Interact (int playerNum, bool pushRelease)
     {
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(playerNum, Controllables.submarine);
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(playerNum, true);
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(playerNum, Controllables.submarine);
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SubInteract(playerNum, true);
+       if (pushRelease)
+        {
+            PlayerID p;
+            if (playerNum == 0)
+                p = PlayerID.p1;
+            else
+                p = PlayerID.p2;
+
+            EventManager.instance.Fire(new GE_PlayerIngressEgress(p, true));
+            Debug.Log("Sending in");
+        }
     }
 
     protected void ShowInteractable()

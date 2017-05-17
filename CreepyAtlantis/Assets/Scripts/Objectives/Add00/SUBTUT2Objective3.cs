@@ -33,7 +33,7 @@ public class SUBTUT2Objective3 : Objective
         GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(1, Controllables.submarine);
         GameObject.FindGameObjectWithTag("Managers").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
 
-        GameObject.Find("Sub").GetComponent<SubController>().canMove = true;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = true;
 
         base.Trigger();
     }

@@ -23,8 +23,8 @@ public class KelpObjective : Objective {
     public override void Trigger()
     {
         myDM.FireEvent(myDM.ReturnEventIndex(whatDEToFire));
-        GameObject.Find("Sub").GetComponent<SubController>().canMove = true;
-        GameObject.Find("Sub").GetComponent<SubController>().canGetOut = true;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = true;
+        GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = true;
         base.Trigger();
     }
 
