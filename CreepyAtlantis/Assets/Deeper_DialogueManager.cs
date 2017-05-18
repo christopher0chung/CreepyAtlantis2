@@ -307,7 +307,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             activeLine.choice1Event.Fire();
-                            _fsm.TransitionTo<Standby>();
+                            _fsm.TransitionTo<PrintStart>();
                         }
                     }
                 }
@@ -319,7 +319,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                             || ((b.thisPID == PlayerID.p2) && ((mySM.C2 == SelectChoice.Doc && queuedLines[0].speaker == Speaker.Doc) || (mySM.C2 == SelectChoice.Ops && queuedLines[0].speaker == Speaker.Ops))))
                         {
                             activeLine.choice2Event.Fire();
-                            _fsm.TransitionTo<Standby>();
+                            _fsm.TransitionTo<PrintStart>();
                         }
                     }
                 }
