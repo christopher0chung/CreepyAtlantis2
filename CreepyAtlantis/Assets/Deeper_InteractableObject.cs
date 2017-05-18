@@ -52,12 +52,6 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    [Header("Check first box if it should change sub status")]
-    [SerializeField] private bool AffectSubOnTrigger;
-    [SerializeField] private bool CanMoveNow;
-    [SerializeField] private bool CanGetOutNow;
-
-
     //-----------------------------------------------------------------
     // Init and either InitBox or InitSphere is necessary to be run in Awake()
     //-----------------------------------------------------------------
@@ -115,11 +109,6 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
         if (NameOfToSpawn != "")
         {
             Instantiate(Resources.Load(NameOfToSpawn), transform.position, Quaternion.identity);
-        }
-        if (AffectSubOnTrigger)
-        {
-            GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNow;
-            GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNow;
         }
     }
 

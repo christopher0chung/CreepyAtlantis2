@@ -50,9 +50,14 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private Deeper_DialogueLine_Base optional_DialogueToActivate;
 
     [Header("Check first box if it should change sub status OnActive")]
-    [SerializeField] private bool AffectSubOnTrigger;
+    [SerializeField] private bool AffectSubOnActive;
     [SerializeField] private bool CanMoveNow;
     [SerializeField] private bool CanGetOutNow;
+
+    [Header("Check first box if it should change sub status OnActive")]
+    [SerializeField] private bool AffectSubOnTrigger;
+    [SerializeField] private bool CanMoveNowT;
+    [SerializeField] private bool CanGetOutNowT;
 
     [Header("Optional - If not 999, the level that will be loaded OnComplete")]
     [SerializeField] private int levelToLoad = 999;
@@ -170,8 +175,9 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                         optional_dialogueEventOnActive.Fire();
                     }
 
-                    if (AffectSubOnTrigger)
+                    if (AffectSubOnActive)
                     {
+                        Debug.Log("Changing sub status");
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNow;
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNow;
                     }
@@ -182,6 +188,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                     //DialogueManager myDM = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
                     if (optional_dialogueEventOnTriggered != null)
                         optional_dialogueEventOnTriggered.Fire();
+
+                    if (AffectSubOnTrigger)
+                    {
+                        Debug.Log("Changing sub status");
+                        GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNowT;
+                        GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNowT;
+                    }
 
                     onTriggered.Invoke();
                     _myObjv.status = Status_GameObjective.Completed;

@@ -190,11 +190,13 @@ public class SubControlScript : MonoBehaviour {
     void FixedUpdate ()
     {
         //MovementInput();
+        if (canMove)
+        {
+            resultantMoveVector = p1MoveVector + p2MoveVector;
+            EventManager.instance.Fire(new GE_SubMove(resultantMoveVector.y, -resultantMoveVector.x));
 
-        resultantMoveVector = p1MoveVector + p2MoveVector;
-        EventManager.instance.Fire(new GE_SubMove(resultantMoveVector.y, -resultantMoveVector.x));
-
-        myRB.AddForce(resultantMoveVector);
+            myRB.AddForce(resultantMoveVector);
+        }
 
         if ((freeze0 && !freeze1))
         {
