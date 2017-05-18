@@ -299,6 +299,9 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
             {
                 TransitionTo<Wait>();
             }
+
+            if (GameObject.Find("Sub") != null)
+                EventManager.instance.Fire(new GE_Music(MusicEmoReg.Stalking, (Mathf.Abs(Context.transform.position.z - GameObject.Find("Sub").transform.position.z) - 5) / 1.5f));
         }
 
         public override void CleanUp()
@@ -334,6 +337,9 @@ public class SharkAttacking : MonoBehaviour, IIlluminable {
 
         public override void Update()
         {
+            if (GameObject.Find("Sub") != null)
+                EventManager.instance.Fire(new GE_Music(MusicEmoReg.Danger, 10));
+
             //if no players just cruise by
             if (players[0].activeInHierarchy == false && players[1].activeInHierarchy == false)
             {

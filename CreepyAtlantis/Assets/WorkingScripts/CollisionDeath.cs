@@ -132,13 +132,15 @@ public class CollisionDeath : MonoBehaviour {
             {
                 //Debug.Log("with Sub");
                 StartDeathSeq();
-            } 
+                EventManager.instance.Fire(new GE_SFX(SFX.DeathStatic));
+            }
         }
         else if (whoThisIsFor == DeathControlType.Sub)
         {
             if (!(other.transform.root.gameObject.name == "Character0" || other.transform.root.gameObject.name == "Character1"))
             {
-            Debug.Log(other.transform.root.gameObject.name + " killed the sub");
+                Debug.Log(other.transform.root.gameObject.name + " killed the sub");
+                EventManager.instance.Fire(new GE_SFX(SFX.DeathStatic));
                 //Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
                 if (storedVel >= 2.0f)
                 {

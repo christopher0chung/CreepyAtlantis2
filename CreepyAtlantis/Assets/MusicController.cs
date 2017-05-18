@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class GE_Music : GameEvent
+{
+    public MusicEmoReg reg;
+    public float str;
+    public GE_Music(MusicEmoReg r, float f)
+    {
+        reg = r;
+        str = f;
+    }
+}
+
+public enum MusicEmoReg { Creepy, Danger, Depth, Narc, Base, Stalking }
 public class MusicController : MonoBehaviour
 {
-    public enum MusicEmoReg { Creepy, Danger, Depth, Narc, Base, Stalking }
     public enum Tempo { None, A }
 
     private class AudioHistogramElement
@@ -53,14 +64,19 @@ public class MusicController : MonoBehaviour
         _layerHistVal = new float[System.Enum.GetValues(typeof(MusicEmoReg)).Length];
         _layerDecNormalizedTime = new float[System.Enum.GetValues(typeof(MusicEmoReg)).Length];
 
-        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Base, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-Base"), 0, .1f));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Base, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-Ocean bubbles low loop"), 0, .1f));
 
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Depth, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-New depths"), 1, 2));
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Depth, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-Ocean floor"), 2, 10));
 
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Danger, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Pulse A"), 0, 2));
 
-        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Pulse B"), 0, 1));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking kick 0 loop"), 0, 4));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking kick 1 loop"), 2, 5));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking kick 2 loop"), 3, 6));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking perc 1 loop"), 4, 7));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking snare 1 loop"), 5, 8));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking bass 1 loop"), 9, 10));
 
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Narc, (AudioClip)Resources.Load("Music/" + "TEMPOA-N-Narced A"), 1, 2));
 
@@ -78,45 +94,56 @@ public class MusicController : MonoBehaviour
             _tempoLoopedLayerSources.TryGetValue(theAHE, out thisAS);
             if (theAHE.myEmoReg == MusicEmoReg.Base)
             {
-                thisAS.volume = 1;
+                thisAS.volume = .5f;
             }
+        }
+
+        EventManager.instance.Register<GE_Music>(LocalHandler);
+    }
+
+    void LocalHandler(GameEvent e)
+    {
+        GE_Music m = (GE_Music)e;
+        if (m.str >= _layerHistVal[(int)m.reg])
+        {
+            _layerHistVal[(int)m.reg] = m.str;
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && ((BasicState)_fsm.CurrentState).name != "UpdateNarc")
-        {
-            _layerHistVal[(int)MusicEmoReg.Narc] += 1f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _layerHistVal[(int)MusicEmoReg.Danger] += 1f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _layerHistVal[(int)MusicEmoReg.Stalking] += 1f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
-        {
-            _layerHistVal[(int)MusicEmoReg.Creepy] += 1f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
-        {
-            _layerHistVal[(int)MusicEmoReg.Creepy] += 2f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
-        {
-            _layerHistVal[(int)MusicEmoReg.Creepy] += 3f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
-        {
-            _layerHistVal[(int)MusicEmoReg.Creepy] += 4f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            EventNewDepth();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1) && ((BasicState)_fsm.CurrentState).name != "UpdateNarc")
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Narc] += 1f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Danger] += 1f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Stalking] += 1f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha4) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Creepy] += 1f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha5) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Creepy] += 2f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha6) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Creepy] += 3f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha7) && ((BasicState)_fsm.CurrentState).name != "UpdateCreepy")
+        //{
+        //    _layerHistVal[(int)MusicEmoReg.Creepy] += 4f;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha8))
+        //{
+        //    EventNewDepth();
+        //}
 
         _UpdateHistogram();
         _fsm.Update();

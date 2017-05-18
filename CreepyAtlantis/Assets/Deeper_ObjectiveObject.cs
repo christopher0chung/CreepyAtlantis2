@@ -61,6 +61,9 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
     [Header("Optional - If not 999, the level that will be loaded OnComplete")]
     [SerializeField] private int levelToLoad = 999;
+
+    [Header("Optional - Sounds OnTriggered")]
+    [SerializeField] private bool CheckPointSound;
     #endregion
 
     #region Functional Vars
@@ -201,6 +204,11 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
                         //Debug.Log("Changing sub status");
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNowT;
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNowT;
+                    }
+
+                    if (CheckPointSound)
+                    {
+                        EventManager.instance.Fire(new GE_SFX(SFX.CheckPoint));
                     }
 
                     onTriggered.Invoke();

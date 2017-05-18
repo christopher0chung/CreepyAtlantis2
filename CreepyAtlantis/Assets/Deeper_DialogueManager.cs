@@ -275,10 +275,14 @@ public class Deeper_DialogueManager : MonoBehaviour {
                     //------------------------------------
                     if (_fsm.CurrentState.GetType() == typeof(PrintStart))
                     {
+                        EventManager.instance.Fire(new GE_SFX(SFX.Click));
+
                         _fsm.TransitionTo<PrintComplete>();
                     }
                     else if (_fsm.CurrentState.GetType() == typeof(PrintComplete))
                     {
+                        EventManager.instance.Fire(new GE_SFX(SFX.Click));
+
                         _fsm.TransitionTo<Standby>();
                     }
                     //------------------------------------
@@ -308,6 +312,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
                         {
                             activeLine.choice1Event.Fire();
                             _fsm.TransitionTo<PrintStart>();
+                            EventManager.instance.Fire(new GE_SFX(SFX.Click));
                         }
                     }
                 }
@@ -320,6 +325,8 @@ public class Deeper_DialogueManager : MonoBehaviour {
                         {
                             activeLine.choice2Event.Fire();
                             _fsm.TransitionTo<PrintStart>();
+                            EventManager.instance.Fire(new GE_SFX(SFX.Click));
+
                         }
                     }
                 }

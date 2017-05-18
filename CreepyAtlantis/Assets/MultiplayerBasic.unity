@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 41.000183, y: 59.19995}
+  m_AnchoredPosition: {x: 41.000244, y: 59.19995}
   m_SizeDelta: {x: 672.8, y: 72.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &38371532
@@ -4137,7 +4137,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9092.287, y: 9092.287, z: 0}
+  Offset: {x: 9103.569, y: 9103.569, z: 0}
 --- !u!108 &467118704
 Light:
   m_ObjectHideFlags: 0
@@ -13394,7 +13394,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 9093.543, y: 9093.543, z: 0}
+  Offset: {x: 9104.825, y: 9104.825, z: 0}
 --- !u!108 &1100942313
 Light:
   m_ObjectHideFlags: 0
@@ -13762,6 +13762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d21b8cb92498545ba341aa389151f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  subMove: 0
+  ingEg: 0
 --- !u!1001 &1364929987
 Prefab:
   m_ObjectHideFlags: 0
@@ -14005,6 +14007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d21b8cb92498545ba341aa389151f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  subMove: 0
+  ingEg: 0
 --- !u!114 &1383235873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14096,7 +14100,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -14108,7 +14112,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -14120,7 +14124,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &1407653546
 GameObject:
   m_ObjectHideFlags: 0
@@ -14970,10 +14974,10 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: -0.54372
+    e00: -0.54366374
     e01: 0
-    e02: -2.029189
-    e03: 6.9601126
+    e02: -2.028979
+    e03: 6.959392
     e10: 0
     e11: -3.7320507
     e12: 0
@@ -14987,10 +14991,10 @@ MonoBehaviour:
     e32: -0.25881934
     e33: 20.887762
   LastMatrixVP:
-    e00: -0.54372
+    e00: -0.54366374
     e01: 0
-    e02: -2.029189
-    e03: 6.9601126
+    e02: -2.028979
+    e03: 6.959392
     e10: 0
     e11: 3.7320507
     e12: 0
