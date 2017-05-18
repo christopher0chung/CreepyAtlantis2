@@ -192,6 +192,7 @@ public class SubControlScript : MonoBehaviour {
         //MovementInput();
 
         resultantMoveVector = p1MoveVector + p2MoveVector;
+        EventManager.instance.Fire(new GE_SubMove(resultantMoveVector.y, -resultantMoveVector.x));
 
         myRB.AddForce(resultantMoveVector);
 

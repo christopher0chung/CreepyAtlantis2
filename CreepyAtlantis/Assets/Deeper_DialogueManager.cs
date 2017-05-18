@@ -171,7 +171,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
     {
         _LinesParser();
         _fsm.Update();
-        Debug.Log(queuedLines.Count);
+        //Debug.Log(queuedLines.Count);
     }
     #endregion
 

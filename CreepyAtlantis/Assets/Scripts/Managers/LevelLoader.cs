@@ -151,13 +151,13 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelThree()
     {
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
     }
 
     private void LoadLevelFour()
     {
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add03", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
     }
 
     private void LoadLevelFive()

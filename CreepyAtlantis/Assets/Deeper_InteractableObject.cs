@@ -8,7 +8,7 @@ public enum Interactors {Unassigned, Ops, Doc, Either, Sub }
 public class Deeper_InteractableObject : MonoBehaviour, IInteractable
 {
     public Interactors whoCanInteract;
-    public float interactTime;
+    //public float interactTime;
     public float iconScale;
     public float sphereRad;
     public Vector3 sphereOffset;
