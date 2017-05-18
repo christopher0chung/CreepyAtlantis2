@@ -134,6 +134,8 @@ public class LevelLoader : MonoBehaviour {
                 {
                     Debug.Log("hold is " + hold + " and level is " + level);
                     EventManager.instance.Fire(new GE_LoadLevelRequest(hold));
+                    EventManager.instance.Fire(new GE_Danger());
+                    EventManager.instance.Fire(new GameSaveLoadEvent());
                 }
             //LoadLevel(hold);
             }

@@ -88,17 +88,18 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
         _MakeObj(myType, iD_name + iD_locSerial, label, description, optional_iDToSubScribeTo);
         EventManager.instance.Register<GameObjectiveEvent>(EventListener);
         EventManager.instance.Register<GE_DiaToObjv>(EventListener);
-        GameStateManager.onPreLoadLevel += OnPreLoadLevel;
+        EventManager.instance.Register<GE_PreLoadLevel>(EventListener);
     }
 
     void OnPreLoadLevel()
     {
         EventManager.instance.Unregister<GameObjectiveEvent>(EventListener);
         EventManager.instance.Unregister<GE_DiaToObjv>(EventListener);
-        GameStateManager.onPreLoadLevel -= OnPreLoadLevel;
+        EventManager.instance.Unregister<GE_PreLoadLevel>(EventListener);
+
     }
 
-	void Start () {
+    void Start () {
         _myObjv.ManagerCheckIn();
         if (optional_startActive && _myObjv.status == Status_GameObjective.Initialized)
         {
@@ -114,7 +115,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
     void EventListener(GameEvent e)
     {
-        if (e.GetType() == typeof(GameObjectiveEvent))
+        if (e.GetType() == typeof(GE_PreLoadLevel))
+        {
+            OnPreLoadLevel();
+            if (myInd != null)
+                Destroy(myInd);
+        }
+        else if (e.GetType() == typeof(GameObjectiveEvent))
         {
             GameObjectiveEvent GOE = (GameObjectiveEvent)e;
 

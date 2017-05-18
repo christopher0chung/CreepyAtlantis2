@@ -13,6 +13,28 @@ public class GE_PlayerIngressEgress : GameEvent
     }
 }
 
+public class GE_SubStatus : GameEvent
+{
+    public bool Move;
+    public bool IngEg;
+    public GE_SubStatus (bool m, bool i)
+    {
+        Move = m;
+        IngEg = i;
+    }
+}
+
+public class GE_GetSubStatus : GameEvent
+{
+    public bool Move;
+    public bool IngEg;
+    public GE_GetSubStatus(bool m, bool i)
+    {
+        Move = m;
+        IngEg = i;
+    }
+}
+
 public class SubControlScript : MonoBehaviour {
 
     [SerializeField] private Transform myLight;
@@ -55,6 +77,8 @@ public class SubControlScript : MonoBehaviour {
         EventManager.instance.Register<Stick_GE>(LocalHandler);
         EventManager.instance.Register<GE_PreLoadLevel>(LocalHandler);
         EventManager.instance.Register<GE_PlayerIngressEgress>(LocalHandler);
+        EventManager.instance.Register<GE_SubStatus>(LocalHandler);
+        EventManager.instance.Register<GameSaveEvent>(LocalHandler);
     }
 
     void Start()
@@ -68,6 +92,9 @@ public class SubControlScript : MonoBehaviour {
         EventManager.instance.Unregister<Stick_GE>(LocalHandler);
         EventManager.instance.Unregister<GE_PreLoadLevel>(LocalHandler);
         EventManager.instance.Unregister<GE_PlayerIngressEgress>(LocalHandler);
+        EventManager.instance.Unregister<GE_SubStatus>(LocalHandler);
+        EventManager.instance.Unregister<GameSaveEvent>(LocalHandler);
+
     }
 
     void LocalHandler(GameEvent e)
@@ -75,6 +102,16 @@ public class SubControlScript : MonoBehaviour {
         if (e.GetType() == typeof(GE_PreLoadLevel))
         {
             Unregister();
+        }
+        else if (e.GetType() == typeof(GE_SubStatus))
+        {
+            GE_SubStatus s = (GE_SubStatus)e;
+            canMove = s.Move;
+            canGetOut = s.IngEg;
+        }
+        else if (e.GetType() == typeof(GameSaveEvent))
+        {
+            EventManager.instance.Fire(new GE_GetSubStatus(canMove, canGetOut));
         }
         else if (e.GetType() == typeof(GE_PlayerIngressEgress))
         {
