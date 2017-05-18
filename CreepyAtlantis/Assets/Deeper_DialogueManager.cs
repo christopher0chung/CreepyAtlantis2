@@ -423,7 +423,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("Entering PrintComplete in DM's FSM");
+            //Debug.Log("Entering PrintComplete in DM's FSM");
 
             //get or reset internal variables
             Context._standardSpeakerRef.TryGetValue(Context.currentActiveSpeaker, out theText);
@@ -436,7 +436,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void Update()
         {
-            Debug.Log("In PrintComplete");
+            //Debug.Log("In PrintComplete");
 
             timer += Time.deltaTime;
             if (timer >= timeRemaining)
@@ -466,7 +466,7 @@ public class Deeper_DialogueManager : MonoBehaviour {
 
         public override void OnEnter()
         {
-            Debug.Log("Entering ChoiceState in DM's FSM");
+            //Debug.Log("Entering ChoiceState in DM's FSM");
 
             Context.activeLine = Context.queuedLines[0];
 

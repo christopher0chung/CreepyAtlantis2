@@ -48,7 +48,7 @@ public class PlayerAction : MonoBehaviour {
             //next is everything else on each collider
             foreach (RaycastHit aHit in allInRange)
             {
-                Debug.Log(aHit.collider.gameObject.name);
+                //Debug.Log(aHit.collider.gameObject.name);
                 if (aHit.collider.gameObject.GetComponent<IInteractable>() != null)
                 {
                     aHit.collider.GetComponent<IInteractable>().Interact(playerNum, pushRelease);

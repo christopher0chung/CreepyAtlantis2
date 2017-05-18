@@ -100,18 +100,16 @@ public class SubControlScript : MonoBehaviour {
                 Button_GE b = (Button_GE)e;
                 if (b.button == Button.Action && b.pressedReleased)
                 {
-                    Debug.Log("Sending out");
+                    //Debug.Log("Sending out");
                     if (p1In && b.thisPID == PlayerID.p1 && p1.GetComponent<PlayerController>().inOutReady)
                     {
                         StartCoroutine("IEInOutP1");
-                        //EventManager.instance.Fire(new GE_PlayerIngressEgress(PlayerID.p1, false));
-                        Debug.Log("P1 was in, now is out");
+                        //Debug.Log("P1 was in, now is out");
                     }
                     if (p2In && b.thisPID == PlayerID.p2 && p2.GetComponent<PlayerController>().inOutReady)
                     {
                         StartCoroutine("IEInOutP2");
-                        //EventManager.instance.Fire(new GE_PlayerIngressEgress(PlayerID.p2, false));
-                        Debug.Log("P2 was in, now is out");
+                        //Debug.Log("P2 was in, now is out");
                     }
                 }
             }

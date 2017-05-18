@@ -12,7 +12,7 @@ public class Deeper_DialogueEventToObjective : Deeper_DialogueEvent_Base {
 
     public override void Fire()
     {
-        Debug.Log("Fire called in DETO");
+        //Debug.Log("Fire called in DETO");
         myO.WasInteracted();
         if (dEvent != null)
             dEvent.Fire();

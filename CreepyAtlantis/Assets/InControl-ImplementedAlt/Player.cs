@@ -114,20 +114,20 @@ namespace MultiplayerBasicExample
                 EventManager.instance.Fire(new Button_GE(myPID, Button.Dialogue, false));
             }
 
-            if (Device.LeftBumper.WasPressed)
+            if (Device.DPadUp.WasPressed)
             {
                 EventManager.instance.Fire(new Button_GE(myPID, Button.Choice1, true));
             }
-            else if (Device.LeftBumper.WasReleased)
+            else if (Device.DPadUp.WasReleased)
             {
                 EventManager.instance.Fire(new Button_GE(myPID, Button.Choice1, false));
             }
 
-            if (Device.RightBumper.WasPressed)
+            if (Device.DPadDown.WasPressed)
             {
                 EventManager.instance.Fire(new Button_GE(myPID, Button.Choice2, true));
             }
-            else if (Device.RightBumper.WasReleased)
+            else if (Device.DPadDown.WasReleased)
             {
                 EventManager.instance.Fire(new Button_GE(myPID, Button.Choice2, false));
             }

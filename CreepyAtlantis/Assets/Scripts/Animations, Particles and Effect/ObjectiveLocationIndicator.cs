@@ -16,7 +16,7 @@ public class ObjectiveLocationIndicator : MonoBehaviour {
         {
             if (value != _who)
             {
-                Debug.Log("Color change");
+                //Debug.Log("Color change");
                 _who = value;
                 if (_who == Interactors.Ops)
                 {

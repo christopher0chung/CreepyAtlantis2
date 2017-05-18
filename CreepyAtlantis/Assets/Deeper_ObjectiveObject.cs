@@ -236,14 +236,14 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     #region Contextual Functions
     public void WasInteracted()
     {
-        Debug.Log("WasInteracted() called");
+        //Debug.Log("WasInteracted() called");
         if (myMethod == Type_GameObjective_HowToTrigger.PositiveAction)
         {
-            Debug.Log("Is positive action");
+            //Debug.Log("Is positive action");
 
             if (_myObjv.status == Status_GameObjective.Active)
             {
-                Debug.Log("Was interacted");
+                //Debug.Log("Was interacted");
                 interactCount++;
                 if (interactCount >= optional_timesToInteractToComplete)
                     _myObjv.status = Status_GameObjective.Triggered;

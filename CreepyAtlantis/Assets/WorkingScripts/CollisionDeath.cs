@@ -117,7 +117,8 @@ public class CollisionDeath : MonoBehaviour {
         }
         else if (whoThisIsFor == DeathControlType.Sub)
         {
-            if (other.transform.root.gameObject.name != "Character0" || other.transform.root.gameObject.name != "Character1")
+            Debug.Log(other.transform.root.gameObject.name + " killed the sub");
+            if (!(other.transform.root.gameObject.name == "Character0" || other.transform.root.gameObject.name == "Character1"))
             {
                 //Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
                 if (storedVel >= 2.0f)
@@ -140,7 +141,7 @@ public class CollisionDeath : MonoBehaviour {
     void Death()
     {
         //Debug.Log("Invoked");
-        GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathUnload();
+        //GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathUnload();
     }
 
     void ShutDownControls()

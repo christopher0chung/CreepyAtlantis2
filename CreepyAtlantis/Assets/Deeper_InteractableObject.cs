@@ -39,7 +39,7 @@ public class Deeper_InteractableObject : MonoBehaviour, IInteractable
                 _showInteractableIcon = value;
                 if (_showInteractableIcon)
                 {
-                    Debug.Log("Making");
+                    //Debug.Log("Making");
                     myIcon = (GameObject)Instantiate(Resources.Load("interactIcon"), transform.position + spawnOffset, Quaternion.identity);
                     myIcon.transform.localScale = Vector3.one * iconScale;
                     myIcon.transform.parent = transform;
