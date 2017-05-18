@@ -1098,7 +1098,7 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 0.0021356146
+    e00: 0.0021400817
     e01: 0
     e02: 0
     e03: 0
@@ -1115,22 +1115,22 @@ MonoBehaviour:
     e32: 0
     e33: 1
   LastMatrixVP:
-    e00: 0
+    e00: 0.0021400817
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 0
+    e11: 0.0038022813
     e12: 0
     e13: 0
     e20: 0
     e21: 0
-    e22: 0
-    e23: 0
+    e22: -0.0010003
+    e23: 0.9902971
     e30: 0
     e31: 0
     e32: 0
-    e33: 0
+    e33: 1
   LastMatrixVPInv:
     e00: 0
     e01: 0
@@ -1972,7 +1972,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 408504a37546ff04ca1efe47f1364cc1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1.15
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

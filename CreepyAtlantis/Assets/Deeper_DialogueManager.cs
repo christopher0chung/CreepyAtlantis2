@@ -489,6 +489,11 @@ public class Deeper_DialogueManager : MonoBehaviour {
             }
             choice1Field.text = Context.queuedLines[0].choice1;
             choice2Field.text = Context.queuedLines[0].choice2;
+
+            if (Context.currentActiveSpeaker == Speaker.Ops)
+                EventManager.instance.Fire(new P1_DialogueChoiceRumble_GE());
+            if (Context.currentActiveSpeaker == Speaker.Doc)
+                EventManager.instance.Fire(new P2_DialogueChoiceRumble_GE());
         }
 
         public override void Update()
