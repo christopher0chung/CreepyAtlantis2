@@ -66,7 +66,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4541324652647588}
-  - component: {fileID: 114728592658445920}
   - component: {fileID: 114394530387123590}
   - component: {fileID: 65200823988195262}
   m_Layer: 0
@@ -320,18 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bc40e87d7f9ea4aab046766dfcf56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114728592658445920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659938647480554}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728207a2e90323a4f80e3bc44c66aa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
 --- !u!137 &137245059730075664
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

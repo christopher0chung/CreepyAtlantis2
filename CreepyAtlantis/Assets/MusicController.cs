@@ -69,7 +69,8 @@ public class MusicController : MonoBehaviour
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Depth, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-New depths"), 1, 2));
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Depth, (AudioClip)Resources.Load("Music/" + "TEMPO0-L-Ocean floor"), 2, 10));
 
-        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Danger, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Pulse A"), 0, 2));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Danger, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Attacking perc 1 loop"), 0, 2));
+        _elementList.Add(new AudioHistogramElement(MusicEmoReg.Danger, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Attacking snare 1 loop"), 0, 2));
 
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking kick 0 loop"), 0, 4));
         _elementList.Add(new AudioHistogramElement(MusicEmoReg.Stalking, (AudioClip)Resources.Load("Music/" + "TEMPOA-L-Stalking kick 1 loop"), 2, 5));
