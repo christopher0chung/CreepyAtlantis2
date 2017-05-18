@@ -54,7 +54,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
     [SerializeField] private bool CanMoveNow;
     [SerializeField] private bool CanGetOutNow;
 
-    [Header("Check first box if it should change sub status OnActive")]
+    [Header("Check first box if it should change sub status OnTrigger")]
     [SerializeField] private bool AffectSubOnTrigger;
     [SerializeField] private bool CanMoveNowT;
     [SerializeField] private bool CanGetOutNowT;

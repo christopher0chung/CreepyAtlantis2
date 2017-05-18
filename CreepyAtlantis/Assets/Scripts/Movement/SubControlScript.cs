@@ -108,8 +108,11 @@ public class SubControlScript : MonoBehaviour {
                         Debug.Log("P1 was in, now is out");
                     }
                     if (p2In && b.thisPID == PlayerID.p2 && p2.GetComponent<PlayerController>().inOutReady)
-                        //EventManager.instance.Fire(new GE_PlayerIngressEgress(PlayerID.p2, false));
+                    {
                         StartCoroutine("IEInOutP2");
+                        //EventManager.instance.Fire(new GE_PlayerIngressEgress(PlayerID.p2, false));
+                        Debug.Log("P2 was in, now is out");
+                    }
                 }
             }
         }
@@ -236,7 +239,7 @@ public class SubControlScript : MonoBehaviour {
         else
             p1Ready = false;
 
-        if (p2InOutTimer >= 0)
+        if (p2InOutTimer >= 1)
             p2Ready = true;
         else
             p2Ready = false;

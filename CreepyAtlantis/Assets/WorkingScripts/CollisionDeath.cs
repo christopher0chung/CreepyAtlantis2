@@ -117,14 +117,17 @@ public class CollisionDeath : MonoBehaviour {
         }
         else if (whoThisIsFor == DeathControlType.Sub)
         {
-            //Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
-            if (storedVel >= 2.0f)
+            if (other.transform.root.gameObject.name != "Character0" || other.transform.root.gameObject.name != "Character1")
             {
-                //Debug.Log("Exceeding threshold");
-                StartDeathSeq();
-                transform.Find("Effects").GetChild(0).GetComponent<ParticleSystem>().Play();
-                transform.Find("Effects").GetChild(1).GetComponent<ParticleSystem>().Play();
+                //Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
+                if (storedVel >= 2.0f)
+                {
+                    //Debug.Log("Exceeding threshold");
+                    StartDeathSeq();
+                    transform.Find("Effects").GetChild(0).GetComponent<ParticleSystem>().Play();
+                    transform.Find("Effects").GetChild(1).GetComponent<ParticleSystem>().Play();
 
+                }
             }
         }
     }
