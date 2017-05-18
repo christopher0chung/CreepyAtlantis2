@@ -54,7 +54,7 @@ public class LevelLoader : MonoBehaviour {
         funcToLevel[5] = "LoadLevelFive";
 
         SceneManager.sceneLoaded += WhenSceneLoaded;
-        //EventManager.instance.Register<Button_GE>(DeathLoad);
+        EventManager.instance.Register<Button_GE>(LocalHandler);
         EventManager.instance.Register<GE_LoadLevelRequest>(LoadLevelHandler);
     }
 
@@ -88,6 +88,7 @@ public class LevelLoader : MonoBehaviour {
             GE_LoadLevelRequest l = (GE_LoadLevelRequest)e;
             if (CheckReady(l.level))
             {
+                hold = level;
                 level = l.level;
             }
         }
@@ -103,6 +104,7 @@ public class LevelLoader : MonoBehaviour {
 
     private void WhenSceneLoaded (Scene scene, LoadSceneMode mode)
     {
+        //Unreliable
         EventManager.instance.Fire(new GE_PostAwakeLoadLevel());
     }
 
@@ -116,17 +118,27 @@ public class LevelLoader : MonoBehaviour {
         return hold;
     }
 
-    public void DeathUnload()
-    {
-        hold = level;
-        //LoadLevel(0);
-    }
-
-    //public void DeathLoad(GameEvent e)
+    //public void DeathUnload()
     //{
-    //    //if (hold != 0 && level == 0)
-    //    //LoadLevel(hold);
+    //    EventManager.instance.Fire(new GE_LoadLevelRequest(0));
     //}
+
+    public void LocalHandler(GameEvent e)
+    {
+        if (e.GetType() == typeof(Button_GE))
+        {
+            Button_GE b = (Button_GE)e;
+            if (b.button == Button.Start && b.pressedReleased)
+            {
+                if (hold != 0 && level == 0)
+                {
+                    Debug.Log("hold is " + hold + " and level is " + level);
+                    EventManager.instance.Fire(new GE_LoadLevelRequest(hold));
+                }
+            //LoadLevel(hold);
+            }
+        }
+    }
 
 
 
@@ -151,7 +163,7 @@ public class LevelLoader : MonoBehaviour {
     private void LoadLevelThree()
     {
         SceneManager.LoadScene("Play01");
-        SceneManager.LoadScene("Add01", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Add00", LoadSceneMode.Additive);
     }
 
     private void LoadLevelFour()

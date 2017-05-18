@@ -17,6 +17,11 @@ public class BoostPSScript : MonoBehaviour {
         myAS.volume = 0;
     }
 
+    void OnDisable()
+    {
+        onOff = false;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

@@ -171,13 +171,13 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
                     if (optional_dialogueEventOnActive != null)
                     {
-                        Debug.Log("In onActive with a dialogue");
+                        //Debug.Log("In onActive with a dialogue");
                         optional_dialogueEventOnActive.Fire();
                     }
 
                     if (AffectSubOnActive)
                     {
-                        Debug.Log("Changing sub status");
+                        //Debug.Log("Changing sub status");
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNow;
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNow;
                     }
@@ -191,7 +191,7 @@ public class Deeper_ObjectiveObject : MonoBehaviour {
 
                     if (AffectSubOnTrigger)
                     {
-                        Debug.Log("Changing sub status");
+                        //Debug.Log("Changing sub status");
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canMove = CanMoveNowT;
                         GameObject.Find("Sub").GetComponent<SubControlScript>().canGetOut = CanGetOutNowT;
                     }

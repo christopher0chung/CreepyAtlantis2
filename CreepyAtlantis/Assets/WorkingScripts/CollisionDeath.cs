@@ -36,6 +36,7 @@ public class CollisionDeath : MonoBehaviour {
 	void Start () {
         myBDeath = GameObject.Find("VignMasks").GetComponent<VignetteController>();
         myRDeath = GameObject.Find("DeathMasks").GetComponent<VignetteController>();
+        EventManager.instance.Register<GE_Air>(LocalHandler);
         //Debug.Log("myBDeath found is " + myBDeath);
 	}
 	
@@ -63,12 +64,29 @@ public class CollisionDeath : MonoBehaviour {
         }
 	}
 
+    private void LocalHandler(GameEvent e)
+    {
+        if (e.GetType() == typeof(GE_Air))
+        {
+            GE_Air a = (GE_Air)e;
+            if (a.howMuch <= 0)
+            {
+                if ((a.speaker == Speaker.Ops && gameObject.name == "Character0") || (a.speaker == Speaker.Doc && gameObject.name == "Character1"))
+                {
+                    Drown();
+                }
+            }
+        }
+    }
+
     public void Drown()
     {
         transform.root.Find("Effects").gameObject.SetActive(false);
-        transform.root.Find("AirUnit").gameObject.SetActive(false); thisDeathStyle = DeathStyle.Black;
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
-        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
+        transform.root.Find("AirUnit").gameObject.SetActive(false);
+        transform.root.GetComponent<PlayerController>().enabled = false;
+        thisDeathStyle = DeathStyle.Black;
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(0, Controllables.none);
+        //GameObject.Find("GameStateManager").GetComponent<GameStateManager>().SetControls(1, Controllables.none);
         StartDeathSeq();
     }
 
@@ -77,6 +95,7 @@ public class CollisionDeath : MonoBehaviour {
         transform.root.Find("Model").gameObject.SetActive(false);
         transform.root.Find("Effects").gameObject.SetActive(false);
         transform.root.Find("AirUnit").gameObject.SetActive(false);
+        transform.root.GetComponent<PlayerController>().enabled = false;
     }
 
     public void StartDeathSeq ()
@@ -91,7 +110,7 @@ public class CollisionDeath : MonoBehaviour {
 
             GetComponent<Collider>().enabled = false;
 
-            ShutDownControls();
+            //ShutDownControls();
 
             transform.root.Find("Model").gameObject.SetActive(false);
             transform.root.Find("Effects").gameObject.SetActive(false);
@@ -117,9 +136,9 @@ public class CollisionDeath : MonoBehaviour {
         }
         else if (whoThisIsFor == DeathControlType.Sub)
         {
-            Debug.Log(other.transform.root.gameObject.name + " killed the sub");
             if (!(other.transform.root.gameObject.name == "Character0" || other.transform.root.gameObject.name == "Character1"))
             {
+            Debug.Log(other.transform.root.gameObject.name + " killed the sub");
                 //Debug.Log(Vector3.Magnitude(this.gameObject.GetComponent<Rigidbody>().velocity) + " " + storedVel);
                 if (storedVel >= 2.0f)
                 {
@@ -141,23 +160,23 @@ public class CollisionDeath : MonoBehaviour {
     void Death()
     {
         //Debug.Log("Invoked");
-        //GameObject.Find("GameStateManager").GetComponent<LevelLoader>().DeathUnload();
+        EventManager.instance.Fire(new GE_LoadLevelRequest(0));
     }
 
-    void ShutDownControls()
-    {
-        GameObject[] theChars = GameObject.FindGameObjectsWithTag("Character");
-        foreach(GameObject theChar in theChars)
-        {
-            theChar.GetComponent<ControllerAdapter>().enabled = false;
-        }
+    //void ShutDownControls()
+    //{
+    //    GameObject[] theChars = GameObject.FindGameObjectsWithTag("Character");
+    //    foreach(GameObject theChar in theChars)
+    //    {
+    //        theChar.GetComponent<ControllerAdapter>().enabled = false;
+    //    }
 
-        ControllerAdapter[] theAdapters = GameObject.FindGameObjectWithTag("Sub").GetComponents<ControllerAdapter>();
-        foreach (ControllerAdapter theAdapter in theAdapters)
-        {
-            theAdapter.enabled = false;
-        }
-    }
+    //    ControllerAdapter[] theAdapters = GameObject.FindGameObjectWithTag("Sub").GetComponents<ControllerAdapter>();
+    //    foreach (ControllerAdapter theAdapter in theAdapters)
+    //    {
+    //        theAdapter.enabled = false;
+    //    }
+    //}
 }
 
 public enum DeathStyle { Red, Black }

@@ -23,6 +23,11 @@ public class BreathPSScript : MonoBehaviour {
         counter = Random.Range(0, breathCycle);
         //Debug.Log(counter);
 	}
+
+    void OnDisable()
+    {
+        onOff = false;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
