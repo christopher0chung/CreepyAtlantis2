@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour, IControllable {
         else
             charNum = 1;
 
+        Debug.Log("My charnum is " + charNum);
+
         //myAdapter = gameObject.AddComponent<ControllerAdapter>();
         //myAdapter.Initialize(charNum);
 
