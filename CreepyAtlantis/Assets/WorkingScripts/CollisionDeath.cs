@@ -37,8 +37,15 @@ public class CollisionDeath : MonoBehaviour {
         myBDeath = GameObject.Find("VignMasks").GetComponent<VignetteController>();
         myRDeath = GameObject.Find("DeathMasks").GetComponent<VignetteController>();
         EventManager.instance.Register<GE_Air>(LocalHandler);
+        EventManager.instance.Register<GE_PreLoadLevel>(PreLoad);
         //Debug.Log("myBDeath found is " + myBDeath);
 	}
+
+    void PreLoad (GameEvent e)
+    {
+        EventManager.instance.Unregister<GE_Air>(LocalHandler);
+        EventManager.instance.Unregister<GE_PreLoadLevel>(PreLoad);
+    }
 	
 	void Update () {
 
