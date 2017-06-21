@@ -53,7 +53,7 @@ namespace MultiplayerBasicExample
 		{
 			cachedRenderer = GetComponent<Renderer>();
             Debug.Log(playerNum);
-            myTM.setState(playerNum + 1);
+            myTM.SetState(playerNum + 1);
             _fsm = new FSM<MultiplayerBasicExample.Player>(this);
             _fsm.TransitionTo<Standby>();
             _fsm.Update();

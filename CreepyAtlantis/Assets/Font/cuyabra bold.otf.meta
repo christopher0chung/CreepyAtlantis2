@@ -12,7 +12,10 @@ TrueTypeFontImporter:
   fontName: cuyabra
   fontNames:
   - cuyabra
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: cd3a6d02191e0aa4c9a0224f93562091, type: 3}
+  - {fileID: 12800000, guid: d7e2cc93a56a25543a9fb28f4958ac5e, type: 3}
+  - {fileID: 12800000, guid: 9fb0a5895f9bff14d937ba528e4f010a, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

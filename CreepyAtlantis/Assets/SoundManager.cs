@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SFX { Click, CheckPoint, DeathStatic }
+public enum SFX { Click, CheckPoint, DeathStatic, Beep }
 
 public class GE_SFX : GameEvent
 {
@@ -42,6 +42,8 @@ public class SoundManager : MonoBehaviour {
                 myAS.PlayOneShot((AudioClip)Resources.Load("SFX/TEMPO0-N-Checkpt chime"));
             if (s.toPlay == SFX.DeathStatic)
                 myAS.PlayOneShot((AudioClip)Resources.Load("SFX/TEMPO0-L-Death static"));
+            if (s.toPlay == SFX.Beep)
+                myAS.PlayOneShot((AudioClip)Resources.Load("SFX/beep"));
         }
         //myAS.PlayOneShot(myACs[0]);
     }

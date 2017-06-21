@@ -137,7 +137,7 @@ namespace MultiplayerWithBindingsExample
                 this.gameObject.tag = "Player0";
             else
                 this.gameObject.tag = "Player1";
-            myTM.setState(playerNum + 1);
+            myTM.SetState(playerNum + 1);
         }
 
 

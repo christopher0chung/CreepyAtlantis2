@@ -12,6 +12,7 @@ public class UI_GE_Controls : UI_Base {
     [SerializeField] private MeshRenderer a;
     [SerializeField] private MeshRenderer y;
 
+    private SelectionManager sM;
 
     private bool aPressed;
     private bool yPressed;
@@ -25,6 +26,8 @@ public class UI_GE_Controls : UI_Base {
 
     void Start()
     {
+        sM = GameObject.Find("Managers").GetComponent<SelectionManager>();
+
         EventManager.instance.Register<Button_GE>(LocalHandler);
         EventManager.instance.Register<Stick_GE>(LocalHandler);
 
@@ -37,7 +40,8 @@ public class UI_GE_Controls : UI_Base {
         if (e.GetType() == typeof(Button_GE))
         {
             Button_GE b = (Button_GE)e;
-            if ((b.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Ops) || (b.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Doc))
+            if ((sM.C1 == SelectChoice.Ops && ((b.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Ops) || (b.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Doc)))
+                || (sM.C1 == SelectChoice.Doc && ((b.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Doc) || (b.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Ops))))
             {
                 if (b.button == Button.Action)
                     aPressed = b.pressedReleased;
@@ -52,7 +56,8 @@ public class UI_GE_Controls : UI_Base {
         else if (e.GetType() == typeof(Stick_GE))
         {
             Stick_GE s = (Stick_GE)e;
-            if ((s.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Ops) || (s.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Doc))
+            if ((sM.C1 == SelectChoice.Ops && ((s.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Ops) || (s.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Doc)))
+                || (sM.C1 == SelectChoice.Doc && ((s.thisPID == PlayerID.p1 && thisSpeaker == Speaker.Doc) || (s.thisPID == PlayerID.p2 && thisSpeaker == Speaker.Ops))))
             {
                 if (s.stick == Stick.Left)
                 {

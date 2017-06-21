@@ -56,9 +56,10 @@ public class TitleMenu : MonoBehaviour {
         }
 	}
 
-    public void setState (int i)
+    public void SetState (int i)
     {
         states = i;
+        EventManager.instance.Fire(new GE_SFX(SFX.Beep));
     }
 
     public int GetState()
